@@ -36,3 +36,4 @@ group :test do
 end
 
 gem 'heroku', '>=2.11.0'
+gem 'thin'
