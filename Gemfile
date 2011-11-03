@@ -36,4 +36,5 @@ group :test do
 end
 
 gem 'heroku', '>=2.11.0'
-gem 'thin'
+gem 'thin', '>=1.2.11'
+gem 'foreman', '>=0.25.0'
