@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hn17_development
+  database: hn17d
   pool: 5
-  username: hn17
+  username: bikle611
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -38,18 +38,21 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
-  database: hn17_test
+  database: hn17t
   pool: 5
-  username: hn17
+  username: bikle611
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: hn17_production
+  database: hn17p
   pool: 5
-  username: hn17
+  username: bikle611
   password:
+
+cucumber:
+  <<: *test
