@@ -34,3 +34,4 @@ gem 'slim'
 gem 'haml2slim', :group => [:development, :test]
 gem "factory_girl_rails", ">= 1.2.0", :group => :test
 gem "devise"
+gem "bcrypt-ruby", ">=3.0.1"
