@@ -2,7 +2,7 @@ Hn17::Application.routes.draw do
 
 #  devise_for :users
   devise_for :users, :controllers => {:confirmations => "confirmations", :registrations => "registrations"} do
-    put "confirm_account", :to => "confirmations#confirm_account"
+    put "confirm_user", :to => "confirmations#confirm_user"
   end
 
   # bikle
