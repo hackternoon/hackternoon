@@ -60,5 +60,18 @@ Hn17::Application.configure do
 
   # bikle
   config.action_mailer.default_url_options = { :host => 'hn17.herokuapp.com' }
+ 
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address        => 'smtp.gmail.com',
+    :port           => 587,
+    :domain         => 'hn17.herokuapp.com',
+    :authentication => :plain,
+    :user_name      => ENV["GMAIL_USER"],
+    :password       => ENV["GMAIL_PASSWORD"]
+  }
+ 
+
+
 end
 
