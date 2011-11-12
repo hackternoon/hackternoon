@@ -5,6 +5,8 @@
  *= require_self
  *= require_tree . 
 */
+
+
 #wrapper { 
     margin: 0px auto;
     padding: 0px;
@@ -17,15 +19,14 @@ h1.h1_logo {
     float: left;
     width:335px;
     height:65px;
-    margin-top: 35px;
+    margin-top: 1px;
     text-indent: -9999px;}
-    
    
 #nav {
     float: left;
-    width:625px;
+    width:800px;
     height:65px;
-    margin-top: 45px;}
+    margin-top: 1px;}
     
 #nav a {   
     font: Arial;}
@@ -33,15 +34,20 @@ h1.h1_logo {
 #nav li {       
     float: left;
     font: Arial;
-    display: block;
+    display: inline;
     padding: 4px;
+    margin-top: 33px;
     margin-left: 5px;}
+
+#nav li.li_logo {
+    margin-top: 1px;
+}
     
 #nav li a {     
     color: white;
     background: #8b0;
-    padding-bottom: 3px;
     padding-top: 3px;
+    padding-bottom: 3px;
     padding-right: 60px;
     padding-left: 60px;
     font-size: 20px;
@@ -124,4 +130,3 @@ h1.h1_logo {
 #footer-wrapper p {
     }
                 
-
