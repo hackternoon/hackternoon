@@ -35,3 +35,7 @@ gem 'haml2slim', :group => [:development, :test]
 gem "factory_girl_rails", ">= 1.2.0", :group => :test
 gem "devise"
 gem "bcrypt-ruby", ">=3.0.1"
+
+gem 'rspec-rails', '>=2.7.0', :group => [:development, :test]
+gem 'cucumber-rails', '>=1.2.0', :group => [:development, :test]
+gem 'database_cleaner', '>=0.6.7', :group => [:development, :test]
