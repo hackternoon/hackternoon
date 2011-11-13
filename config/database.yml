@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: hn17d
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test: &test
   encoding: unicode
   database: hn17t
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
 production:
@@ -51,7 +51,7 @@ production:
   encoding: unicode
   database: hn17p
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
 cucumber:
