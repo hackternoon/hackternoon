@@ -6,7 +6,7 @@ I bounce development between my Mac and a Linux host called z3.
 
 Also I need to sometimes communicate with github.com over https when I am at the library.
 
-This because the library blocks most internet ports.
+This is because the library blocks most internet ports.
 
 Normally when I work on my Mac I follow this flow:
   - cd to ~/pt/nov/hn18/
@@ -19,6 +19,7 @@ Normally when I work on my Mac I follow this flow:
   - git push origin_git mac
 
 I use a naming convention for my remote-declarations:
+  - origin means "use git protocol"
   - origin_git means "use git protocol"
   - origin_http means "use https protocol"
 
