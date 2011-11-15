@@ -18,39 +18,49 @@ Normally when I work on my Mac I follow this flow:
   - git commit -a -v -m commit_msg
   - git push origin_git mac
 
+I use a naming convention for my remote-declarations:
+  - origin_git means "use git protocol"
+  - origin_http means "use https protocol"
+
+For my branches I use the mac branch on my mac and the z3 branch on my linux box.
+
+I intend to frequently merge them on top of master.
+
 Some syntax from my .git/config file is displayed below:
 
 [core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	ignorecase = true
-[remote "origin_http"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
-	url = https://github.com/hackternoon/hackternoon.git
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  ignorecase = true
 
-[user]
-	name = Dan Bikle
-	email = dan@bot4.us
-[branch]
-	autosetupmerge = true
+[remote "origin_http"]
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  url = https://github.com/hackternoon/hackternoon.git
+
+[remote "origin_git"]
+  url = git@github.com:hackternoon/hackternoon.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+
+[remote "origin"]
+  url = git@github.com:hackternoon/hackternoon.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
 
 [branch "z3"]
   remote = origin
   merge = refs/heads/z3
 
-
-[remote "origin_git"]
-	url = git@github.com:hackternoon/hackternoon.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-
 [branch "mac"]
   remote = origin
   merge = refs/heads/mac
 
-[remote "origin"]
-	url = git@github.com:hackternoon/hackternoon.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+[user]
+  name = Dan Bikle
+  email = dan@bot4.us
+
+[branch]
+  autosetupmerge = true
