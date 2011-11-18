@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.2'
-gem 'haml-rails', '>=0.3.4', :group => [:development]
+gem 'haml-rails', '>=0.3.4', :group => [:development,:test]
+gem 'minitest', '>=2.8.1', :group => [:development,:test]
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
