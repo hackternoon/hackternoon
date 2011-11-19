@@ -55,7 +55,17 @@ Then /^I should be signed out$/ do
 end
 
 Then /^I sign out$/ do
-  visit '/users/sign_out'
+#  visit '/users/sign_out'
+  visit '/'
+#save_and_open_page
+debugger
+  
+  if page.html.match('Login')
+    p 'I see Login link, so user should be logged-out.'
+  else
+    p 'I see Logout link, so user should be logged-out.'
+    click_link('Logout') if page.html.match('Logout')
+  end
 end
 
 When /^I go to the sign in page$/ do
