@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hn18d
+  database: hn19d
   pool: 5
   username: bikle611
   password:
@@ -41,7 +41,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: hn18t
+  database: hn19t
   pool: 5
   username: bikle611
   password:
@@ -49,7 +49,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: hn18p
+  database: hn19p
   pool: 5
   username: bikle611
   password:
