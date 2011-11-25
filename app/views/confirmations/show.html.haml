@@ -1,6 +1,9 @@
 
 = form_for(resource, :url => confirm_user_path) do |f|
-  = devise_error_messages!        
+  = devise_error_messages!
+  %p
+    = f.label :name
+    = @user.name
   %p
     = f.label :email
     = @user.email
