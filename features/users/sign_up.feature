@@ -14,5 +14,5 @@ Feature: Sign up
         | Email                 | user@test.com   |
       And I press "Signup"
       And debug
-      Then I should see "You have signed up successfully." 
+      Then I should see "You have signed up successfully. Go check your e-mail."
       
