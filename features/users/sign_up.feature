@@ -11,10 +11,8 @@ Feature: Sign up
     @javascript
     Scenario: User signs up with valid data
       And I fill in the following:
-        | Name                  | Testy McUserton |
         | Email                 | user@test.com   |
-        | Password              | please          |
-        | Password confirmation | please          |
-      And I press "Sign up"
-      Then I should see "Welcome! You have signed up successfully." 
+      And I press "Signup"
+      And debug
+      Then I should see "You have signed up successfully." 
       
