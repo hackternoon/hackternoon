@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hn19d
+  database: hn20d
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,17 +41,17 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: hn19t
+  database: hn20t
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: hn19p
+  database: hn20p
   pool: 5
-  username: oracle
+  username: bikle611
   password:
 
 cucumber:
