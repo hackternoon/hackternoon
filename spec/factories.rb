@@ -5,7 +5,7 @@
 require 'factory_girl'
 
 FactoryGirl.define do
-  factory.define :user do |u|
+  factory :user do |u|
     u.name 'Test User'
     u.email 'user@test.com'
     u.password 'please'
