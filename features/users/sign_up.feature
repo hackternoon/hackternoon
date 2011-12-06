@@ -11,7 +11,7 @@ Feature: Sign up
     @javascript
     Scenario: User signs up with invalid email
       And I fill in the following:
-        | Email                 | invalidemail    |
+        | Email                 | invalidemail@junk |
       And I press "Signup"
       And debug
       Then I should see "Email is invalid"
