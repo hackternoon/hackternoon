@@ -8,12 +8,11 @@ Feature: Sign up
       And I am on the home page
       And I go to the sign up page
 
-    @javascript
+    @javascriptx
     Scenario: User signs up with invalid email
       And I fill in the following:
         | Email                 | invalidemail@junk |
       And I press "Signup"
-      And debug
       Then I should see "Email is invalid"
 
     Scenario: User signs up with valid data
