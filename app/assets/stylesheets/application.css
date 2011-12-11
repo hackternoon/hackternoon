@@ -129,4 +129,8 @@ h1.h1_logo {
     
 #footer-wrapper p {
     }
-                
+
+.alert {
+  color: red;
+  font-weight: bold
+  }

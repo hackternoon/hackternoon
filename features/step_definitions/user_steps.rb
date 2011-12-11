@@ -49,7 +49,7 @@ When /^I return next time$/ do
 end
 
 Then /^I should be signed out$/ do
-  step %{I should see "Sign up"}
+  step %{I should see "Register"}
   step %{I should see "Login"}
   step %{I should not see "Logout"}
 end
@@ -59,9 +59,11 @@ Then /^I sign out$/ do
   visit '/'
   
   if page.has_link?('Login')
-    p 'I see Login link, so user should be logged-out.'
+    msg = 'I see Login link, so user should be logged-out.'
+    # p msg
   else
-    p 'I see Logout link, so user should be logged-out.'
+    msg =  'I see Logout link, so user should be logged-out.'
+    # p msg
     click_link('Logout') if page.has_link?('Logout')
   end
 end
