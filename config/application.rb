@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Hn17
+module Hn21
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -44,9 +44,5 @@ module Hn17
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    # bikle
-    config.assets.initialize_on_precompile = false
-    # bikle
   end
 end

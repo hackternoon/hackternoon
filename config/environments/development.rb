@@ -1,4 +1,4 @@
-Hn17::Application.configure do
+Hn21::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -27,6 +27,4 @@ Hn17::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  # bikle
-  config.action_mailer.default_url_options = { :host => 'localhost:5000' }
 end
