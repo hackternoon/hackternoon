@@ -10,6 +10,9 @@ group :test, :development do
   gem 'turn', '0.8.2', :require => false
   gem "rspec-rails", "~> 2.7.0"
   gem 'capybara'
+  gem "cucumber-rails", "~> 1.2.1"
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required
