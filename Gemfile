@@ -9,6 +9,7 @@ group :test, :development do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem "rspec-rails", "~> 2.7.0"
+  gem 'capybara'
 end
 
 # Gems used only for assets and not required
