@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 gem 'pg'
 gem 'jquery-rails'
+gem 'devise', '~> 1.5.2'
 
 group :test, :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
