@@ -1,5 +1,7 @@
 Hn21::Application.routes.draw do
 
+  get "home/index"
+
   # bikle
   root :to => "home#index"
   # bikle
