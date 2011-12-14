@@ -4,6 +4,7 @@ gem 'rails', '3.1.3'
 gem 'pg'
 gem 'jquery-rails'
 gem 'devise', '~> 1.5.2'
+gem 'haml-rails', '~>0.3.4'
 
 group :test, :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
