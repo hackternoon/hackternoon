@@ -1,4 +1,9 @@
 Hn21::Application.routes.draw do
+
+  # bikle
+  root :to => "home#index"
+  # bikle
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
