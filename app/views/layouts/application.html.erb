@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hn21</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Hn17</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div id="wrapper">   
+  <div id="nav">       
+    <ul>
+      <li class="li_logo">
+        <h1 class="h1_logo">Logo</h1>
+      </li>
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+   </div>    
+</div>
 
-  <%= yield %>
+
+<div id="content-tags">
+  <div id="content-wrapper">
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  </div>
+</div>
+
+
+<div id="footer-wrapper">
+  <div id="footer-menu">
+    <p>Hackternoon 2011</p>
+  </div>
+</div>
 
 </body>
 </html>

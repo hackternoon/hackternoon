@@ -3,9 +3,20 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  # validates_presence_of :name
+  # validates_uniqueness_of :name, :email, :case_sensitive => false
+  validates_uniqueness_of :email, :case_sensitive => false
 
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  after_create :set_name
+
+  # I use set_name to set the value of name to a default value when a user is created.
+  def set_name
+    self.name = "User#{self.id}#{Time.now.strftime('%S')}"
+    self.save!
+  end  
 
   def password_match?
     self.errors[:password] << 'password not match' if password != password_confirmation
