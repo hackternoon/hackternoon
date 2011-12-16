@@ -1,6 +1,6 @@
 
 = form_for(resource, :as => resource_name, :url => user_registration_path(@user)) do |f|
-  = devise_error_messages!    
+  = devise_error_messages!
   %p
     = f.label :email
     = f.email_field :email

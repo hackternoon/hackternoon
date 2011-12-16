@@ -1,10 +1,14 @@
 
 = form_for(resource, :url => confirm_user_path) do |f|
-  = devise_error_messages!        
+  = devise_error_messages!
   %p
     = f.label :email
     = @user.email
     = f.hidden_field :confirmation_token
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
   %p
     = f.label :password
     %br/
@@ -14,7 +18,7 @@
     %br/
     = f.password_field :password_confirmation
   %p.clearfix
-    = f.submit 'Confirm User'
+    = f.submit 'Set Name and Password Then Press This'
   = link_to 'Home', root_url
   %br/
   = render :partial => 'devise/shared/links'

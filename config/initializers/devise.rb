@@ -1,10 +1,10 @@
-# Use this hook to configure devise mailer, warden hooks and so forth. The first
-# four configuration values can also be set straight in your models.
+# Use this hook to configure devise mailer, warden hooks and so forth.
+# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "hackternooner.first@hackternoon.com"
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "7d70350eb88d18c510873431fa1c0f0d28356974e28ef8128d3dbabd65549f9c9c04d0da999b2704c7a855f7504d9bffed373a8bc9844320f6dfa8a7ce064a98"
+  # config.pepper = "9e1e67baf3cc66e7bb58addb22f5d2459cfa5222cd9440e65f21a8a62d03c720ad5838a7ee5f60a6ac9cd3bf113a64e7666b89cd66ae21628c2d1558b2c1080f"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -203,7 +203,6 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   # config.warden do |manager|
-  #   manager.failure_app   = AnotherApp
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end

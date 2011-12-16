@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Hn17::Application.config.secret_token = '8d829c3edc3b98d0a4564b21e758188563f89a82afaccd39d72e38fd2498f36ea7e6275e527005c6d88d7057635d151d3f66cda92e44a546c6336ea455547c14'
+Hn21::Application.config.secret_token = '1a45ffffd592bc2063a2971644247fefafb95fde5589313533c4603a731f77bbb5b75f8283757a009b31b861a754912a77597061a49d3326ec67a0a8ca02fef5'

@@ -1,4 +1,4 @@
-Hn17::Application.configure do
+Hn21::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -70,8 +70,5 @@ Hn17::Application.configure do
     :user_name      => ENV["GMAIL_USER"],
     :password       => ENV["GMAIL_PASSWORD"]
   }
- 
-
 
 end
-

@@ -1,14 +1,11 @@
-Hn17::Application.routes.draw do
+Hn21::Application.routes.draw do
 
-#  devise_for :users
+  get "home/index"
+  root :to => "home#index"
+  #  devise_for :users
   devise_for :users, :controllers => {:confirmations => "confirmations", :registrations => "registrations"} do
     put "confirm_user", :to => "confirmations#confirm_user"
   end
-
-  # bikle
-  get "home/index"
-  root :to => "home#index"
-  # bikle
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
