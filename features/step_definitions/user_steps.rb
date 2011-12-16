@@ -1,3 +1,20 @@
+### UTILITY METHODS ###
+def valid_user
+  @user ||= { :name => "Testy McUserton", :email => "testy@userton.com",
+    :password => "please", :password_confirmation => "please"}
+end
+
+def sign_up user
+  visit '/users/sign_up'
+  fill_in "Email", :with => user[:email]
+  click_button "Sign up"
+end
+
+Given /^I exist as a user$/ do
+  sign_up valid_user
+  visit '/users/sign_out'
+end
+
 Given /^no user exists with an email of "(.*)"$/ do |email|
   User.find(:first, :conditions => { :email => email }).should be_nil
 end
