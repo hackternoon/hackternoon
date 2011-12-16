@@ -8,7 +8,7 @@ Feature: Sign up
       And I am on the home page
       And I go to the sign up page
 
-    @javascriptx
+    @javascript
     Scenario: User signs up with invalid email
       And I fill in the following:
         | Email                 | invalidemail@junk |

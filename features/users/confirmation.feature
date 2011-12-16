@@ -9,7 +9,7 @@ Feature: Confirmation
       And I am on the home page
       And I go to the sign up page
 
-    @javascriptx
+    @javascript
     Scenario: User signs up with valid data
       And I fill in the following:
         | Email                 | user@test.com |
