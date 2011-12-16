@@ -12,6 +12,7 @@ Feature: Sign up
     Scenario: User signs up with invalid email
       And I fill in the following:
         | Email                 | invalidemail@junk |
+      And debug
       And I press "Signup"
       Then I should see "Email is invalid"
 
