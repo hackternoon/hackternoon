@@ -3,7 +3,7 @@ Feature: Sign in
   A user
   Should be able to sign in
 
-    @javascriptx
+    @javascript
     Scenario: User enters wrong password
       Given I exist as a user
         And I am not logged in
