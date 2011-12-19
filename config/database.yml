@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hn21d
+  database: hn22d
   pool: 5
   username: oracle
   password:
@@ -42,7 +42,7 @@ test: &test
 
   adapter: postgresql
   encoding: unicode
-  database: hn21t
+  database: hn22t
   pool: 5
   username: oracle
   password:
