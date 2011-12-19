@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-gem 'pg'
-gem 'jquery-rails'
+gem 'pg',   '~> 0.12.0'
+gem 'jquery-rails', '~> 1.0.19'
 gem 'devise',     '~> 1.5.2'
 gem 'haml-rails', '~> 0.3.4'
 gem 'slim',   '~> 1.0.4'
@@ -14,12 +14,12 @@ group :test, :development do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem "rspec-rails",    "~> 2.7.0"
-  gem 'capybara'
+  gem 'capybara',       "~> 1.1.2"
   gem "cucumber-rails", "~> 1.2.1"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'haml2slim', '~> 0.4.6'
-  gem 'heroku',    '~> 2.16.2'
+  gem 'heroku',    '~> 2.16.3'
 end
 
 # Gems used only for assets and not required
