@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 gem 'pg',   '~> 0.12.0'
 gem 'jquery-rails', '~> 1.0.19'
-gem 'devise',     '~> 1.5.2'
+gem 'devise',     '~> 1.5.3'
 gem 'haml-rails', '~> 0.3.4'
 gem 'slim',   '~> 1.0.4'
 gem 'thin',   '~> 1.3.1'
@@ -19,7 +19,7 @@ group :test, :development do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'haml2slim', '~> 0.4.6'
-  gem 'heroku',    '~> 2.16.3'
+  gem 'heroku',    '~> 2.17.0'
 end
 
 # Gems used only for assets and not required
@@ -27,5 +27,5 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '>= 1.1.0'
 end
