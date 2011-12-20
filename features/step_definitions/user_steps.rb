@@ -1,13 +1,35 @@
 ### UTILITY METHODS ###
 def valid_user
-  @user ||= { :name => "Testy McUserton", :email => "testy@userton.com",
-    :password => "please", :password_confirmation => "please"}
+  @user ||= { :name => "Bob McUserton", :email => "bob@cnn.com",
+    :password => "abc123", :password_confirmation => "abc123"}
 end
 
 def sign_up user
+  usr2destroy = User.find_by_email(user[:email])
+  usr2destroy.destroy unless usr2destroy.nil?
   visit '/users/sign_up'
   fill_in "Email", :with => user[:email]
-  click_button "Sign up"
+  click_button "Signup"
+end
+
+Given /^I exist as a user$/ do
+  # visit reg page
+  # enter bob@cnn.com
+  # press button
+  sign_up valid_user
+  # get the conf-token from AR
+  @usr = User.find_by_email valid_user[:email]
+  @token = @usr.confirmation_token
+  # visit conf page
+  @cpath = "/users/confirmation?confirmation_token=#{@token}"
+  visit @cpath
+  # enter the name
+  step %{I fill in "Name" with "#{valid_user[:name]}"}
+  # enter the password
+  step %{I fill in "Password" with "#{valid_user[:password]}"}
+  step %{I fill in "Password confirmation" with "#{valid_user[:password]}"}
+  # press button
+  click_button "Press This"
 end
 
 Given /^no user exists with an email of "(.*)"$/ do |email|
@@ -67,9 +89,11 @@ Then /^I should be signed out$/ do
 end
 
 Then /^I sign out$/ do
-#  visit '/users/sign_out'
+  # Cucumber wants to sign_out via GET which I dont like:
+  #  visit '/users/sign_out'
+
+  # So I prefer to interact with the home-page:
   visit '/'
-  
   if page.has_link?('Login')
     msg = 'I see Login link, so user should be logged-out.'
     # p msg
