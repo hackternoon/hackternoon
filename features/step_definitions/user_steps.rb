@@ -12,6 +12,15 @@ def sign_up user
   click_button "Signup"
 end
 
+
+When /^I return next time$/ do
+  step %{I go to the home page}
+end
+
+When /^I sign in with a wrong password$/ do
+  step %{I sign in as "bob@cnn.com/xyz321"}
+end
+
 Given /^I exist as a user$/ do
   # visit reg page
   # enter bob@cnn.com
@@ -44,7 +53,8 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
 end
 
 Then /^I should be already signed in$/ do
-  step %{I should see "Logout"}
+  page.html.should match("Logout")
+  page.html.should match("Edit registration")
 end
 
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
@@ -76,10 +86,6 @@ end
 
 Then /^I should be signed in$/ do
   step %{I should see "Signed in successfully."}
-end
-
-When /^I return next time$/ do
-  step %{I go to the home page}
 end
 
 Then /^I should be signed out$/ do
