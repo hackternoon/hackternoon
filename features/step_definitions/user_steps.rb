@@ -21,6 +21,10 @@ When /^I sign in with a wrong password$/ do
   step %{I sign in as "bob@cnn.com/xyz321"}
 end
 
+When /^I sign in with a correct password$/ do
+  step %{I sign in as "bob@cnn.com/abc123"}
+end
+
 Given /^I exist as a user$/ do
   # visit reg page
   # enter bob@cnn.com

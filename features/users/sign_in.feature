@@ -7,7 +7,7 @@ Feature: Sign in
     Scenario: User signs in successfully with email
       Given I exist as a user
       And I am not logged in
-      And I sign in as "bob@cnn.com/abc123"
+      And I sign in with a correct password
       Then I should see "Signed in successfully."
       When I return next time
       Then I should be already signed in
