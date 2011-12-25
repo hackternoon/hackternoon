@@ -12,8 +12,23 @@ def sign_up user
   click_button "Signup"
 end
 
+And /^debug$/ do
+  debugger
+  p 'debugger called'
+end
+
+And /^I_confirm$/ do
+  @usr = User.find_by_email 'user@test.com'
+  @token = @usr.confirmation_token
+  @cpath = "/users/confirmation?confirmation_token=#{@token}"
+  visit @cpath
+end
+
+And /^saop$/ do
+  save_and_open_page
+end
+
 And /^I_fill_in_current_password$/ do
-debugger
   fill_in "Current password", :with => @user[:password]
 end
 

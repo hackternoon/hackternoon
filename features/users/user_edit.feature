@@ -12,7 +12,6 @@ Feature: Edit User
       When I follow "Edit registration"
       And I fill in "Name" with "baz"
       And I_fill_in_current_password
-      And debug
       And I press "Save"
       And I go to the homepage
       And I follow "Edit registration"
