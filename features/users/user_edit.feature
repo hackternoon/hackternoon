@@ -9,10 +9,11 @@ Feature: Edit User
       And I am not logged in
       And I sign in with a correct password
       Then I should see "Signed in successfully."
-      And debug
       When I follow "Edit registration"
       And I fill in "Name" with "baz"
-      And I fill in "Current password" with "please"
-      And I press "Update"
+      And I press "Save"
       And I go to the homepage
-      Then I should see "User: baz"
+      And I follow "Edit registration"
+      Then I should see "Edit registration"
+      And debug
+      And I should see "Edit registration"
