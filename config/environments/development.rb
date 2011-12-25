@@ -28,5 +28,5 @@ Hn21::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   # bikle
-  config.action_mailer.default_url_options = { :host => 'localhost:5000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
