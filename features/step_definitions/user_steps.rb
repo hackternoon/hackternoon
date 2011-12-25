@@ -12,6 +12,10 @@ def sign_up user
   click_button "Signup"
 end
 
+And /^I_fill_in_current_password$/ do
+debugger
+  fill_in "Current password", :with => @user[:password]
+end
 
 When /^I return next time$/ do
   step %{I go to the home page}

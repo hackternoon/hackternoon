@@ -9,17 +9,20 @@
     %br/
     = f.text_field :name
   %p
+    New
     = f.label :password
+    %i (If you want to change it)
     %br/
     = f.password_field :password
   %p
+    New
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
 
   %div
     = f.label :current_password
-    %i (we need your current password to confirm your changes)
+    %i (Your current password to confirm your changes)
     %br/
     = f.password_field :current_password
 
