@@ -5,12 +5,10 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-# debugger
     super
   end
 
   def update
-# debugger
     super
   end
 

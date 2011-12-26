@@ -6,13 +6,11 @@
  *= require_tree . 
 */
 
-
 #wrapper { 
     margin: 0px auto;
     padding: 0px;
     height: 125px;
     width: 960px;}
-    
 
 h1.h1_logo {
     background: url("/images/logo.png") no-repeat;
@@ -24,7 +22,6 @@ h1.h1_logo {
    
 #nav {
     float: left;
-    width:900px;
     height:65px;
     margin-top: 1px;}
     
@@ -103,13 +100,12 @@ h1.h1_logo {
         }
 
 .top a:hover {
-     background: #8b0;
-     color: white;
-     -moz-box-shadow: 0 0 14px rgba(0,0,0,.8); 
-     -webkit-box-shadow: 0 0 14px rgba(0,0,0,.8); 
-     box-shadow: 1px 1px 5px rgba(0,0,0,.8);
-        }
-
+    background: #8b0;
+    color: white;
+    -moz-box-shadow: 0 0 14px rgba(0,0,0,.8); 
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,.8); 
+    box-shadow: 1px 1px 5px rgba(0,0,0,.8);
+    }
 
 #footer-wrapper {
     background: #8b0;
@@ -132,5 +128,10 @@ h1.h1_logo {
 
 .alert {
   color: red;
-  font-weight: bold
+  font-weight: bold;
+  }
+
+.greentxt{
+  color:#8b0;
+  font-weight:bold;
   }

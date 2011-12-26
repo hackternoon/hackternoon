@@ -9,11 +9,12 @@ Feature: Edit User
       And I am not logged in
       And I sign in with a correct password
       Then I should see "Signed in successfully."
-      When I follow "Edit registration"
+      When I follow "bob"
       And I fill in "Name" with "baz"
       And I_fill_in_current_password
+      And debug
       And I press "Save"
+      And debug
       And I go to the homepage
-      And I follow "Edit registration"
-      Then I should see "Edit registration"
-      And I should see "Edit registration"
+      And debug
+      And I should see "Logged in as: bob@cnn.com"
