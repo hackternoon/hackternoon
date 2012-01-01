@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title hn22
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      #nav
+        %ul
+          %li
+            %h1.h1_logo Logo
+          = render 'devise/menu/registration_items'
+          = render 'devise/menu/login_items'
+    #content-tags
+      #content-wrapper
+        %p.notice
+          = notice
+        %p.alert
+          = alert
+        = yield
+    #footer-wrapper
+      #footer-menu
+        %p Hackternoon 2012

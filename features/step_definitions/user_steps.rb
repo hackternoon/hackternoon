@@ -77,7 +77,7 @@ end
 
 Then /^I should be already signed in$/ do
   page.html.should match("Logout")
-  page.html.should match("Edit registration")
+  page.html.should_not match("Register")
 end
 
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
