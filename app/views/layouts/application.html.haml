@@ -5,23 +5,24 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title hn22
     = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "bikle"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    #wrapper
-      #nav
+    #div4_top_logo.row
+      .twelve.columns
+        %img(src="/images/logo.png")
+    .row
+      #div4_lhs.two.columns.round_corner15px
         %ul
-          %li
-            %h1.h1_logo Logo
           = render 'devise/menu/registration_items'
           = render 'devise/menu/login_items'
-    #content-tags
-      #content-wrapper
+      #div4_rhs.nine.columns.round_corner15px
         %p.notice
           = notice
         %p.alert
           = alert
         = yield
-    #footer-wrapper
-      #footer-menu
-        %p Hackternoon 2012
+    .row
+      #div4_footer.twelve.columns.round_corner15px
+        Hackternoon 2012
