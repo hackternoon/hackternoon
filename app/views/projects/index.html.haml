@@ -1,0 +1,25 @@
+%h1 Listing projects
+
+%table
+  %tr
+    %th Name
+    %th Dscrptn
+    %th User
+    %th Github url
+    %th
+    %th
+    %th
+
+  - @projects.each do |project|
+    %tr
+      %td= project.name
+      %td= project.dscrptn
+      %td= project.user_id
+      %td= project.github_url
+      %td= link_to 'Show', project
+      %td= link_to 'Edit', edit_project_path(project)
+      %td= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Project', new_project_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @project.name
+%p
+  %b Dscrptn:
+  = @project.dscrptn
+%p
+  %b User:
+  = @project.user_id
+%p
+  %b Github url:
+  = @project.github_url
+
+= link_to 'Edit', edit_project_path(@project)
+\|
+= link_to 'Back', projects_path

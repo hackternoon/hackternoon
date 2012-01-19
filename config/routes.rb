@@ -1,5 +1,7 @@
 Hn21::Application.routes.draw do
 
+  resources :projects
+
   get "home/index"
   root :to => "home#index"
   #  devise_for :users
