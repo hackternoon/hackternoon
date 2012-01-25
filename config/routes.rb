@@ -5,8 +5,11 @@ Hn21::Application.routes.draw do
   get "home/index"
   root :to => "home#index"
   #  devise_for :users
-  devise_for :users, :controllers => {:confirmations => "confirmations", :registrations => "registrations"} do
-    put "confirm_user", :to => "confirmations#confirm_user"
+  devise_for :users, 
+    :controllers => {:confirmations => "confirmations", 
+                     # :sessions => "sessions", 
+                     :registrations => "registrations"} do
+      put "confirm_user", :to => "confirmations#confirm_user"
   end
 
   # The priority is based upon order of creation:

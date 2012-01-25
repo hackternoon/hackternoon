@@ -192,6 +192,12 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  # :delete is RESTful but I like :get to help with testing.
+  # And, I dont care if a spider logsout:
+  config.sign_out_via = :get
+  # Also I need to vi: 
+  # app/views/devise/menu/_login_items.html.erb
+  # so my Logout link issues a GET.
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
