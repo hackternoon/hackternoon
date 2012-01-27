@@ -127,7 +127,7 @@ Then /^I sign out$/ do
     msg = 'I see Login link, so user should be logged-out.'
     # p msg
   else
-    msg =  'I see Logout link, so user should be logged-out.'
+    msg =  'I see Logout link, so user should be logged-in.'
     # p msg
     click_link('Logout') if page.has_link?('Logout')
   end

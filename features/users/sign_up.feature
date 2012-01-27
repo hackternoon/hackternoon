@@ -4,7 +4,7 @@ Feature: Sign up
   I want to be able to sign up
 
     Background:
-      Given I am not logged in
+      Given I sign out
       And I am on the home page
       And I go to the sign up page
 
