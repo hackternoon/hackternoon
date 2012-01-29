@@ -40,7 +40,12 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    if current_user.blank?
+      redirect_to(projects_url, notice: 'If you login, you can create a project.')
+      return
+    end
     @project = Project.new(params[:project])
+    @project.user_id = current_user.presence.id
 
     respond_to do |format|
       if @project.save
