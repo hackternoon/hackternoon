@@ -4,6 +4,6 @@ Feature: Sign in
 
     @javascript
     Scenario: User is a guest
-      Given I am not logged in
+      Given I sign out
       When I go to the home page
       Then I should see "Logged in as: Guest"

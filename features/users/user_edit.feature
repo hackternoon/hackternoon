@@ -6,7 +6,7 @@ Feature: Edit User
     @javascript
     Scenario: I sign in and edit my account
       Given I exist as a user
-      And I am not logged in
+      And I sign out
       And I sign in with a correct password
       Then I should see "Signed in successfully."
       When I follow "bob"
