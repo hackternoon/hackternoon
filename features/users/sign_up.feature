@@ -3,20 +3,19 @@ Feature: Sign up
   As a user
   I want to be able to sign up
 
-    Background:
-      Given I sign out
-      And I am on the home page
-      And I go to the sign up page
-
     @javascript
-    Scenario: User signs up with valid data
+    Scenario: User signs up with valid data then invalid data
+      Given I sign out
+      And I go to the sign up page
       And I fill in the following:
         | Email                 | user@test.com   |
-      And I press "Signup"
+      When I press "Signup"
+      And debug
       Then I should see "You have signed up successfully. Go check your e-mail."
-
-    Scenario: User signs up with invalid email
+      And I sign out
+      And I go to the sign up page
       And I fill in the following:
         | Email                 | invalidemail@junk |
-      And I press "Signup"
+      When I press "Signup"
+      And debug
       Then I should see "Email is invalid"
