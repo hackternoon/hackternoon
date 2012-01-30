@@ -12,6 +12,6 @@ Feature: Sign out
       And I follow "Logout"
       Then I should see "Signed out successfully"
       When I return next time
-      Then I should see "Register"
-      And I should see "Login"
-      And I should not see "Logout"
+      Then I should see page_has_link "Register"
+      And I should see page_has_link "Login"
+      And I should see page_has_no_link "Logout"

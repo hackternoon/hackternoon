@@ -20,6 +20,10 @@
           = render 'devise/menu/login_items'
           %li
             = link_to('Projects',projects_path)
+
+          - if current_user.present?
+            %li
+              = link_to('New Project', new_project_path)
       #div4_rhs.nine.columns.round_corner15px
         %p.notice
           = notice
