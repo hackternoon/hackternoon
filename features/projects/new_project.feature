@@ -33,6 +33,8 @@ Feature: Bob can create a project
       And I fill in the following:
         | Name | Hackternoon.com   |
       And I press "Save"
-      And debug
       Then I should see "Hackternooners"
       And I should see page_has_link "Bob"
+      And I follow "Bob"
+      And debug
+      Then I should see "Bob"

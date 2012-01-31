@@ -6,9 +6,7 @@
   = @project.dscrptn
 %p
   %b Owner:
-  = @project.user.name
-  %br/
-  = link_to '@project.user.name', users_show_path @project.user
+  = link_to(@project.user.name, show_user_path(:user_id => @project.user_id))
 %p
   %b Github URL:
   = @project.github_url

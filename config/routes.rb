@@ -2,7 +2,7 @@ Hn21::Application.routes.draw do
 
   get "users/index"
 
-  get "users/show"
+  get "users/show/:user_id", :controller => 'users', :action => 'show', :as => 'show_user'
 
   resources :projects
 
