@@ -7,6 +7,8 @@
 %p
   %b Owner:
   = @project.user.name
+  %br/
+  = link_to '@project.user.name', users_show path @project.user
 %p
   %b Github URL:
   = @project.github_url

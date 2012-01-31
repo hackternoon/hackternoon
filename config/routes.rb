@@ -1,5 +1,9 @@
 Hn21::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/show"
+
   resources :projects
 
   get "home/index"
