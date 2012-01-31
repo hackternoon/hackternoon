@@ -5,6 +5,9 @@ E-Mail:
 = @user.email
 %br/
 Projects:
-(comming soon)
+%ul
+- @user.projects.each do |project|
+  %li
+    = link_to project.name, project_path(project)
 %br/
 %br/
