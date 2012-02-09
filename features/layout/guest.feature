@@ -11,6 +11,7 @@ Feature: Guest can browse projects
       And I should see page_has_link "Projects"
       And I should see page_has_link "Hackternoon"
       And I should see "Hackternoon 2012"
+      And I should see page_has_selector "#div4_footer>#a_htn"
       And debug
       And I should see page_has_no_link "New Project"
 
