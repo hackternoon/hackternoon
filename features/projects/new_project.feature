@@ -38,5 +38,5 @@ Feature: Bob can create a project
       And I follow "Bob"
       Then I should see "Bob"
       And I should see page_has_link "Hackternoon"
-      And I follow "Hackternoon"
+      And I follow "Hackternoon.com"
       Then I should see "Hackternooners"
