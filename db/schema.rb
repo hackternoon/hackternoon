@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119235712) do
+ActiveRecord::Schema.define(:version => 20120214223756) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120119235712) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "twitter_handle"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
