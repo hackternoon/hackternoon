@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.0'
 gem 'pg',   '~> 0.12.0'
 gem 'jquery-rails', '~> 2.0.0'
-
+gem 'thin',   '~> 1.3.1'
+gem 'foreman','~> 0.39.0'
 
 group :test, :development do
   gem 'ruby-debug19', '~> 0.11.6',:require => 'ruby-debug'
