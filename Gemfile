@@ -12,7 +12,8 @@ group :test, :development do
   gem 'ruby-debug19', '~> 0.11.6',:require => 'ruby-debug'
   # Pretty printed test output
   gem 'turn', '0.9.3', :require => false
-  gem 'haml2slim', '~> 0.4.6'
+  gem 'haml2slim',   '~> 0.4.6'
+  gem 'rspec-rails', '~> 2.8.1'
 end
 
 # Gems used only for assets and not required
