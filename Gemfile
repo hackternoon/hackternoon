@@ -18,6 +18,7 @@ group :test, :development do
   gem 'capybara',    '~> 1.1.2'
   gem 'database_cleaner', '~> 0.7.1'
   gem 'cucumber-rails',   '~> 1.3.0'
+  gem 'heroku',           '~> 2.20.1'
 end
 
 # Gems used only for assets and not required
