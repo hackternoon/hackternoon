@@ -16,6 +16,7 @@ group :test, :development do
   gem 'haml2slim',   '~> 0.4.6'
   gem 'rspec-rails', '~> 2.8.1'
   gem 'capybara',    '~> 1.1.2'
+  gem 'database_cleaner', '~> 0.7.1'
 end
 
 # Gems used only for assets and not required
