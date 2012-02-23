@@ -64,4 +64,18 @@ Hn24::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  # bikle
+  config.action_mailer.default_url_options = { :host => 'hn17.herokuapp.com' }
+ 
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address        => 'smtp.gmail.com',
+    :port           => 587,
+    :domain         => 'hn17.herokuapp.com',
+    :authentication => :plain,
+    :user_name      => ENV["GMAIL_USER"],
+    :password       => ENV["GMAIL_PASSWORD"]
+  }
+
 end
+
