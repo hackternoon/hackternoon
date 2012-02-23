@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  has_many :projects
+
   validates_uniqueness_of :email, :case_sensitive => false
 
   # Setup accessible (or protected) attributes for your model
