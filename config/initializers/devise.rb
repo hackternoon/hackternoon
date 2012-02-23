@@ -5,6 +5,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "dan@Hackternoon.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -206,6 +207,12 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  # :delete is RESTful but I like :get to help with testing.
+  # And, I dont care if a spider logsout:
+  config.sign_out_via = :get
+  # Also I need to vi: 
+  # app/views/devise/menu/_login_items.html.erb
+  # so my Logout link issues a GET.
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
