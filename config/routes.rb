@@ -1,10 +1,16 @@
 Hn24::Application.routes.draw do
   resources :projects
 
-  devise_for :users
-
   get "home/index"
   root :to => "home#index"
+
+  #  devise_for :users
+  devise_for :users, 
+    :controllers => {:confirmations => "confirmations", 
+                     :registrations => "registrations"} do
+      put "confirm_user", :to => "confirmations#confirm_user"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
