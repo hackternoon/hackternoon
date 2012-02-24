@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',      '3.2.1'
 gem 'pg',         '~> 0.13.1'
-gem 'jquery-rails', '~> 2.0.0'
+gem 'jquery-rails', '1.0.19'
 gem 'thin',       '~> 1.3.1'
 gem 'foreman',    '~> 0.39.0'
 gem 'haml',       '~> 3.1.4'
@@ -18,6 +18,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.8.1'
   gem 'capybara',    '~> 1.1.2'
   gem 'database_cleaner', '~> 0.7.1'
+  gem 'cucumber',         '~> 1.1.9'
   gem 'cucumber-rails',   '~> 1.3.0'
   gem 'heroku',           '~> 2.20.1'
 end

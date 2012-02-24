@@ -8,12 +8,19 @@ Hn24::Application.routes.draw do
   get "home/index"
   root :to => "home#index"
 
-  #  devise_for :users
-  devise_for :users, 
-    :controllers => {:confirmations => "confirmations", 
-                     :registrations => "registrations"} do
-      put "confirm_user", :to => "confirmations#confirm_user"
+  devise_for :users, :skip => [:confirmations, :registrations]
+  devise_scope :user do
+    get "show",         :to => "confirmations#show"
+    put "confirm_user", :to => "confirmations#confirm_user"
+    get "users/cancel", :to => "registrations#cancel", :as => 'cancel_user_registration'
+    post "users",       :to => "registrations#create", :as => 'user_registration'
+    get "users/sign_up",:to => "registrations#new", :as => 'new_user_registration'
+    get "users/edit",   :to => "registrations#edit", :as => 'edit_user_registration'
+    put "users",        :to => "registrations#update"
+    delete "users",     :to => "registrations#destroy"
   end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
