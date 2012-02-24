@@ -10,13 +10,11 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :dscrptn
+    = f.label "Description"
     = f.text_area :dscrptn
   .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :github_url
+    Github URL
+    %br
     = f.text_field :github_url
   .actions
     = f.submit 'Save'
