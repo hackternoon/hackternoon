@@ -10,8 +10,10 @@ Hn24::Application.routes.draw do
 
   devise_for :users, :skip => [:confirmations, :registrations]
   devise_scope :user do
-    get "show",         :to => "confirmations#show"
-    put "confirm_user", :to => "confirmations#confirm_user"
+    get "show",                   :to => "confirmations#show"
+    get "users/confirmation",     :to => "confirmations#show",:as => 'confirm_email'
+    get "users/confirmation/new", :to => "confirmations#new", :as => 'new_user_confirmation'
+    put "confirm_user", :to => "confirmations#confirm_user",  :as => 'confirmation'
     get "users/cancel", :to => "registrations#cancel", :as => 'cancel_user_registration'
     post "users",       :to => "registrations#create", :as => 'user_registration'
     get "users/sign_up",:to => "registrations#new", :as => 'new_user_registration'

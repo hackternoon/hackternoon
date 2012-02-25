@@ -4,7 +4,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   def show
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     if !@user.present?
-      render_with_scope :new
+      render :new
     end
   end
 
