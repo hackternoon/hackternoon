@@ -4,14 +4,15 @@ class ConfirmationsController < Devise::ConfirmationsController
   def show
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     if !@user.present?
-      render_with_scope :new
+      render :new
     end
   end
 
   def confirm_user
-    #     @user = User.find(params[:user][:confirmation_token])
     @user = User.find_by_confirmation_token(params[:user][:confirmation_token])
-    if @user.update_attributes(params[:user]) and @user.password_match?
+    # Slim down the hash I send to Devise to avoid Mass-Update-problems:
+    params_user = {'name' => params[:user][:name], 'password' => params[:user][:password], 'password_confirmation' => params[:user][:password_confirmation] }
+    if @user.update_attributes(params_user) and @user.password_match?
       @user = User.confirm_by_token(@user.confirmation_token)
       set_flash_message :notice, :confirmed      
       sign_in_and_redirect("user", @user)

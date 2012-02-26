@@ -3,7 +3,7 @@
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title hn22
+    %title Hackternoon.com
     = stylesheet_link_tag    "application"
     = stylesheet_link_tag    "bikle"
     = javascript_include_tag "application"
@@ -12,7 +12,7 @@
     #div4_top_logo.row
       .twelve.columns
         %a(href="/")
-          %img(src="/images/logo.png" alt="hackternoon.com")
+          %img(src="/assets/logo.png" alt="hackternoon.com")
     .row
       #div4_lhs.two.columns.round_corner15px
         %ul
@@ -20,6 +20,10 @@
           = render 'devise/menu/login_items'
           %li
             = link_to('Projects',projects_path)
+
+          - if current_user.present?
+            %li
+              = link_to('New Project', new_project_path)
       #div4_rhs.nine.columns.round_corner15px
         %p.notice
           = notice
@@ -28,4 +32,5 @@
         = yield
     .row
       #div4_footer.eleven.columns.round_corner15px
-        Hackternoon 2012
+        %a#a_htn(href="/") Hackternoon
+        2012

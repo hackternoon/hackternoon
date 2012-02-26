@@ -9,7 +9,8 @@ Feature: Edit User
       And I sign out
       And I sign in with a correct password
       Then I should see "Signed in successfully."
-      When I follow "bob"
+      When I follow "bob@cnn.com"
+      And I follow "Edit"
       And I fill in "Name" with "baz"
       And I_fill_in_current_password
       And I press "Save"

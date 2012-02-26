@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "projects/new.html.haml" do
+describe "projects/new" do
   before(:each) do
     assign(:project, stub_model(Project,
       :name => "MyString",

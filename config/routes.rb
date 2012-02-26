@@ -1,16 +1,28 @@
-Hn21::Application.routes.draw do
+Hn24::Application.routes.draw do
+  get "users/index"
+
+  get "users/show/:user_id", :controller => 'users', :action => 'show', :as => 'show_user'
 
   resources :projects
 
   get "home/index"
   root :to => "home#index"
-  #  devise_for :users
-  devise_for :users, 
-    :controllers => {:confirmations => "confirmations", 
-                     # :sessions => "sessions", 
-                     :registrations => "registrations"} do
-      put "confirm_user", :to => "confirmations#confirm_user"
+
+  devise_for :users, :skip => [:confirmations, :registrations]
+  devise_scope :user do
+    get "show",                   :to => "confirmations#show"
+    get "users/confirmation",     :to => "confirmations#show",:as => 'confirm_email'
+    get "users/confirmation/new", :to => "confirmations#new", :as => 'new_user_confirmation'
+    put "confirm_user", :to => "confirmations#confirm_user",  :as => 'confirm_user'
+    get "users/cancel", :to => "registrations#cancel", :as => 'cancel_user_registration'
+    post "users",       :to => "registrations#create", :as => 'user_registration'
+    get "users/sign_up",:to => "registrations#new", :as => 'new_user_registration'
+    get "users/edit",   :to => "registrations#edit", :as => 'edit_user_registration'
+    put "users",        :to => "registrations#update"
+    delete "users",     :to => "registrations#destroy"
   end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,5 +79,5 @@ Hn21::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id))(.:format)'
 end

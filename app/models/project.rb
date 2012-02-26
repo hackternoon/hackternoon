@@ -5,3 +5,4 @@ class Project < ActiveRecord::Base
     super if self.user_id.present?
   end
 end
+

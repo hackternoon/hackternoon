@@ -4,13 +4,10 @@ Feature: Confirmation
   I want to be able to sign up
   and then confirm that I did sign up
 
-    Background:
-      Given I am not logged in
-      And I am on the home page
-      And I go to the sign up page
-
     @javascript
-    Scenario: User signs up with valid data
+    Scenario: User confirms sign up
+      Given I sign out
+      And I go to the sign up page
       And I fill in the following:
         | Email                 | user@test.com |
       And I press "Signup"
