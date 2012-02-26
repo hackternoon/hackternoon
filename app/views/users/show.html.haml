@@ -1,2 +1,18 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+= link_to("Edit", edit_user_registration_path)
+%br/
+Name:
+= @user.name
+%br/
+E-Mail:
+= @user.email
+%br/
+Twitter Handle:
+= @user.twitter_handle
+%br/
+Projects:
+%ul
+- @user.projects.each do |project|
+  %li
+    = link_to project.name, project_path(project)
+%br/
+%br/
