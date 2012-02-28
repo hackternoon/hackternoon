@@ -8,8 +8,14 @@ Hn24::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  if ENV["LAPTOP"] == 'true'
+    # I like to run Thin-webserver on my laptop.
+    # So I need to config-rails to serve static assets:
+    config.serve_static_assets = true
+  else
+    # Disable Rails's static asset server on Heroku:
+    config.serve_static_assets = false
+  end
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -65,13 +71,13 @@ Hn24::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # bikle
-  config.action_mailer.default_url_options = { :host => 'hn24.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'hn26.herokuapp.com' }
  
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address        => 'smtp.gmail.com',
     :port           => 587,
-    :domain         => 'hn24.herokuapp.com',
+    :domain         => 'hn26.herokuapp.com',
     :authentication => :plain,
     :user_name      => ENV["GMAIL_USER"],
     :password       => ENV["GMAIL_PASSWORD"]
