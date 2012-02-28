@@ -3,3 +3,31 @@
 Hackternoon.com is a site to help Hackternooners find projects and other Hackternooners.
 
 Currently I am upgrading it from Rails 3.1 to Rails 3.2
+
+You will find this code deployed here:
+
+http://hn24.herokuapp.com
+
+Currently it has a bug which causes Devise to send out 2 e-mails after registration.
+
+Only one of the e-mails has a correct confirmation token.
+
+I only see the bug on Heroku.
+
+I don't see it when I run this code on my laptop in development mode.
+
+Also I don't see it when I run cucumber tests.
+
+For example this test cannot reproduce the bug:
+
+bin/cucumber features/users/sign_up.feature
+
+Let me know if you have ideas about how I can understand this bug better and how I can eventually fix it.
+
+E-me here:
+
+dan@bot4.us
+
+Thanks,
+Dan
+
