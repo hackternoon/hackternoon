@@ -71,13 +71,13 @@ Hn24::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # bikle
-  config.action_mailer.default_url_options = { :host => 'hn26.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'hn25.herokuapp.com' }
  
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
     :address        => 'smtp.gmail.com',
     :port           => 587,
-    :domain         => 'hn26.herokuapp.com',
+    :domain         => 'hn25.herokuapp.com',
     :authentication => :plain,
     :user_name      => ENV["GMAIL_USER"],
     :password       => ENV["GMAIL_PASSWORD"]
