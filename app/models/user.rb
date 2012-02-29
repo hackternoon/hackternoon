@@ -11,12 +11,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :twitter_handle
 
-  after_create :set_name
+  before_create :set_name
 
   # I use set_name to set the value of name to a default value when a user is created.
   def set_name
-    self.name = "User#{self.id}#{Time.now.strftime('%S')}"
-    self.save!
+    self.name = self.email
   end  
 
   def password_match?
