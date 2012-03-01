@@ -2,4 +2,7 @@
 
 Hackternoon.com is a site to help Hackternooners find projects and other Hackternooners.
 
-Currently I am upgrading it from Rails 3.1 to Rails 3.2
+The upgrade from Rails 3.1 to Rails 3.2 is done.
+
+Now I'm working on a feature which allows a project owner to invite collaborators to work on the project.
+
