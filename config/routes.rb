@@ -1,4 +1,6 @@
 Hn24::Application.routes.draw do
+  resources :invitations
+
   get "users/index"
 
   get "users/show/:user_id", :controller => 'users', :action => 'show', :as => 'show_user'
