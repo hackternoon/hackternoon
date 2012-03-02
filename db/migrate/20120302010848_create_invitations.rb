@@ -4,6 +4,7 @@ class CreateInvitations < ActiveRecord::Migration
       t.integer :project_id
       t.integer :user_id
       t.string :msg
+      t.string :email
 
       t.timestamps
     end

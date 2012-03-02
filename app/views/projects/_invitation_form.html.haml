@@ -1,3 +1,4 @@
+/ _invitation_form.html.haml
 = form_for @invitation do |f|
   -if @invitation.errors.any?
     #error_explanation
@@ -8,7 +9,7 @@
 
   .field
     = f.label :project_id
-    = f.number_field :project_id
+    = hidden_field_tag :project_id, @project.id
   .field
     = f.label :user_id
     = f.number_field :user_id
@@ -19,4 +20,4 @@
     = f.label :email
     = f.text_field :email
   .actions
-    = f.submit 'Save'
+    = f.submit 'Send Invitation'

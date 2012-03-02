@@ -44,7 +44,15 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully created.' }
+        format.html {
+          if params[:invitation][:user_id] == ''
+            the_notice = "Invitation sent to: #{params[:invitation][:email]}"
+            the_notice << ", and copy sent to: #{current_user.email}"
+            redirect_to @invitation, notice: the_notice
+          else
+            redirect_to @invitation, notice: 'Invitation was successfully created.' 
+          end
+        }
         format.json { render json: @invitation, status: :created, location: @invitation }
       else
         format.html { render action: "new" }

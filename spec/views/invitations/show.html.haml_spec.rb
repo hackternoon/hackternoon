@@ -5,7 +5,8 @@ describe "invitations/show" do
     @invitation = assign(:invitation, stub_model(Invitation,
       :project_id => 1,
       :user_id => 1,
-      :msg => "Msg"
+      :msg => "Msg",
+      :email => "Email"
     ))
   end
 
@@ -17,5 +18,7 @@ describe "invitations/show" do
     rendered.should match(/1/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Msg/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Email/)
   end
 end

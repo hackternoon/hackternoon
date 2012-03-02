@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Project:
   = @invitation.project_id
@@ -9,6 +7,9 @@
 %p
   %b Msg:
   = @invitation.msg
+%p
+  %b Email:
+  = @invitation.email
 
 = link_to 'Edit', edit_invitation_path(@invitation)
 \|

@@ -5,7 +5,8 @@ describe "invitations/new" do
     assign(:invitation, stub_model(Invitation,
       :project_id => 1,
       :user_id => 1,
-      :msg => "MyString"
+      :msg => "MyString",
+      :email => "MyString"
     ).as_new_record)
   end
 
@@ -17,6 +18,7 @@ describe "invitations/new" do
       assert_select "input#invitation_project_id", :name => "invitation[project_id]"
       assert_select "input#invitation_user_id", :name => "invitation[user_id]"
       assert_select "input#invitation_msg", :name => "invitation[msg]"
+      assert_select "input#invitation_email", :name => "invitation[email]"
     end
   end
 end

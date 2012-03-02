@@ -15,7 +15,8 @@ Feature: A project owner can invite others to work on the project
       And I should see page_has_field "invitation_email"
       And I should see "Invite someone to help you with the project"
       And I fill in "invitation_email" with "pat@cnn.com"
+      And debug
       And I press "Send Invitation"
       And debug
       Then I should see "Invitation sent to: pat@cnn.com"
-      And I should see "And copy sent to: dan@hackternoon.com"
+      And I should see "and copy sent to: dan@hackternoon.com"

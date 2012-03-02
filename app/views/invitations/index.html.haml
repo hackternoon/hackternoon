@@ -5,6 +5,7 @@
     %th Project
     %th User
     %th Msg
+    %th Email
     %th
     %th
     %th
@@ -14,6 +15,7 @@
       %td= invitation.project_id
       %td= invitation.user_id
       %td= invitation.msg
+      %td= invitation.email
       %td= link_to 'Show', invitation
       %td= link_to 'Edit', edit_invitation_path(invitation)
       %td= link_to 'Destroy', invitation, :confirm => 'Are you sure?', :method => :delete
