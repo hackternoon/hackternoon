@@ -35,3 +35,7 @@ Then /^I login_as "(.*)\/(.*)"$/ do |email, password|
   step %{I fill in "Password confirmation" with "#{password}"}
   click_button "Press This"
 end
+
+Then /^I visit "([^"]*)"$/ do |path_name|
+  visit path_name
+end
