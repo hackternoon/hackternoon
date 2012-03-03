@@ -1,83 +1,37 @@
 class InvitationsController < ApplicationController
-  # GET /invitations
-  # GET /invitations.json
-  def index
-    @invitations = Invitation.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @invitations }
-    end
-  end
-
-  # GET /invitations/1
-  # GET /invitations/1.json
-  def show
-    @invitation = Invitation.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @invitation }
-    end
-  end
-
-  # GET /invitations/new
-  # GET /invitations/new.json
-  def new
-    @invitation = Invitation.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @invitation }
-    end
-  end
-
-  # GET /invitations/1/edit
-  def edit
-    @invitation = Invitation.find(params[:id])
-  end
 
   # POST /invitations
   # POST /invitations.json
+  # I intend for params to this action to be collected here:
+  #   app/views/projects/show.html.haml
+  #   app/views/projects/_invitation_form.html.haml
   def create
-    @invitation = Invitation.new(params[:invitation])
-
-    respond_to do |format|
-      if @invitation.save
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully created.' }
-        format.json { render json: @invitation, status: :created, location: @invitation }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
-      end
+    @project = Project.find params[:project_id]
+    # An invitation with no project is useless:
+    if @project.blank?
+      redirect_to '/', notice: 'You are here because invitation needs project.'
+      return
     end
-  end
-
-  # PUT /invitations/1
-  # PUT /invitations/1.json
-  def update
-    @invitation = Invitation.find(params[:id])
-
-    respond_to do |format|
-      if @invitation.update_attributes(params[:invitation])
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
-      end
+    # Ensure I own this project
+    if @project.user_id != current_user.id
+      redirect_to '/', notice: 'You are here because of a data problem in the last POST.'
+      return
     end
-  end
-
-  # DELETE /invitations/1
-  # DELETE /invitations/1.json
-  def destroy
-    @invitation = Invitation.find(params[:id])
-    @invitation.destroy
-
-    respond_to do |format|
-      format.html { redirect_to invitations_url }
-      format.json { head :no_content }
+    # Now that I'm happy with the @project, work on @invitation:
+    @invitation = Invitation.new
+    @invitation.sender_id = current_user.id
+    @invitation.project_id = params[:project_id]
+    @invitation.rcvr_email = params[:rcvr_email]
+    # All I need now is @user.id for the receiver.
+    # A row in users might not exist for @user yet.
+    # I depend on a before_create callback in models/invitation.rb to create the row if nec.
+    if @invitation.save
+      the_notice = "Invitation sent to: #{params[:rcvr_email]}"
+      the_notice << ", and copy sent to: #{current_user.email}"
+      redirect_to @project, notice: the_notice
+    else
+      redirect_to '/', notice: 'You are here because of a data problem in the last POST.'
     end
-  end
+  end # def create
+
 end

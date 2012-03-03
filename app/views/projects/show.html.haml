@@ -11,4 +11,12 @@
   %b Github URL:
   = link_to @project.github_url, @project.github_url, :target => 'g'
 
+Invite someone to help you with the project!
+%br/
+= render 'invitation_form'
+%br/
+%br/
 = link_to('Edit', edit_project_path(@project)) if current_user == @project.user
+%br/
+%br/
+
