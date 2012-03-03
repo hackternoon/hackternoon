@@ -1,5 +1,7 @@
 class Invitation < ActiveRecord::Base
   attr_accessor :rcvr_email
+  belongs_to :project
+  belongs_to :user
 
   before_create :get_rcvr
 

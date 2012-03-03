@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :projects
+  has_many :invitatons
 
   validates_uniqueness_of :email, :case_sensitive => false
 
