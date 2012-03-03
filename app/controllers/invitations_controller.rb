@@ -40,17 +40,19 @@ class InvitationsController < ApplicationController
   # POST /invitations
   # POST /invitations.json
   def create
+debugger
     @invitation = Invitation.new(params[:invitation])
-
+    @project = Project.find params[:project_id]
     respond_to do |format|
       if @invitation.save
         format.html {
-          if params[:invitation][:user_id] == ''
-            the_notice = "Invitation sent to: #{params[:invitation][:email]}"
-            the_notice << ", and copy sent to: #{current_user.email}"
-            redirect_to @invitation, notice: the_notice
+debugger
+          the_notice = "Invitation sent to: #{params[:invitation][:email]}"
+          the_notice << ", and copy sent to: #{current_user.email}"
+          if @project.blank?
+            redirect_to '/'
           else
-            redirect_to @invitation, notice: 'Invitation was successfully created.' 
+            redirect_to @project, notice: the_notice
           end
         }
         format.json { render json: @invitation, status: :created, location: @invitation }
