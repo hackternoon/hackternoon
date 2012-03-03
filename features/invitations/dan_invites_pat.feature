@@ -7,14 +7,23 @@ Feature: A project owner can invite others to work on the project
       And I follow "Projects"
       And I follow "New Project"
       And I fill in the following:
-        | Name               | hackternoon.com   |
+        | Name               | Hackternoon.com   |
         | project_dscrptn    | Hackternoon.com helps Hackternooners find partners and projects. |
         | project_github_url | http://github.com/hackternoon |
       And I press "Save"
       Then I should see "Project was successfully created."
+      And debug
+      And I should not see "Invitations have been sent to these e-mail addresses"
       And I should see page_has_field "rcvr_email"
       And I should see "Invite someone to help you with the project"
       And I fill in "rcvr_email" with "pat@cnn.com"
       And I press "Send Invitation"
       Then I should see "Invitation sent to: pat@cnn.com"
       And I should see "and copy sent to: dan@hackternoon.com"
+      And debug
+      And I should see "Invitations have been sent to these e-mail addresses"
+      And I should see page_has_link "pat@cnn.com"
+      When I follow "pat@cnn.com"
+      Then I should see page_has_link "Hackternoon.com"
+      And  I follow "Hackternoon.com"
+      Then I should see "Hackternoon.com helps Hackternooners find partners and projects"
