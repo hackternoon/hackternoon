@@ -19,7 +19,7 @@ Feature: A project owner can invite others to work on the project
       And I press "Send Invitation"
       Then I should see "Invitation sent to: pat@cnn.com"
       And I should see "and copy sent to: dan@hackternoon.com"
-      And I should see "Invitations have been sent to these e-mail addresses"
+      And I should see "Invitations to work on this project have been sent to these e-mail addresses"
       And I should see page_has_link "pat@cnn.com"
       When I follow "pat@cnn.com"
       And debug

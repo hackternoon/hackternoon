@@ -1,29 +1,29 @@
-%p
-  %b Name:
-  = @project.name
+- if project_owner?(@project)
+  = link_to('Edit this project', edit_project_path(@project)) if current_user == @project.user
+  %br/
+  %br/
+%b Name:
+= @project.name
 %p
   %b Description:
   = @project.dscrptn
 %p
   %b Owner:
-  = link_to(@project.user.name, show_user_path(:user_id => @project.user_id))
+  = link_to(@project.user.email, show_user_path(:user_id => @project.user_id))
 %p
   %b Github URL:
   = link_to @project.github_url, @project.github_url, :target => 'g'
-
-Invite someone to help you with the project!
-%br/
-= render 'invitation_form'
-%br/
+- if project_owner?(@project)
+  Invite someone to help you with the project!
+  %br/
+  = render 'invitation_form'
+  %br/
 - unless @project.invitations.blank?
-  Invitations have been sent to these e-mail addresses:
+  Invitations to work on this project have been sent to these e-mail addresses:
   %ul
   - @project.invitations.each do |invitation|
     %li
       = link_to(invitation.user.email, show_user_path(:user_id => invitation.user_id))
-%br/
-%br/
-= link_to('Edit', edit_project_path(@project)) if current_user == @project.user
 %br/
 %br/
 

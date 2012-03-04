@@ -6,18 +6,24 @@
     %th Description
     %th Owner
     %th Github URL
-    %th
-    %th
-    %th
+    %th Edit Link?
+    %th Destroy Link?
 
   - @projects.each do |project|
     %tr
-      %td= project.name
+      %td= link_to project.name, project
       %td= project.dscrptn
-      %td= project.user_id
-      %td= project.github_url
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to(project.user.email, show_user_path(:user_id => project.user_id))
+      %td= link_to project.github_url,project.github_url
+      %td
+        - if project_owner?(project)
+          = link_to 'Edit', edit_project_path(project)
+        - else
+          Not Owner
+      %td
+        - if project_owner?(project)
+          = link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+        - else
+          Not Owner
 
 %br
