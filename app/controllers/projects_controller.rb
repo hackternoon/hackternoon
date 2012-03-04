@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     # The invitation form I put in the show-template wants to see an @invitation:
     @invitation = Invitation.new
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }

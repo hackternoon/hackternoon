@@ -9,10 +9,18 @@ E-Mail:
 Twitter Handle:
 = @user.twitter_handle
 %br/
-Projects:
-%ul
-- @user.projects.each do |project|
-  %li
-    = link_to project.name, project_path(project)
+- unless @projects.blank?
+  This user owns these projects:
+  %ul
+  - @projects.each do |project|
+    %li
+      = link_to project.name, project_path(project)
 %br/
+- unless @invitations.blank?
+  This user has been invited to these projects:
+  %ul
+  - @projects_invited_to.each do |project|
+    %li
+      = link_to project.name, project_path(project)
+
 %br/
