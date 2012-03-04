@@ -1,4 +1,4 @@
-- if current_user.id == @user.id
+- if(current_user.present? and (current_user.id == @user.id))
   = link_to("Edit your profile", edit_user_registration_path)
   %br/
   %br/
