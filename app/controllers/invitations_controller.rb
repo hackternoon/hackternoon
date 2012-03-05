@@ -22,6 +22,10 @@ class InvitationsController < ApplicationController
     @invitation.sender_id = current_user.id
     @invitation.project_id = params[:project_id]
     @invitation.rcvr_email = params[:rcvr_email]
+    if @invitation.sent_already?
+      redirect_to @project, notice: "Invitation Sent Once Already"
+      return
+    end
     # All I need now is @user.id for the receiver.
     # A row in users might not exist for @user yet.
     # I depend on a before_create callback in models/invitation.rb to create the row if nec.
