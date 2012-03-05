@@ -16,7 +16,7 @@
       %td= link_to(project.user.email, show_user_path(:user_id => project.user_id))
       %td= link_to project.github_url,project.github_url
       %td
-        - if project_owner?(project)
+        - if i_own?(project)
           = link_to 'Edit', edit_project_path(project)
         - else
           Not Owner

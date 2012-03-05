@@ -11,14 +11,14 @@ E-Mail:
 Twitter Handle:
 = @user.twitter_handle
 %br/
-- unless @projects.blank?
+- if @projects.present?
   This user owns these projects:
   %ul
   - @projects.each do |project|
     %li
       = link_to project.name, project_path(project)
 %br/
-- unless @invitations.blank?
+- if @invitations.present?
   This user has been invited to these projects:
   %ul
   - @projects_invited_to.each do |project|

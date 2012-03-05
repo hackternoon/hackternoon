@@ -22,9 +22,7 @@ Feature: A project owner can invite others to work on the project
       And I should see "Invitations to work on this project have been sent to these e-mail addresses"
       And I should see page_has_link "pat@cnn.com"
       When I follow "pat@cnn.com"
-      And debug
       Then I should see "This user has been invited to these projects"
       And I should see page_has_link "Hackternoon.com"
       And  I follow "Hackternoon.com"
-      And debug
       Then I should see "Hackternoon.com helps Hackternooners find partners and projects"

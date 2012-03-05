@@ -34,9 +34,11 @@ Feature: Bob can create a project
         | Name | Hackternoon.com   |
       And I press "Save"
       Then I should see "Hackternooners"
-      And I should see page_has_link "Bob"
-      And I follow "Bob"
+      And I should see page_has_link "bob@cnn.com"
+      And I follow "bob@cnn.com"
       Then I should see "Bob"
       And I should see page_has_link "Hackternoon"
       And I follow "Hackternoon.com"
+      Then I should see "Hackternooners"
+      And I follow "Projects"
       Then I should see "Hackternooners"

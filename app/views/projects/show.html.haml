@@ -1,4 +1,4 @@
-- if project_owner?(@project)
+- if i_own?(@project)
   = link_to('Edit this project', edit_project_path(@project)) if current_user == @project.user
   %br/
   %br/
@@ -13,7 +13,7 @@
 %p
   %b Github URL:
   = link_to @project.github_url, @project.github_url, :target => 'g'
-- if project_owner?(@project)
+- if i_own?(@project)
   Invite someone to help you with the project!
   %br/
   = render 'invitation_form'
