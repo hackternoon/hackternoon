@@ -21,7 +21,7 @@
         - else
           Not Owner
       %td
-        - if project_owner?(project)
+        - if i_own?(project)
           = link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
         - else
           Not Owner
