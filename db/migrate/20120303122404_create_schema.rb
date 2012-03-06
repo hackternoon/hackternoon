@@ -38,6 +38,7 @@ class CreateSchema < ActiveRecord::Migration
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "twitter_handle"
+    t.string   "location"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

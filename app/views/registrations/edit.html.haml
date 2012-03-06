@@ -13,6 +13,10 @@
     %br/
     = f.text_field :twitter_handle
   %p
+    = f.label :location
+    %br/
+    = f.text_field :location
+  %p
     New
     = f.label :password
     %i (If you want to change it)
@@ -31,7 +35,7 @@
     = f.password_field :current_password
 
   %p.clearfix
+    %br/
     = f.submit 'Save'
-  = link_to 'Home', root_url
   %br/
-  = render :partial => 'devise/links'
+
