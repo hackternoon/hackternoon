@@ -15,6 +15,12 @@ class CreateSchema < ActiveRecord::Migration
     t.text     "dscrptn"
     t.integer  "user_id"
     t.string   "github_url"
+    t.string   "tech_tag1"
+    t.string   "tech_tag2"
+    t.string   "tech_tag3"
+    t.string   "biz_tag1"
+    t.string   "biz_tag2"
+    t.string   "biz_tag3"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

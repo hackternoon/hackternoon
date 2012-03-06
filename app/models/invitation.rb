@@ -3,6 +3,8 @@ class Invitation < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
+  attr_accessible :msg,:project_id,:sender_id,:user_id
+
   before_create :get_rcvr
 
   # If the invitation was sent already, the controller wants to know.
