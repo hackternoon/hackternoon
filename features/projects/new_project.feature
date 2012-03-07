@@ -36,6 +36,8 @@ Feature: Bob can create a project
         | Name | Hackternoon.com   |
       And I press "Save"
       Then I should see "Hackternooners"
+      And I should see "Rails"
+      And I should see "Programming"
       And I should see page_has_link "bob@cnn.com"
       And I follow "bob@cnn.com"
       Then I should see "Bob"

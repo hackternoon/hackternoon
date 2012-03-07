@@ -2,17 +2,45 @@
   = link_to('Edit this project', edit_project_path(@project)) if current_user == @project.user
   %br/
   %br/
-%b Name:
+
+Name:
 = @project.name
-%p
-  %b Description:
-  = @project.dscrptn
-%p
-  %b Owner:
-  = link_to(@project.user.email, show_user_path(:user_id => @project.user_id))
-%p
-  %b Github URL:
-  = link_to @project.github_url, @project.github_url, :target => 'g'
+%br/
+
+Description:
+= @project.dscrptn
+%br/
+
+Owner:
+= link_to(@project.user.email, show_user_path(:user_id => @project.user_id))
+%br/
+
+Github URL:
+= link_to @project.github_url, @project.github_url, :target => 'g'
+%br/
+%br/
+
+This project has these technology tags:
+%br/
+%br/
+=@project.tech_tag1
+%br/
+=@project.tech_tag2
+%br/
+=@project.tech_tag3
+%br/
+%br/
+
+This project has these business tags:
+%br/
+%br/
+=@project.biz_tag1
+%br/
+=@project.biz_tag2
+%br/
+=@project.biz_tag3
+%br/
+%br/
 - if i_own?(@project)
   Invite someone to help you with the project!
   %br/
