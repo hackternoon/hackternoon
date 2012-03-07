@@ -11,10 +11,30 @@
     = f.text_field :name
   .field
     = f.label "Description"
-    = f.text_area :dscrptn
+    = f.text_area :dscrptn, :cols => 40, :rows => 5
   .field
-    Github URL
-    %br
+    Github URL (OK to leave blank and update later):
+    %br/
     = f.text_field :github_url
+  .field
+    Technology Tags for this project.
+    %br/
+    (Ex: Rails, JavaScript, Android):
+    %br/
+    = f.text_field :tech_tag1
+  .field
+    = f.text_field :tech_tag2
+  .field
+    = f.text_field :tech_tag3
+  .field
+    Business Tags for this project.
+    %br/
+    (Ex: Blog Site, News Aggregator, Mobile Game):
+    %br/
+    = f.text_field :biz_tag1
+  .field
+    = f.text_field :biz_tag2
+  .field
+    = f.text_field :biz_tag3
   .actions
     = f.submit 'Save'

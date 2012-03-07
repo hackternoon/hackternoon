@@ -20,6 +20,8 @@ Feature: Bob can create a project
         | Name               | hackternoon.com   |
         | project_dscrptn    | Hackternoon.com helps Hackternooners find partners and projects. |
         | project_github_url | http://github.com/hackternoon |
+        | project_tech_tag1  | Rails |
+        | project_biz_tag1   | Paired Programming Site |
       And I press "Save"
       Then I should see "Hackternooners"
       And I should see "Project was successfully created."
