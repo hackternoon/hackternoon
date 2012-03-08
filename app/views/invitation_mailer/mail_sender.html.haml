@@ -1,1 +1,10 @@
-You sent out a project invitation.
+Hi,
+%br/
+You sent out an invitation to:
+%br/
+= link_to @rcvr_email, show_user_url(:user_id => @rcvr_id)
+%br/
+to collaborate on this project:
+%br/
+= link_to project_url(:id => @project_id), project_url(:id => @project_id)
+%br/
