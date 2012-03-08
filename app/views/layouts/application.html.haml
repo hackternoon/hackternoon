@@ -23,6 +23,12 @@
           - if current_user.present?
             %li
               = link_to('New Project', new_project_path)
+          %li
+            Google Site Search:
+            %form(action="https://www.google.com/" target="g")
+              %input(type="text" name="as_sitesearch" value="hackternoon.com" size="13")
+              %input(type="text" name="q" size="13")
+              %input(type="submit" value="Search")
       #div4_rhs.nine.columns.round_corner15px
         %p.notice
           = notice
