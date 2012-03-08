@@ -6,6 +6,8 @@ class Invitation < ActiveRecord::Base
   attr_accessible :msg,:project_id,:sender_id,:user_id
 
   before_create :get_rcvr
+  after_create  :alert_rcvr
+  after_create  :alert_sender
 
   # If the invitation was sent already, the controller wants to know.
   # An invitation can be identified by the combo of:
@@ -34,5 +36,15 @@ class Invitation < ActiveRecord::Base
     end
     self.user_id = @user.id
   end # def get_rcvr
+
+  # Alert the rcvr that an invitation was sent
+  def alert_rcvr
+    InvitationMailer.mail_rcvr(self.user.email).deliver
+  end
+
+  # Alert the sender that an invitation was sent
+  def alert_sender
+    InvitationMailer.mail_sender(self.project.user.email).deliver
+  end
 
 end
