@@ -25,6 +25,8 @@ Hn24::Application.routes.draw do
   end
 
   match 'blog' => 'home#blog', :as => :blog
+  match 'terms' => 'home#terms', :as => :terms
+  match 'contact' => 'home#contact', :as => :contact
   match 'tech_tips' => 'home#tech_tips', :as => :tech_tips
 
   # The priority is based upon order of creation:

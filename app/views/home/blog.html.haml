@@ -1,0 +1,39 @@
+%h1 A Hackternooner's Blog
+
+#accordion
+  %h3#h3_2012_03
+    %a(href='#h3_2012_03')Blog Entry 1
+  %div
+    I want to use jQuery-UI to "Accordion" my Blog Entries.
+
+  %h3#h3_2012_04
+    %a(href='#h3_2012_04')Blog Entry 2
+  %div
+    I bumped into an issue where my browser could not see any of the jQuery-UI functions.
+    I was confused because I could see jQuery-UI as being loaded when I viewed source.
+
+  %h3#h3_2012_05
+    %a(href='#h3_2012_05')Blog Entry 3
+  %div
+    I figured out the problem.  
+    %br/
+    %br/
+    Short story: public/assets/application.js was over-writing other .js files loaded earlier.
+    %br/
+    %br/
+    Long story:
+    %br/
+    %br/
+    When I add a JS directive to app/assets/javascripts/application.js
+    I need to then run this rake command:
+    RAILS_ENV=production bin/rake assets:precompile
+    This will then add jQuery-UI functions to this file:
+    public/assets/application.js
+    which is the very last file to get loaded and thus the file which overwrites all the JS in previous files
+    I see in the source.
+    %br/
+    %br/
+    Moral: Ensure that your JavaScript code resides in public/assets/application.js
+    %br/
+    %br/
+
