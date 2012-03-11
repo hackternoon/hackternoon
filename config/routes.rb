@@ -24,7 +24,8 @@ Hn24::Application.routes.draw do
     delete "users",     :to => "registrations#destroy"
   end
 
-
+  match 'blog' => 'home#blog', :as => :blog
+  match 'tech_tips' => 'home#tech_tips', :as => :tech_tips
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

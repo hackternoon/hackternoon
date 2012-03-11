@@ -23,12 +23,48 @@
           - if current_user.present?
             %li
               = link_to('New Project', new_project_path)
+
+          %li
+            %a(href="/blog")Blog
+
+          %li
+            %a(href="/tech_tips")Tech Tips
+
+          %li
+            %a(href="http://Meetup.com/Hackternoon" target="m")
+              Meetup:
+              %br/
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            %a(href="https://Twitter.com/Hackternoon" target="t")
+              Twitter:
+              %br/
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            %a(href="https://www.Facebook.com/Hackternoon" target="f")
+              Facebook:
+              %br/
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            %a(href="https://plus.google.com/105181318549199426173" target="p")
+              Google+:
+              %br/
+              %span.color_ddd __
+              Hackternoon
+
           %li
             Google Site Search:
             %form(action="https://www.google.com/" target="o")
               %input(type="text" name="as_sitesearch" value="hackternoon.com" size="13")
               %input(type="text" name="q" size="13")
               %input(type="submit" value="Search")
+
       #div4_rhs.nine.columns.round_corner15px
         %p.notice
           = notice
@@ -39,3 +75,6 @@
       #div4_footer.eleven.columns.round_corner15px
         %a#a_htn(href="/") Hackternoon
         2012
+        |
+        %a(href='https:/gmail.com' target='l')Contact:
+        Dan@Hackternoon.com
