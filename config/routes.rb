@@ -28,6 +28,7 @@ Hn24::Application.routes.draw do
   match 'terms' => 'home#terms', :as => :terms
   match 'contact' => 'home#contact', :as => :contact
   match 'tech_tips' => 'home#tech_tips', :as => :tech_tips
+  match 'ux_info' => 'home#ux_info', :as => :ux_info
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
