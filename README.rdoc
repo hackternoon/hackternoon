@@ -8,6 +8,8 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on:
 
+Deal with forgotten password
+
 Test resend of confirmation
 
 Test passwd change

@@ -22,13 +22,15 @@ Hn24::Application.routes.draw do
     get "users/edit",   :to => "registrations#edit", :as => 'edit_user_registration'
     put "users",        :to => "registrations#update"
     delete "users",     :to => "registrations#destroy"
+    get 'confirm_user_failed' => 'confirmations#confirm_user_failed', :as => :confirm_user_failed
   end
 
-  match 'blog' => 'home#blog', :as => :blog
-  match 'terms' => 'home#terms', :as => :terms
-  match 'contact' => 'home#contact', :as => :contact
-  match 'tech_tips' => 'home#tech_tips', :as => :tech_tips
-  match 'ux_info' => 'home#ux_info', :as => :ux_info
+  get 'blog' => 'home#blog', :as => :blog
+  get 'terms' => 'home#terms', :as => :terms
+  get 'contact' => 'home#contact', :as => :contact
+  get 'tech_tips' => 'home#tech_tips', :as => :tech_tips
+  get 'ux_info' => 'home#ux_info', :as => :ux_info
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
