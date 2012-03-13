@@ -15,8 +15,7 @@ Feature: Confirmation Resend
       And I follow "Register"
       And I should see "Didn't receive confirmation instructions?"
       And I follow "Didn't receive confirmation instructions?"
-      And debug
-      And I should see "do something"
+      And I should see "Did not receive confirmation instructions?"
 
 
 
