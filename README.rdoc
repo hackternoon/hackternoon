@@ -4,5 +4,29 @@ Hackternoon.com is a site to help Hackternooners find projects and other Hackter
 
 The upgrade from Rails 3.1 to Rails 3.2 is done.
 
-Now I'm working on a feature which allows a project owner to invite collaborators to work on the project.
+The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
+
+Here is a list of enhancements I am focused on:
+
+Test resend of confirmation
+
+Test passwd change
+
+Writeup 1st tech tip about the problem I had with datepicker which is now in blog
+
+Fix bug of projects which has the table extend beyond the div
+
+Display project creation date to help users spot stale projects
+
+Disable blog accordion until I get more blog content
+
+Personal info warning on signup page - use jquery dialog
+
+Add opinion about javascript on ux-rant
+
+Replace match with get for some of my pages in routes.rb
+
+Implement ideas presented here:
+
+http://guides.rubyonrails.org/security.html
 
