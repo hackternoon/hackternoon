@@ -4,7 +4,6 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   # Control flows here when user follows URL in e-mail.
   def show
-debugger
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     if @user.blank?
       render :confirm_user_failed
@@ -14,7 +13,6 @@ debugger
   # Control flows here when user submits new-password to this form:
   # app/views/confirmations/show.html.haml
   def confirm_user
-debugger
     @user = User.find_by_confirmation_token(params[:user][:confirmation_token])
     if @user.blank?
       render :confirm_user_failed
