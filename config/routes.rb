@@ -15,6 +15,7 @@ Hn24::Application.routes.draw do
     get "show",                   :to => "confirmations#show"
     get "users/confirmation",     :to => "confirmations#show",:as => 'confirm_email'
     get "users/confirmation/new", :to => "confirmations#new", :as => 'new_user_confirmation'
+    post "users/confirmation",    :to => "devise/confirmations#create", :as => 'user_confirmation'
     put "confirm_user", :to => "confirmations#confirm_user",  :as => 'confirm_user'
     get "users/cancel", :to => "registrations#cancel", :as => 'cancel_user_registration'
     post "users",       :to => "registrations#create", :as => 'user_registration'

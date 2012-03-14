@@ -1,14 +1,14 @@
-%h1 Did not receive confirmation instructions?
+%h2 Did not receive confirmation instructions?
 
-This form is under construction.
-
-%br/
-%br/
-Eventually it will ask you for the e-mail address you used during registration.
+Ask for a resend here:
 
 %br/
 %br/
-Until this form is working, you are free to Register using a different e-mail address.
-
-%br/
-%br/
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+  %div
+    = f.label :email
+    %br/
+    = f.email_field :email
+  %div
+    = f.submit "Resend confirmation instructions"

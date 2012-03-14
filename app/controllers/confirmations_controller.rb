@@ -2,6 +2,10 @@
 	
 class ConfirmationsController < Devise::ConfirmationsController
 
+  def new
+    super
+  end
+
   # Control flows here when user follows URL in e-mail.
   def show
     @user = User.find_by_confirmation_token(params[:confirmation_token])
