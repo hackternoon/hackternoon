@@ -39,3 +39,12 @@ end
 Then /^I visit "([^"]*)"$/ do |path_name|
   visit path_name
 end
+
+Then /^My current_path should be "([^"]*)"$/ do |the_path|
+  current_path.should == the_path
+end
+
+Then /^My feature_path should be "([^"]*)"$/ do |a_routes_path|
+  # My call to send() needs parenthesis or else I get a syntax error:
+  current_path.should == send(a_routes_path)
+end

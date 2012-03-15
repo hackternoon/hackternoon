@@ -17,7 +17,11 @@ Feature: Confirmation Resend
       And I should see "Did not receive confirmation instructions?"
       And I fill in "Email" with "user@test.com"
       And I press "Resend confirmation"
-      Then I should see "You will receive an email with instructions"
+      Then I should see "If your e-mail exists on our database"
+      And My feature_path should be "root_path"
+
+
+
 
 
 

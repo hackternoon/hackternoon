@@ -2,8 +2,17 @@
 	
 class ConfirmationsController < Devise::ConfirmationsController
 
+  # Control flows here when user asks for a confirmation token.
+  # Currently all it does is build a resource and render a form.
   def new
     super
+  end
+
+  # POST /resource/confirmation
+  def create
+    self.resource = resource_class.send_confirmation_instructions(params[resource_name])
+    set_flash_message :notice, :send_paranoid_instructions
+    redirect_to root_path
   end
 
   # Control flows here when user follows URL in e-mail.
