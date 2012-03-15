@@ -24,6 +24,7 @@ Hn24::Application.routes.draw do
     put "users",        :to => "registrations#update"
     delete "users",     :to => "registrations#destroy"
     get 'confirm_user_failed' => 'confirmations#confirm_user_failed', :as => :confirm_user_failed
+    # post 'users/password' => 'devise/passwords#create', :as => :user_password
   end
 
   get 'blog' => 'home#blog', :as => :blog

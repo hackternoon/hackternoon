@@ -10,8 +10,6 @@ Here is a list of enhancements I am focused on:
 
 Deal with forgotten password
 
-Test resend of confirmation
-
 Test passwd change
 
 Writeup 1st tech tip about the problem I had with datepicker which is now in blog
@@ -25,8 +23,6 @@ Disable blog accordion until I get more blog content
 Personal info warning on signup page - use jquery dialog
 
 Add opinion about javascript on ux-rant
-
-Replace match with get for some of my pages in routes.rb
 
 Implement ideas presented here:
 
