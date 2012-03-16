@@ -27,4 +27,14 @@ Feature: Forgot my password
       And I press "Send me reset password instructions"
       Then I should see "You will receive an email "
       And My feature_path should be "root_path"
+      And I_follow_reset_password_mail
+      Then I should see "Reset your password here"
+      And I fill in "password" with "abcxyz"
+      And I fill in "password_confirmation" with "abcxyz"
+      And I press "Reset password"
+      Then I should see "You are logged in"
+      And my feature path should be "root_path"
+      And I follow "user@test.com"
+      Then I should see "user@test.com"
+
 
