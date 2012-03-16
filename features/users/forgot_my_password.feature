@@ -4,7 +4,7 @@ Feature: Forgot my password
   I want to be able to sign up
   and then deal with my forgotten password
 
-    @javascriptx
+    @javascript
     Scenario: User deals with forgotten password
       Given I sign out
       And I go to the sign up page

@@ -10,7 +10,7 @@ Hn24::Application.routes.draw do
   get "home/index"
   root :to => "home#index"
 
-  devise_for :users, :skip => [:confirmations, :registrations]
+  devise_for :users, :skip => [:confirmations, :registrations, :passwords]
   devise_scope :user do
     get "show",                   :to => "confirmations#show"
     get "users/confirmation",     :to => "confirmations#show",:as => 'confirm_email'
@@ -23,8 +23,11 @@ Hn24::Application.routes.draw do
     get "users/edit",   :to => "registrations#edit", :as => 'edit_user_registration'
     put "users",        :to => "registrations#update"
     delete "users",     :to => "registrations#destroy"
-    get 'confirm_user_failed' => 'confirmations#confirm_user_failed', :as => :confirm_user_failed
-    # post 'users/password' => 'devise/passwords#create', :as => :user_password
+    get 'confirm_user_failed', :to => 'confirmations#confirm_user_failed', :as => :confirm_user_failed
+    post 'users/password',     :to => 'passwords#create', :as => 'user_password'
+    get 'users/password/new',  :to => 'passwords#new', :as => 'new_user_password'
+    get 'users/password/edit', :to => 'passwords#edit', :as => 'edit_user_password'
+    put 'users/password',      :to => 'passwords#update'
   end
 
   get 'blog' => 'home#blog', :as => :blog
