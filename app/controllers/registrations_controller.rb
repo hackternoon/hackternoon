@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
-  # I define some actions here so it is easier for me to step through devise-doings with the debugger.
+  # I define some actions here so I can put some view here:
+  # ../views/registrations/
+
   def create
     super
   end
@@ -9,6 +11,22 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
+    super
+  end
+
+  def cancel
+    super
+  end
+
+  def new
+    super
+  end
+
+  def update
+    super
+  end
+
+  def destroy
     super
   end
 
