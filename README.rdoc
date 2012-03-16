@@ -29,6 +29,6 @@ Implement ideas presented here:
 
 Make the flash msgs more noticeable
 
-Use truncate() to shorten long e-mail addresses on LHS
+
 
 
