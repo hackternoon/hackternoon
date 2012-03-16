@@ -27,7 +27,7 @@ Add opinion about javascript on ux-rant
 Implement ideas presented here:
   - http://guides.rubyonrails.org/security.html
 
-Make the flash msgs more noticeable
+
 
 
 
