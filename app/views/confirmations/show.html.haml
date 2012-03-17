@@ -1,21 +1,38 @@
+%h2 Welcome
+
+Now you can set your password.
+%br/
+%br/
+I set your name to your e-mail address, but you can change it to something like, "Bob".
+%br/
+%br/
+
+Your E-mail is:
+= @user.email
+
+%br/
+%br/
+
 
 = form_for(resource, :url => confirm_user_path) do |f|
   = devise_error_messages!
-  %p
-    = f.label :email
-    = @user.email
-    = f.hidden_field :confirmation_token
-  %p
-    = f.label :name
-    %br/
-    = f.text_field :name
-  %p
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %p.clearfix
-    = f.submit 'Set Name and Password Then Press This'
+  = f.hidden_field :confirmation_token
+  Name
+  %br/
+  = f.text_field :name
+
+  %br/
+  %br/
+  Password
+  %br/
+  = f.password_field :password
+
+  %br/
+  %br/
+  Confirm Password
+  %br/
+  = f.password_field :password_confirmation
+
+  %br/
+  %br/
+  = f.submit 'Set Name and Password Then Press This'
