@@ -18,6 +18,5 @@ Feature: Confirmation
         | user_password              | abc123   |
         | user_password_confirmation | abc123   |
       And I press "Press This"
-      And debug
       Then I should see "Your account was successfully confirmed. You are now signed in."
 
