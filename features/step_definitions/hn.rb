@@ -48,3 +48,10 @@ Then /^My feature_path should be "([^"]*)"$/ do |a_routes_path|
   # My call to send() needs parenthesis or else I get a syntax error:
   current_path.should == send(a_routes_path)
 end
+
+Then /^I_follow_reset_password_mail_for "([^"]*)"$/ do |email|
+  @usr = User.find_by_email email
+  @rptoken = @usr.reset_password_token
+  @rpath = "/users/password/edit?reset_password_token=#{@rptoken}"
+  visit @rpath
+end

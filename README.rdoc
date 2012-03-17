@@ -9,7 +9,6 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 Here is a list of enhancements I am focused on.
 
 Cucumber:
-  - Deal with forgotten password
   - Test passwd change 
 
 Writeup 1st tech tip about the problem I had with datepicker which is now in blog
@@ -27,6 +26,7 @@ Add opinion about javascript on ux-rant
 Implement ideas presented here:
   - http://guides.rubyonrails.org/security.html
 
+Enhance all the forms so the labels are closer to the fields.
 
 
 
