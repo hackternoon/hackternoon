@@ -11,9 +11,9 @@ Feature: Edit User
       Then I should see "Signed in successfully."
       When I follow "bob@cnn.com"
       And I follow "Edit"
-      And I fill in "Name" with "Bob Smith"
-      And I fill in "Twitter handle" with "@bobcnncom"
-      And I fill in "Location" with "New York City"
+      And I fill in "user_name" with "Bob Smith"
+      And I fill in "user_twitter_handle" with "@bobcnncom"
+      And I fill in "user_location" with "New York City"
       And I_fill_in_current_password
       And I press "Save"
       And I go to the homepage

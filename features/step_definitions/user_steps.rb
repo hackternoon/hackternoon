@@ -8,7 +8,7 @@ def sign_up user
   usr2destroy = User.find_by_email(user[:email])
   usr2destroy.destroy unless usr2destroy.nil?
   visit '/users/sign_up'
-  fill_in "Email", :with => user[:email]
+  fill_in "user_email", :with => user[:email]
   click_button "Signup"
 end
 
@@ -29,7 +29,7 @@ And /^saop$/ do
 end
 
 And /^I_fill_in_current_password$/ do
-  fill_in "Current password", :with => @user[:password]
+  fill_in "user_current_password", :with => @user[:password]
 end
 
 When /^I return next time$/ do
@@ -56,10 +56,10 @@ Given /^I exist as a user$/ do
   @cpath = "/users/confirmation?confirmation_token=#{@token}"
   visit @cpath
   # enter the name
-  step %{I fill in "Name" with "#{valid_user[:name]}"}
+  step %{I fill in "user_name" with "#{valid_user[:name]}"}
   # enter the password
-  step %{I fill in "Password" with "#{valid_user[:password]}"}
-  step %{I fill in "Password confirmation" with "#{valid_user[:password]}"}
+  step %{I fill in "user_password" with "#{valid_user[:password]}"}
+  step %{I fill in "user_password_confirmation" with "#{valid_user[:password]}"}
   # press button
   click_button "Press This"
 end
@@ -83,9 +83,9 @@ end
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
   step %{I am not logged in}
   step %{I go to the sign up page}
-  step %{I fill in "Email" with "#{email}"}
-  step %{I fill in "Password" with "#{password}"}
-  step %{I fill in "Password confirmation" with "#{password}"}
+  step %{I fill in "user_email" with "#{email}"}
+  step %{I fill in "user_password" with "#{password}"}
+  step %{I fill in "user_password_confirmation" with "#{password}"}
   step %{I press "Sign up"}
   step %{I should see "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."}
   step %{I am logout}
@@ -102,8 +102,8 @@ end
 When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   step %{I am not logged in}
   step %{I go to the sign in page}
-  step %{I fill in "Email" with "#{email}"}
-  step %{I fill in "Password" with "#{password}"}
+  step %{I fill in "user_email" with "#{email}"}
+  step %{I fill in "user_password" with "#{password}"}
   step %{I press "Sign in"}
 end
 
