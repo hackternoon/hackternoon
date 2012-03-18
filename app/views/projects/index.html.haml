@@ -1,0 +1,43 @@
+%h2 Projects
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Owner
+    %th Github URL
+    %th Tech Tags
+    %th Business Tags
+    %th Edit Link?
+    %th Destroy Link?
+
+  - @projects.each do |project|
+    %tr
+      %td= link_to project.name, project
+      %td= project.dscrptn
+      %td= link_to(project.user.email, show_user_path(:user_id => project.user_id))
+      %td= link_to project.github_url,project.github_url
+      %td
+        = project.tech_tag1
+        %br/
+        = project.tech_tag2
+        %br/
+        = project.tech_tag3
+      %td
+        = project.biz_tag1
+        %br/
+        = project.biz_tag2
+        %br/
+        = project.biz_tag3
+      %td
+        - if i_own?(project)
+          = link_to 'Edit', edit_project_path(project)
+        - else
+          Not Owner
+      %td
+        - if i_own?(project)
+          = link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+        - else
+          Not Owner
+
+%br

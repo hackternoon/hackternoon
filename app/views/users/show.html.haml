@@ -1,0 +1,31 @@
+- if(current_user.present? and (current_user.id == @user.id))
+  = link_to("Edit your profile", edit_user_registration_path)
+  %br/
+  %br/
+Name:
+= @user.name
+%br/
+E-Mail:
+= @user.email
+%br/
+Twitter Handle:
+= @user.twitter_handle
+%br/
+Location:
+= @user.location
+%br/
+- if @projects.present?
+  This user owns these projects:
+  %ul
+  - @projects.each do |project|
+    %li
+      = link_to project.name, project_path(project)
+%br/
+- if @invitations.present?
+  This user has been invited to these projects:
+  %ul
+  - @projects_invited_to.each do |project|
+    %li
+      = link_to project.name, project_path(project)
+
+%br/

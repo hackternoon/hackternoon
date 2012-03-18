@@ -1,0 +1,16 @@
+/ _invitation_form.html.haml
+= form_for @invitation do |f|
+  -if @invitation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@invitation.errors.count, "error")} prohibited this invitation from being saved:"
+      %ul
+        - @invitation.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = hidden_field_tag :project_id, @project.id
+  .field
+    Their E-Mail Here ->
+    = email_field_tag 'rcvr_email', 'bob@hackternoon.com'
+  .actions
+    = f.submit 'Send Invitation'

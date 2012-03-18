@@ -1,0 +1,17 @@
+%h2 Did not receive confirmation instructions?
+
+Ask for a resend here
+
+%br/
+%br/
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+  %div
+    E-Mail
+    %br/
+    = f.email_field :email
+
+  %br/
+
+  %div
+    = f.submit "Resend confirmation instructions"

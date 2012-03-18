@@ -1,0 +1,50 @@
+%h2 Edit Your Profile
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+
+  E-Mail:
+  = @user.email
+
+  %br/
+  %br/
+  Name
+  %br/
+  = f.text_field :name
+
+  %br/
+  %br/
+  Twitter Handle
+  %br/
+  = f.text_field :twitter_handle
+
+  %br/
+  %br/
+  Location (City or Postal Code works good here)
+  %br/
+  = f.text_field :location
+
+  %br/
+  %br/
+  New Password (If you want to change it)
+  %br/
+  = f.password_field :password
+
+  %br/
+  %br/
+  New Password Confirmation
+  %br/
+  = f.password_field :password_confirmation
+
+  %div
+    %br/
+    %br/
+    Current Password (Your current password to confirm your changes)
+    %br/
+    = f.password_field :current_password
+
+
+    %br/
+    = f.submit 'Save'
+  %br/
+

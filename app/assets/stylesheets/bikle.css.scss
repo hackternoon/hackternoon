@@ -1,0 +1,30 @@
+
+div#div4_top_logo{background-color: white;}
+div#div4_lhs{background-color: #DDDDDD; }
+div#div4_footer{background-color: #CCCCCC; padding-top: 2px; margin-top: 4px;}
+.round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
+
+
+/* a{color:blue;} a:visited{color:blue;} a:hover{color:black; background-color:white; font-weight:bold;}*/
+/* Some SASS for you which matches the above CSS-comment : */
+a{
+  color: blue;
+  &:visited {color: blue;}
+  &:hover {color: black;background-color: white;font-weight:bold;}
+}
+
+/* More SASS: */
+div#div4_rhs{
+  background-color: #EEEEEE; margin-left: 8px;
+  & li{margin-left:15px;}
+}
+
+body{color:black; font-size:17px; line-height:22px;}
+
+.color_ddd{color:#DDDDDD;}
+.color_eee{color:#EEEEEE;}
+
+p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
+p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
+
+

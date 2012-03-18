@@ -1,0 +1,34 @@
+== Welcome to Hackternoon
+
+Hackternoon.com is a site to help Hackternooners find projects and other Hackternooners.
+
+The upgrade from Rails 3.1 to Rails 3.2 is done.
+
+The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
+
+Here is a list of enhancements I am focused on.
+
+Writeup 1st tech tip about the problem I had with datepicker which is now in blog
+
+Fix bug of projects which has the table extend beyond the div
+
+Display project creation date to help users spot stale projects
+
+Disable blog accordion until I get more blog content
+
+Personal info warning on signup page - use jquery dialog:
+  - Warn about these data fields
+  - Name
+  - e-mail
+  - phone
+  - location
+
+Implement ideas presented here:
+  - http://guides.rubyonrails.org/security.html
+
+
+
+
+
+
+

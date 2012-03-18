@@ -1,0 +1,40 @@
+= form_for @project do |f|
+  -if @project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label "Description"
+    = f.text_area :dscrptn, :cols => 40, :rows => 5
+  .field
+    Github URL (OK to leave blank and update later):
+    %br/
+    = f.text_field :github_url
+  .field
+    Technology Tags for this project.
+    %br/
+    (Ex: Rails, JavaScript, Android):
+    %br/
+    = f.text_field :tech_tag1
+  .field
+    = f.text_field :tech_tag2
+  .field
+    = f.text_field :tech_tag3
+  .field
+    Business Tags for this project.
+    %br/
+    (Ex: Blog Site, News Aggregator, Mobile Game):
+    %br/
+    = f.text_field :biz_tag1
+  .field
+    = f.text_field :biz_tag2
+  .field
+    = f.text_field :biz_tag3
+  .actions
+    = f.submit 'Save'
