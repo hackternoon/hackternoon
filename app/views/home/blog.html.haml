@@ -1,39 +1,65 @@
-%h1 A Hackternooner's Blog
-
+%h2 A Hackternooner's Blog
+%img(src="/assets/danbikle.jpeg")
 #accordion
   %h3#h3_2012_03
-    %a(href='#h3_2012_03')Blog Entry 1
+    %a(href='#h3_2012_03')2012-03-18 Hackternoon.com replaces a pad of paper
   %div
-    I want to use jQuery-UI to "Accordion" my Blog Entries.
+    I started the Hackternoon Meetup at Hacker Dojo in Mountain View California on July 19, 2011:
+    %br/
+    %br/
+    %a(href="http://meetup.com/Hackternoon" target="m")
+      Meetup.com/Hackternoon
+    %br/
+    %br/
+    I organized the Hackternoon projects using a simple pad of paper with three columns.
+    %br/
+    %br/
+    Most Sundays a group of Hackternooners would show up and gravitate towards the pad of paper where they could exchange 3 pieces of information:
+    %br/
+    %br/
+    %ul
+      %li - Name and/or E-Mail Address
+      %li - What they know or are willing to share
+      %li - What they want to learn from another Hackternooner
 
-  %h3#h3_2012_04
-    %a(href='#h3_2012_04')Blog Entry 2
-  %div
-    I bumped into an issue where my browser could not see any of the jQuery-UI functions.
-    I was confused because I could see jQuery-UI as being loaded when I viewed source.
+    Then, I would try to optimally create pairs of Hackternooners who would then use paired programming and shared learning to build and deploy a small project in a "Hackternoon".
 
-  %h3#h3_2012_05
-    %a(href='#h3_2012_05')Blog Entry 3
-  %div
-    I figured out the problem.  
     %br/
     %br/
-    Short story: public/assets/application.js was over-writing other .js files loaded earlier.
+    You are now looking at the website which replaces the pad of paper.
     %br/
     %br/
-    Long story:
+    The primary use-case of the site is similar to how we used the pad of paper:
     %br/
     %br/
-    When I add a JS directive to app/assets/javascripts/application.js
-    I need to then run this rake command:
-    RAILS_ENV=production bin/rake assets:precompile
-    This will then add jQuery-UI functions to this file:
-    public/assets/application.js
-    which is the very last file to get loaded and thus the file which overwrites all the JS in previous files
-    I see in the source.
+
+    %ul
+      %li - After one time registration, you login
+      %li - You create a project
+      %li - You add tags and a description to the project
+      %li - You invite 1 or more Hackternooners to work with you on the project
+
+    A secondary use-case is listed below:
     %br/
     %br/
-    Moral: Ensure that your JavaScript code resides in public/assets/application.js
+
+    %ul
+      %li - After one time registration, you login
+      %li - You look at other projects
+      %li - If you find one you like, you ask the owner to invite you to collaborate.
+
+    The site has powerful features over the pad of paper:
     %br/
     %br/
+
+    %ul
+      %li - You don't need to attend the Meetup to gain value from it
+      %li - Pair-building could happen purely over the net
+      %li - The pad of paper is wiped clean each week; the site is permanent
+
+
+
+
+
+
 

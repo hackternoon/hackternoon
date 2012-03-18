@@ -16,9 +16,12 @@ Display project creation date to help users spot stale projects
 
 Disable blog accordion until I get more blog content
 
-Personal info warning on signup page - use jquery dialog
-
-Add opinion about javascript on ux-rant
+Personal info warning on signup page - use jquery dialog:
+  - Warn about these data fields
+  - Name
+  - e-mail
+  - phone
+  - location
 
 Implement ideas presented here:
   - http://guides.rubyonrails.org/security.html
