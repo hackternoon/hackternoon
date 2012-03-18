@@ -69,6 +69,7 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
 end
 
 Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
+  # work around emacs-bug here via this dbl-quote: "
   User.new(:name => name,
             :email => email,
             :password => password,
@@ -138,10 +139,12 @@ When /^I go to the sign in page$/ do
 end
 
 Then /^I should see "([^"]*)"$/ do |text|
+  # work around emacs-bug here via this dbl-quote: "
   page.should have_content(text)
 end
 
 Then /^I should not see "([^"]*)"$/ do |text|
+  # work around emacs-bug here via this dbl-quote: "
   page.should_not have_content(text)
 end
 
@@ -165,6 +168,7 @@ Given /^I fill in the following:$/ do |table|
 end
 
 When /^I press "([^"]*)"$/ do |label|
+  # work around emacs-bug here via this dbl-quote: "
   click_button label
 end
 
@@ -177,5 +181,6 @@ When /^I go to the homepage$/ do
 end
 
 When /^I follow "([^"]*)"$/ do |text|
+  # work around emacs-bug here via this dbl-quote: "
   click_link text
 end
