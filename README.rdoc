@@ -1,5 +1,0 @@
-== Welcome to Hackternoon
-
-Hackternoon.com is a site to help Hackternooners find projects and other Hackternooners.
-
-Currently I am upgrading it from Rails 3.1 to Rails 3.2
