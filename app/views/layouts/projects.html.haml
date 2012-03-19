@@ -1,0 +1,107 @@
+!!! 5
+%html
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title Hackternoon.com
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #div4_top_logo.row
+      .twelve.columns
+        %a(href="/")
+          %img(src="/assets/logo.png" alt="hackternoon.com")
+    .row
+      #div4_lhs.two.columns.round_corner15px
+        %ul
+          = render 'devise/menu/registration_items'
+          = render 'devise/menu/login_items'
+          %li
+            = link_to('Projects',projects_path)
+
+          - if current_user.present?
+            %li
+              = link_to('New Project', new_project_path)
+
+          %li
+            Meetup:
+            %br/
+            %a(href="http://Meetup.com/Hackternoon" target="m")
+              %span.color_ddd __
+              Hackternoon
+
+          %li Links above are important, links below less so.
+
+          %li
+            %a(href="/blog")Blog
+
+          %li
+            %a(href="/tech_tips")Technical Tips
+
+          %li
+            Twitter:
+            %br/
+            %a(href="https://Twitter.com/Hackternoon" target="t")
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            Github:
+            %br/
+            %a(href="https://www.Github.com/Hackternoon" target="h")
+              %span.color_ddd __
+              Hackternoon
+          %li
+            LinkedIn:
+            %br/
+            %a(href="http://www.linkedin.com/groups/Hackternoon-4347714" target="i")
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            Facebook:
+            %br/
+            %a(href="https://www.Facebook.com/Hackternoon" target="f")
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            Google+:
+            %br/
+            %a(href="https://plus.google.com/105181318549199426173" target="p")
+              %span.color_ddd __
+              Hackternoon
+
+          %li
+            Google Site Search:
+            %form(action="https://www.google.com/" target="o")
+              %input(type="text" name="as_sitesearch" value="hackternoon.com" size="13")
+              %input(type="text" name="q" size="13")
+              %input(type="submit" value="Search")
+
+          %li
+            %a(href="/")About
+
+          %li
+            %a(href="/terms")Terms
+
+          %li
+            %a(href="/contact")Contact
+
+          %li
+            %a(href="/ux_info")UX-Info
+
+      #div4_projects.nine.columns
+        %p.notice
+          = notice
+        %p.alert
+          = alert
+        = yield
+    .row
+      #div4_footer.eleven.columns.round_corner15px
+        %a#a_htn(href="/") Hackternoon
+        2012
+    .row
+      .eleven.columns
+        %br/
