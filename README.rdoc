@@ -8,7 +8,12 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on.
 
-Writeup 1st tech tip about the problem I had with datepicker which is now in blog
+In safari and chrome, links on LHS are "jumpy"
+
+Fix bugs in e-mails:
+  - subject lines
+  - URLs
+
 
 Fix bug of projects which has the table extend beyond the div
 
