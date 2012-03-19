@@ -7,6 +7,14 @@ module ApplicationHelper
     else
       false
     end
-  end
+  end # def i_own?(object)
 
+  # In production I want users talking to https://hackternoon.herokuapp.com
+  def sslhost
+    if ENV['RAILS_ENV'] == 'production'
+      "https://hackternoon.herokuapp.com"
+    else
+      ""
+    end
+  end # def sslhost
 end
