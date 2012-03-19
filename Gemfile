@@ -22,6 +22,7 @@ group :test, :development do
   gem 'cucumber',         '~> 1.1.9'
   gem 'cucumber-rails',   '~> 1.3.0'
   gem 'heroku',           '~> 2.20.1'
+  gem 'hpricot',          '=0.8.6'
 end
 
 # Gems used only for assets and not required
