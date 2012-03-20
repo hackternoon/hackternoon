@@ -12,9 +12,13 @@ Fix bugs in e-mails:
   - subject lines
   - URLs
 
-Fix bug of projects which has the table extend beyond the div
+Enhance projects table:
+  - rm edit, destroy links
+  - move the destroy link to inside the show page
+  - Display project creation / update date to help users spot stale projects
+  - sort projects by that date
+  - paginate the table
 
-Display project creation date to help users spot stale projects
 
 Personal info warning on signup page - use jquery dialog:
   - Warn about these data fields

@@ -71,7 +71,7 @@ Hn24::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # bikle
-  config.action_mailer.default_url_options = { :host => 'hackternoon.herokuapp.com' }
+  config.action_mailer.default_url_options = {:host => 'hackternoon.herokuapp.com',:protocol => 'https'}
  
   ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
