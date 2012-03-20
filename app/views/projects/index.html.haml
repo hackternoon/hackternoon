@@ -2,42 +2,32 @@
 
 %table
   %tr
-    %th Name
-    %th Description
-    %th Owner
-    %th Github URL
-    %th Tech Tags
-    %th Business Tags
-    %th Edit Link?
-    %th Destroy Link?
+    %th#th_name Name
+    %th#th_description Description
+    %th#th_owner Owner
+    %th#th_github Github URL
+    %th#th_ttag Tech Tags
+    %th#th_btag Business Tags
+    %th#th_upd Updated At
 
   - @projects.each do |project|
     %tr
-      %td= link_to project.name, project
-      %td= project.dscrptn
-      %td= link_to(project.user.email, show_user_path(:user_id => project.user_id))
-      %td= link_to project.github_url,project.github_url
+      %td= link_to(truncate(project.name, :length => 25), project)
+      %td= truncate(project.dscrptn, :length => 80)
+      %td= link_to(truncate(project.user.email, :length => 15), show_user_path(:user_id => project.user_id))
+      %td= link_to truncate(project.github_url, :length => 25),project.github_url
       %td
-        = project.tech_tag1
+        = truncate project.tech_tag1, :length => 22
         %br/
-        = project.tech_tag2
+        = truncate project.tech_tag2, :length => 22
         %br/
-        = project.tech_tag3
+        = truncate project.tech_tag3, :length => 22
       %td
-        = project.biz_tag1
+        = truncate project.biz_tag1,  :length => 22
         %br/
-        = project.biz_tag2
+        = truncate project.biz_tag2,  :length => 22
         %br/
-        = project.biz_tag3
-      %td
-        - if i_own?(project)
-          = link_to 'Edit', edit_project_path(project)
-        - else
-          Not Owner
-      %td
-        - if i_own?(project)
-          = link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
-        - else
-          Not Owner
+        = truncate project.biz_tag3,  :length => 22
+      %td= truncate project.updated_at.to_s, :length => 22
 
 %br

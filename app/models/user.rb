@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :projects
-  has_many :invitations
+  has_many :projects, :dependent => :destroy
+  has_many :invitations, :dependent => :destroy
   has_many :projects_invited_to, :through => :invitations, :source => :project
 
   validates_uniqueness_of :email, :case_sensitive => false

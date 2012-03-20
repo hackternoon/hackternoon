@@ -13,11 +13,9 @@ Fix bugs in e-mails:
   - URLs
 
 Enhance projects table:
-  - rm edit, destroy links
-  - move the destroy link to inside the show page
-  - Display project creation / update date to help users spot stale projects
-  - sort projects by that date
+  - sort projects by that update_date
   - paginate the table
+  - create a full page view of the table
 
 
 Personal info warning on signup page - use jquery dialog:
@@ -29,7 +27,6 @@ Personal info warning on signup page - use jquery dialog:
 
 Implement ideas presented here:
   - http://guides.rubyonrails.org/security.html
-
 
 
 
