@@ -1,9 +1,9 @@
 - if user_signed_in?
   %li
-    = link_to('Logout', destroy_user_session_path, :method => :get)
+    = link_to('Logout', sslhost + destroy_user_session_path, :method => :get)
 - else
   %li
-    = link_to('Login', new_user_session_path)
+    = link_to('Login', sslhost + new_user_session_path)
   %li
     Logged in as:
     %span.color_green44 Guest
