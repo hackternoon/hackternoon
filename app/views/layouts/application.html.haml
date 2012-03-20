@@ -8,21 +8,21 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    #div4_top_logo.row
+    #div4_top_logo.row.background_color_white
       .twelve.columns
-        %a(href="/")
+        %a(href="#{sslhost}/")
           %img(src="/assets/logo.png" alt="hackternoon.com")
     .row
-      #div4_lhs.two.columns.round_corner15px
+      #div4_lhs.two.columns.round_corner15px.background_color_ddd
         %ul
-          = render 'devise/menu/registration_items'
-          = render 'devise/menu/login_items'
+          = render 'shared/registration_items'
+          = render 'shared/login_items'
           %li
-            = link_to('Projects',projects_path)
+            = link_to('Projects',sslhost + projects_path)
 
           - if current_user.present?
             %li
-              = link_to('New Project', new_project_path)
+              = link_to('New Project', sslhost + new_project_path)
 
           %li
             Meetup:
@@ -34,10 +34,10 @@
           %li Links above are important, links below less so.
 
           %li
-            %a(href="/blog")Blog
+            %a(href="#{sslhost}/blog")Blog
 
           %li
-            %a(href="/tech_tips")Technical Tips
+            %a(href="#{sslhost}/tech_tips")Technical Tips
 
           %li
             Twitter:
@@ -76,31 +76,31 @@
           %li
             Google Site Search:
             %form(action="https://www.google.com/" target="o")
-              %input(type="text" name="as_sitesearch" value="hackternoon.com" size="13")
+              %input(type="text" name="as_sitesearch" value="hackternoon.herokuapp.com" size="13")
               %input(type="text" name="q" size="13")
               %input(type="submit" value="Search")
 
           %li
-            %a(href="/")About
+            %a(href="#{sslhost}/")About
 
           %li
-            %a(href="/terms")Terms
+            %a(href="#{sslhost}/terms")Terms
 
           %li
-            %a(href="/contact")Contact
+            %a(href="#{sslhost}/contact")Contact
 
           %li
-            %a(href="/ux_info")UX-Info
+            %a(href="#{sslhost}/ux_info")UX-Info
 
-      #div4_rhs.nine.columns.round_corner15px
+      #div4_rhs.nine.columns
         %p.notice
           = notice
         %p.alert
           = alert
         = yield
     .row
-      #div4_footer.eleven.columns.round_corner15px
-        %a#a_htn(href="/") Hackternoon
+      #div4_footer.eleven.columns.round_corner15px.background_color_ccc
+        %a#a_htn(href="#{sslhost}/") Hackternoon
         2012
     .row
       .eleven.columns

@@ -1,7 +1,7 @@
 
-div#div4_top_logo{background-color: white;}
-div#div4_lhs{background-color: #DDDDDD; }
-div#div4_footer{background-color: #CCCCCC; padding-top: 2px; margin-top: 4px;}
+div#div4_top_logo{}
+div#div4_lhs{}
+div#div4_footer{padding-top: 2px; margin-top: 4px;}
 .round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
 
 
@@ -15,18 +15,26 @@ a{
 
 /* More SASS: */
 div#div4_rhs{
-  background-color: #EEEEEE; margin-left: 8px;
+  background-color: white; margin-left: 8px;
   & li{margin-left:15px;}
 }
 
 body{color:black; font-size:17px; line-height:22px;}
 
+.color_ccc{color:#CCCCCC;}
 .color_ddd{color:#DDDDDD;}
 .color_eee{color:#EEEEEE;}
 .color_green44{color:#004400;}
 
+.background_color_ccc{background-color:#CCCCCC;}
+.background_color_ddd{background-color:#DDDDDD;}
+.background_color_eee{background-color:#EEEEEE;}
+.background_color_white{background-color:white;}
+
 p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
 p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
 
+/* not used currently:
 div#div4_projects{background-color: white; padding-left: 5px; padding-right: 1px; padding-top: 1px;}
+*/
 
