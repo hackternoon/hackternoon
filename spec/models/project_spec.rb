@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Project do
-  pending "add some examples to (or delete) #{__FILE__}"
+debugger
+  @user = FactoryGirl.build(:user)
+  @project = FactoryGirl.build(:project)
+  @project.user = @user
 end
