@@ -9,6 +9,7 @@ gem 'haml',       '~> 3.1.4'
 gem 'haml-rails', '~> 0.3.4'
 gem 'slim',       '~> 1.1.0'
 gem 'devise',     '~> 2.0.4'
+gem 'kaminari',   '=0.13.0'
 
 group :test, :development do
   gem 'ruby-debug19', '~> 0.11.6',:require => 'ruby-debug'
