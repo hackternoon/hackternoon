@@ -2,7 +2,12 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    # @projects = Project.all
+    # Project.page() is defined by kaminari gem.
+    # page() works ok if params[:page] is nil.
+    # I want newer projects displayed first.
+    # Then I want to sort by project-name:
+    @projects = Project.order(:updated_at).reverse_order.order(:name).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

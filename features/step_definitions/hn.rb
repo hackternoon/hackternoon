@@ -73,6 +73,9 @@ end
 
 
 Then /^I_should_see_kaminari_links$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_selector("nav.pagination")
+  page.should have_selector("span.page")
+  step %{I should see page_has_link "Next"}
+  step %{I should see page_has_link "Last"}
 end
 
