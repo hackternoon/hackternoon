@@ -12,10 +12,7 @@ Fix bugs in e-mails:
   - subject lines
   - URLs
 
-Enhance projects table:
-  - sort projects by that update_date
-  - paginate the table
-
+Fix red cucumber features.
 
 Personal info warning on signup page - use jquery dialog:
   - Warn about these data fields
