@@ -63,3 +63,16 @@ Then /^I_follow_reset_password_mail_for "([^"]*)"$/ do |email|
   @rpath = "/users/password/edit?reset_password_token=#{@rptoken}"
   visit @rpath
 end
+
+Then /^I_create_90_projects$/ do
+  # I'm not too picky about who owns the projects.
+  # I just want to see many projects so I can test pagination:
+  first_id = User.first.id
+  (10..99).each{|n| FactoryGirl.create(:project,:name=>"project#{n}",:user_id=>first_id)}
+end
+
+
+Then /^I_should_see_kaminari_links$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
