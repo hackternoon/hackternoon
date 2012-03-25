@@ -9,3 +9,29 @@
     = f.submit 'Signup'
   %br/
   = render :partial => 'devise/links'
+
+
+:javascript
+  $(document).ready(function() {
+    $("a#a_warning").show();
+    $("div#div_warning").hide();
+
+    $("a#a_warning").click(function () {
+      $("div#div_warning").dialog();
+    });    
+
+  });    
+
+%a#a_warning.hidden(href="#")Warning!
+
+%div#div_warning
+  You might want to use a "throw-away" e-mail address here.
+  %br/
+  %br/
+  Yahoo mail works well for this:
+  %a(href="https://mail.yahoo.com" target="y")https://mail.yahoo.com
+  %br/
+  %br/
+  Spammers and id-thieves are very interested in your primary e-mail address.
+  %br/
+  %br/
