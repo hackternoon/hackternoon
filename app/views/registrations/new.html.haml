@@ -12,15 +12,27 @@
 
 
 :javascript
-  $(document).ready(function() {
+  $(document).ready(function(event) {
     $("div#div_warning").hide();
     $("a#a_warning").show();
 
+    $("a#a_warning").click(function (event) {
+      event.preventDefault();
+      $("div#div_warning").show();
+      $("a#a_warning").hide();
+    });
+
+    $("a#close_warning").click(function (event) {
+      event.preventDefault();
+      $("div#div_warning").hide();
+      $("a#a_warning").show();
+    });
+
   });    
 
-%a#a_warning.hidden(href="#" data-reveal-id="div_warning")Warning!
+%a#a_warning.hidden(href="#")Warning!
 
-%div#div_warning.reveal_modal
+%div#div_warning.background_color_eee.round_corner15px
   You might want to use a "secondary-throw-away" e-mail address here.
   %br/
   %br/
@@ -31,4 +43,4 @@
   Spammers and id-thieves are very interested in your primary e-mail address.
   %br/
   %br/
-  %a#a_warning.close-reveal-modal(href="#")close-reveal-modal
+  %a#close_warning(href="#")OK
