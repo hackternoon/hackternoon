@@ -13,22 +13,24 @@
 
 :javascript
   $(document).ready(function() {
+    $("div#div_warning").dialog({autoOpen:false,dialogClass:'dialog_class', buttons: [{text: "Ok",click: function() { $(this).dialog("close"); } }] })
     $("a#a_warning").show();
     $("div#div_warning").hide();
 
-    $("a#a_warning").click(function () {
-      $("div#div_warning").dialog();
+    $("a#a_warning").click(function (event) {
+      event.preventDefault();
+      $("div#div_warning").dialog('open');
     });    
 
   });    
 
 %a#a_warning.hidden(href="#")Warning!
 
-%div#div_warning
-  You might want to use a "throw-away" e-mail address here.
+%div#div_warning(title="Secondary E-Mail is Good")
+  You might want to use a "secondary-throw-away" e-mail address here.
   %br/
   %br/
-  Yahoo mail works well for this:
+  Yahoo mail gives you a seconday E-Mail address in about 2 minutes:
   %a(href="https://mail.yahoo.com" target="y")https://mail.yahoo.com
   %br/
   %br/
