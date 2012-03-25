@@ -13,20 +13,14 @@
 
 :javascript
   $(document).ready(function() {
-    $("div#div_warning").dialog({autoOpen:false,dialogClass:'dialog_class', buttons: [{text: "Ok",click: function() { $(this).dialog("close"); } }] })
-    $("a#a_warning").show();
     $("div#div_warning").hide();
-
-    $("a#a_warning").click(function (event) {
-      event.preventDefault();
-      $("div#div_warning").dialog('open');
-    });    
+    $("a#a_warning").show();
 
   });    
 
-%a#a_warning.hidden(href="#")Warning!
+%a#a_warning.hidden(href="#" data-reveal-id="div_warning")Warning!
 
-%div#div_warning(title="Secondary E-Mail is Good")
+%div#div_warning.reveal_modal
   You might want to use a "secondary-throw-away" e-mail address here.
   %br/
   %br/
@@ -37,3 +31,4 @@
   Spammers and id-thieves are very interested in your primary e-mail address.
   %br/
   %br/
+  %a#a_warning.close-reveal-modal(href="#")close-reveal-modal
