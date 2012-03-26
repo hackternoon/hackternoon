@@ -79,3 +79,7 @@ Then /^I_should_see_kaminari_links$/ do
   step %{I should see page_has_link "Last"}
 end
 
+Then /^I_press_confirm_button$/ do
+  page.evaluate_script('window.confirm = function() { return true; }')
+  page.click('Remove')
+end

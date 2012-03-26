@@ -31,7 +31,7 @@ Feature: Bob can create a project
       And I should see "Editing project"
       And I should see "Description"
       And I should see page_has_no_link "Back"
-      And I should see page_has_link "Show"
+      And I should see page_has_link "Do not edit this project"
       And I fill in the following:
         | Name | Hackternoon.com   |
       And I press "Save"
@@ -46,20 +46,11 @@ Feature: Bob can create a project
       Then I should see "Hackternooners"
       And I follow "Projects"
       Then I should see "Hackternooners"
-      And I should see page_has_link "Edit"
-      And I should see page_has_link "Destroy"
-      And I follow "Edit"
-      Then I should see "Hackternooners"
-      And I follow "Logout"
-      And I follow "Projects"
-      Then I should see "Hackternooners"
-      And I should see page_has_no_link "Edit"
-      And I should see page_has_no_link "Destroy"
-      And I should see "Not Owner"
-      Given I login_as "dan@hackternoon.com/abc123"
-      When I go to the home page
-      And I follow "Projects"
-      Then I should see "Hackternooners"
-      And I should see page_has_no_link "Edit"
-      And I should see page_has_no_link "Destroy"
-      And I should see "Not Owner"
+      And I follow "Hackternoon.com"
+      And I should see "Hackternooners"
+      And I follow "Edit this project"
+      And I should see "Hackternooners"
+      And I follow "Delete this project"
+      And debug
+      And I_press_confirm_button
+      And I should see "Projects"

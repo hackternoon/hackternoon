@@ -7,7 +7,6 @@ Feature: Warning
     Scenario: User sees personal info warning
       Given I sign out
       And I follow "Register"
-      And I should not see "mail.yahoo.com"
       And I follow "Warning"
       And I should see "mail.yahoo.com"
       And I press "close_warning"
