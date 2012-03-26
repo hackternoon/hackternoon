@@ -83,3 +83,20 @@ Then /^I_press_confirm_button$/ do
   page.evaluate_script('window.confirm = function() { return true; }')
   page.click('Remove')
 end
+
+Then /^I confirm popup$/ do
+  if page.driver.browser.methods.include? :switch_to
+    page.driver.browser.switch_to.alert.accept
+  else
+    assert true
+  end
+end
+
+Then /^I dismiss popup$/ do
+  if page.driver.browser.methods.include? :switch_to
+    page.driver.browser.switch_to.alert.dismiss
+  else
+    assert true
+  end
+end
+

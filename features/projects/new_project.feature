@@ -51,6 +51,5 @@ Feature: Bob can create a project
       And I follow "Edit this project"
       And I should see "Hackternooners"
       And I follow "Delete this project"
-      And debug
-      And I_press_confirm_button
+      And I confirm popup
       And I should see "Projects"
