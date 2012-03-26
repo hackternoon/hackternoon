@@ -8,18 +8,7 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on.
 
-Fix bugs in e-mails:
-  - subject lines
-  - URLs
-
 Fix red cucumber features.
-
-Personal info warning on signup page - use jquery dialog:
-  - Warn about these data fields
-  - Name
-  - e-mail
-  - phone
-  - location
 
 Implement ideas presented here:
   - http://guides.rubyonrails.org/security.html

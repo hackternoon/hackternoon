@@ -15,3 +15,13 @@ Ask for a resend here
 
   %div
     = f.submit "Resend confirmation instructions"
+
+- if ENV['RAILS_ENV'] == 'production'
+  / nada
+- else
+  %ul
+    - @conf_tokens.each do |usr|
+      %li 
+        #{confirm_email_url(:confirmation_token => usr.confirmation_token)}
+        %br/
+        is for: #{usr.email}

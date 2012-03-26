@@ -5,6 +5,13 @@ class ConfirmationsController < Devise::ConfirmationsController
   # Control flows here when user asks for a confirmation token.
   # Currently all it does is build a resource and render a form.
   def new
+    # In development and test I want to see the recent conf-tokens:
+    if ENV['RAILS_ENV'] == 'production'
+      @conf_tokens = [User.new]
+    else
+      @conf_tokens = User.select("email, confirmation_token").order(:updated_at).reverse_order.limit(100)
+    end
+    # Now move along:
     super
   end
 
