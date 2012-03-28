@@ -8,10 +8,19 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on.
 
-Fix red cucumber features.
+Let user attach gravatar , or FB photo to profile.
 
-Implement ideas presented here:
-  - http://guides.rubyonrails.org/security.html
+FB pattern:
+  - http://profile.ak.fbcdn.net/hprofile-ak-ash2/50099_100001849326471_1293081441_n.jpg
+  - http://profile.ak.fbcdn.net/hprofile-ak-snc4/173649_681665317_58999555767_n.jpg
+
+Gravatar pattern:
+  - http://gravatar.com/avatar/76a777ff80f30bd3bw30e275cce625bc
+  - http://gravatar.com/avatar/cb2b768a5e546b24e052ea03334e43676
+  - https://secure.gravatar.com/avatar/76a777ff80f30bd3bw30e275cce625bc
+  - https://secure.gravatar.com/avatar/cb2b768a5e546b24e052ea03334e43676
+
+
 
 
 
