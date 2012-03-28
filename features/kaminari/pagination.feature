@@ -2,7 +2,7 @@ Feature: Bob can page through many projects
   In order to promote Hackternoon
   I allow Bob, a current user, to page through many projects
 
-    @javascriptx
+    @javascript
     Scenario: Bob can page through many projects
       Given I exist as a user
       And I go to the home page

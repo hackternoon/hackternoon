@@ -8,6 +8,6 @@ Feature: Warning
       Given I sign out
       And I follow "Register"
       And I follow "Warning"
-      And I should see "mail.yahoo.com"
+      And I should see "edit.yahoo.com"
       And I press "close_warning"
       Then I should see page_has_link "Warning"
