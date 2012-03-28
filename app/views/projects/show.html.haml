@@ -19,6 +19,7 @@ Github URL:
 - if @project.github_url =~ /(^http:\/\/github.com\/\w+\/\w+)$|(^https:\/\/github.com\/\w+\/\w+)$/
   = link_to @project.github_url, @project.github_url, :target => 'b'
 - else
+  %br/
   = @project.github_url
 %br/
 %br/

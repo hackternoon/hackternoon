@@ -9,7 +9,12 @@ E-Mail:
 = @user.email
 %br/
 Twitter Handle:
-= @user.twitter_handle
+- if @user.twitter_handle =~ /^@\w+/
+  %a(href="http://twitter.com/#{@user.twitter_handle}" target="t")
+    http://twitter.com/#{@user.twitter_handle}
+- else
+  = @user.twitter_handle
+
 %br/
 Location:
 = @user.location
