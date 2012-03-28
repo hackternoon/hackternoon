@@ -20,12 +20,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, 
-    :twitter_handle, :location
+    :twitter_handle, :location, :photo_url
 
   # I use set_name to set the value of name to a default value when a user is created.
   def set_name
     # I truncate it too. I dislike big names.
     self.name = self.email.truncate 25
+    self.photo_url = 'http://0.gravatar.com/avatar/fa3c0e79ecfe1f9e2cdc906ae34b14ee'
   end  
 
   # Does the password match the password confirmation in the form?
@@ -40,6 +41,7 @@ class User < ActiveRecord::Base
     self.name           = self.name.truncate 30           if self.name.present?
     self.twitter_handle = self.twitter_handle.truncate 30 if self.twitter_handle.present?
     self.location       = self.location.truncate 40       if self.location.present?
+    self.photo_url      = self.photo_url.truncate 200     if self.photo_url.present?
   end # def trunc_em
 
 end
