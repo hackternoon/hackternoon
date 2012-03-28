@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  # Callback before I create so I have at least something for a name.
+  before_create :set_name
+
+  # Callback before I save so I truncate large strings.
+  before_save :trunc_em
+
+  # Associations come after callbacks.
+  # http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html
   has_many :projects, :dependent => :destroy
   has_many :invitations, :dependent => :destroy
   has_many :projects_invited_to, :through => :invitations, :source => :project
@@ -14,17 +22,24 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, 
     :twitter_handle, :location
 
-  before_create :set_name
-
   # I use set_name to set the value of name to a default value when a user is created.
   def set_name
-    self.name = self.email
+    # I truncate it too. I dislike big names.
+    self.name = self.email.truncate 25
   end  
 
+  # Does the password match the password confirmation in the form?
   def password_match?
     self.errors[:password] << 'password not match' if password != password_confirmation
     self.errors[:password] << 'you must provide a password' if password.blank?
     password == password_confirmation and !password.blank?
-  end
+  end # def password_match?
+
+  # I distrust large strings.
+  def trunc_em
+    self.name           = self.name.truncate 30           if self.name.present?
+    self.twitter_handle = self.twitter_handle.truncate 30 if self.twitter_handle.present?
+    self.location       = self.location.truncate 40       if self.location.present?
+  end # def trunc_em
 
 end
