@@ -2,7 +2,11 @@
   = link_to("Edit your profile", edit_user_registration_path)
   %br/
   %br/
-= image_tag @user.photo_url
+- if @profile_photo_url.present?
+  = image_tag @profile_photo_url.the_url
+- else
+  = image_tag 'http://0.gravatar.com/avatar/fa3c0e79ecfe1f9e2cdc906ae34b14ee'
+
 %br/
 Name:
 = @user.name

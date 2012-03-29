@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @projects = @user.projects
     @invitations = @user.invitations
     @projects_invited_to = @user.projects_invited_to
+    @profile_photo_url = @user.photo_urls.select("the_url").where('profile_photo = ?', true).first
   end
 
 end
