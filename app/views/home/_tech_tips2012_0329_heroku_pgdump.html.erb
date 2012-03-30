@@ -3,5 +3,55 @@ I looked for information on backup/restore of pg data on heroku.
 
 <br />
 <br />
-I started with heroku gem:
+I started by simple interaction with the heroku gem:
+<br />
+
+<pre class='pre_courier'>
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku 
+Usage: heroku COMMAND [--app APP] [command-specific-options]
+
+Primary help topics, type "heroku help TOPIC" for more details:
+
+  addons    # manage addon resources
+  apps      # manage apps (create, destroy)
+  auth      # authentication (login, logout)
+  config    # manage app config vars
+  domains   # manage custom domains
+  logs      # display logs for an app
+  ps        # manage processes (dynos, workers)
+  releases  # view release history of an app
+  run       # run one-off commands (console, rake)
+  sharing   # manage collaborators on an app
+
+Additional topics:
+
+  account      # manage heroku account options
+  db           # manage the database for an app
+  drains       # display syslog drains for an app
+  help         # list commands and display help
+  keys         # manage authentication keys
+  maintenance  # toggle maintenance mode
+  pg           # manage heroku postgresql databases
+  pgbackups    # manage backups of heroku postgresql databases
+  plugins      # manage plugins to the heroku gem
+  ssl          # manage ssl certificates for an app
+  stack        # manage the stack for an app
+  status       # check status of Heroku platform
+  update       # update the heroku client
+  version      # display version
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku help pg
+Additional commands, type "heroku help COMMAND" for more details:
+
+  pg:credentials [DATABASE]  # Display the DATABASE credentials.
+  pg:info [DATABASE]         # Display database information
+  pg:promote [DATABASE]      # Sets DATABASE as your DATABASE_URL
+  pg:psql [DATABASE]         # Open a psql shell to the database
+  pg:reset [DATABASE]        # Delete all data in DATABASE
+  pg:unfollow <REPLICA>      # stop a replica from following and make it a read/write database
+  pg:wait [DATABASE]         # monitor database creation, exit when complete
+</pre>
+
 

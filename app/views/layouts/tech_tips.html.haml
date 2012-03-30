@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")/
+    %title Hackternoon.com
+    = stylesheet_link_tag    "tech_tips"
+    = csrf_meta_tags
+  %body
+    %table
+      %tr
+        %td
+          %a(href="#{sslhost}/")
+            %img(src="/assets/logo.png" alt="hackternoon.com")
+      %tr
+        %td.round_corner15px.background_color_ddd
+
+          %ul
+            = render 'shared/registration_items'
+            = render 'shared/login_items'
+            %li
+              = link_to('Projects',sslhost + projects_path)
+            - if current_user.present?
+              %li
+                = link_to('New Project', sslhost + new_project_path)
+
+        %td.background_color_white
+          %p.notice
+            = notice
+          %p.alert
+            = alert
+          = yield
+      %tr
+        %td.round_corner15px.background_color_ccc(colspan="2")
+          %a#a_htn(href="#{sslhost}/") Hackternoon
+          2012
+      %tr
+        %td
+          %br/

@@ -1,8 +1,27 @@
+// Place all the styles related to the tech_tips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
-div#div4_top_logo{}
-div#div4_lhs{}
-div#div4_footer{padding-top: 2px; margin-top: 4px;}
+pre {
+font-weight: 600;
+font-family: monospace,"Courier New",Terminal;
+font-size: 18px;
+border: 1px solid black;
+background-color: white;
+}
+
+pre.bash {color: #060;}
+
+pre{
+display: block;
+white-space: pre;
+margin: 1em 0px;
+margin-left: 0px;
+}
+
 .round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
+
+body{color:black; font-size:17px; line-height:22px;}
 
 
 /* a{color:blue;} a:visited{color:blue;} a:hover{color:black; background-color:white; font-weight:bold;}*/
@@ -12,14 +31,6 @@ a{
   &:visited {color: blue;}
   &:hover {color: black;background-color: white;}
 }
-
-/* More SASS: */
-div#div4_rhs{
-  background-color: white; margin-left: 8px;
-  & li{margin-left:15px;}
-}
-
-body{color:black; font-size:17px; line-height:22px;}
 
 .color_ccc{color:#CCCCCC;}
 .color_ddd{color:#DDDDDD;}
@@ -33,20 +44,3 @@ body{color:black; font-size:17px; line-height:22px;}
 
 p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
 p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
-
-/* not used currently:
-div#div4_projects{background-color: white; padding-left: 5px; padding-right: 1px; padding-top: 1px;}
-*/
-
-div#div4_rhs table #th_name{min-width:150px;}
-div#div4_rhs table #th_description{min-width:250px;}
-div#div4_rhs table #th_owner{min-width:100px;}
-div#div4_rhs table #th_github{min-width:200px;}
-div#div4_rhs table #th_ttag{min-width:150px;}
-div#div4_rhs table #th_btag{min-width:150px;}
-div#div4_rhs table #th_upd{min-width:150px;}
-
-.margin_left0px{margin-left: 0px;}
-.hidden{display: none;}
-
-.pre_courier{font-weight:bold; font-family:"Courier"; color:#442244;}

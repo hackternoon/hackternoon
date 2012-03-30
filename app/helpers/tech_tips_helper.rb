@@ -1,0 +1,2 @@
+module TechTipsHelper
+end
