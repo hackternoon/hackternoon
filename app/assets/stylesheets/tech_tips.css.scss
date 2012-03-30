@@ -3,44 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 pre {
-font-weight: 600;
-font-family: monospace,"Courier New",Terminal;
-font-size: 18px;
-border: 1px solid black;
-background-color: white;
+  font-weight: 800;
+  font-family: monospace,"Courier New",Terminal;
+  font-size: 18px;
+  border: 1px solid black;
+  border-right-color: white;
+  background-color: white;
+  white-space: pre;
+  margin: 1em 0px;
+  margin-left: 0px;
+  padding-left: 9px;
+  min-width: 800px;
+  color: #004400;
 }
 
-pre.bash {color: #060;}
-
-pre{
-display: block;
-white-space: pre;
-margin: 1em 0px;
-margin-left: 0px;
-}
-
-.round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
-
-body{color:black; font-size:17px; line-height:22px;}
-
-
-/* a{color:blue;} a:visited{color:blue;} a:hover{color:black; background-color:white; font-weight:bold;}*/
-/* Some SASS for you which matches the above CSS-comment : */
-a{
-  color: blue;
-  &:visited {color: blue;}
-  &:hover {color: black;background-color: white;}
-}
-
-.color_ccc{color:#CCCCCC;}
-.color_ddd{color:#DDDDDD;}
-.color_eee{color:#EEEEEE;}
-.color_green44{color:#004400;}
-
-.background_color_ccc{background-color:#CCCCCC;}
-.background_color_ddd{background-color:#DDDDDD;}
-.background_color_eee{background-color:#EEEEEE;}
-.background_color_white{background-color:white;}
-
-p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
-p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
+.wide1200px {max-width: 1200px;}

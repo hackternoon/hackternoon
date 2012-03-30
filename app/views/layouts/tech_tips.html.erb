@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/head' %>
+  <body>
+    <!-- I need tech_tips.html.erb layout to work around bug in render() which corrupts text in pre-elements -->
+    <!-- I would prefer to use application.html.haml here -->
+
+    <div class='row background_color_white wide1200px' id='div4_top_logo'>
+      <div class='twelve columns'>
+        <a href='/'>
+          <img alt='hackternoon.com' src='/assets/logo.png'>
+        </a>
+      </div>
+    </div>
+    <div class='row wide1200px' id='div4row2'>
+
+      <%= render 'layouts/tech_tips_div4_lhs' %>
+
+      <div class='nine columns' id='div4_rhs'>
+        <p class='notice'>
+          <%= notice %>
+        </p>
+        <p class='alert'>
+          <%= alert %>
+        </p>
+        <%= render 'tech_tips/jquery2move_tips' %>
+        <h3>Technical Tips</h3>
+        <img src="/assets/hackternoon_home.jpeg" alt="hackternoon.com" />
+        <br />
+
+        <h3 id='h3_2012_0329'>2012-03-29 Notes about Heroku pgdump</h3>
+
+        I looked for information on backup/restore of pg data on heroku.
+        
+        <br />
+        <br />
+        I started by simple interaction with the heroku gem:
+        <br />
+        
+<!-- The main point of tech_tips.html.erb is to remove indentation of text in pre-elements. -->
+<!-- I do that here: -->
+<pre>
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku 
+Usage: heroku COMMAND [--app APP] [command-specific-options]
+
+Primary help topics, type "heroku help TOPIC" for more details:
+
+  addons    # manage addon resources
+  apps      # manage apps (create, destroy)
+  auth      # authentication (login, logout)
+  config    # manage app config vars
+  domains   # manage custom domains
+  logs      # display logs for an app
+  ps        # manage processes (dynos, workers)
+  releases  # view release history of an app
+  run       # run one-off commands (console, rake)
+  sharing   # manage collaborators on an app
+
+Additional topics:
+
+  account      # manage heroku account options
+  db           # manage the database for an app
+  drains       # display syslog drains for an app
+  help         # list commands and display help
+  keys         # manage authentication keys
+  maintenance  # toggle maintenance mode
+  pg           # manage heroku postgresql databases
+  pgbackups    # manage backups of heroku postgresql databases
+  plugins      # manage plugins to the heroku gem
+  ssl          # manage ssl certificates for an app
+  stack        # manage the stack for an app
+  status       # check status of Heroku platform
+  update       # update the heroku client
+  version      # display version
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku help pg
+Additional commands, type "heroku help COMMAND" for more details:
+
+  pg:credentials [DATABASE]  # Display the DATABASE credentials.
+  pg:info [DATABASE]         # Display database information
+  pg:promote [DATABASE]      # Sets DATABASE as your DATABASE_URL
+  pg:psql [DATABASE]         # Open a psql shell to the database
+  pg:reset [DATABASE]        # Delete all data in DATABASE
+  pg:unfollow &lt;REPLICA>      # stop a replica from following and make it a read/write database 
+  pg:wait [DATABASE]         # monitor database creation, exit when complete
+
+</pre>
+
+I was curious about the configuration of my Postgres db on Heroku.
+<br />
+<br />
+So I looked:
+
+<pre>
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku config
+DATABASE_URL        => postgres://hgfrrmiw23:YLQXU6GCSPmDBPnpVYL4@ec2-107-20-155-141.compute-1.amazonaws.com/hgfrrmiw23
+GEM_PATH            => vendor/bundle/ruby/1.9.1
+LANG                => en_US.UTF-8
+PATH                => bin:vendor/bundle/ruby/1.9.1/bin:/usr/local/bin:/usr/bin:/bin
+RACK_ENV            => production
+RAILS_ENV           => production
+SHARED_DATABASE_URL => postgres://hgfrrmiw23:YLQXU6GCSPmDBPnpVYL4@ec2-107-20-155-141.compute-1.amazonaws.com/hgfrrmiw23
+
+
+
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku pg:info
+=== SHARED_DATABASE (DATABASE_URL)
+Data Size    160k
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku pg:credentials
+ !    Cannot ingress to a shared database
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+
+</pre>
+
+Next, I looked for information about how pg-backups work:
+
+<pre>
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku help pgbackups
+Usage: heroku pgbackups
+
+ list captured backups
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  pgbackups:capture [DATABASE]                           # capture a backup from a database id
+  pgbackups:destroy BACKUP_ID                            # destroys a backup
+  pgbackups:restore [&lt;DATABASE> [BACKUP_ID|BACKUP_URL]]  # restore a backup to a database
+  pgbackups:url [BACKUP_ID]                              # get a temporary URL for a backup
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+
+
+
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku help pgbackups:capture
+Usage: heroku pgbackups:capture [DATABASE]
+
+ capture a backup from a database id
+
+ if no DATABASE is specified, defaults to DATABASE_URL
+
+ -e, --expire  # if no slots are available to capture, destroy the oldest backup to make room
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+
+
+
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku help pgbackups:url
+Usage: heroku pgbackups:url [BACKUP_ID]
+
+ get a temporary URL for a backup
+
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+oracle@z3:/pt/w/hn/z3_2012_0329$ 
+
+</pre>
+
+
+        <%= render 'tech_tips/tech_tips2012_0318_jqueryui' %>
+
+      </div>
+    </div>
+
+    <%= render 'layouts/tech_tips_footer' %>
+
+  </body>
+</html>

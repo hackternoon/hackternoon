@@ -1,0 +1,60 @@
+/ app/views/tech_tips/_tech_tips2012_0318_jqueryui.html.haml
+%h3#h3_2012_0318 2012-03-18 jQuery-UI, Rails 3.2.x, application.js
+%div
+  I wanted to use jQuery-UI to "Accordion" my Blog Entries and Technical Tips.
+  %br/
+  %br/
+  I bumped into an issue where my browser could not see any of the jQuery-UI functions.
+  I was confused because I could see jQuery-UI as being loaded when I viewed source.
+  %br/
+  %br/
+  I did find a good clue in the JavaScript console of my browser.
+  It displayed this error:
+  %br/
+  %br/
+  Uncaught TypeError: Object [object Object] has no method 'accordion'
+  %br/
+  %br/
+  I figured out the problem by studying the order of .js files served to my browser.
+  %br/
+  %br/
+  Short story: public/assets/application.js was over-writing other .js files loaded earlier. And it was missing the jQuery-UI library.
+  %br/
+  %br/
+  Long story:
+  %br/
+  %br/
+  The file public/assets/application.js is generated from this file:
+  %br/
+  %br/
+  %a(target="b" href="https://github.com/hackternoon/hackternoon/blob/master/app/assets/javascripts/application.js")
+    https://github.com/hackternoon/hackternoon/blob/master/app/assets/javascripts/application.js
+  %br/
+  %br/
+  When I add a jquery-ui "directive" to app/assets/javascripts/application.js,
+  I need to then run this rake command:
+  %br/
+  %br/
+  RAILS_ENV=production bin/rake assets:precompile
+  %br/
+  %br/
+  Normally I run the above command before I deploy my site to Heroku.
+  But in this situation I needed to run it in my development environment.
+  %br/
+  %br/
+  Why?
+  %br/
+  %br/
+  Because it will then add jQuery-UI functions to this file:
+  %br/
+  %br/
+  public/assets/application.js
+  %br/
+  %br/
+  which is the very last file to get loaded 
+  and thus the file which overwrites all the JS in previous files I see in the source.
+  %br/
+  %br/
+  Moral: Ensure that your JavaScript code resides in public/assets/application.js
+  %br/
+  %br/
