@@ -9,7 +9,7 @@ gem 'haml',       '~> 3.1.4'
 gem 'haml-rails', '~> 0.3.4'
 gem 'slim',       '~> 1.1.0'
 gem 'devise',     '~> 2.0.4'
-gem 'kaminari',   '=0.13.0'
+gem 'kaminari',   '= 0.13.0'
 
 group :test, :development do
   gem 'ruby-debug19', '~> 0.11.6',:require => 'ruby-debug'
@@ -25,6 +25,7 @@ group :test, :development do
   gem 'heroku',           '~> 2.20.1'
   gem 'hpricot',          '= 0.8.6'
   gem 'factory_girl_rails','= 1.7.0'
+  gem 'sqlite3'           ,'= 1.3.3'
   gem 'taps'              ,'= 0.3.23'
 end
 
