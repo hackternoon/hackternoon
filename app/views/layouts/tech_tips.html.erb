@@ -28,13 +28,13 @@
         <img src="/assets/hackternoon_home.jpeg" alt="hackternoon.com" />
         <br />
 
-        <h3 id='h3_2012_0329'>2012-03-29 Notes about Heroku pgdump</h3>
+        <h3 id='h3_2012_0329'>2012-03-29 Notes about Heroku 'pgbackups'</h3>
 
-        I looked for information on backup/restore of pg data on heroku.
+        I looked for information on backup/restore of pg data on Heroku.
         
         <br />
         <br />
-        I started by simple interaction with the heroku gem:
+        I started by simple interaction with the Heroku gem:
         <br />
         
 <!-- The main point of tech_tips.html.erb is to remove indentation of text in pre-elements. -->
@@ -119,7 +119,7 @@ oracle@z3:/pt/w/hn/z3_2012_0329$
 
 </pre>
 
-Next, I looked for information about how pg-backups work:
+Next, I looked for information about how pgbackups work:
 
 <pre>
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
@@ -279,8 +279,8 @@ oracle@z3:/pt/w/hn/z3_2012_0329$ heroku pgbackups:capture
 
 SHARED_DATABASE (DATABASE_URL)  ----backup--->  b002
 
-[0KCapturing... done
-[0KStoring... done
+Capturing... done
+Storing... done
 
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
