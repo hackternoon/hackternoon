@@ -2,8 +2,6 @@
 
 Hackternoon.com is a site to help Hackternooners find projects and other Hackternooners.
 
-The upgrade from Rails 3.1 to Rails 3.2 is done.
-
 The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on.
@@ -20,10 +18,6 @@ Gravatar pattern:
   - https://secure.gravatar.com/avatar/76a777ff80f30bd3bw30e275cce625bc
   - https://secure.gravatar.com/avatar/cb2b768a5e546b24e052ea03334e43676
 
-
-
-
-
-
-
-
+Meetup pattern:
+  - http://photos3.meetupstatic.com/photos/member/4/6/0/4/member_437924.jpeg
+  - http://photos3.meetupstatic.com/photos/member/4/b/1/5/member_18139221.jpeg
