@@ -44,7 +44,7 @@ test: &test
   database: hn25t
   pool: 5
   username: oracle
-  password:
+  password: oracle
 
 production:
   adapter: postgresql

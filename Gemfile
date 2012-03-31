@@ -25,6 +25,7 @@ group :test, :development do
   gem 'heroku',           '~> 2.20.1'
   gem 'hpricot',          '= 0.8.6'
   gem 'factory_girl_rails','= 1.7.0'
+  gem 'taps'              ,'= 0.3.23'
 end
 
 # Gems used only for assets and not required
