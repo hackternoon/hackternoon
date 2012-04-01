@@ -21,3 +21,7 @@ Gravatar pattern:
 Meetup pattern:
   - http://photos3.meetupstatic.com/photos/member/4/6/0/4/member_437924.jpeg
   - http://photos3.meetupstatic.com/photos/member/4/b/1/5/member_18139221.jpeg
+
+And:
+  - Create a whitelist before_save call back for PhotoUrl
+  - Just use a simple case-when-else-end statement
