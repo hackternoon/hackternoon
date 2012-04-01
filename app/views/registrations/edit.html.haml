@@ -3,8 +3,20 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
 
-  E-Mail:
-  = @user.email
+  This is the E-Mail you registered with:
+  %br/
+  %h3
+    = @user.email
+
+  %div
+    %br/
+    %br/
+    Tell us your CURRENT Password.
+    %br/
+    #div_cp.round_corner15px.background_color_eee
+      (If you know your Current Password, it's probably you):
+    %br/
+    = f.password_field :current_password
 
   %br/
   %br/
@@ -24,6 +36,9 @@
   Twitter Handle
   %br/
   = f.text_field :twitter_handle
+  %br/
+  #div_twitter_tip.round_corner15px.background_color_eee
+    example: @Hackternoon
 
   %br/
   %br/
@@ -35,10 +50,15 @@
   %br/
   Photo URL
   %br/
-  = text_field_tag :photo_url
+  = text_field_tag(:photo_url, @pu, :size => 88)
   %br/
   #div_photo_tip.round_corner15px.background_color_eee
-    example: http://photos1.meetupstatic.com/photos/member/4/6/0/4/member_437924.jpeg
+    examples:
+    %ul
+      %li http://photos1.meetupstatic.com/photos/member/4/6/0/4/member_437924.jpeg
+      %li http://gravatar.com/avatar/cb2b768a5e546b24e052ea03334e43676
+      %li https://secure.gravatar.com/avatar/cb2b768a5e546b24e052ea03334e43676
+      %li http://profile.ak.fbcdn.net/hprofile-ak-snc4/173649_681665317_58999555767_n.jpg
   %br/
   %br/
   New Password (If you want to change it)
@@ -50,16 +70,9 @@
   New Password Confirmation
   %br/
   = f.password_field :password_confirmation
+    
+  %br/
+  = f.submit 'Save'
 
-  %div
-    %br/
-    %br/
-    Current Password (Your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
-
-
-    %br/
-    = f.submit 'Save'
   %br/
 

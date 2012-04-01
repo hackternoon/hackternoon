@@ -6,7 +6,7 @@ Feature: Photo
     @javascript
     Scenario: User posts URL to photo
       Given I sign out
-      And I go to the sign up page
+      And I follow "Register"
       And I fill in "user_email" with "user@test.com"
       And I press "Signup"
       And I should see "You have signed up successfully. Go check your e-mail."
