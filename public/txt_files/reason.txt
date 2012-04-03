@@ -1,0 +1,139 @@
+/pt/w/hn/reason.txt
+
+My name is Dan and I built Hackternoon.com from the ground up using free time and open-source software.
+
+Hackternoon.com is like a dating site.
+
+But instead of helping you find a "date", I help you find a Software Developer.
+
+If you think finding a wonderful romantic partner is difficult, wait until you go on a quest for a good programmer.
+
+I designed the site to aid your search.
+
+- You register
+- You check your e-mail
+- You click the Hackternoon link in e-mail
+- You set your password
+- You edit your profile:
+  - Give a name
+  - Give a URL to your photo
+  - Give your location
+  - If you are awesome on Twitter, give your twitter id
+- Create a project:
+  - Project Name
+  - Description
+  - github URL
+  - 3 Tech tags (ex: iPhone, HTML5, JavaScript)
+  - 3 Biz tags (ex: News Aggregator, Tech Blog, Yelp Clone)
+
+At that point you can create other projects or go to the next step.
+
+- Ask yourself,
+  "Is my profile combined with my project attractive to the type of Developers I want to attract ?"
+
+- The following attributes are attractive to many types of Developers:
+  - Your personality is easy to deal with
+  - Location is unimportant (They can work with you over Skype)
+  - You have money
+  - If you lack money, you have Software Skills to trade:
+    - Ex: You know Rails, Postgres, and Heroku; They know iOS. 
+  - You are awesome on Twitter and/or Github
+  - The project(s) is interesting
+  - The project(s) is easy
+  - The project(s) is collaborative (Let's learn Android together to build a mobile game)
+
+
+After your profile and project(s) are attractive, you go to the next step.
+
+You advertise that you want a Software Developer to work with you on your project.
+
+In your advertisements, you point to your project(s) at Hackternoon.com
+
+For example, here is one of my projects:
+
+http://hackternoon.com/projects/1
+
+Where do you advertise?
+
+One answer is to spend a lot of time on Google to find where software developers congregate.
+Then register at those sites and then contact them with your pitch.
+
+Another place to start is with Craigslist.com at a large city holding
+many Software Developers.
+
+I list below Craigslist URLs for some of the largest cities in the USA:
+
+http://newyork.craigslist.org/
+http://losangeles.craigslist.org/
+http://chicago.craigslist.org/
+http://sfbay.craigslist.org/
+http://houston.craigslist.org/
+http://philadelphia.craigslist.org/
+http://dallas.craigslist.org/
+http://phoenix.craigslist.org/
+http://sanantonio.craigslist.org/
+http://sandiego.craigslist.org/
+http://boston.craigslist.org/
+http://baltimore.craigslist.org/
+http://washingtondc.craigslist.org/
+http://seattle.craigslist.org/
+http://austin.craigslist.org/
+http://denver.craigslist.org/
+http://jacksonville.craigslist.org/
+http://indianapolis.craigslist.org/
+http://columbus.craigslist.org/
+http://charlotte.craigslist.org/
+http://detroit.craigslist.org/
+http://elpaso.craigslist.org/
+http://memphis.craigslist.org/
+http://miami.craigslist.org/
+http://tampa.craigslist.org/
+http://atlanta.craigslist.org/
+
+
+Craigslist is not that big outside of the USA.
+But, outside of the USA I might think about these sites:
+
+http://toronto.craigslist.ca/
+http://london.craigslist.co.uk/
+http://paris.en.craigslist.fr/
+http://frankfurt.en.craigslist.de/
+http://berlin.en.craigslist.de/
+http://mumbai.craigslist.co.in/cps/
+http://manila.craigslist.com.ph/
+http://mexicocity.en.craigslist.com.mx/
+http://buenosaires.en.craigslist.org/
+http://hongkong.craigslist.hk/
+http://tokyo.craigslist.jp/
+
+I looked at Wikipedia for a list of large cities.
+Outside USA, I see this list.
+
+Argentina: Buenos Aires
+Bangladesh: Dhaka
+Brasil: São Paulo, Rio de Janeiro
+China: Beijing, Guangzhou, Shanghai, Shenzhen, Tianjin
+Columbia: Bogotá
+Egypt: Cairo
+India: Kolkata, Mumbai
+Japan: Osaka, Tokyo
+UK: London
+Philippines: Manila
+Mexico City
+Russia: Moscow
+Nigeria: Lagos
+Pakistan: Karachi
+France: Paris
+Peru: Lima
+Turkey: Istanbul
+
+A bit of research might reveal where Software Developers congragate in the above large cities.
+ 
+If you do this research, please send me any results which you are willing to share.
+
+Another list I am interested in is the location-list of "Excellent" Developers.
+
+Perhaps a place to start this research would be Wikipedia:
+
+http://en.wikipedia.org/wiki/ACM_International_Collegiate_Programming_Contest
+http://en.wikipedia.org/wiki/Category:Programming_contests

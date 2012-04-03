@@ -1,0 +1,163 @@
+/pt/w/hn/dan_ryan_discussion2012_0331.txt
+
+Hackternoon.com
+
+Ryan Adams
+
+2012-Mar-31
+
+ 
+Audience
+
+       New Developers
+
+       Experienced Developers
+
+       Venue Providers
+
+       Facilitators/Hosts
+
+       Domain Experts
+
+ 
+Appeal:
+
+Experienced Developers
+
+       Meet and work with other experienced developers
+
+       Learn new technologies
+
+       Social/Networking
+
+       Find a job
+
+       Find talent
+
+       *Comfortable social situation (can be social, or choose not to be)
+
+       Opportunity to share knowledge with 
+
+
+New Developers
+
+       Access to experienced developers
+
+       Social/Networking
+
+       Non-judgmental learning situation
+
+       Possible new work/projects to learn on
+
+Domain Experts
+
+       Find developers for projects
+
+       Opportunity to share knowledge
+
+       Learn enough to build prototypes of systems
+
+       Learn enough to build complete systems
+
+       Social/Networking
+
+Facilitators/Hosts
+
+       Meet experienced developers
+
+       Advertise for a venue provider (e.g. a marketing person for Hacker Dojo)
+
+       Personal enjoyment (social, matchmaking, etc.)
+
+Venue Providers
+
+       New business possibilities (commercial, like Hacker Dojo or coffee shops)
+
+       Interest in hacking and meeting hackers (non-commercial people with space)
+
+       Meeting prospective students (educational institutions)
+
+       Meeting prospective employees (companies like intuit or google)
+ 
+Message
+
+Activities, the website, communications and marketing materials, policies, etc. must  be aligned with ALL aspects of the message. Venues, facilitators, etc. should be chosen with an eye toward how well they align with and promote the components of the message.
+
+
+
+       Social
+
+       Free-form
+
+       Low pressure
+
+       Technology
+
+       Learn new skills and share with others
+
+ 
+
+ 
+Marketing to Venue Providers
+
+Hackternoon draws a very specific group that is desirable to the various venue providers:
+
+       Hacker/Work Spaces
+
+        Exactly the type of folks they want to use their space and sign up for their product
+
+        Professional, and often seeking an outside work environment
+
+       Wifi Cafés
+
+        Professionals that understand that WIFI isn’t free (they will purchase food and beverages), and will respect the space.
+
+        Aside from the immediate sales, many will return to work at the café on future occasions
+
+       Non-commercial spaces
+
+        Fun, respectful group of folks with a wealth of knowledge and experience to share
+
+       Educational institutions
+
+        Excellent potential students, especially for technology and business related graduate programs
+
+       Companies
+
+        Pre-selected group of people who enjoy spending their weekend writing code
+
+        Great way to meet potential employees in a low-pressure environment
+
+The Site
+
+Front page should be all about the message. It should also include elements that will be used most: where and when are hackternoons happening (with zip code search?), and other info that people will be looking for when they come to the site.
+ 
+
+“Whiteboard” or “Post Something”
+
+       Replaces the “Projects” section
+
+       Free form, just a textbox, so that people can ask things like “Anyone up for doing rails” or “Want to learn about twitter bootstrap”
+
+ 
+
+“What are you interested in?”
+
+       Linked to a user’s profile, and allows them to select general interests (e.g. Java, Javascript, CSS, Ruby, etc.)
+
+ 
+
+“What are you interested in today?”
+
+       Asked when someone signs up for a specific hackternoon
+
+       Asks what they are interested in doing that day
+
+ 
+Next Steps
+
+       Identify the most used/most important elements
+
+       Wireframe the elements listed in ‘The Site’ (see above)
+
+       Continue discussion on site elements and work toward specifying navigation elements and site structure
