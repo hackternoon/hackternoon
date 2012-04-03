@@ -7,5 +7,4 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 Here is a list of enhancements I am focused on:
 
   - Write a cucumber test for whitelist logic in photo_url.rb
-  - Enhance the text in the About page
-  - Implement Styling changes from Ruemic
+
