@@ -2,11 +2,13 @@ public/txt_files/project_idea2012_0403.txt
 
 People,
 
-The main idea displayed on Hackternoon.com right now is that it is a site for developers to find other developers who want to do collaborative development.
+The main idea displayed on Hackternoon.com right now is that it is a site 
+for developers to find other developers who want to do collaborative development.
 
 I now doubt that a site for "paired-programmers" is a compelling idea.
 
-Currently I'm thinking a lot about how to make hackternoon.com more attractive to developers who want to register projects there.
+Currently I'm thinking a lot about how to make hackternoon.com more attractive to 
+developers who want to register projects there.
 
 Ryan thinks the "project" idea is poor.
 
@@ -58,6 +60,7 @@ Here is a list of attributes which might be useful:
 
 Obviously hiring managers would want to see these attributes.
 
-But also the developers would be interested seeing these attributes when studying managers or other developers.
+But also the developers would be interested seeing these attributes 
+when studying managers or other developers.
 
 - Dan Bikle (Hackternooner Founder) 2012-04-03
