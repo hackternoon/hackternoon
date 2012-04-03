@@ -20,17 +20,7 @@ Ryan thinks I should focus more on using Hackternoon.com as a way to promote Hac
 
 I like that idea but I want to make it "Plan-B".
 
-Plan-A is to push the "project" idea:
-
-Hackternoon.com is for users who want to engage (or hire or work with) a software developer:
-  - The user needs to put some personal info in his profile
-  - The user needs to write up a project description of what he wants
-  - The user needs to advertise the project description on the web (craigslist probably)
-  - The user needs to provide value to the developer:
-    - Money
-    - Software services
-    - Teaching services
-    - "Other" services (Marketing?, Taxes?, Work-Finding?, Hardware?, Office-Space?)
+Plan-A is to push the "project" idea to two types of users:
 
 Hackternoon.com is for software developers who want one or more of these things:
   - Customers
@@ -41,6 +31,16 @@ Hackternoon.com is for software developers who want one or more of these things:
 The developer needs to do these things:
   - Put some personal info in his profile
   - Write up project descriptions of what he has done or is doing
+
+Hackternoon.com is for users who want to work with a software developer:
+  - The user needs to put some personal info in his profile
+  - The user needs to write up a project description of what he wants
+  - The user needs to advertise the project description on the web (craigslist probably)
+  - The user needs to provide one or more of these items to the developer:
+    - Money
+    - Software services
+    - Teaching services
+    - "Other" services (Marketing?, Taxes?, Work-Finding?, Hardware?, Office-Space?)
 
 Secondary to the project idea is the dating-site idea.
 
