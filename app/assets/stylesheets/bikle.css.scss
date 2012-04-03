@@ -1,21 +1,31 @@
 
+@import "bourbon";
 div#div4_top_logo{}
-div#div4_lhs{}
+
+div#div4_lhs{@include linear-gradient(180deg,hsl(351, 0%, 83%) 0%, hsl(351, 0%, 93%) 50%, hsl(351, 0%, 83%) 100%);
+	@include border-radius(15px 15px 15px 15px);
+	padding: 10px;
+	&li{
+		border-bottom: 1px solid #B6B6B6;
+		padding: 0px 2px 5px 2px;
+		}}
 div#div4_footer{padding-top: 2px; margin-top: 4px;}
+
 .round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
 
-
-/* a{color:blue;} a:visited{color:blue;} a:hover{color:black; background-color:white; font-weight:bold;}*/
-/* Some SASS for you which matches the above CSS-comment : */
 a{
   color: blue;
   &:visited {color: blue;}
-  &:hover {color: black;background-color: white;}
+  &:hover {
+	color: black;background-color: white;
+	@include box-shadow(0 0 2px 4px white);}
 }
+
+p{font-size: 17px;}
 
 /* More SASS: */
 div#div4_rhs{
-  background-color: white; margin-left: 8px;
+  background-color: white; margin: 0em 1em 1em 1.5em;
   & li{margin-left:15px;}
 }
 
@@ -34,9 +44,12 @@ body{color:black; font-size:17px; line-height:22px;}
 p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
 p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
 
-/* not used currently:
-div#div4_projects{background-color: white; padding-left: 5px; padding-right: 1px; padding-top: 1px;}
-*/
+/* some stuff ruemic added */
+#a_warning{color: red;}
+h3 {font-size: 1.2em;}
+img {
+	@include border-radius(15px 15px 15px 15px);
+	margin: .5em 0;}
 
 div#div4_rhs table #th_name{min-width:150px;}
 div#div4_rhs table #th_description{min-width:250px;}
