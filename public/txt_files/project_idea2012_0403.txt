@@ -1,0 +1,63 @@
+public/txt_files/project_idea2012_0403.txt
+
+People,
+
+The main idea displayed on Hackternoon.com right now is that it is a site for developers to find other developers who want to do collaborative development.
+
+I now doubt that a site for "paired-programmers" is a compelling idea.
+
+Currently I'm thinking a lot about how to make hackternoon.com more attractive to developers who want to register projects there.
+
+Ryan thinks the "project" idea is poor.
+
+He might be correct but I want to hammer on it for awhile.
+
+The project idea seems to be working well for a number of sites:
+
+Github.com, Elance.com, Guru.com, Odesk.com, SourceForge.com, etc.
+
+Ryan thinks I should focus more on using Hackternoon.com as a way to promote Hackternoon events.
+
+I like that idea but I want to make it "Plan-B".
+
+Plan-A is to push the "project" idea:
+
+Hackternoon.com is for users who want to engage (or hire or work with) a software developer:
+  - The user needs to put some personal info in his profile
+  - The user needs to write up a project description of what he wants
+  - The user needs to advertise the project description on the web (craigslist probably)
+  - The user needs to provide value to the developer:
+    - Money
+    - Software services
+    - Teaching services
+    - "Other" services (Marketing?, Taxes?, Work-Finding?, Hardware?, Office-Space?)
+
+Hackternoon.com is for software developers who want one or more of these things:
+  - Customers
+  - Students
+  - Collaborative Developers
+  - Fame
+
+The developer needs to do these things:
+  - Put some personal info in his profile
+  - Write up project descriptions of what he has done or is doing
+
+Secondary to the project idea is the dating-site idea.
+
+I want each user to see attributes of other users which could be "attractive".
+
+Here is a list of attributes which might be useful:
+
+- Personality type
+- Location
+- Spoken Language
+- Skill set
+- Twitter Handle
+- LinkedIn profile
+- FB profile
+
+Obviously hiring managers would want to see these attributes.
+
+But also the developers would be interested seeing these attributes when studying managers or other developers.
+
+- Dan Bikle (Hackternooner Founder) 2012-04-03
