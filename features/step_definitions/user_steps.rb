@@ -77,8 +77,8 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
 end
 
 Then /^I should be already signed in$/ do
-  page.html.should match("Logout")
-  page.html.should_not match("Register")
+  step %{I should see page_has_link "Logout"}
+  step %{I should see page_has_link "bob@cnn.com"}
 end
 
 Given /^I am signed up as "(.*)\/(.*)"$/ do |email, password|
