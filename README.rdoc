@@ -6,7 +6,8 @@ The upgrade from Rails 3.2.1 to Rails 3.2.2 is done.
 
 Here is a list of enhancements I am focused on:
 
+  - Upgrade Hackternoon to Rails 3.2.3
   - Write a cucumber test for whitelist logic in photo_url.rb
   - Add a form to projects#show-view which allows me to signal interest to the owner
-  - Upgrade Hackternoon to Rails 3.2.3
+  - Add a New Project for guest which is a page of instructions and Register-link
 
