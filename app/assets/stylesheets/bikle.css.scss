@@ -1,19 +1,19 @@
 
 @import "bourbon";
-div#div4_top_logo{}
+div#div4_top_logo {}
 
-div#div4_lhs{@include linear-gradient(180deg,hsl(351, 0%, 83%) 0%, hsl(351, 0%, 93%) 50%, hsl(351, 0%, 83%) 100%);
+div#div4_lhs {@include linear-gradient(180deg,hsl(351, 0%, 83%) 0%, hsl(351, 0%, 93%) 50%, hsl(351, 0%, 83%) 100%);
 	@include border-radius(15px 15px 15px 15px);
 	padding: 10px;
-	&li{
+	&li {
 		border-bottom: 1px solid #B6B6B6;
 		padding: 0px 2px 5px 2px;
 		}}
-div#div4_footer{padding-top: 2px; margin-top: 4px;}
+div#div4_footer {padding-top: 2px; margin-top: 4px;}
 
 .round_corner15px {border-radius: 15px 15px 15px 15px; padding-left: 15px; padding-right: 15px; padding-top: 6px;}
 
-a{
+a {
   color: blue;
   &:visited {color: blue;}
   &:hover {
@@ -21,25 +21,25 @@ a{
 	@include box-shadow(0 0 2px 4px white);}
 }
 
-p{font-size: 17px;}
+p {font-size: 17px;}
 
 /* More SASS: */
-div#div4_rhs{
+div#div4_rhs {
   background-color: white; margin: 0em 1em 1em 1.5em;
-  & li{margin-left:15px;}
+  & li {margin-left:15px;}
 }
 
-body{color:black; font-size:17px; line-height:22px;}
+body {color:black; font-size:17px; line-height:22px;}
 
-.color_ccc{color:#CCCCCC;}
-.color_ddd{color:#DDDDDD;}
-.color_eee{color:#EEEEEE;}
-.color_green44{color:#004400;}
+.color_ccc {color:#CCCCCC;}
+.color_ddd {color:#DDDDDD;}
+.color_eee {color:#EEEEEE;}
+.color_green44 {color:#004400;}
 
-.background_color_ccc{background-color:#CCCCCC;}
-.background_color_ddd{background-color:#DDDDDD;}
-.background_color_eee{background-color:#EEEEEE;}
-.background_color_white{background-color:white;}
+.background_color_ccc {background-color:#CCCCCC;}
+.background_color_ddd {background-color:#DDDDDD;}
+.background_color_eee {background-color:#EEEEEE;}
+.background_color_white {background-color:white;}
 
 p.notice {color:black; font-size:20px; font-weight:bold; background-color: white;}
 p.alert {color:#AA0000; font-size:20px; font-weight:bold; background-color: white;}
@@ -50,19 +50,20 @@ h3 {font-size: 1.2em;}
 img {
 	@include border-radius(15px 15px 15px 15px);
 	margin: .5em 0;}
+img.img_not_rounded {@include border-radius(0px);}
 
-div#div4_rhs table #th_name{min-width:150px;}
-div#div4_rhs table #th_description{min-width:250px;}
-div#div4_rhs table #th_owner{min-width:100px;}
-div#div4_rhs table #th_github{min-width:200px;}
-div#div4_rhs table #th_ttag{min-width:150px;}
-div#div4_rhs table #th_btag{min-width:150px;}
-div#div4_rhs table #th_upd{min-width:150px;}
+div#div4_rhs table #th_name {min-width:150px;}
+div#div4_rhs table #th_description {min-width:250px;}
+div#div4_rhs table #th_owner {min-width:100px;}
+div#div4_rhs table #th_github {min-width:200px;}
+div#div4_rhs table #th_ttag {min-width:150px;}
+div#div4_rhs table #th_btag {min-width:150px;}
+div#div4_rhs table #th_upd {min-width:150px;}
 
-.margin_left0px{margin-left: 0px;}
-.hidden{display: none;}
+.margin_left0px {margin-left: 0px;}
+.hidden {display: none;}
 
-.pre_courier{font-weight:bold; font-family:"Courier"; color:#442244;}
+.pre_courier {font-weight:bold; font-family:"Courier"; color:#442244;}
 
-.ul_type_circle{list-style-type: circle;}
-.ul_type_disc{list-style-type: disc;}
+.ul_type_circle {list-style-type: circle;}
+.ul_type_disc {list-style-type: disc;}
