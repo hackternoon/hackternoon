@@ -40,7 +40,7 @@ Hn24::Application.routes.draw do
 
   # tech tips with render bug:
   get 'render_bug' => 'home#tech_tips', :as => :render_bug
-  # tech tips which work-around render bug:
+  # tech tips which I want to work-around render bug:
   get 'tech_tips' => 'tech_tips#index', :as => :tech_tips
 
 
