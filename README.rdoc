@@ -9,4 +9,6 @@ Here is a list of enhancements I am focused on:
   - Write a cucumber test for whitelist logic in photo_url.rb
   - Add a form to projects#show-view which allows me to signal interest to the owner
   - Add a New-Project-link for guest which is a page of instructions and Register-link
+  - Fix the creative commons link in the terms.html.haml
+  - See if 3.2.3 fixed the render-bug
 
