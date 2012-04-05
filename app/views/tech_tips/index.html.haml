@@ -1,4 +1,4 @@
-/ views/home/tech_tips.html.haml
+/ views/tech_tips/index.html.haml
 
 = render 'tech_tips/jquery2move_tips'
 
@@ -7,8 +7,6 @@
 %img(src="/assets/hackternoon_home.jpeg" alt="hackternoon.com")
 %br/
 
-/ The call to render() demonstrates a bug which adds whitespace to a pre-element:
 = render 'tech_tips/tech_tips2012_0329_heroku_pgdump'
 
-/ This call to render() works okay because it does not render pre-elements:
 = render 'tech_tips/tech_tips2012_0318_jqueryui'
