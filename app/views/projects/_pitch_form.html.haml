@@ -1,0 +1,15 @@
+/ _pitch_form.html.haml
+= form_for @pitch do |f|
+  -if @pitch.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pitch.errors.count, "error")} prohibited this pitch from being saved:"
+      %ul
+        - @pitch.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = hidden_field_tag :project_id, @project.id
+  .field
+    = f.text_field :msg
+  .actions
+    = f.submit 'Send Pitch'

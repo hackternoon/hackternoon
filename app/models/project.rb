@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   # http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html
   belongs_to :user
   has_many :invitations, :dependent => :destroy
+  has_many :pitches, :dependent => :destroy
 
   attr_accessible :name,:dscrptn,:user_id,:github_url,:tech_tag1,:tech_tag2,:tech_tag3,:biz_tag1,:biz_tag2,:biz_tag3
 

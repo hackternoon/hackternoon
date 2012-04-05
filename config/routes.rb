@@ -1,5 +1,6 @@
 Hn24::Application.routes.draw do
 
+  resources :pitches
   resources :invitations
 
   get "users/index"
