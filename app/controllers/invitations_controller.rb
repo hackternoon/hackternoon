@@ -25,7 +25,6 @@ class InvitationsController < ApplicationController
     end
 
     @invitation = Invitation.new
-    @invitation.sender_id = current_user.id
     @invitation.project_id = params[:project_id]
     @invitation.rcvr_email = params[:rcvr_email]
     if @invitation.sent_already?

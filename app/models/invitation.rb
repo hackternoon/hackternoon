@@ -10,7 +10,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  attr_accessible :msg,:project_id,:sender_id,:user_id
+  attr_accessible :project_id
 
   before_create :get_rcvr
   after_create  :alert_rcvr

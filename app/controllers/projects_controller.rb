@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
       return
     end
     @project = Project.new(params[:project])
-    @project.user_id = current_user.presence.id
+    @project.user_id = current_user.id
 
     respond_to do |format|
       if @project.save

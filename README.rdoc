@@ -10,6 +10,4 @@ Here is a list of enhancements I am focused on:
   - Write a cucumber test for whitelist logic in photo_url.rb
   - Enhance cucumber test for project invitations
   - Add a New-Project-link for guest which is a page of instructions and Register-link
-  - slim down attr_accessible in the models
-  - Alert user how many pitches and invitations he has left
-  - Refactor alert_sender in invitation.rb so it does this call: mail_sender(self)
+  - I dont need sender_id in invitations or invitation.rb. Try to remove it.
