@@ -16,5 +16,5 @@ Here is a list of enhancements I am focused on:
   - Enhance cucumber test for project invitations
   - Add a New-Project-link for guest which is a page of instructions and Register-link
   - slim down attr_accessible in the models
-
+  - Change the p.notices from black to same as .color_green44
 
