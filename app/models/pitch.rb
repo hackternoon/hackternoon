@@ -9,5 +9,6 @@ class Pitch < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
+  attr_accessible :msg,:project_id
 
 end
