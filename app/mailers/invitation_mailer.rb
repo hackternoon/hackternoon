@@ -1,21 +1,20 @@
 class InvitationMailer < ActionMailer::Base
-  attr_accessor :project_id, :rcvr_email, :rcvr_id
+
   default :from => "Bob@Hackternoon.com",
           :return_path => "Bob@Hackternoon.com",
-          :subject => "Invitation Issued by Hackternoon.com"
+          :subject => "Invitation Conveyed by Hackternoon.com"
 
-  # Demo: InvitationMailer.mail_rcvr('dan@bot4.us', project_id).deliver
-  def mail_rcvr rcvr, project_id
-    @project_id = project_id
-    mail :to => rcvr
+  # Demo: InvitationMailer.mail_rcvr(@invitation).deliver
+  # Usually called here: models/invitation.rb
+  def mail_rcvr invitation
+    @invitation = invitation
+    mail :to => @invitation.user.email
   end
 
-  # Demo: InvitationMailer.mail_sender('dan@hackternoon.com', 'dan@bot4.us', 10, 2).deliver
-  def mail_sender sender, rcvr, project_id, rcvr_id
-    @rcvr_email = rcvr
-    @project_id = project_id
-    @rcvr_id    = rcvr_id
-    mail :to    => sender
+  # Demo: InvitationMailer.mail_sender(@invitation).deliver
+  def mail_sender invitation
+    @invitation = invitation
+    mail :to    => @invitation.project.user.email
   end
 
 end

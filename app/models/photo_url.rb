@@ -7,7 +7,7 @@ class PhotoUrl < ActiveRecord::Base
   # http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html
   belongs_to :user
 
-  attr_accessible :the_url, :profile_photo
+  attr_accessible :the_url
 
   # I want each photo_url to have an owner.
   def save

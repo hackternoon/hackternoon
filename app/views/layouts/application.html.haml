@@ -92,10 +92,10 @@
             %a(href="#{sslhost}/ux_info")UX-Info
 
       #div4_rhs.nine.columns
-        %p.notice
-          = notice
-        %p.alert
-          = alert
+        - if notice.present?
+          %p.notice.round_corner15px= notice 
+        - if alert.present?
+          %p.alert.round_corner15px= alert
         = yield
     .row
       #div4_footer.eleven.columns.round_corner15px.background_color_ccc

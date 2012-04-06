@@ -18,8 +18,13 @@ class InvitationsController < ApplicationController
       return
     end
     # Now that I'm happy with the @project, work on @invitation:
+
+    if current_user.invitations.count > Invitation.invitation_limit
+      redirect_to '/', notice: "You are out of invitations. You only get #{nvitation.invitation_limit}."
+      return
+    end
+
     @invitation = Invitation.new
-    @invitation.sender_id = current_user.id
     @invitation.project_id = params[:project_id]
     @invitation.rcvr_email = params[:rcvr_email]
     if @invitation.sent_already?

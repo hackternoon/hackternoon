@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :invitations, :dependent => :destroy
   has_many :projects_invited_to, :through => :invitations, :source => :project
   has_many :photo_urls, :dependent => :destroy
+  has_many :pitches, :dependent => :destroy
 
   validates_uniqueness_of :email, :case_sensitive => false
 

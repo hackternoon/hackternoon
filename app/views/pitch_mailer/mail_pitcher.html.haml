@@ -1,0 +1,25 @@
+Hello:
+= @pitch.user.email
+%br/
+%br/
+You sent a pitch to:
+%br/
+= link_to @pitch.project.user.email, show_user_url(:user_id => @pitch.project.user.id)
+%br/
+to collaborate on this project:
+%br/
+= link_to project_url(:id => @pitch.project.id), project_url(:id => @pitch.project.id)
+%br/
+%br/
+Project Name:
+%br/
+= @pitch.project.name
+%br/
+%br/
+Project Description:
+%br/
+= @pitch.project.dscrptn
+%p
+  = @pitch.user.email 
+  wants to work on this project because:
+  = @pitch.msg

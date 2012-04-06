@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     # The invitation form I put in the show-template wants to see an @invitation:
     @invitation = Invitation.new
+    # pitch form needs @pitch:
+    @pitch = Pitch.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
@@ -51,7 +53,7 @@ class ProjectsController < ApplicationController
       return
     end
     @project = Project.new(params[:project])
-    @project.user_id = current_user.presence.id
+    @project.user_id = current_user.id
 
     respond_to do |format|
       if @project.save

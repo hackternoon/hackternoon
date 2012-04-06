@@ -1,6 +1,17 @@
-Hi,
+Hello:
+%br/
+= @invitation.user.email
 %br/
 You have been invited to collaborate on a project:
 %br/
-= link_to project_url(:id => @project_id), project_url(:id => @project_id)
+= link_to project_url(:id => @invitation.project_id), project_url(:id => @invitation.project_id)
 %br/
+%br/
+Project Name:
+%br/
+= @invitation.project.name
+%br/
+%br/
+Project Description:
+%br/
+= @invitation.project.dscrptn
