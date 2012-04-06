@@ -9,6 +9,12 @@ class Pitch < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  attr_accessible :msg,:project_id
+  attr_accessible :msg
+  after_create  :alert_pitcher
+
+  # Alert the pitcher that he/she sent a pitch.
+  def alert_pitcher
+    PitchMailer.mail_pitcher(self).deliver
+  end # def alert_pitcher
 
 end

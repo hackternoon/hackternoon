@@ -20,6 +20,7 @@ class PitchesController < ApplicationController
     @pitch = Pitch.new
     @pitch.user_id = current_user.id
     @pitch.project_id = params[:project_id]
+    @pitch.msg = params[:pitch][:msg]
     if @pitch.save
       the_notice = "Pitch sent to: #{@project.user.email}"
       the_notice << ", and copy sent to: #{current_user.email}"
