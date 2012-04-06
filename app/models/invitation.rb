@@ -47,15 +47,12 @@ class Invitation < ActiveRecord::Base
 
   # Alert the rcvr that an invitation was sent
   def alert_rcvr
-    InvitationMailer.mail_rcvr(user.email, project_id).deliver
+    InvitationMailer.mail_rcvr(self).deliver
   end
 
   # Alert the sender that an invitation was sent
   def alert_sender
-    sender_email = self.project.user.email
-    rcvr_email = self.user.email
-    rcvr_id = self.user_id
-    InvitationMailer.mail_sender(sender_email, rcvr_email, self.project_id, rcvr_id).deliver
+    InvitationMailer.mail_sender(self).deliver
   end
 
 end
