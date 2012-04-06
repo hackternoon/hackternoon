@@ -17,7 +17,6 @@ Feature: A project pitcher can pitch an owner for permission to work on project
       And I follow "Projects"
       And I follow "Hackternoon.com"
       And I fill in "pitch_msg" with "I know web tech, databases, and cloud computing"
-      And debug
       And I press "Send Pitch"
       And I follow "Projects"
       And I follow "Hackternoon.com"
