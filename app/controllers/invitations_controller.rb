@@ -19,8 +19,8 @@ class InvitationsController < ApplicationController
     end
     # Now that I'm happy with the @project, work on @invitation:
 
-    if current_user.invitations.count > 30
-      redirect_to '/', notice: 'You are out of invitations. You only get 30.'
+    if current_user.invitations.count > Invitation.invitation_limit
+      redirect_to '/', notice: "You are out of invitations. You only get #{nvitation.invitation_limit}."
       return
     end
 

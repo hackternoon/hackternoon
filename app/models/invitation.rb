@@ -1,4 +1,11 @@
 class Invitation < ActiveRecord::Base
+  # I limit the number of invitations you can mail out.
+  # If you want more, just look at their e-mail address and then use gmail:
+  @@iinvitation_limit = 30
+  def self.invitation_limit
+    @@iinvitation_limit
+  end
+
   attr_accessor :rcvr_email
   belongs_to :project
   belongs_to :user
@@ -8,6 +15,7 @@ class Invitation < ActiveRecord::Base
   before_create :get_rcvr
   after_create  :alert_rcvr
   after_create  :alert_sender
+
 
   # If the invitation was sent already, the controller wants to know.
   # An invitation can be identified by the combo of:

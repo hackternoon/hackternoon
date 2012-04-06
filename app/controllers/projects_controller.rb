@@ -22,7 +22,6 @@ class ProjectsController < ApplicationController
     # The invitation form I put in the show-template wants to see an @invitation:
     @invitation = Invitation.new
     # pitch form needs @pitch:
-debugger
     @pitch = Pitch.new
     respond_to do |format|
       format.html # show.html.erb
