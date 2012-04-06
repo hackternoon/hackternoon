@@ -25,4 +25,13 @@ module ProjectsHelper
   def i_have_invitations?
     current_user.invitations.count < Invitation.invitation_limit
   end # def i_have_invitations?
+
+  def pitches_left
+    Pitch.pitch_limit - current_user.pitches.count
+  end
+
+  def invitations_left_on project
+    Invitation.invitation_limit - project.invitations.count
+  end
+
 end

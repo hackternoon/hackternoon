@@ -51,7 +51,11 @@ This project has these business tags:
   %br/
   I want to work on it because:
   = render 'pitch_form'
-
+  %p
+    %span.color_green44.background_color_eee
+      You have
+      = pitches_left
+      pitches left.
 %br/
 %br/
 
@@ -59,6 +63,11 @@ This project has these business tags:
   Invite someone to help you with the project!
   %br/
   = render 'invitation_form'
+  %p
+    %span.color_green44.background_color_eee
+      You have
+      = invitations_left_on @project
+      invitations left.
   %br/
 - unless @project.invitations.blank?
   Invitations to work on this project have been sent to these e-mail addresses:

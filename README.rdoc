@@ -7,14 +7,9 @@ The upgrade from Rails 3.2.2 to Rails 3.2.3 is done.
 Here is a list of enhancements I am focused on:
 
   - Write a cucumber test for project pitches
-  - Enhance models/pitch.rb with alert_pitcher()
-  - Enhance models/pitch.rb with alert_project_owner()
-  - Write app/mailers/pitch_mailer.rb
-  - Write app/views/pitch_mailer/mail_pitcher.html.haml
-  - Write app/views/pitch_mailer/mail_project_owner.html.haml
   - Write a cucumber test for whitelist logic in photo_url.rb
   - Enhance cucumber test for project invitations
   - Add a New-Project-link for guest which is a page of instructions and Register-link
   - slim down attr_accessible in the models
-  - Change the p.notices from black to same as .color_green44
-
+  - Alert user how many pitches and invitations he has left
+  - Refactor alert_sender in invitation.rb so it does this call: mail_sender(self)

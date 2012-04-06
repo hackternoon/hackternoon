@@ -15,4 +15,10 @@ class PitchMailer < ActionMailer::Base
     mail :to => @pitch.user.email
   end # def mail_pitcher 
 
+  # Demo: PitchMailer.mail_project_owner(@pitch).deliver
+  def mail_project_owner pitch
+    @pitch = pitch
+    mail :to => @pitch.project.user.email
+  end # def mail_project_owner 
+
 end
