@@ -21,7 +21,8 @@ Ask for a resend here
 - else
   %ul
     - @conf_tokens.each do |usr|
-      %li 
-        #{confirm_email_url(:confirmation_token => usr.confirmation_token)}
+      %li
+        - the_link = confirm_email_url(:confirmation_token => usr.confirmation_token)
+        = link_to the_link, the_link
         %br/
         is for: #{usr.email}
