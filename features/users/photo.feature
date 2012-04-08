@@ -39,6 +39,14 @@ Feature: Photo
       And I follow "user@test.com"
       And I should see page_has_selector "img[@src='http://photos3.meetupstatic.com/photos/member/4/b/1/5/member_18139221.jpeg']"
       And I follow "user@test.com"
+      And I follow "Edit"
+      And I fill in "photo_url" with "http://jnk.jpg"
+      And I fill in "user_current_password" with "abc123"
+      And I press "Save"
+      And I follow "user@test.com"
+      And debug
+      And I follow "user@test.com"
+
 
 
 
