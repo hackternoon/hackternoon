@@ -2,10 +2,10 @@
   = link_to("Edit your profile", edit_user_registration_path)
   %br/
   %br/
-- if @profile_photo_url.present?
-  = image_tag @profile_photo_url.the_url
-- else
+- if(@profile_photo_url.blank? or @profile_photo_url.the_url.blank?)
   = image_tag 'http://0.gravatar.com/avatar/fa3c0e79ecfe1f9e2cdc906ae34b14ee'
+- else
+  = image_tag @profile_photo_url.the_url, :alt => '(Photo should be here)'
 
 %br/
 Name:

@@ -44,10 +44,7 @@ Feature: Photo
       And I fill in "user_current_password" with "abc123"
       And I press "Save"
       And I follow "user@test.com"
-      And debug
-      And I follow "user@test.com"
-
-
+      And I should see page_has_selector "img[@src='http://0.gravatar.com/avatar/fa3c0e79ecfe1f9e2cdc906ae34b14ee']"
 
 
 
