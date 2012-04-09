@@ -12,6 +12,7 @@ Feature: A project owner can invite others to work on the project
         | project_github_url | http://github.com/hackternoon |
       And I press "Save"
       Then I should see "Project was successfully created."
+      And I should see "You have 30 invitations left."
       And I should not see "Invitations have been sent to these e-mail addresses"
       And I should see page_has_field "rcvr_email"
       And I should see "Invite someone to help you with the project"
@@ -26,3 +27,4 @@ Feature: A project owner can invite others to work on the project
       And I should see page_has_link "Hackternoon.com"
       And  I follow "Hackternoon.com"
       Then I should see "Hackternoon.com helps Hackternooners find partners and projects"
+      And I should see "You have 29 invitations left."
