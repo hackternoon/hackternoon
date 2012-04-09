@@ -40,3 +40,10 @@ Location:
       = link_to project.name, project_path(project)
 
 %br/
+%br/
+- if @pitches.present?
+  This user has pitched to these projects:
+  %ul
+  - @projects_pitched_to.each do |project|
+    %li
+      = link_to project.name, project_path(project)
