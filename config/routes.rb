@@ -1,6 +1,7 @@
 Hn24::Application.routes.draw do
 
   get "mobiles/home"
+  get "m", :controller => 'mobiles', :action => 'home', :as => 'm'
 
   resources :pitches
   resources :invitations
