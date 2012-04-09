@@ -6,7 +6,6 @@ The upgrade from Rails 3.2.2 to Rails 3.2.3 is done.
 
 Here is a list of enhancements I am focused on:
 
-  - Write a cucumber test for whitelist logic in photo_url.rb
   - Enhance cucumber test for project invitations
   - Add a New-Project-link for guest which is a page of instructions and Register-link
 
