@@ -1,5 +1,7 @@
 Hn24::Application.routes.draw do
 
+  get "mobiles/home"
+
   resources :pitches
   resources :invitations
 
