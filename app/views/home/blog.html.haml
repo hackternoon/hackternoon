@@ -1,65 +1,140 @@
-%h2 A Hackternooner's Blog
+%h3 A Hackternooner's Blog
 %img(src="/assets/danbikle.jpeg")
-#accordion
-  %h3#h3_2012_03
-    %a(href='#h3_2012_03')2012-03-18 Hackternoon.com replaces a pad of paper
-  %div.blog
-    I started the Hackternoon Meetup at Hacker Dojo in Mountain View California on July 19, 2011:
-    %br/
-    %br/
-    %a(href="http://meetup.com/Hackternoon" target="m")
-      Meetup.com/Hackternoon
-    %br/
-    %br/
-    I organized the Hackternoon projects using a simple pad of paper with three columns.
-    %br/
-    %br/
-    Most Sundays a group of Hackternooners would show up and gravitate towards the pad of paper where they could exchange 3 pieces of information:
-    %br/
-    %br/
-    %ul
-      %li - Name and/or E-Mail Address
-      %li - What they know or are willing to share
-      %li - What they want to learn from another Hackternooner
+%br/
 
-    Then, I would try to optimally create pairs of Hackternooners who would then use paired programming and shared learning to build and deploy a small project in a "Hackternoon".
+%a(href='#h3_2012_0411') 2012-04-11 Cucumber: Life Cycle of a Hackternoon-Rails Project
+%br/
+%a(href='#h3_2012_0318') 2012-03-18 Hackternoon.com replaces a pad of paper
+%br/
+%hr/
 
-    %br/
-    %br/
-    You are now looking at the website which replaces the pad of paper.
-    %br/
-    %br/
-    The primary use-case of the site is similar to how we used the pad of paper:
-    %br/
-    %br/
+%h3#h3_2012_0411 Cucumber: Life Cycle of a Hackternoon-Rails Project
 
-    %ul
-      %li - After one time registration, you login
-      %li - You create a project
-      %li - You add tags and a description to the project
-      %li - You invite 1 or more Hackternooners to work with you on the project
+When I do a Hackternoon-Rails Project, I start with "Cucumber".
+%br/
+%br/
 
-    A secondary use-case is listed below:
-    %br/
-    %br/
+I list a great video below:
+%br/
+%a(href="http://railscasts.com/episodes/155-beginning-with-cucumber" target="r")
+  http://railscasts.com/episodes/155-beginning-with-cucumber
 
-    %ul
-      %li - After one time registration, you login
-      %li - You look at other projects
-      %li - If you find one you like, you ask the owner to invite you to collaborate.
+%br/
+%br/
+Also this site is excellent:
+%br/
 
-    The site has powerful features over the pad of paper:
-    %br/
-    %br/
+%a(href="http://cukes.info/" target="c")
+  http://cukes.info/
 
-    %ul
-      %li - You don't need to attend the Meetup to gain value from it
-      %li - Pair-building could happen purely over the net
-      %li - The pad of paper is wiped clean each week; the site is permanent
+%br/
+%br/
+%p
+  Cucumber is an English-like language which commands an imaginary-robot who types commands at a browser.
+  If the site behaves like it should, the robot stays green (like a cucumber).
+  But if the site does not behave like you want, the robot turns red.
 
+%p
+  Who controls the robot?
+  You, the "Product Manager" should describe what the robot does, using the Cucumber language.
+  If you read something written in Cucumber you might say, "This is like talking to a robot!"
+  So, that is the idea.
 
+%p
+  Once you write a decent set of Cucumber files you give them to a Rails programmer.
+  He/She uses them to get a web site up and walking over a period of days or weeks.
 
+%p
+  Eventually he/she will create a page which does nothing because we have no Cucumber for it.
+  So, you write more Cucumber which describes what the page should do when the robot presses a button or follows a link.
+  At that point you are in a cycle where you write Cucumber and the programmer builds pages.
+  Eventually the cycle ends and the site behaves the way you want.
 
+%p
+  Next, you are ready to "style" the site.
+  Some product managers like to style site early, before it behaves the way they want.
+  I will not say that is stupid, but it seems sub-optimal.
 
+%p
+  But, if you are in a situation where you need to sell the idea behind
+  the site, styling some of the pages like the home page, registration,
+  and login might be worthy of effort.
 
+%p
+  An easy way to get started with styling is for you to use colored pencils and white paper
+  to describe what each page looks like.
+  The programmer then transforms those drawings into a styled set of pages.
+
+%p
+  Once the site behaves correctly and you have styled with polish, you open the site to the public.
+  Some users may love the site.
+  Others will encounter bugs and ask for enhancements.
+
+%p
+  Then you enter another cycle where you again use Cucumber to describe how the site behaves
+  when the bugs are gone and the enhancements are in place.
+  At this point the robot should turn red when it encounters bugs or missing enhancements.
+  The programmer then writes code which makes site behavior turn the robot green.
+
+%p
+  When you start writing Cucumber you will write steps which confuse the imaginary-robot.
+  That's okay; the Rails programmer is tasked with fixing broken software which includes broken Cucumber.
+
+%br/
+%br/
+%hr/
+%h3#h3_2012_0318 2012-03-18 Hackternoon.com replaces a pad of paper
+
+I started the Hackternoon Meetup at Hacker Dojo in Mountain View California on July 19, 2011:
+%br/
+%br/
+%a(href="http://meetup.com/Hackternoon" target="m")
+  Meetup.com/Hackternoon
+%br/
+%br/
+I organized the Hackternoon projects using a simple pad of paper with three columns.
+%br/
+%br/
+Most Sundays a group of Hackternooners would show up and gravitate towards the pad of paper where they could exchange 3 pieces of information:
+%br/
+%br/
+%ul
+  %li - Name and/or E-Mail Address
+  %li - What they know or are willing to share
+  %li - What they want to learn from another Hackternooner
+
+Then, I would try to optimally create pairs of Hackternooners who would then use paired programming and shared learning to build and deploy a small project in a "Hackternoon".
+
+%br/
+%br/
+You are now looking at the website which replaces the pad of paper.
+%br/
+%br/
+The primary use-case of the site is similar to how we used the pad of paper:
+%br/
+%br/
+
+%ul
+  %li - After one time registration, you login
+  %li - You create a project
+  %li - You add tags and a description to the project
+  %li - You invite 1 or more Hackternooners to work with you on the project
+
+A secondary use-case is listed below:
+%br/
+%br/
+
+%ul
+  %li - After one time registration, you login
+  %li - You look at other projects
+  %li - If you find one you like, you ask the owner to invite you to collaborate.
+
+The site has powerful features over the pad of paper:
+%br/
+%br/
+
+%ul
+  %li - You don't need to attend the Meetup to gain value from it
+  %li - Pair-building could happen purely over the net
+  %li - The pad of paper is wiped clean each week; the site is permanent
 
