@@ -1,19 +1,19 @@
 
-        <h3 id='h3_2012_0412'>2012-04-12 Debugging Node.js During Development</h3>
-        When I develop Ruby scripts or Rails sites I'm dependent on a good debugger.
-        When I'm working on a feature in an application my flow goes something like this:
-        <ul class='ul_type_disc'>
-          <li>Write some test code</li>
-          <li>Write some application-code to push the test code towards a green state</li>
-          <li>Drop a debugger-call in the application-code where I want to inspect its state</li>
-          <li>Drop a debugger-call in the test-code where I want to inspect its state</li>
-          <li>Interact with the code</li>
-          <li>Enhance the code</li>
-          <li>Repeat</li>
-        </ul>
-        This style of coding makes me very dependent on the debugger and its features.
-        When I started writing Node.js software, I wanted to use a similar style of coding.
-        I looked for evidence of a debugger from the Node.js command line arguments:
+<h3 id='h3_2012_0412'>2012-04-12 Debugging Node.js During Development</h3>
+When I develop Ruby scripts or Rails sites I'm dependent on a good debugger.
+When I'm working on a feature in an application my flow goes something like this:
+<ul class='ul_type_disc'>
+  <li>Write some test code</li>
+  <li>Write some application-code to push the test code towards a green state</li>
+  <li>Drop a debugger-call in the application-code where I want to inspect its state</li>
+  <li>Drop a debugger-call in the test-code where I want to inspect its state</li>
+  <li>Interact with the code</li>
+  <li>Enhance the code</li>
+  <li>Repeat</li>
+</ul>
+This style of coding makes me very dependent on the debugger and its features.
+When I started writing Node.js software, I wanted to use a similar style of coding.
+I looked for evidence of a debugger from the Node.js command line arguments:
 
 <pre>
 oracle@z3:/dan$ 
@@ -43,12 +43,11 @@ NODE_DISABLE_COLORS    Set to 1 to disable colors in the REPL
 
 Documentation can be found at http://nodejs.org/
 oracle@z3:/dan$ 
-oracle@z3:/dan$ 
-</pre>
+oracle@z3:/dan$ </pre>
 
-        <br>
-        I noticed the 'debug' token in the Usage message; that looked promising.
-        I wrote some simple JavaScript syntax into a file called debugthis.js:
+<br>
+I noticed the 'debug' token in the Usage message; that looked promising.
+I wrote some simple JavaScript syntax into a file called debugthis.js:
 
 <pre>
 oracle@z3:/dan$ 
@@ -93,10 +92,9 @@ oracle@z3:/dan$ cat debugthis.js
 }).call(this);
 oracle@z3:/dan$ 
 oracle@z3:/dan$ 
-oracle@z3:/dan$ 
-</pre>
+oracle@z3:/dan$ </pre>
 
-        I tried using the debug token as suggested by the command line help:
+I tried using the debug token as suggested by the command line help:
 
 <pre>
 oracle@z3:/dan$ 
@@ -163,20 +161,19 @@ ReferenceError: number is not defined
     at ReadStream.emit (events.js:88:20)
 debug> watch number
 ... 
-... 
-</pre>
+... </pre>
 
-        <p>
-          It dawned on me that this debugger behaved differently than the Ruby debugger which I was acquainted with.
-          So, I asked my friend Adam at the BayNode Meetup what he used to debug Node.js software.
-          He suggested I use a module named 'Node Inspector'.
-          I googled it and then went to a github page:
-        </p>
-        <a href='http://github.com/dannycoates/node-inspector' target='u'>http://github.com/dannycoates/node-inspector</a>
-        <br>
-        <br>
-        There, I learned I could install Node Inspector with a package manager for Node.js called "npm".
-        So, I installed Node-Inspector with the npm shell command:
+<p>
+  It dawned on me that this debugger behaved differently than the Ruby debugger which I was acquainted with.
+  So, I asked my friend Adam at the BayNode Meetup what he used to debug Node.js software.
+  He suggested I use a module named 'Node Inspector'.
+  I googled it and then went to a github page:
+</p>
+<a href='http://github.com/dannycoates/node-inspector' target='u'>http://github.com/dannycoates/node-inspector</a>
+<br>
+<br>
+There, I learned I could install Node Inspector with a package manager for Node.js called "npm".
+So, I installed Node-Inspector with the npm shell command:
 
 <pre>
 oracle@z3:/dan$ 
@@ -273,16 +270,15 @@ oracle@z3:/dan$ which node-inspector
 /dan/nodejs/bin/node-inspector
 oracle@z3:/dan$ 
 oracle@z3:/dan$ 
-oracle@z3:/dan$ 
-</pre>
+oracle@z3:/dan$ </pre>
 
-        <br>
-        <br>
-        Some of the output looked garbled because npm could not detect that I was calling it from an Emacs shell.
-        It assumed I was in a normal terminal window and it wanted to colorize some of the output.
-        Aside from that, I was happy because I had just installed Node Inspector with npm.
-	How do I "run" Node Inspector?
-        The github page suggested I run it like this:
+<br>
+<br>
+Some of the output looked garbled because npm could not detect that I was calling it from an Emacs shell.
+It assumed I was in a normal terminal window and it wanted to colorize some of the output.
+Aside from that, I was happy because I had just installed Node Inspector with npm.
+How do I "run" Node Inspector?
+The github page suggested I run it like this:
 
 <pre>
 oracle@z3:/dan$ 
@@ -293,47 +289,48 @@ oracle@z3:/dan$    [36minfo  -[39m socket.io started
 visit http://0.0.0.0:8080/debug?port=5858 to start debugging
 
 oracle@z3:/dan$ 
-oracle@z3:/dan$ 
-</pre>
+oracle@z3:/dan$ </pre>
 
-        <br>
-        <br>
-        The impression I got from searching the web is that Node Inspector is something I should have running in the background on my laptop most of the time.
-        Then it will be ready for action when I need it.
-        This is similar to how I think a database or webserver should behave.
-        <p>
-          After starting Node Inspector, the github page suggested I run my node-script with a command line option: --debug-brk
-        </p>
-        <p>So, I did that:</p>
+<br>
+<br>
+The impression I got from searching the web is that Node Inspector is something I should have running in the background on my laptop most of the time.
+Then it will be ready for action when I need it.
+This is similar to how I think a database or webserver should behave.
+<br>
+<br>
 
+After starting Node Inspector, the github page suggested I run my node-script with a command line option: --debug-brk
+<br>
+<br>
+
+So, I did that:
 
 <pre>
 oracle@z3:/dan$ 
 oracle@z3:/dan$ 
 oracle@z3:/dan$ node --debug-brk debugthis.js 
-debugger listening on port 5858
-</pre>
+debugger listening on port 5858</pre>
 
-        <br>
-        <br>
-        And that shell became locked.
-        <br>
-        The github page suggested I point my Chrome browser at this URL:</p>
-        http://127.0.0.1:8080/debug?port=5858
-        <br>
-        <br>
-        <p>This looked familiar because the Node Inspector prompt had told me to do this:</p>
+<br>
+<br>
+And that shell became locked.
+<br>
+The github page suggested I point my Chrome browser at this URL:</p>
+http://127.0.0.1:8080/debug?port=5858
+<br>
+<br>
+<p>This looked familiar because the Node Inspector prompt had told me to do this:</p>
+
 <pre>
-visit http://0.0.0.0:8080/debug?port=5858 to start debugging
-</pre>
+visit http://0.0.0.0:8080/debug?port=5858 to start debugging</pre>
 
 
-        <br>
-        <p>So, I loaded the second URL into a Chrome browser and saw this:</p>
-        <img src='/assets/chrome_8080_1.png'>
-        <br>
-        <br>
-        <p>Obviously, that was not very useful.  I had done something wrong.  I then noticed this message in the window running Node Inspector:</p>
+<br>
+<p>So, I loaded the second URL into a Chrome browser and saw this:</p>
+<img src='/assets/chrome_8080_1.png'>
+<br>
+<br>
+<p>Obviously, that was not very useful.  I had done something wrong.  I then noticed this message in the window running Node Inspector:</p>
 
 <pre>
 oracle@z3:/dan$ 
@@ -342,22 +339,20 @@ oracle@z3:/dan$ debugger not connected
 debugger not connected
 debugger not connected
 debugger not connected
-debugger not connected
-</pre>
+debugger not connected</pre>
 
-        <br>
-        <p>
-          So, I killed Node Inspector and then I killed the debugger.
-          Then, I started them in different order; the debugger first, Node Inspector second.
-          I loaded the URL into Chrome again and saw this:
-        </p>
-        <img src='/assets/chrome_8080_2.png'>
-        <p>
-          I felt good when I saw the above UI in Chrome.
-          I was familiar with it.
-          It is identical to the UI I use to debug JavaScript served to a browser from a normal webserver.
-          I checked that I could use it to step through code and interact with objects and variables.
-          It worked great; I was happy because I was at the point where I was with Ruby and Rails.
-          I could attach a debugger to both application software and testing software.
-        </p>
-        <hr>
+<br>
+<p>
+  So, I killed Node Inspector and then I killed the debugger.
+  Then, I started them in different order; the debugger first, Node Inspector second.
+  I loaded the URL into Chrome again and saw this:
+</p>
+<img src='/assets/chrome_8080_2.png'>
+<p>
+  I felt good when I saw the above UI in Chrome.
+  I was familiar with it.
+  It is identical to the UI I use to debug JavaScript served to a browser from a normal webserver.
+  I checked that I could use it to step through code and interact with objects and variables.
+  It worked great; I was happy because I was at the point where I was with Ruby and Rails.
+  I could attach a debugger to both application software and testing software.
+</p>
