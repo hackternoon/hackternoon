@@ -183,15 +183,13 @@ I tried using the debug token as suggested by the command line help:
   So, I asked my friend Adam at the BayNode Meetup what he used to debug Node.js software.
   He suggested I use a module named 'Node Inspector'.
   I googled it and then went to a github page:
-%br/
-%br/
 
 %a(href='http://github.com/dannycoates/node-inspector' target='u')http://github.com/dannycoates/node-inspector
 
 %br/
 %br/
 There, I learned I could install Node Inspector with a package manager for Node.js called "npm".
-Then, I installed Node-Inspector with the npm shell command:
+So, I installed Node-Inspector with the npm shell command:
 %br/
 %br/
 
@@ -272,7 +270,6 @@ Then, I installed Node-Inspector with the npm shell command:
   oracle@z3:/dan$ 
   
   
-  
   oracle@z3:/dan$ 
   oracle@z3:/dan$ 
   oracle@z3:/dan$ 
@@ -326,15 +323,19 @@ This is similar to how I think a database or webserver should behave.
   oracle@z3:/dan$ node --debug-brk debugthis.js 
   debugger listening on port 5858
 
-And that shell became locked.
-
-%p The github page suggested I point my Chrome browser at this URL:
+%br/
+%br/
+%p And that shell became locked. The github page suggested I point my Chrome browser at this URL:
 
 http://127.0.0.1:8080/debug?port=5858
+%br/
+%br/
 
 %p This looked familiar because the Node Inspector prompt had told me to load this:
 
 visit http://0.0.0.0:8080/debug?port=5858 to start debugging
+%br/
+%br/
 
 %p So, I loaded the second URL into a Chrome browser and saw this:
 
@@ -351,11 +352,12 @@ visit http://0.0.0.0:8080/debug?port=5858 to start debugging
   debugger not connected
   debugger not connected
 
+%br/
+%br/
 %p
   So, I killed Node Inspector and then I killed the debugger.
   Then, I started them in different order; the debugger first, Node Inspector second.
-
-%p I loaded the URL into Chrome again and saw this:
+  I loaded the URL into Chrome again and saw this:
 
 %img(src='/assets/chrome_8080_2.png')/
 
