@@ -12,7 +12,7 @@
   It displayed this error:
   %br/
   %br/
-  Uncaught TypeError: Object [object Object] has no method 'accordion'
+  %span.pre_courier Uncaught TypeError: Object [object Object] has no method 'accordion'
   %br/
   %br/
   I figured out the problem by studying the order of .js files served to my browser.
@@ -35,7 +35,7 @@
   I need to then run this rake command:
   %br/
   %br/
-  RAILS_ENV=production bin/rake assets:precompile
+  %span.pre_courier bin/rake assets:precompile
   %br/
   %br/
   Normally I run the above command before I deploy my site to Heroku.

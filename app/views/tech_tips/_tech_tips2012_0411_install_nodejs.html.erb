@@ -1,0 +1,272 @@
+
+<h3 id='h3_2012_0411'>2012-04-11 Install Node.js from source</h3>
+
+When a developer wants to install Node.js on a laptop,
+it is often done with the help of a package manager like apt-get on Ubuntu or Homebrew on Mac OS/X.
+
+Sometimes you will have reasons for not using the package manager:
+<br />
+<br />
+<ul class='ul_type_disc'>
+<li /> You don't understand the package manager
+<li /> You want the package manager to only install "OS software" not other types
+<li /> You don't have the root password
+<li /> The OS is old and you don't want to update it and the package manager does want to update it
+<li /> You tried using the package manager and it failed
+<li /> You worry the package manager might fail and you don't know what to do if it does
+<li /> You don't want Node.js files owned by root
+<li /> You want to try different versions of Node.js
+</ul>
+
+I installed Node.js from source on two types of laptops, a Linux laptop and a Mac running OS/X 10.5.8.
+Both were easy tasks.
+Notes from both of those efforts are displayed below.
+<br />
+<br />
+
+<h3>Ubuntu 10.04: Install Node.js from source</h3>
+
+I started by creating a directory owned by me rather than root:
+
+<pre>
+oracle@z3:/dan/nodejs$ mkdir -p /dan/nodejs
+oracle@z3:/dan/nodejs$ cd       /dan/nodejs
+</pre>
+
+I got a copy of the source:
+
+<pre>
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ wget http://nodejs.org/dist/v0.6.15/node-v0.6.15.tar.gz
+--2012-04-10 20:08:50--  http://nodejs.org/dist/v0.6.15/node-v0.6.15.tar.gz
+Resolving nodejs.org... 8.12.44.238
+Connecting to nodejs.org|8.12.44.238|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10741691 (10M) [application/octet-stream]
+Saving to: `node-v0.6.15.tar.gz'
+
+100%[======================================>] 10,741,691   307K/s   in 34s     
+
+2012-04-10 20:09:24 (308 KB/s) - `node-v0.6.15.tar.gz' saved [10741691/10741691]
+
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+</pre>
+
+I unpacked it, configured it and compiled it:
+
+<pre>
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ ll
+total 10500
+drwxrwxrwt 2 root   root       4096 2012-04-10 20:08 ./
+drwxrwxrwt 3 root   root       4096 2012-04-10 20:05 ../
+-rw-r--r-- 1 oracle oracle 10741691 2012-04-09 17:07 node-v0.6.15.tar.gz
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ tar zxf node-v0.6.15.tar.gz 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+
+
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ ll
+total 10504
+drwxrwxrwt 3 root   root       4096 2012-04-10 20:10 ./
+drwxrwxrwt 3 root   root       4096 2012-04-10 20:05 ../
+drwxr-xr-x 9 oracle oracle     4096 2012-04-09 17:03 node-v0.6.15/
+-rw-r--r-- 1 oracle oracle 10741691 2012-04-09 17:07 node-v0.6.15.tar.gz
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ 
+
+oracle@z3:/dan/nodejs$ 
+oracle@z3:/dan/nodejs$ cd node-v0.6.15
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ ll
+total 256
+drwxr-xr-x 9 oracle oracle  4096 2012-04-09 17:03 ./
+drwxrwxrwt 3 root   root    4096 2012-04-10 20:10 ../
+-rw-r--r-- 1 oracle oracle 10036 2012-04-09 17:03 AUTHORS
+drwxr-xr-x 4 oracle oracle  4096 2012-04-10 20:10 benchmark/
+-rw-r--r-- 1 oracle oracle    61 2012-04-09 17:03 BSDmakefile
+-rw-r--r-- 1 oracle oracle 69546 2012-04-09 17:03 ChangeLog
+-rw-r--r-- 1 oracle oracle  6355 2012-04-09 17:03 common.gypi
+-rwxr-xr-x 1 oracle oracle   444 2012-04-09 17:03 configure*
+-rwxr-xr-x 1 oracle oracle  6397 2012-04-09 17:03 configure-gyp*
+drwxr-xr-x 8 oracle oracle  4096 2012-04-10 20:10 deps/
+drwxr-xr-x 7 oracle oracle  4096 2012-04-10 20:10 doc/
+-rw-r--r-- 1 oracle oracle    22 2012-04-09 17:03 .gitattributes
+-rw-r--r-- 1 oracle oracle   431 2012-04-09 17:03 .gitignore
+drwxr-xr-x 2 oracle oracle  4096 2012-04-10 20:10 lib/
+-rw-r--r-- 1 oracle oracle 28069 2012-04-09 17:03 LICENSE
+-rw-r--r-- 1 oracle oracle  6223 2012-04-09 17:03 Makefile
+-rw-r--r-- 1 oracle oracle 10204 2012-04-09 17:03 Makefile-gyp
+-rw-r--r-- 1 oracle oracle  6682 2012-04-09 17:03 node.gyp
+-rw-r--r-- 1 oracle oracle  1328 2012-04-09 17:03 README.md
+drwxr-xr-x 2 oracle oracle  4096 2012-04-10 20:10 src/
+drwxr-xr-x 8 oracle oracle  4096 2012-04-10 20:10 test/
+drwxr-xr-x 9 oracle oracle  4096 2012-04-10 20:10 tools/
+-rw-r--r-- 1 oracle oracle   158 2012-04-09 17:03 .travis.yml
+-rw-r--r-- 1 oracle oracle  5905 2012-04-09 17:03 vcbuild.bat
+-rw-r--r-- 1 oracle oracle 36634 2012-04-09 17:03 wscript
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+</pre>
+
+The readme says I need Python 2.6 or 2.7.
+
+<pre>
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ which python
+/usr/bin/python
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ python --version
+Python 2.6.5
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+</pre>
+
+I have that Python; yay!
+<br />
+I want the Node.js executables to reside under /dan/nodejs.
+<br />
+So, I use '--prefix' to specify that:
+
+<pre>
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ ./configure --prefix=/dan/nodejs
+Checking for program g++ or c++          : /usr/bin/g++ 
+Checking for program cpp                 : /usr/bin/cpp 
+Checking for program ar                  : /usr/bin/ar 
+Checking for program ranlib              : /usr/bin/ranlib 
+Checking for g++                         : ok  
+Checking for program gcc or cc           : /usr/bin/gcc 
+Checking for gcc                         : ok  
+Checking for library dl                  : yes 
+Checking for openssl                     : yes 
+Checking for library util                : yes 
+Checking for library rt                  : yes 
+Checking for fdatasync(2) with c++       : yes 
+'configure' finished successfully (2.063s)
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+</pre>
+
+Then I issued shell commands, 'make' and 'make install':
+
+<pre>
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ make
+Waf: Entering directory `/dan/nodejs/node-v0.6.15/out'
+DEST_OS: linux
+DEST_CPU: x64
+Parallel Jobs: 1
+Product type: program
+[ 1/35] copy: src/node_config.h.in -> out/Release/src/node_config.h
+[ 2/35] cc: deps/http_parser/http_parser.c -> out/Release/deps/http_parser/http_parser_3.o
+/usr/bin/gcc -rdynamic -pthread -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 
+
+snip ....
+
+/usr/bin/g++ Release/src/node_main_5.o Release/src/node_5.o Release/src/node_buffer_5.o snip...
+Waf: Leaving directory `/dan/nodejs/node-v0.6.15/out'
+'build' finished successfully (4m14.574s)
+-rwxr-xr-x 1 oracle oracle 9.8M 2012-04-10 20:24 out/Release/node
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+
+
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ make install
+Waf: Entering directory `/dan/nodejs/node-v0.6.15/out'
+DEST_OS: linux
+DEST_CPU: x64
+Parallel Jobs: 1
+Product type: program
+* installing deps/uv/include/ares_version.h as /dan/nodejs/include/node/ares_version.h
+* installing deps/uv/include/uv.h as /dan/nodejs/include/node/uv.h
+* installing deps/uv/include/ares.h as /dan/nodejs/include/node/ares.h
+* installing deps/uv/include/uv-private/uv-unix.h as /dan/nodejs/include/node/uv-private/uv-unix.h
+* installing deps/uv/include/uv-private/uv-win.h as /dan/nodejs/include/node/uv-private/uv-win.h
+* installing deps/uv/include/uv-private/ev.h as /dan/nodejs/include/node/uv-private/ev.h
+* installing deps/uv/include/uv-private/eio.h as /dan/nodejs/include/node/uv-private/eio.h
+* installing deps/uv/include/uv-private/ngx-queue.h as /dan/nodejs/include/node/uv-private/ngx-queue.h
+
+snip......
+
+* symlink /dan/nodejs/bin/npm (-> ../lib/node_modules/npm/bin/npm-cli.js)
+* installing out/Release/node as /dan/nodejs/bin/node
+* installing out/Release/src/node_config.h as /dan/nodejs/include/node/node_config.h
+Waf: Leaving directory `/dan/nodejs/node-v0.6.15/out'
+'install' finished successfully (4.589s)
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+oracle@z3:/dan/nodejs/node-v0.6.15$ 
+</pre>
+
+Next, I tried running a simple server.
+I pulled a simple code-demo off of nodejs.org and ran it:
+
+<pre>
+oracle@z3:/dan$ 
+oracle@z3:/dan$ 
+oracle@z3:/dan$ which node 
+/dan/nodejs/bin/node
+oracle@z3:/dan$ 
+oracle@z3:/dan$ 
+oracle@z3:/dan$ cat example.js 
+// example.js
+// I got this code from here:
+// http://nodejs.org
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+oracle@z3:/dan$ 
+oracle@z3:/dan$ 
+oracle@z3:/dan$ node example.js 
+Server running at http://127.0.0.1:1337/
+</pre>
+
+The above shell command locked my shell.
+<br />
+So I started another shell and ran a simple shell command to GET a response from the server:
+
+<pre>
+oracle@z3:/tmp$ 
+oracle@z3:/tmp$ curl http://127.0.0.1:1337
+Hello World
+oracle@z3:/tmp$ 
+oracle@z3:/tmp$ 
+</pre>
+
+I considered the above output sufficient proof that I had installed Node.js and that it was running well on my Linux host.
+
+
+<br />
+<br />
+<h3>Mac OS/X 10.5.8 (Leopard): Install Node.js from source</h3>
+
+UNDER CONSTRUCTION
+<br />
+<br />

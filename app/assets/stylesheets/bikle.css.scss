@@ -63,7 +63,20 @@ div#div4_rhs table #th_upd {min-width:150px;}
 .margin_left0px {margin-left: 0px;}
 .hidden {display: none;}
 
-.pre_courier {font-weight:bold; font-family:"Courier"; color:#442244;}
+.pre_courier {
+  font-weight: 800;
+  font-family: monospace,"Courier New",Terminal;
+  font-size: 18px;
+  border: 1px solid black;
+  border-right-color: white;
+  background-color: white;
+  white-space: pre;
+  margin: 1em 0px;
+  margin-left: 0px;
+  padding-left: 9px;
+  min-width: 800px;
+  color: #004400;
+}
 
 .ul_type_circle {list-style-type: circle;}
 .ul_type_disc {list-style-type: disc;}

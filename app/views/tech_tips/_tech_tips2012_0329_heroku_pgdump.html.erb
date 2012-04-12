@@ -272,7 +272,7 @@ I tried this:
 <pre>
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
 oracle@z3:/pt/w/hn/z3_2012_0329$ bin/heroku pgbackups:url b002
-"https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA&Expires=1333061930&Signature=9M78g6ndU7ZjI1yaFCF3i9o5jp8%3D"
+"https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip..."
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
 oracle@z3:/pt/w/hn/z3_2012_0329$ 
 </pre>
@@ -281,10 +281,10 @@ oracle@z3:/pt/w/hn/z3_2012_0329$
 I tried this:
 
 <pre>
-oracle@z3:/tmp$ wget https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA&Expires=1333061930&Signature=9M78g6ndU7ZjI1yaFCF3i9o5jp8%3D
+oracle@z3:/tmp$ wget https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip...
 [1] 2088
 [2] 2089
---2012-03-29 23:50:54--  https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA
+--2012-03-29 23:50:54--  https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip..
 Resolving s3.amazonaws.com... 207.171.185.200
 Connecting to s3.amazonaws.com|207.171.185.200|:443... connected.
 HTTP request sent, awaiting response... 403 Forbidden
@@ -292,7 +292,7 @@ HTTP request sent, awaiting response... 403 Forbidden
 
 
 [2]+  Done                    Expires=1333061930
-[1]-  Exit 8                  wget https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA
+[1]-  Exit 8                  wget https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip..
 [2]+  Done                    Expires=1333061930
 oracle@z3:/tmp$ 
 oracle@z3:/tmp$ 
@@ -309,8 +309,8 @@ I tried this:
 <pre>
 oracle@z3:/tmp$ 
 oracle@z3:/tmp$ 
-oracle@z3:/tmp$ wget 'https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA&Expires=1333061930&Signature=9M78g6ndU7ZjI1yaFCF3i9o5jp8%3D' -O b002.dump
---2012-03-29 23:53:12--  https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=AKIAJYEDAEBRU6KYW6QA&Expires=1333061930&Signature=9M78g6ndU7ZjI1yaFCF3i9o5jp8%3D
+oracle@z3:/tmp$ wget 'https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip..
+--2012-03-29 23:53:12--  https://s3.amazonaws.com/hkpgbackups/app3351536@heroku.com/b002.dump?AWSAccessKeyId=snip..
 Resolving s3.amazonaws.com... 72.21.211.199
 Connecting to s3.amazonaws.com|72.21.211.199|:443... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -564,9 +564,9 @@ oracle@z3:/tmp$
 oracle@z3:/tmp$ 
 oracle@z3:/tmp$ grep -i copy b002.dump.txt
 COPY invitations (id, msg, project_id, sender_id, user_id, created_at, updated_at) FROM stdin;
-COPY projects (id, name, dscrptn, user_id, github_url, tech_tag1, tech_tag2, tech_tag3, biz_tag1, biz_tag2, biz_tag3, created_at, updated_at) FROM stdin;
+COPY projects (id, name, dscrptn, user_id, github_url, tech_tag1, tech_tag2, tech_tag3, biz_tag1, biz_tag2 snip...
 COPY schema_migrations (version) FROM stdin;
-COPY users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, unconfirmed_email, created_at, updated_at, name, twitter_handle, location) FROM stdin;
+COPY users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, snip...
 oracle@z3:/tmp$ 
 oracle@z3:/tmp$ 
 </pre>
