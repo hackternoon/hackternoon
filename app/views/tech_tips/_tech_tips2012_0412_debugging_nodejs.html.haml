@@ -55,7 +55,10 @@ I looked for evidence of a debugger from the Node.js command line arguments:
 
 %br/
 %br/
-I tried using it:
+I noticed the 'debug' token in the Usage message; that looked promising.
+
+I wrote some simple JavaScript syntax into a file called debugthis.js:
+
 
 %br/
 %br/
@@ -106,7 +109,9 @@ I tried using it:
   oracle@z3:/dan$ 
 
 
+I tried using the debug token as suggested by the command line help:
 
+:preserve
   oracle@z3:/dan$ 
   oracle@z3:/dan$ 
   oracle@z3:/dan$ node debug debugthis.js
@@ -172,3 +177,192 @@ I tried using it:
   debug> watch number
   ... 
   ... 
+
+%p
+  It dawned on me that this debugger behaved differently than the Ruby debugger which I was acquainted with.
+  So, I asked my friend Adam at the BayNode Meetup what he used to debug Node.js software.
+  He suggested I use a module named 'Node Inspector'.
+  I googled it and then went to a github page:
+%br/
+%br/
+
+%a(href='http://github.com/dannycoates/node-inspector' target='u')http://github.com/dannycoates/node-inspector
+
+%br/
+%br/
+There, I learned I could install Node Inspector with a package manager for Node.js called "npm".
+Then, I installed Node-Inspector with the npm shell command:
+%br/
+%br/
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ npm --help
+  
+  Usage: npm <command>
+  
+  where <command> is one of:
+      add-user, adduser, apihelp, author, bin, bugs, c, cache,
+      completion, config, deprecate, docs, edit, explore, faq,
+      find, get, help, help-search, home, i, info, init, install,
+      la, link, list, ll, ln, login, ls, outdated, owner, pack,
+      prefix, prune, publish, r, rb, rebuild, remove, restart, rm,
+      root, run-script, s, se, search, set, show, shrinkwrap,
+      star, start, stop, submodule, tag, test, un, uninstall,
+      unlink, unpublish, unstar, up, update, version, view,
+      whoami
+  
+  npm <cmd> -h     quick help on <cmd>
+  npm -l           display full usage info
+  npm faq          commonly asked questions
+  npm help <term>  search for help on <term>
+  npm help npm     involved overview
+  
+  Specify configs in the ini-formatted file:
+      /home/oracle/.npmrc
+  or on the command line via: npm <command> --key value
+  Config info can be viewed via: npm help config
+  
+  npm@1.1.16 /dan/nodejs/lib/node_modules/npm
+  oracle@z3:/dan$ npm list
+  /dan
+  └── (empty)
+  
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ npm install -g node-inspector
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/node-inspector
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/node-inspector
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/paperboy
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/socket.io
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/paperboy
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/socket.io
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/socket.io-client/0.8.7
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/redis/0.6.7
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/policyfile/0.0.4
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/redis/0.6.7
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/socket.io-client/0.8.7
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/policyfile/0.0.4
+  [37;40mnpm[0m [30;41mWARN[0m [35mexcluding symbolic link[0m lib/socket.io-client.js -> io.js
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/uglify-js/1.0.6
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/websocket-client/1.0.0
+  [37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/xmlhttprequest/1.2.2
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/websocket-client/1.0.0
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/xmlhttprequest/1.2.2
+  [37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/uglify-js/1.0.6
+  /dan/nodejs/bin/node-inspector -> /dan/nodejs/lib/node_modules/node-inspector/bin/inspector.js
+  paperboy@0.0.3 /dan/nodejs/lib/node_modules/node-inspector/node_modules/paperboy
+  
+  policyfile@0.0.4 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/policyfile
+  
+  redis@0.6.7 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/redis
+  
+  xmlhttprequest@1.2.2 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/ snip...
+  
+  websocket-client@1.0.0 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/ snip...
+  
+  uglify-js@1.0.6 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/ snip...
+  
+  socket.io-client@0.8.7 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io/node_modules/ snip...
+  
+  socket.io@0.8.7 /dan/nodejs/lib/node_modules/node-inspector/node_modules/socket.io
+  
+  node-inspector@0.1.10 /dan/nodejs/lib/node_modules/node-inspector
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  
+  
+  
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ npm list
+  /dan
+  └── (empty)
+  
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ which node-inspector
+  /dan/nodejs/bin/node-inspector
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+
+
+%br/
+%br/
+That looked good.
+The github page suggested I run it like this:
+%br/
+%br/
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ node-inspector &
+  [1] 32700
+  oracle@z3:/dan$    [36minfo  -[39m socket.io started
+  visit http://0.0.0.0:8080/debug?port=5858 to start debugging
+  
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+
+%br/
+%br/
+The impression I got from searching the web is that Node Inspector is something I should have running in the background on my laptop most of the time.  
+
+Then it will be ready for action when I need it.
+
+This is similar to how I think a database or webserver should behave.
+
+%p
+  After starting Node Inspector, the github page suggested I run my node-script with a command line option: --debug-brk
+  
+
+%p So, I did that:
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ node --debug-brk debugthis.js 
+  debugger listening on port 5858
+
+And that shell became locked.
+
+%p The github page suggested I point my Chrome browser at this URL:
+
+http://127.0.0.1:8080/debug?port=5858
+
+%p This looked familiar because the Node Inspector prompt had told me to load this:
+
+visit http://0.0.0.0:8080/debug?port=5858 to start debugging
+
+%p So, I loaded the second URL into a Chrome browser and saw this:
+
+%img(src='/assets/chrome_8080_1.png')/
+
+%p Obviously, that was not very useful.  I had done something wrong.  I then noticed this message in the window running Node Inspector:
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ debugger not connected
+  debugger not connected
+  debugger not connected
+  debugger not connected
+  debugger not connected
+
+%p
+  So, I killed Node Inspector and then I killed the debugger.
+  Then, I started them in different order; the debugger first, Node Inspector second.
+
+%p I loaded the URL into Chrome again and saw this:
+
+%img(src='/assets/chrome_8080_2.png')/
+
+%p 
+  I felt good when I saw the above UI in Chrome.
+  I was familiar with it.
+  It is identical to the UI I use to debug JavaScript served to a browser from a normal webserver.
+  I checked that I could use it to step through code and interact with objects and variables.
+  It worked great; I was happy because I was at the point where I was with Ruby and Rails.
+  I could attach a debugger to both application software and testing software.
