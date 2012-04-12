@@ -1,0 +1,174 @@
+
+%h3#h3_2012_0412 2012-04-12 Debugging Node.js During Development
+
+When I develop Ruby scripts or Rails sites I'm dependent on a good debugger.
+When I'm working on a feature in an application my flow goes something like this:
+
+%ul.ul_type_disc
+  %li Write some test code
+  %li Write some application-code to push the test code towards a green state
+  %li Drop a debugger-call in the application-code where I want to inspect its state
+  %li Drop a debugger-call in the test-code where I want to inspect its state
+  %li Interact with the code
+  %li Enhance the code
+  %li Repeat
+
+This style of coding makes me very dependent on the debugger and its features.
+
+When I started writing Node.js software, I wanted to use a similar style of coding.
+
+I looked for evidence of a debugger from the Node.js command line arguments:
+
+%br/
+%br/
+%br/
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ which node
+  /dan/nodejs/bin/node
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ node --help
+  Usage: node [options] [ -e script | script.js ] [arguments] 
+         node debug script.js [arguments] 
+  
+  Options:
+    -v, --version        print node's version
+    -e, --eval script    evaluate script
+    -p, --print          print result of --eval
+    --v8-options         print v8 command line options
+    --vars               print various compiled-in variables
+    --max-stack-size=val set max v8 stack size (bytes)
+
+  Environment variables:
+  NODE_PATH              ':'-separated list of directories
+                         prefixed to the module search path.
+  NODE_MODULE_CONTEXTS   Set to 1 to load modules in their own
+                         global contexts.
+  NODE_DISABLE_COLORS    Set to 1 to disable colors in the REPL
+  
+  Documentation can be found at http://nodejs.org/
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+
+%br/
+%br/
+I tried using it:
+
+%br/
+%br/
+
+:preserve
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ cat debugthis.js 
+  (function() {
+    var cubes, list, math, num, number, opposite, race, square;
+    var __slice = Array.prototype.slice;
+    number = 42;
+    opposite = true;
+    if (opposite) {
+      number = -42;
+    }
+    square = function(x) {
+      return x * x;
+    };
+    list = [1, 2, 3, 4, 5];
+    math = {
+      root: Math.sqrt,
+      square: square,
+      cube: function(x) {
+        return x * square(x);
+      }
+    };
+    race = function() {
+      var runners, winner;
+      winner = arguments[0], runners = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      return print(winner, runners);
+    };
+    if (typeof elvis !== "undefined" && elvis !== null) {
+      alert("I knew it!");
+    }
+    cubes = (function() {
+      var _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = list.length; _i < _len; _i++) {
+        num = list[_i];
+        _results.push(math.cube(num));
+      }
+      return _results;
+    })();
+  }).call(this);
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+
+
+
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ node debug debugthis.js
+  < debugger listening on port 5858
+  connecting... ok
+  break in debugthis.js:37
+   35     return _results;
+   36   })();
+   37 }).call(this);
+   38 
+   39 });
+  debug> quit
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ 
+  oracle@z3:/dan$ node debug debugthis.js
+  < debugger listening on port 5858
+  connecting... ok
+  debug> help
+  Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBreakpoint (sb), clearBreakpoint (cb),
+  watch, unwatch, watchers, repl, restart, kill, list, scripts, breakpoints, version
+  debug> list
+  [Function]
+  debug> s
+  break in debugthis.js:2
+    1 (function() {
+    2   var cubes, list, math, num, number, opposite, race, square;
+    3   var __slice = Array.prototype.slice;
+    4   number = 42;
+  debug> n
+  break in debugthis.js:3
+    1 (function() {
+    2   var cubes, list, math, num, number, opposite, race, square;
+    3   var __slice = Array.prototype.slice;
+    4   number = 42;
+    5   opposite = true;
+  debug> n
+  break in debugthis.js:4
+    2   var cubes, list, math, num, number, opposite, race, square;
+    3   var __slice = Array.prototype.slice;
+    4   number = 42;
+    5   opposite = true;
+    6   if (opposite) {
+  debug> n
+  break in debugthis.js:5
+    3   var __slice = Array.prototype.slice;
+    4   number = 42;
+    5   opposite = true;
+    6   if (opposite) {
+    7     number = -42;
+  debug> number
+  ReferenceError: number is not defined
+      at repl:1:2
+      at Interface.controlEval (_debugger.js:930:21)
+      at REPLServer.eval (native)
+      at Interface.<anonymous> (repl.js:182:12)
+      at Interface.emit (events.js:67:17)
+      at Interface._onLine (readline.js:162:10)
+      at Interface._line (readline.js:426:8)
+      at Interface._ttyWrite (readline.js:603:14)
+      at ReadStream.<anonymous> (readline.js:82:12)
+      at ReadStream.emit (events.js:88:20)
+  debug> watch number
+  ... 
+  ... 
