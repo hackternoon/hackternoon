@@ -670,6 +670,7 @@ It assumed I was on a terminal so it sent codes to my display to change how it l
 So, that is why its output above looks strange.
 I did not worry about it.
 
+I then checked that I had both coffee and node in my PATH:
 <pre>
 Tue Apr 10 15:18 /tmp bikle611$ 
 Tue Apr 10 15:18 /tmp bikle611$ which coffee
@@ -682,8 +683,19 @@ Tue Apr 10 15:18 /tmp bikle611$ which coffee-script
 Tue Apr 10 15:19 /tmp bikle611$ 
 Tue Apr 10 15:19 /tmp bikle611$ 
 Tue Apr 10 15:19 /tmp bikle611$ 
+</pre>
 
+<br />
+<br />
 
+Darn!
+<br />
+<br />
+
+Something is WRONG.  The install of coffee-script seemed to go okay but my shell is not seeing anything in the PATH.
+I investigated:
+
+<pre>
 Tue Apr 10 15:19 /tmp bikle611$ 
 Tue Apr 10 15:19 /tmp bikle611$ ll
 total 8
@@ -708,10 +720,13 @@ drwxr-xr-x  11 bikle611  staff  374 Apr 10 15:17 coffee-script/
 Tue Apr 10 15:22 /tmp bikle611$ 
 Tue Apr 10 15:22 /tmp bikle611$ 
 Tue Apr 10 15:22 /tmp bikle611$ 
+</pre>
 
+<br />
+<br />
 Perhaps I should have used the -g option:
 
-
+<pre>
 Tue Apr 10 15:22 /tmp bikle611$ 
 Tue Apr 10 15:24 /tmp bikle611$ 
 Tue Apr 10 15:24 /tmp bikle611$ npm install -g coffee-script
@@ -723,12 +738,16 @@ coffee-script@1.3.1 /dan/nodejs/lib/node_modules/coffee-script
 Tue Apr 10 15:24 /tmp bikle611$ 
 Tue Apr 10 15:24 /tmp bikle611$ 
 Tue Apr 10 15:24 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
 
 That looks better.
 
 It acts better too:
 
-
+<pre>
 Tue Apr 10 15:24 /tmp bikle611$ 
 Tue Apr 10 15:24 /tmp bikle611$ 
 Tue Apr 10 15:25 /tmp bikle611$ which coffee
@@ -750,9 +769,13 @@ Tue Apr 10 15:30 /tmp bikle611$ coffee three.coffee
 3
 Tue Apr 10 15:30 /tmp bikle611$ 
 Tue Apr 10 15:30 /tmp bikle611$ 
+</pre>
 
+<br />
+<br />
 I tried the debugger:
 
+<pre>
 Tue Apr 10 15:55 /tmp bikle611$ coffee --nodejs debug  three.coffee 
 &lt; debugger listening on port 5858
 connecting... ok
@@ -771,7 +794,9 @@ debug> n
 break in /dan/nodejs/lib/node_modules/coffee-script/bin/coffee:4
   2 
   3 var path = require('path');
-
+</pre>
+<br />
+<br />
 
 That is not very helpful to me.
 
@@ -779,6 +804,7 @@ Maybe to use the debugger I should use coffee to generate a .js file and then ru
 
 I tried that:
 
+<pre>
 Tue Apr 10 15:55 /private/tmp bikle611$ 
 Tue Apr 10 15:55 /private/tmp bikle611$ cd /tmp
 Tue Apr 10 15:55 /tmp bikle611$ 
@@ -863,13 +889,16 @@ debug> quit
 Tue Apr 10 16:14 /tmp bikle611$ 
 Tue Apr 10 16:15 /tmp bikle611$ 
 Tue Apr 10 16:15 /tmp bikle611$ 
+</pre>
 
+<br />
+<br />
 
 Next, I tried starting a server to listen for requests.
 
 I started with a pure JavaScript server:
 
-
+<pre>
 Tue Apr 10 16:24 ~/pt/apr bikle611$ 
 Tue Apr 10 16:24 ~/pt/apr bikle611$ 
 Tue Apr 10 16:24 ~/pt/apr bikle611$ cat myserver.js 
@@ -890,20 +919,26 @@ Tue Apr 10 16:24 ~/pt/apr bikle611$
 Tue Apr 10 16:24 ~/pt/apr bikle611$ 
 Tue Apr 10 16:24 ~/pt/apr bikle611$ node myserver.js 
 Server running at http://127.0.0.1:1337/
+<pre>
 
+<br />
+<br />
 
 I used another shell to point curl at my server:
 
+<pre>
 Tue Apr 10 16:25 ~/pt/apr bikle611$ 
 Tue Apr 10 16:25 ~/pt/apr bikle611$ curl 127.0.0.1:1337/
 Hello World
 Tue Apr 10 16:25 ~/pt/apr bikle611$ 
 Tue Apr 10 16:25 ~/pt/apr bikle611$ 
+</pre>
 
-
+Yay!
+It worked.
 Next, I transformed the code into some coffee-script:
 
-
+<pre>
 Tue Apr 10 19:25 ~/pt/apr bikle611$ 
 Tue Apr 10 19:25 ~/pt/apr bikle611$ cat myserver2.coffee 
 # myserver2.coffee
@@ -923,5 +958,4 @@ console.log('Server running at http://127.0.0.1:1337/')
 Tue Apr 10 19:25 ~/pt/apr bikle611$ 
 Tue Apr 10 19:25 ~/pt/apr bikle611$ 
 Tue Apr 10 19:25 ~/pt/apr bikle611$ 
-
 </pre>
