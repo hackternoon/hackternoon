@@ -6,8 +6,8 @@ The upgrade from Rails 3.2.2 to Rails 3.2.3 is done.
 
 Here is a list of enhancements I am focused on:
 
-  - Enhance the tech_tip for installing Node.js on Mac from source
   - Add a New-Project-link for guest which is a page of instructions and Register-link
-
+  - Add a link to a set of pages suitable for a mobile browser
+  - I dont like Accordion links for the blog, do what tech-tips does
 
 

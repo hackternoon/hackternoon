@@ -287,3 +287,722 @@ Tue Apr 10 13:19 /dan/nodejs bikle611$ </pre>
 
 <br />
 <br />
+
+I downloaded the Node.js source code from a link I found on a page at 
+<a href='http://nodejs.org' target='n'>http://nodejs.org</a>
+
+<pre>
+Tue Apr 10 13:19 /dan/nodejs bikle611$ 
+Tue Apr 10 13:19 /dan/nodejs bikle611$ 
+Tue Apr 10 13:19 /dan/nodejs bikle611$ wget http://nodejs.org/dist/v0.6.15/node-v0.6.15.tar.gz
+--2012-04-10 13:21:47--  http://nodejs.org/dist/v0.6.15/node-v0.6.15.tar.gz
+Resolving nodejs.org... 8.12.44.238
+Connecting to nodejs.org|8.12.44.238|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10741691 (10M) [application/octet-stream]
+Saving to: `node-v0.6.15.tar.gz'
+
+100%[======================================>] 10,741,691   321K/s   in 36s     
+
+2012-04-10 13:22:23 (293 KB/s) - `node-v0.6.15.tar.gz' saved [10741691/10741691]
+
+Tue Apr 10 13:24 /dan/nodejs bikle611$ 
+Tue Apr 10 13:24 /dan/nodejs bikle611$ </pre>
+
+<br />
+<br />
+
+I unpacked it and looked at the README.md file:
+
+<pre>
+Tue Apr 10 13:25 /dan/nodejs bikle611$ 
+Tue Apr 10 13:25 /dan/nodejs bikle611$ tar zxf node-v0.6.15.tar.gz 
+Tue Apr 10 13:26 /dan/nodejs bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs bikle611$ ll
+total 20984
+drwxr-xr-x   4 bikle611  admin       136 Apr 10 13:25 ./
+drwxr-xr-x   3 bikle611  admin       102 Apr 10 13:18 ../
+drwxr-xr-x  25 bikle611  admin       850 Apr  9 09:03 node-v0.6.15/
+-rw-r--r--   1 bikle611  admin  10741691 Apr  9 09:07 node-v0.6.15.tar.gz
+Tue Apr 10 13:26 /dan/nodejs bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs bikle611$ cd node-v0.6.15
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ ll
+total 440
+drwxr-xr-x  25 bikle611  admin    850 Apr  9 09:03 ./
+drwxr-xr-x   4 bikle611  admin    136 Apr 10 13:25 ../
+-rw-r--r--   1 bikle611  admin     22 Apr  9 09:03 .gitattributes
+-rw-r--r--   1 bikle611  admin    431 Apr  9 09:03 .gitignore
+-rw-r--r--   1 bikle611  admin    158 Apr  9 09:03 .travis.yml
+-rw-r--r--   1 bikle611  admin  10036 Apr  9 09:03 AUTHORS
+-rw-r--r--   1 bikle611  admin     61 Apr  9 09:03 BSDmakefile
+-rw-r--r--   1 bikle611  admin  69546 Apr  9 09:03 ChangeLog
+-rw-r--r--   1 bikle611  admin  28069 Apr  9 09:03 LICENSE
+-rw-r--r--   1 bikle611  admin   6223 Apr  9 09:03 Makefile
+-rw-r--r--   1 bikle611  admin  10204 Apr  9 09:03 Makefile-gyp
+-rw-r--r--   1 bikle611  admin   1328 Apr  9 09:03 README.md
+drwxr-xr-x  30 bikle611  admin   1020 Apr 10 13:26 benchmark/
+-rw-r--r--   1 bikle611  admin   6355 Apr  9 09:03 common.gypi
+-rwxr-xr-x   1 bikle611  admin    444 Apr  9 09:03 configure*
+-rwxr-xr-x   1 bikle611  admin   6397 Apr  9 09:03 configure-gyp*
+drwxr-xr-x   8 bikle611  admin    272 Apr 10 13:26 deps/
+drwxr-xr-x  22 bikle611  admin    748 Apr 10 13:26 doc/
+drwxr-xr-x  37 bikle611  admin   1258 Apr 10 13:25 lib/
+-rw-r--r--   1 bikle611  admin   6682 Apr  9 09:03 node.gyp
+drwxr-xr-x  71 bikle611  admin   2414 Apr 10 13:25 src/
+drwxr-xr-x  10 bikle611  admin    340 Apr 10 13:25 test/
+drwxr-xr-x  22 bikle611  admin    748 Apr 10 13:26 tools/
+-rw-r--r--   1 bikle611  admin   5905 Apr  9 09:03 vcbuild.bat
+-rw-r--r--   1 bikle611  admin  36634 Apr  9 09:03 wscript
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+
+
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:26 /dan/nodejs/node-v0.6.15 bikle611$ cat  README.md 
+Evented I/O for V8 javascript. [![Build Status](https://secure.travis-ci.org/joyent/node.png)](http://travis-ci.org/joyent/node)
+===
+
+### To build:
+
+Unix/Macintosh (requires python 2.6 or 2.7):
+
+    ./configure
+    make
+    make install
+
+Windows:
+
+    vcbuild.bat
+
+### To run the tests:
+
+Unix/Macintosh:
+
+    make test
+
+Windows:
+
+    vcbuild.bat test
+
+### To build the documentation:
+
+    make doc
+
+### To read the documentation:
+
+    man doc/node.1
+
+Resources for Newcomers
+---
+  - [The Wiki](https://github.com/joyent/node/wiki)
+  - [nodejs.org](http://nodejs.org/)
+  - [how to install node.js and npm (node package manager)](http://joyeur.com/2010/12/10/installing-node-and-npm/)
+  - [list of modules](https://github.com/joyent/node/wiki/modules)
+  - [searching the npm registry](http://search.npmjs.org/)
+  - [list of companies and projects using node](https://github.com/joyent/node/wiki/Projects,-Applications,-and-Companies-Using-Node)
+  - [node.js mailing list](http://groups.google.com/group/nodejs)
+  - irc chatroom, [#node.js on freenode.net](http://webchat.freenode.net?channels=node.js&uio=d4)
+  - [community](https://github.com/joyent/node/wiki/Community)
+  - [contributing](https://github.com/joyent/node/wiki/Contributing)
+  - [big list of all the helpful wiki pages](https://github.com/joyent/node/wiki/_pages)
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
+
+<br />
+<br />
+
+I checked that I had Python installed on my Mac:
+
+<pre>
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ which python
+/pt/p/bin/python
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ python --version
+Python 2.6.2
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
+
+<br />
+<br />
+
+
+I changed my path so it looks for g++ under 
+/Developer/usr/bin/
+<br />
+<br />
+
+I have this in my .bashrc:
+
+<pre>export PATH=/Developer/usr/bin:${PATH}</pre>
+
+<br />
+<br />
+
+I did this:
+
+<pre>
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ bash
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ which g++
+/Developer/usr/bin/g++
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ uname -a
+Darwin mac3.local 9.8.0 Darwin Kernel Version 9.8.0: Wed Jul 15 16:55:01 PDT 2009; root:xnu-1228.15.4~1/RELEASE_I386 i386
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+Tue Apr 10 14:48 /dan/nodejs bikle611$ 
+</pre>
+
+<br />
+<br />
+Okay, now I'm all setup. 
+I put it in gear and pressed the gas pedal:
+
+<pre>
+Tue Apr 10 14:50 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 14:50 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 14:50 /dan/nodejs/node-v0.6.15 bikle611$ ./configure --prefix=/dan/nodejs
+Checking for program g++ or c++          : /Developer/usr/bin/g++ 
+Checking for program cpp                 : /Developer/usr/bin/cpp 
+Checking for program ar                  : /Developer/usr/bin/ar 
+Checking for program ranlib              : /Developer/usr/bin/ranlib 
+Checking for g++                         : ok  
+Checking for program gcc or cc           : /Developer/usr/bin/gcc 
+Checking for program ar                  : /Developer/usr/bin/ar 
+Checking for program ranlib              : /Developer/usr/bin/ranlib 
+Checking for gcc                         : ok  
+Checking for library dl                  : yes 
+Checking for openssl                     : yes 
+Checking for library util                : yes 
+Checking for library rt                  : not found 
+Checking for fdatasync(2) with c++       : no 
+'configure' finished successfully (1.327s)
+Tue Apr 10 14:51 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 14:52 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
+
+<br />
+<br />
+
+Darn!
+
+<br />
+<br />
+
+
+It looks like I am missing two things:
+<pre>
+Checking for library rt                  : not found 
+Checking for fdatasync(2) with c++       : no </pre>
+<br />
+<br />
+
+Lets see how far I get with these two things missing:
+
+<pre>
+Tue Apr 10 14:52 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 14:52 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 14:53 /dan/nodejs/node-v0.6.15 bikle611$ make
+Waf: Entering directory `/dan/nodejs/node-v0.6.15/out'
+DEST_OS: darwin
+DEST_CPU: ia32
+Parallel Jobs: 1
+Product type: program
+[ 1/35] copy: src/node_config.h.in -> out/Release/src/node_config.h
+[ 2/35] cc: deps/http_parser/http_parser.c -> out/Release/deps/http_parser/http_parser_3.o
+/Developer/usr/bin/gcc -rdynamic -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 snip ...
+[ 3/35] src/node_natives.h: src/node.js lib/dgram.js lib/console.js lib/buffer.js snip ...
+[ 4/35] uv: deps/uv/include/uv.h -> out/Release/deps/uv/uv.a
+rm -f src/ares/*.o
+rm -f src/unix/ev/*.o
+rm -f src/unix/eio/*.o
+rm -f src/unix/*.o
+rm -rf test/run-tests.dSYM run-benchmarks.dSYM
+rm -f -f src/*.o *.a test/run-tests test/run-benchmarks
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+
+snip ...
+
+[33/35] cxx: src/platform_darwin.cc -> out/Release/src/platform_darwin_5.o snip ...
+/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE  snip ...
+[34/35] cxx: src/node_crypto.cc -> out/Release/src/node_crypto_5.o snip ...
+/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE  snip ...
+[35/35] cxx_link: out/Release/src/node_main_5.o out/Release/src/node_5.o  snip ...
+/Developer/usr/bin/g++ Release/src/node_main_5.o Release/src/node_5.o Release/src/node_buffer_5.o  snip ...
+Waf: Leaving directory `/dan/nodejs/node-v0.6.15/out'
+'build' finished successfully (4m32.565s)
+-rwxr-xr-x  1 bikle611  admin   6.0M Apr 10 14:58 out/Release/node
+Tue Apr 10 14:58 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
+
+<br />
+<br />
+
+That looked good, no error messages.  So I pressed on:
+
+<pre>
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ make install
+Waf: Entering directory `/dan/nodejs/node-v0.6.15/out'
+DEST_OS: darwin
+DEST_CPU: ia32
+Parallel Jobs: 1
+Product type: program
+* installing deps/uv/include/ares.h as /dan/nodejs/include/node/ares.h
+* installing deps/uv/include/ares_version.h as /dan/nodejs/include/node/ares_version.h
+* installing deps/uv/include/uv.h as /dan/nodejs/include/node/uv.h
+* installing deps/uv/include/uv-private/eio.h as /dan/nodejs/include/node/uv-private/eio.h
+* installing deps/uv/include/uv-private/ev.h as /dan/nodejs/include/node/uv-private/ev.h
+
+snip ...
+
+* installing deps/npm/man/man3/help-search.3 as /dan/nodejs/lib/node_modules/npm/man/man3/help-search.3
+* installing deps/npm/man/man3/tag.3 as /dan/nodejs/lib/node_modules/npm/man/man3/tag.3
+* installing deps/npm/man/man3/docs.3 as /dan/nodejs/lib/node_modules/npm/man/man3/docs.3
+* installing deps/npm/man/man3/view.3 as /dan/nodejs/lib/node_modules/npm/man/man3/view.3
+* installing deps/npm/man/man3/list.3 as /dan/nodejs/lib/node_modules/npm/man/man3/list.3
+* installing deps/npm/man/man3/test.3 as /dan/nodejs/lib/node_modules/npm/man/man3/test.3
+* installing deps/npm/man/man3/rm.3 as /dan/nodejs/lib/node_modules/npm/man/man3/rm.3
+* symlink /dan/nodejs/bin/npm (-> ../lib/node_modules/npm/bin/npm-cli.js)
+* installing out/Release/node as /dan/nodejs/bin/node
+* installing out/Release/src/node_config.h as /dan/nodejs/include/node/node_config.h
+Waf: Leaving directory `/dan/nodejs/node-v0.6.15/out'
+'install' finished successfully (6.205s)
+Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
+Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
+
+<br />
+<br />
+
+That looked good, no error messages.  So I pressed on.
+I edited my .bashrc:
+<pre>
+export PATH=/dan/nodejs/bin:/Developer/usr/bin:${PATH}</pre>
+
+<br />
+<br />
+
+I tinkered:
+<pre>
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ which node
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ bash
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ which node
+/dan/nodejs/bin/node
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ node --version
+v0.6.15
+Tue Apr 10 15:04 /tmp bikle611$ 
+Tue Apr 10 15:04 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+Yay!!!
+I had just installed Node.js on my Mac.
+
+Next, I focused on installing coffee.
+
+I read this page:
+<br />
+<br />
+
+<a href='http://coffeescript.org/' target='f'>
+  http://coffeescript.org/
+</a>
+
+<br />
+<br />
+
+I did this:
+
+<pre>
+Tue Apr 10 15:06 /tmp bikle611$ 
+Tue Apr 10 15:06 /tmp bikle611$ 
+Tue Apr 10 15:06 /tmp bikle611$ which npm
+/dan/nodejs/bin/npm
+Tue Apr 10 15:16 /tmp bikle611$ 
+Tue Apr 10 15:16 /tmp bikle611$ 
+
+
+Tue Apr 10 15:16 /tmp bikle611$ 
+Tue Apr 10 15:16 /tmp bikle611$ npm install coffee-script
+[37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/coffee-script
+[37;40mnpm[0m [32;40mhttp[0m 200 https://registry.npmjs.org/coffee-script
+[37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/coffee-script/-/coffee-script-1.3.1.tgz
+[37;40mnpm[0m [32;40mhttp[0m 200 https://registry.npmjs.org/coffee-script/-/coffee-script-1.3.1.tgz
+coffee-script@1.3.1 ./node_modules/coffee-script
+Tue Apr 10 15:17 /tmp bikle611$ 
+Tue Apr 10 15:17 /tmp bikle611$ 
+Tue Apr 10 15:17 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+npm seemed to do its job but lacked enough sophistication to see I was running it from an Emacs-shell.
+It assumed I was on a terminal so it sent codes to my display to change how it looked.
+So, that is why its output above looks strange.
+I did not worry about it.
+
+I then checked that I had both coffee and node in my PATH:
+<pre>
+Tue Apr 10 15:18 /tmp bikle611$ 
+Tue Apr 10 15:18 /tmp bikle611$ which coffee
+Tue Apr 10 15:18 /tmp bikle611$ 
+Tue Apr 10 15:18 /tmp bikle611$ which node
+/dan/nodejs/bin/node
+Tue Apr 10 15:18 /tmp bikle611$ 
+Tue Apr 10 15:18 /tmp bikle611$ 
+Tue Apr 10 15:18 /tmp bikle611$ which coffee-script
+Tue Apr 10 15:19 /tmp bikle611$ 
+Tue Apr 10 15:19 /tmp bikle611$ 
+Tue Apr 10 15:19 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+
+Darn!
+<br />
+<br />
+
+Something is WRONG.  The install of coffee-script seemed to go okay but my shell is not seeing anything in the PATH.
+I investigated:
+
+<pre>
+Tue Apr 10 15:19 /tmp bikle611$ 
+Tue Apr 10 15:19 /tmp bikle611$ ll
+total 8
+drwxrwxrwt  10 root      wheel  340 Apr 10 15:17 ./
+drwxr-xr-x@  6 root      wheel  204 Jan 30  2009 ../
+srwxrwxrwx   1 postgres  wheel    0 Apr 10 15:04 .s.PGSQL.5432=
+-rw-------   1 postgres  wheel   24 Apr 10 15:04 .s.PGSQL.5432.lock
+srwxrwxrwx   1 bikle611  wheel    0 Apr 10 13:04 com.hp.launchport=
+drwx------   3 bikle611  wheel  102 Apr 10 13:04 launch-F3UqKH/
+drwx------   3 bikle611  wheel  102 Apr 10 13:04 launch-SApkAY/
+drwx------   3 bikle611  wheel  102 Apr 10 13:04 launch-zAIsG4/
+drwx------   3 bikle611  wheel  102 Apr 10 13:04 launchd-109.mpCZ0P/
+drwxr-xr-x   4 bikle611  staff  136 Apr 10 15:17 node_modules/
+Tue Apr 10 15:22 /tmp bikle611$ 
+Tue Apr 10 15:22 /tmp bikle611$ 
+Tue Apr 10 15:22 /tmp bikle611$ ll node_modules/
+total 0
+drwxr-xr-x   4 bikle611  staff  136 Apr 10 15:17 ./
+drwxrwxrwt  10 root      wheel  340 Apr 10 15:17 ../
+drwxr-xr-x   4 bikle611  staff  136 Apr 10 15:17 .bin/
+drwxr-xr-x  11 bikle611  staff  374 Apr 10 15:17 coffee-script/
+Tue Apr 10 15:22 /tmp bikle611$ 
+Tue Apr 10 15:22 /tmp bikle611$ 
+Tue Apr 10 15:22 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+Perhaps I should have used the -g option:
+
+<pre>
+Tue Apr 10 15:22 /tmp bikle611$ 
+Tue Apr 10 15:24 /tmp bikle611$ 
+Tue Apr 10 15:24 /tmp bikle611$ npm install -g coffee-script
+[37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/coffee-script
+[37;40mnpm[0m [32;40mhttp[0m 304 https://registry.npmjs.org/coffee-script
+/dan/nodejs/bin/coffee -> /dan/nodejs/lib/node_modules/coffee-script/bin/coffee
+/dan/nodejs/bin/cake -> /dan/nodejs/lib/node_modules/coffee-script/bin/cake
+coffee-script@1.3.1 /dan/nodejs/lib/node_modules/coffee-script
+Tue Apr 10 15:24 /tmp bikle611$ 
+Tue Apr 10 15:24 /tmp bikle611$ 
+Tue Apr 10 15:24 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+
+That looks better.
+
+It acts better too:
+
+<pre>
+Tue Apr 10 15:24 /tmp bikle611$ 
+Tue Apr 10 15:24 /tmp bikle611$ 
+Tue Apr 10 15:25 /tmp bikle611$ which coffee
+/dan/nodejs/bin/coffee
+Tue Apr 10 15:25 /tmp bikle611$ 
+Tue Apr 10 15:25 /tmp bikle611$ 
+
+
+
+Tue Apr 10 15:30 /tmp bikle611$ 
+Tue Apr 10 15:30 /tmp bikle611$ cat three.coffee 
+# /tmp/three.coffee
+
+three = 1 + 2
+console.log three
+Tue Apr 10 15:30 /tmp bikle611$ 
+Tue Apr 10 15:30 /tmp bikle611$ 
+Tue Apr 10 15:30 /tmp bikle611$ coffee three.coffee 
+3
+Tue Apr 10 15:30 /tmp bikle611$ 
+Tue Apr 10 15:30 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+I tried the debugger:
+
+<pre>
+Tue Apr 10 15:55 /tmp bikle611$ coffee --nodejs debug  three.coffee 
+&lt; debugger listening on port 5858
+connecting... ok
+break in /dan/nodejs/lib/node_modules/coffee-script/bin/coffee:3
+  1 
+  2 
+  3 var path = require('path');
+  4 var fs   = require('fs');
+  5 var lib  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+debug> help
+Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBreakpoint (sb), clearBreakpoint (cb),
+watch, unwatch, watchers, repl, restart, kill, list, scripts, breakpoints, version
+debug> list
+[Function]
+debug> n
+break in /dan/nodejs/lib/node_modules/coffee-script/bin/coffee:4
+  2 
+  3 var path = require('path');
+</pre>
+<br />
+<br />
+
+That is not very helpful to me.
+
+Maybe to use the debugger I should use coffee to generate a .js file and then run the debugger from Node.js
+<br />
+<br />
+
+I tried that:
+
+<pre>
+Tue Apr 10 15:55 /private/tmp bikle611$ 
+Tue Apr 10 15:55 /private/tmp bikle611$ cd /tmp
+Tue Apr 10 15:55 /tmp bikle611$ 
+Tue Apr 10 15:55 /tmp bikle611$ 
+Tue Apr 10 15:55 /tmp bikle611$ coffee -help
+
+Usage: coffee [options] path/to/script.coffee -- [args]
+
+If called without options, `coffee` will run your script.
+
+  -b, --bare         compile without a top-level function wrapper
+  -c, --compile      compile to JavaScript and save as .js files
+  -e, --eval         pass a string from the command line as input
+  -h, --help         display this help message
+  -i, --interactive  run an interactive CoffeeScript REPL
+  -j, --join         concatenate the source CoffeeScript before compiling
+  -l, --lint         pipe the compiled JavaScript through JavaScript Lint
+  -n, --nodes        print out the parse tree that the parser produces
+      --nodejs       pass options directly to the "node" binary
+  -o, --output       set the output directory for compiled JavaScript
+  -p, --print        print out the compiled JavaScript
+  -r, --require      require a library before executing your script
+  -s, --stdio        listen for and compile scripts over stdio
+  -t, --tokens       print out the tokens that the lexer/rewriter produce
+  -v, --version      display the version number
+  -w, --watch        watch scripts for changes and rerun commands
+
+Tue Apr 10 16:02 /tmp bikle611$ coffee -c three.coffee 
+Tue Apr 10 16:02 /tmp bikle611$ 
+Tue Apr 10 16:02 /tmp bikle611$ 
+Tue Apr 10 16:02 /tmp bikle611$ ll three.*
+-rw-r--r--  1 bikle611  wheel   53 Apr 10 15:29 three.coffee
+-rw-r--r--  1 bikle611  wheel  119 Apr 10 16:02 three.js
+Tue Apr 10 16:03 /tmp bikle611$ 
+Tue Apr 10 16:03 /tmp bikle611$ cat three.js
+// Generated by CoffeeScript 1.3.1
+(function() {
+  var three;
+
+  three = 1 + 2;
+
+  console.log(three);
+
+}).call(this);
+Tue Apr 10 16:03 /tmp bikle611$ 
+Tue Apr 10 16:03 /tmp bikle611$ 
+Tue Apr 10 16:03 /tmp bikle611$ 
+
+Tue Apr 10 16:13 /tmp bikle611$ 
+Tue Apr 10 16:13 /tmp bikle611$ node debug three.js 
+&lt; debugger listening on port 5858
+connecting... ok
+break in three.js:9
+  7   console.log(three);
+  8 
+  9 }).call(this);
+ 10 
+ 11 });
+debug> help
+Commands: run (r), cont (c), next (n), step (s), out (o), backtrace (bt), setBreakpoint (sb), clearBreakpoint (cb),
+watch, unwatch, watchers, repl, restart, kill, list, scripts, breakpoints, version
+debug> s
+break in three.js:3
+  1 // Generated by CoffeeScript 1.3.1
+  2 (function() {
+  3   var three;
+  4 
+  5   three = 1 + 2;
+debug> n
+break in three.js:5
+  3   var three;
+  4 
+  5   three = 1 + 2;
+  6 
+  7   console.log(three);
+  8 
+  9 }).call(this);
+debug> c
+&lt; 3
+program terminated
+debug> quit
+Tue Apr 10 16:14 /tmp bikle611$ 
+Tue Apr 10 16:15 /tmp bikle611$ 
+Tue Apr 10 16:15 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+
+Next, I tried starting a server to listen for requests.
+
+I started with a pure JavaScript server:
+
+<pre>
+Tue Apr 10 16:24 ~/pt/apr bikle611$ 
+Tue Apr 10 16:24 ~/pt/apr bikle611$ 
+Tue Apr 10 16:24 ~/pt/apr bikle611$ cat myserver.js 
+// myserver.js
+// I found this code here:
+// http://nodejs.org
+
+// demo:
+// node myserver.js
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+Tue Apr 10 16:24 ~/pt/apr bikle611$ 
+Tue Apr 10 16:24 ~/pt/apr bikle611$ 
+Tue Apr 10 16:24 ~/pt/apr bikle611$ node myserver.js 
+Server running at http://127.0.0.1:1337/
+</pre>
+
+<br />
+<br />
+
+I used another shell to point curl at my server:
+
+<pre>
+Tue Apr 10 16:25 ~/pt/apr bikle611$ 
+Tue Apr 10 16:25 ~/pt/apr bikle611$ curl 127.0.0.1:1337/
+Hello World
+Tue Apr 10 16:25 ~/pt/apr bikle611$ 
+Tue Apr 10 16:25 ~/pt/apr bikle611$ 
+</pre>
+
+Yay!
+It worked.
+Next, I transformed the code into some coffee-script:
+
+<pre>
+Tue Apr 10 19:25 ~/pt/apr bikle611$ 
+Tue Apr 10 19:25 ~/pt/apr bikle611$ cat myserver2.coffee 
+# myserver2.coffee
+
+# demo:
+# coffee myserver2.coffee
+
+http = require 'http'
+
+callback =(req,res) ->
+  res.writeHead 200, {'Content-Type': 'text/plain'}
+  res.end 'Hello World\n'
+
+http.createServer(callback).listen 1337, '127.0.0.1'
+
+console.log('Server running at http://127.0.0.1:1337/')
+Tue Apr 10 19:25 ~/pt/apr bikle611$ 
+Tue Apr 10 19:25 ~/pt/apr bikle611$ 
+Tue Apr 10 19:25 ~/pt/apr bikle611$ 
+</pre>
+
+I ran it and it worked great.
+
+<br />
+<br />
+
+Shell 1:
+
+<pre>
+Sat Apr 21 18:01 ~/pt/apr bikle611$ 
+Sat Apr 21 18:01 ~/pt/apr bikle611$ 
+Sat Apr 21 18:01 ~/pt/apr bikle611$ coffee myserver2.coffee 
+Server running at http://127.0.0.1:1337/
+</pre>
+
+<br />
+<br />
+Shell 2:
+
+<pre>
+Sat Apr 21 18:02 ~/pt/apr bikle611$ 
+Sat Apr 21 18:02 ~/pt/apr bikle611$ curl http://127.0.0.1:1337/
+Hello World
+Sat Apr 21 18:02 ~/pt/apr bikle611$ 
+Sat Apr 21 18:02 ~/pt/apr bikle611$ 
+</pre>
+
+<h3>Summary:</h3>
+
+Installing Node.js on either Linux or Mac OS/X boils down to these steps:
+
+<ul class='ul_type_disc'>
+  <li />Download the code.
+  <li />Run the 'configure' command
+  <li />Run the 'make' command
+  <li />Run the 'make install' command
+  <li />Use the 'npm' utility to add modules like coffee-script
+</ul>
