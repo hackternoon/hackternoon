@@ -1,5 +1,4 @@
-
-sub: Struggles with Active Scaffold and Rails 3.2.3
+<h3 id='h3_2012_0422'>2012-04-22 Struggles with Active Scaffold and Rails 3.2.3</h3>
 
 I used Active Scaffold on a Rails 1.2.x project back during the summer of 2007.
 
@@ -29,7 +28,7 @@ I followed the instructions in the Github Readme to install ActiveScaffold.
 
 I bumped into an issue when I tried to compile my assets:
 
-
+<pre>
 /home/oracle/.rvm/rubies/ruby-1.9.2-p318/bin/ruby 
   bin/rake assets:precompile:all 
   RAILS_ENV=production 
@@ -40,15 +39,19 @@ translation missing: en.time.formats.picker
   (in /home/oracle/.rvm/gems/ruby-1.9.2-p318/gems/
     active_scaffold-3.2.3/
     app/assets/javascripts/jquery/date_picker_bridge.js.erb)
+</pre>
 
 
 So I placed this syntax in config/locales/en.yml
 
+<pre>
 en:
   time:
     formats:
       picker: "%a, %d %b %Y %H:%M:%S"
-
+</pre>
+<br />
+<br />
 The above syntax is an exact duplicate of the syntax I found in the gem:
 
 gems/active_scaffold-3.2.3/config/locales/en.yml
@@ -64,9 +67,10 @@ To me this smells like a bug.
 I wanted to show Active Scaffold to a client but I want it to install smoothly before I do that.
 
 Something like this should be a two step install:
-
-  bundle install
-  rails g active_scaffold:install
+<ul class='ul_type_disc'>
+  <li />bundle install
+  <li />rails g active_scaffold:install
+<ul>
 
 Then, I should be able to start using it.
 
