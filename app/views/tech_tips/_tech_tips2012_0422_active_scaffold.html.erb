@@ -1,0 +1,73 @@
+
+sub: Struggles with Active Scaffold and Rails 3.2.3
+
+I used Active Scaffold on a Rails 1.2.x project back during the summer of 2007.
+
+I liked it.
+
+So, now almost 5 years later, I need an administrative UI for an App I'm working on.
+
+So, I went to http://ActiveScaffold.com to see what's up.
+
+I discovered the site was down.
+
+I looked for them on http://github.com and found them here:
+
+https://github.com/activescaffold/active_scaffold
+
+The latest activity was 6 days ago which is a good sign.
+
+I checked the Issues link for recent chatter:
+
+https://github.com/activescaffold/active_scaffold/issues
+
+They have only 16 open issues which seems okay.
+
+Issue 157 complains about the site being down and that issue is 5 days old.
+
+I followed the instructions in the Github Readme to install ActiveScaffold.
+
+I bumped into an issue when I tried to compile my assets:
+
+
+/home/oracle/.rvm/rubies/ruby-1.9.2-p318/bin/ruby 
+  bin/rake assets:precompile:all 
+  RAILS_ENV=production 
+  RAILS_GROUPS=assets
+
+rake aborted!
+translation missing: en.time.formats.picker
+  (in /home/oracle/.rvm/gems/ruby-1.9.2-p318/gems/
+    active_scaffold-3.2.3/
+    app/assets/javascripts/jquery/date_picker_bridge.js.erb)
+
+
+So I placed this syntax in config/locales/en.yml
+
+en:
+  time:
+    formats:
+      picker: "%a, %d %b %Y %H:%M:%S"
+
+The above syntax is an exact duplicate of the syntax I found in the gem:
+
+gems/active_scaffold-3.2.3/config/locales/en.yml
+
+Then I tried rake again.
+
+I got the same problem.
+
+I found some chatter about this issue in google groups but nothing seemed like an obvious fix.
+
+To me this smells like a bug.
+
+I wanted to show Active Scaffold to a client but I want it to install smoothly before I do that.
+
+Something like this should be a two step install:
+
+  bundle install
+  rails g active_scaffold:install
+
+Then, I should be able to start using it.
+
+
