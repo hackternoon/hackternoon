@@ -442,10 +442,15 @@ Tue Apr 10 13:27 /dan/nodejs/node-v0.6.15 bikle611$
 
 I changed my path so it looks for g++ under 
 /Developer/usr/bin/
+<br />
+<br />
 
 I have this in my .bashrc:
 
-export PATH=/Developer/usr/bin:${PATH}
+<pre>export PATH=/Developer/usr/bin:${PATH}</pre>
+
+<br />
+<br />
 
 I did this:
 
@@ -505,8 +510,7 @@ Darn!
 It looks like I am missing two things:
 <pre>
 Checking for library rt                  : not found 
-Checking for fdatasync(2) with c++       : no 
-</pre>
+Checking for fdatasync(2) with c++       : no </pre>
 <br />
 <br />
 
@@ -636,7 +640,10 @@ I read this page:
 <br />
 <br />
 
-http://coffeescript.org/
+<a href='http://coffeescript.org/' target='f'>
+  http://coffeescript.org/
+</a>
+
 <br />
 <br />
 
@@ -801,6 +808,8 @@ break in /dan/nodejs/lib/node_modules/coffee-script/bin/coffee:4
 That is not very helpful to me.
 
 Maybe to use the debugger I should use coffee to generate a .js file and then run the debugger from Node.js
+<br />
+<br />
 
 I tried that:
 
@@ -919,7 +928,7 @@ Tue Apr 10 16:24 ~/pt/apr bikle611$
 Tue Apr 10 16:24 ~/pt/apr bikle611$ 
 Tue Apr 10 16:24 ~/pt/apr bikle611$ node myserver.js 
 Server running at http://127.0.0.1:1337/
-<pre>
+</pre>
 
 <br />
 <br />
@@ -986,3 +995,14 @@ Sat Apr 21 18:02 ~/pt/apr bikle611$
 Sat Apr 21 18:02 ~/pt/apr bikle611$ 
 </pre>
 
+<h3>Summary:</h3>
+
+Installing Node.js on either Linux or Mac OS/X boils down to these steps:
+
+<ul class='ul_type_disc'>
+  <li />Download the code.
+  <li />Run the 'configure' command
+  <li />Run the 'make' command
+  <li />Run the 'make install' command
+  <li />Use the 'npm' utility to add modules like coffee-script
+</ul>
