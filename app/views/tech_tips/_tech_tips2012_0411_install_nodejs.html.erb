@@ -513,7 +513,6 @@ Checking for fdatasync(2) with c++       : no
 Lets see how far I get with these two things missing:
 
 <pre>
-
 Tue Apr 10 14:52 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 14:52 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 14:53 /dan/nodejs/node-v0.6.15 bikle611$ make
@@ -524,8 +523,8 @@ Parallel Jobs: 1
 Product type: program
 [ 1/35] copy: src/node_config.h.in -> out/Release/src/node_config.h
 [ 2/35] cc: deps/http_parser/http_parser.c -> out/Release/deps/http_parser/http_parser_3.o
-/Developer/usr/bin/gcc -rdynamic -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -DHAVE_FDATASYNC=0 -DARCH="ia32" -DPLATFORM="darwin" -D__POSIX__=1 -Wno-unused-parameter -D_FORTIFY_SOURCE=2 -IRelease/deps/http_parser -I../deps/http_parser ../deps/http_parser/http_parser.c -c -o Release/deps/http_parser/http_parser_3.o
-[ 3/35] src/node_natives.h: src/node.js lib/dgram.js lib/console.js lib/buffer.js lib/querystring.js lib/punycode.js lib/http.js lib/net.js lib/stream.js lib/events.js lib/util.js lib/module.js lib/_debugger.js lib/assert.js lib/fs.js lib/child_process.js lib/os.js lib/readline.js lib/vm.js lib/url.js lib/tls.js lib/crypto.js lib/sys.js lib/https.js lib/freelist.js lib/dns.js lib/_linklist.js lib/buffer_ieee754.js lib/tty.js lib/cluster.js lib/repl.js lib/path.js lib/string_decoder.js lib/timers.js lib/zlib.js lib/constants.js -> out/Release/src/node_natives.h
+/Developer/usr/bin/gcc -rdynamic -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 snip ...
+[ 3/35] src/node_natives.h: src/node.js lib/dgram.js lib/console.js lib/buffer.js snip ...
 [ 4/35] uv: deps/uv/include/uv.h -> out/Release/deps/uv/uv.a
 rm -f src/ares/*.o
 rm -f src/unix/ev/*.o
@@ -533,19 +532,19 @@ rm -f src/unix/eio/*.o
 rm -f src/unix/*.o
 rm -rf test/run-tests.dSYM run-benchmarks.dSYM
 rm -f -f src/*.o *.a test/run-tests test/run-benchmarks
-/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude -Iinclude/uv-private -Isrc/unix/ev -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -Isrc/ares/config_darwin -Isrc  -g -c src/unix/core.c -o src/unix/core.o
-/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude -Iinclude/uv-private -Isrc/unix/ev -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -Isrc/ares/config_darwin -Isrc  -g -c src/unix/dl.c -o src/unix/dl.o
-/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude -Iinclude/uv-private -Isrc/unix/ev -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -Isrc/ares/config_darwin -Isrc  -g -c src/unix/fs.c -o src/unix/fs.o
-/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude -Iinclude/uv-private -Isrc/unix/ev -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -Isrc/ares/config_darwin -Isrc  -g -c src/unix/cares.c -o src/unix/cares.o
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
+/Developer/usr/bin/gcc --std=c89 -pedantic -Wall -Wextra -Wno-unused-parameter -Iinclude snip ...
 
 snip ...
 
-[33/35] cxx: src/platform_darwin.cc -> out/Release/src/platform_darwin_5.o
-/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -DHAVE_FDATASYNC=0 -DARCH="ia32" -DPLATFORM="darwin" -D__POSIX__=1 -Wno-unused-parameter -D_FORTIFY_SOURCE=2 -IRelease/src -I../src -IRelease/deps/http_parser -I../deps/http_parser -IRelease/deps/uv/include -I../deps/uv/include -IRelease/deps/uv/src/ares -I../deps/uv/src/ares -IRelease/deps/v8/include -I../deps/v8/include -I/opt/local/include -Ideps/v8/include ../src/platform_darwin.cc -c -o Release/src/platform_darwin_5.o
-[34/35] cxx: src/node_crypto.cc -> out/Release/src/node_crypto_5.o
-/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_DARWIN_USE_64_BIT_INODE=1 -DHAVE_FDATASYNC=0 -DARCH="ia32" -DPLATFORM="darwin" -D__POSIX__=1 -Wno-unused-parameter -D_FORTIFY_SOURCE=2 -IRelease/src -I../src -IRelease/deps/http_parser -I../deps/http_parser -IRelease/deps/uv/include -I../deps/uv/include -IRelease/deps/uv/src/ares -I../deps/uv/src/ares -IRelease/deps/v8/include -I../deps/v8/include -I/opt/local/include -Ideps/v8/include ../src/node_crypto.cc -c -o Release/src/node_crypto_5.o
-[35/35] cxx_link: out/Release/src/node_main_5.o out/Release/src/node_5.o out/Release/src/node_buffer_5.o out/Release/src/node_javascript_5.o out/Release/src/node_extensions_5.o out/Release/src/node_http_parser_5.o out/Release/src/node_constants_5.o out/Release/src/node_file_5.o out/Release/src/node_script_5.o out/Release/src/node_os_5.o out/Release/src/node_dtrace_5.o out/Release/src/node_string_5.o out/Release/src/node_zlib_5.o out/Release/src/timer_wrap_5.o out/Release/src/handle_wrap_5.o out/Release/src/stream_wrap_5.o out/Release/src/tcp_wrap_5.o out/Release/src/udp_wrap_5.o out/Release/src/pipe_wrap_5.o out/Release/src/cares_wrap_5.o out/Release/src/tty_wrap_5.o out/Release/src/fs_event_wrap_5.o out/Release/src/process_wrap_5.o out/Release/src/v8_typed_array_5.o out/Release/src/node_signal_watcher_5.o out/Release/src/node_stat_watcher_5.o out/Release/src/node_io_watcher_5.o out/Release/src/platform_darwin_5.o out/Release/src/node_crypto_5.o out/Release/deps/http_parser/http_parser_3.o -> out/Release/node
-/Developer/usr/bin/g++ Release/src/node_main_5.o Release/src/node_5.o Release/src/node_buffer_5.o Release/src/node_javascript_5.o Release/src/node_extensions_5.o Release/src/node_http_parser_5.o Release/src/node_constants_5.o Release/src/node_file_5.o Release/src/node_script_5.o Release/src/node_os_5.o Release/src/node_dtrace_5.o Release/src/node_string_5.o Release/src/node_zlib_5.o Release/src/timer_wrap_5.o Release/src/handle_wrap_5.o Release/src/stream_wrap_5.o Release/src/tcp_wrap_5.o Release/src/udp_wrap_5.o Release/src/pipe_wrap_5.o Release/src/cares_wrap_5.o Release/src/tty_wrap_5.o Release/src/fs_event_wrap_5.o Release/src/process_wrap_5.o Release/src/v8_typed_array_5.o Release/src/node_signal_watcher_5.o Release/src/node_stat_watcher_5.o Release/src/node_io_watcher_5.o Release/src/platform_darwin_5.o Release/src/node_crypto_5.o Release/deps/http_parser/http_parser_3.o -o /dan/nodejs/node-v0.6.15/out/Release/node -lz -pthread -framework Carbon -arch i386 -m32 -rdynamic /dan/nodejs/node-v0.6.15/out/Release/libv8.a /dan/nodejs/node-v0.6.15/out/Release/deps/uv/uv.a -L/opt/local/lib -L/usr/lib -L/usr/local/lib -lssl -lcrypto -ldl -lutil
+[33/35] cxx: src/platform_darwin.cc -> out/Release/src/platform_darwin_5.o snip ...
+/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE  snip ...
+[34/35] cxx: src/node_crypto.cc -> out/Release/src/node_crypto_5.o snip ...
+/Developer/usr/bin/g++ -pthread -arch i386 -m32 -g -O3 -DHAVE_OPENSSL=1 -D_LARGEFILE_SOURCE  snip ...
+[35/35] cxx_link: out/Release/src/node_main_5.o out/Release/src/node_5.o  snip ...
+/Developer/usr/bin/g++ Release/src/node_main_5.o Release/src/node_5.o Release/src/node_buffer_5.o  snip ...
 Waf: Leaving directory `/dan/nodejs/node-v0.6.15/out'
 'build' finished successfully (4m32.565s)
 -rwxr-xr-x  1 bikle611  admin   6.0M Apr 10 14:58 out/Release/node
@@ -553,12 +552,14 @@ Tue Apr 10 14:58 /dan/nodejs/node-v0.6.15 bikle611$
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
 
+<br />
+<br />
 
-I did this:
+That looked good, no error messages.  So I pressed on:
 
-
-
+<pre>
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:00 /dan/nodejs/node-v0.6.15 bikle611$ make install
@@ -591,13 +592,21 @@ Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$
 Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
 Tue Apr 10 15:01 /dan/nodejs/node-v0.6.15 bikle611$ 
+</pre>
 
+<br />
+<br />
+
+That looked good, no error messages.  So I pressed on.
 I edited my .bashrc:
+<pre>
+export PATH=/dan/nodejs/bin:/Developer/usr/bin:${PATH}</pre>
 
-export PATH=/dan/nodejs/bin:/Developer/usr/bin:${PATH}
+<br />
+<br />
 
 I tinkered:
-
+<pre>
 Tue Apr 10 15:04 /tmp bikle611$ 
 Tue Apr 10 15:04 /tmp bikle611$ 
 Tue Apr 10 15:04 /tmp bikle611$ which node
@@ -614,16 +623,26 @@ Tue Apr 10 15:04 /tmp bikle611$ node --version
 v0.6.15
 Tue Apr 10 15:04 /tmp bikle611$ 
 Tue Apr 10 15:04 /tmp bikle611$ 
+</pre>
+
+<br />
+<br />
+Yay!!!
+I had just installed Node.js on my Mac.
 
 Next, I focused on installing coffee.
 
 I read this page:
+<br />
+<br />
 
 http://coffeescript.org/
+<br />
+<br />
 
 I did this:
 
-
+<pre>
 Tue Apr 10 15:06 /tmp bikle611$ 
 Tue Apr 10 15:06 /tmp bikle611$ 
 Tue Apr 10 15:06 /tmp bikle611$ which npm
@@ -642,19 +661,16 @@ coffee-script@1.3.1 ./node_modules/coffee-script
 Tue Apr 10 15:17 /tmp bikle611$ 
 Tue Apr 10 15:17 /tmp bikle611$ 
 Tue Apr 10 15:17 /tmp bikle611$ 
+</pre>
 
+<br />
+<br />
+npm seemed to do its job but lacked enough sophistication to see I was running it from an Emacs-shell.
+It assumed I was on a terminal so it sent codes to my display to change how it looked.
+So, that is why its output above looks strange.
+I did not worry about it.
 
-Tue Apr 10 15:16 /tmp bikle611$ 
-Tue Apr 10 15:16 /tmp bikle611$ 
-Tue Apr 10 15:16 /tmp bikle611$ npm install coffee-script
-[37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/coffee-script
-[37;40mnpm[0m [32;40mhttp[0m 200 https://registry.npmjs.org/coffee-script
-[37;40mnpm[0m [32;40mhttp[0m [35mGET[0m https://registry.npmjs.org/coffee-script/-/coffee-script-1.3.1.tgz
-[37;40mnpm[0m [32;40mhttp[0m 200 https://registry.npmjs.org/coffee-script/-/coffee-script-1.3.1.tgz
-coffee-script@1.3.1 ./node_modules/coffee-script
-Tue Apr 10 15:17 /tmp bikle611$ 
-Tue Apr 10 15:17 /tmp bikle611$ 
-Tue Apr 10 15:17 /tmp bikle611$ 
+<pre>
 Tue Apr 10 15:18 /tmp bikle611$ 
 Tue Apr 10 15:18 /tmp bikle611$ which coffee
 Tue Apr 10 15:18 /tmp bikle611$ 
