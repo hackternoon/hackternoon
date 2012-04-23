@@ -8,6 +8,5 @@ Here is a list of enhancements I am focused on:
 
   - Add a New-Project-link for guest which is a page of instructions and Register-link
   - Add a link to a set of pages suitable for a mobile browser
-  - I dont like Accordion links for the blog, do what tech-tips does
 
 
