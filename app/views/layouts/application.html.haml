@@ -19,12 +19,9 @@
           = render 'shared/login_items'
           %li
             = link_to('Projects',sslhost + projects_path)
-
           - if current_user.present?
             %li
               = link_to('New Project', sslhost + new_project_path)
-          %li
-            = link_to('Mobile Hackternoon', sslhost + mobiles_home_path)
           %li
             Meetup:
             %br/
@@ -35,7 +32,6 @@
             %br/
             %a(href="http://Meetup.com/Hackternoon/events/calendar/" target="m")
               %span Hackternoon
-
           %li Links above are important, links below less so.
 
           %li
@@ -82,16 +78,14 @@
 
           %li
             %a(href="#{sslhost}/")About
-
           %li
             %a(href="#{sslhost}/terms")Terms
-
           %li
             %a(href="#{sslhost}/contact")Contact
-
           %li
             %a(href="#{sslhost}/ux_info")UX-Info
-
+          %li
+            = link_to('Mobile Hackternoon', sslhost + mobiles_home_path)
       #div4_rhs.nine.columns
         - if notice.present?
           %p.notice.round_corner15px= notice 
