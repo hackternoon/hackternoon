@@ -858,14 +858,14 @@ can't find boost headers
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
-
 </pre>
 <br />
 <br />
 
 
-I searched more of the web and learned that scons is partially controlled by a file named: SConstruct
-
+I searched more of the web and learned that scons is partially controlled by a file named: SConstruct.
+<br />
+<p>
 I looked at it and found it somewhat readable; it appears to be written in Python.
 
 This is sweet; I prefer that Domain Specific Languages be based on an interpreted language like Python, Ruby, or Perl.
@@ -873,14 +873,20 @@ This is sweet; I prefer that Domain Specific Languages be based on an interprete
 I dislike technologies which rely on configuation files written in a syntax which is used rarely.
 
 Examples of these technologies are Apache, Squid, Sendmail, and Make.
+</p>
 
 Anyway I looked at this file:
+<br />
 
 /dan/mongo/mongodb-src-r2.0.4/SConstruct
+<br />
 
 I found this syntax on line 151:
-
+<pre>
 add_option( "extrapathdyn", "comma separated list of add'l paths  (--extrapath /opt/foo/,/foo) dynamic linking" , 1 , True )
+</pre>
+<br />
+<br />
 
 So, I tried this:
 
@@ -904,13 +910,16 @@ see config.log for more information
 Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
-
+</pre>
+<br />
+<br />
 I appear to be making progress!
+<br />
 
 I returned my attention on my install of boost.
 I asked it if it had any libraries which look like ['boost_thread-mt', 'boost_thread'].
 
-
+<pre>
 Thu Apr 26 16:39 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:39 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --show-libraries
@@ -926,14 +935,20 @@ The Boost libraries requiring separate building and installation are:
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
+</pre>
+<br />
+<br />
 
 
 This made me unhappy. 
+<br />
 I already have the 'filesystem' library.
+<br />
 
 I tossed my installation of boost in the trash and started the installation again:
 
 
+<pre>
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ cd /dan/mongo
 Thu Apr 26 16:43 /dan/mongo bikle611$ 
@@ -1016,23 +1031,34 @@ The Boost libraries requiring separate building and installation are:
 Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
-
+</pre>
+<br />
+<br />
 
 I googled: "mongodb boost bootstrap.sh filesystem thread"
+<br />
 
 One interesting hit:
+<br />
+<a href='http://www.mongodb.org/display/DOCS/Building+Boost' target='m'>
 http://www.mongodb.org/display/DOCS/Building+Boost
+</a>
+<br />
 
 Also I searched for "filesystem" and "thread" in /dan/mongo/mongodb-src-r2.0.4/SConstruct
+<br />
 
 On line 214 I found this syntax:
-
+<br />
+<pre>
 boostLibs = [ "thread" , "filesystem" , "program_options" ]
+</pre>
+<br />
+<br />
 
 I did this:
 
-
-
+<pre>
 Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --with-libraries=date_time,filesystem,program_options,thread --prefix=/dan/mongo
 -n Building Boost.Build engine with toolset darwin... 
@@ -1060,18 +1086,25 @@ Further information:
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+</pre>
+<br />
+<br />
 
 The above output told me the next step was to run this shell command:
-
+<pre>
 ./b2
+</pre>
+<br />
+<br />
 
 But the boost documentation told me to run this shell command:
-
+<pre>
 ./b2 install
+</pre>
 
 So, I did this:
 
-
+<pre>
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
@@ -1131,11 +1164,14 @@ common.copy /dan/mongo/lib/libboost_thread.a
 Thu Apr 26 17:15 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
+</pre>
+<br />
+<br />
 
 
 Next, I did this:
 
-
+<pre>
 Thu Apr 26 17:15 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
 Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
@@ -1215,17 +1251,24 @@ Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$
 Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+<br />
+<br />
 
 
 Next, I looked at this URL:
+<br />
 
 http://www.mongodb.org/display/DOCS/Tutorial
+<br />
 
 It described an executable file named "mongo" under a bin directory.
+<br />
 
 I looked for it and found it where I expected it to be relative to /dan/mongo/ which was the prefix directory I specified when I built MongoDB:
+<br />
 
-
+<pre>
 Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ cd /dan/mongo/
