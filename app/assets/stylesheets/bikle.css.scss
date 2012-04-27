@@ -80,3 +80,8 @@ div#div4_rhs table #th_upd {min-width:150px;}
 
 .ul_type_circle {list-style-type: circle;}
 .ul_type_disc {list-style-type: disc;}
+
+.bash_class {
+  & ul {list-style-type: disc;}
+}
+
