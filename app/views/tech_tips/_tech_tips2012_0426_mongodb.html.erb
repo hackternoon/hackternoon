@@ -749,13 +749,15 @@ common.copy /dan/mongo/lib/libboost_filesystem.dylib
 ...updated 9814 targets...
 Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
 Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
-Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
-
-
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$  
+</pre>
+<br />
+<br />
 
 I looked for any new directories in /dan/mongo/
 
 
+<pre>
 Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
 Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
 Tue Apr 24 16:16 /dan/mongo/boost_1_49_0 bikle611$ cd /dan/mongo/
@@ -795,12 +797,13 @@ drwxr-xr-x  10 bikle611  admin      340 Apr 24 16:13 ../
 -rwxr-xr-x   1 bikle611  admin    29884 Apr 24 16:13 libboost_system.dylib*
 Tue Apr 24 16:17 /dan/mongo bikle611$ 
 Tue Apr 24 16:17 /dan/mongo bikle611$ 
-
-
+</pre>
+<br />
+<br />
 
 Next, I tried scons again to install MongoDB.
 
-
+<pre>
 Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons .
 scons: Reading SConscript files ...
@@ -812,24 +815,36 @@ Checking for C++ header file boost/filesystem/operations.hpp... no
 can't find boost headers
 Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Tue Apr 24 16:20 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+<br />
+<br />
 
 Darn, scons does not see my new install of boost libraries.
+<br />
 
 How do I tell scons that my boost libraries are here:
+<br />
 
 /dan/mongo/boost_1_49_0/
+<br />
 
 ??
+<br />
 
 I asked Google.
+<br />
 
 Google sent me here:
+<br />
 
+<a href='http://forums.wesnoth.org/viewtopic.php?f=5&t=24343' target='w'>
 http://forums.wesnoth.org/viewtopic.php?f=5&t=24343
+</a>
+<br />
 
 I tried this:
 
-
+<pre>
 Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons boostdir=/dan/mongo/include boostlibdir=/dan/mongo/lib .
@@ -843,6 +858,10 @@ can't find boost headers
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+</pre>
+<br />
+<br />
 
 
 I searched more of the web and learned that scons is partially controlled by a file named: SConstruct
@@ -866,6 +885,7 @@ add_option( "extrapathdyn", "comma separated list of add'l paths  (--extrapath /
 So, I tried this:
 
 
+<pre>
 Thu Apr 26 16:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons --prefix=/dan/mongo --extrapathdyn /dan/mongo .
