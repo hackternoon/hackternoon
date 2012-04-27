@@ -1227,24 +1227,16 @@ Checking for C++ header file execinfo.h... yes
 Checking for C library pcap... yes
 scons: done reading SConscript files.
 scons: Building targets ...
-g++ -o pch.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include pch.cpp
+g++ -o pch.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare snip...
 /dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
 
 
 snip ...
 
-g++ -o dbtests/updatetests.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include -I/dan/mongo dbtests/updatetests.cpp
-/dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
-g++ -o firstExample -fPIC -pthread -rdynamic client/examples/first.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o httpClientTest -fPIC -pthread -rdynamic client/examples/httpClientTest.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o tools/bridge.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include tools/bridge.cpp
-/dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
-g++ -o mongobridge -fPIC -pthread -rdynamic pch.o buildinfo.o db/indexkey.o db/jsobj.o bson/oid.o db/json.o db/lasterror.o db/nonce.o db/queryutil.o db/querypattern.o db/projection.o shell/mongo.o util/background.o util/util.o util/file_allocator.o util/assert_util.o util/log.o util/ramlog.o util/md5main.o util/base64.o util/concurrency/vars.o util/concurrency/task.o util/debug_util.o util/concurrency/thread_pool.o util/password.o util/version.o util/signal_handlers.o util/histogram.o util/concurrency/spin_lock.o util/text.o util/stringutils.o util/concurrency/synchronization.o util/net/sock.o util/net/httpclient.o util/net/message.o util/net/message_port.o util/net/listen.o util/md5.o client/connpool.o client/dbclient.o client/dbclient_rs.o client/dbclientcursor.o client/model.o client/syncclusterconnection.o client/distlock.o s/shardconnection.o third_party/pcre-7.4/pcre_chartables.o third_party/pcre-7.4/pcre_compile.o third_party/pcre-7.4/pcre_config.o third_party/pcre-7.4/pcre_dfa_exec.o third_party/pcre-7.4/pcre_exec.o third_party/pcre-7.4/pcre_fullinfo.o third_party/pcre-7.4/pcre_get.o third_party/pcre-7.4/pcre_globals.o third_party/pcre-7.4/pcre_info.o third_party/pcre-7.4/pcre_maketables.o third_party/pcre-7.4/pcre_newline.o third_party/pcre-7.4/pcre_ord2utf8.o third_party/pcre-7.4/pcre_refcount.o third_party/pcre-7.4/pcre_scanner.o third_party/pcre-7.4/pcre_stringpiece.o third_party/pcre-7.4/pcre_study.o third_party/pcre-7.4/pcre_tables.o third_party/pcre-7.4/pcre_try_flipped.o third_party/pcre-7.4/pcre_ucp_searchfuncs.o third_party/pcre-7.4/pcre_valid_utf8.o third_party/pcre-7.4/pcre_version.o third_party/pcre-7.4/pcre_xclass.o third_party/pcre-7.4/pcrecpp.o third_party/pcre-7.4/pcreposix.o db/commands.o util/net/message_server_port.o client/parallel.o db/common.o util/net/miniwebserver.o db/dbwebserver.o db/matcher.o db/dbcommands_generic.o db/dbmessage.o db/security_common.o db/security_commands.o util/mmap.o util/mmap_posix.o util/processinfo.o util/processinfo_darwin.o db/stats/counters.o db/stats/service_stats.o db/stats/snapshots.o db/stats/top.o scripting/engine.o scripting/utils.o scripting/bench.o scripting/engine_spidermonkey.o third_party/js-1.7/jsapi.o third_party/js-1.7/jsarena.o third_party/js-1.7/jsarray.o third_party/js-1.7/jsatom.o third_party/js-1.7/jsbool.o third_party/js-1.7/jscntxt.o third_party/js-1.7/jsdate.o third_party/js-1.7/jsdbgapi.o third_party/js-1.7/jsdhash.o third_party/js-1.7/jsdtoa.o third_party/js-1.7/jsemit.o third_party/js-1.7/jsexn.o third_party/js-1.7/jsfun.o third_party/js-1.7/jsgc.o third_party/js-1.7/jshash.o third_party/js-1.7/jsiter.o third_party/js-1.7/jsinterp.o third_party/js-1.7/jslock.o third_party/js-1.7/jslog2.o third_party/js-1.7/jslong.o third_party/js-1.7/jsmath.o third_party/js-1.7/jsnum.o third_party/js-1.7/jsobj.o third_party/js-1.7/jsopcode.o third_party/js-1.7/jsparse.o third_party/js-1.7/jsprf.o third_party/js-1.7/jsregexp.o third_party/js-1.7/jsscan.o third_party/js-1.7/jsscope.o third_party/js-1.7/jsscript.o third_party/js-1.7/jsstr.o third_party/js-1.7/jsutil.o third_party/js-1.7/jsxdrapi.o third_party/js-1.7/jsxml.o third_party/js-1.7/prmjtime.o util/compress.o db/key.o db/btreebuilder.o util/logfile.o util/alignedbuilder.o db/mongommf.o db/dur.o db/durop.o db/dur_writetodatafiles.o db/dur_preplogbuffer.o db/dur_commitjob.o db/dur_recover.o db/dur_journal.o db/introspect.o db/btree.o db/clientcursor.o db/tests.o db/repl.o db/repl/rs.o db/repl/consensus.o db/repl/rs_initiate.o db/repl/replset_commands.o db/repl/manager.o db/repl/health.o db/repl/heartbeat.o db/repl/rs_config.o db/repl/rs_rollback.o db/repl/rs_sync.o db/repl/rs_initialsync.o db/oplog.o db/repl_block.o db/btreecursor.o db/cloner.o db/namespace.o db/cap.o db/matcher_covered.o db/dbeval.o db/restapi.o db/dbhelpers.o db/instance.o db/client.o db/database.o db/pdfile.o db/record.o db/cursor.o db/security.o db/queryoptimizer.o db/queryoptimizercursor.o db/extsort.o db/cmdline.o db/index.o db/scanandorder.o db/geo/2d.o db/geo/haystack.o db/ops/delete.o db/ops/query.o db/ops/update.o db/dbcommands.o db/dbcommands_admin.o db/commands/distinct.o db/commands/find_and_modify.o db/commands/group.o db/commands/isself.o db/commands/mr.o db/driverHelpers.o s/config.o s/grid.o s/chunk.o s/shard.o s/shardkey.o s/d_logic.o s/d_writeback.o s/d_migrate.o s/d_state.o s/d_split.o client/distlock_test.o s/d_chunk_manager.o db/module.o db/modules/mms.o third_party/snappy/snappy.o third_party/snappy/snappy-sinksource.o client/gridfs.o tools/tool.o tools/bridge.o -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o perftest -fPIC -pthread -rdynamic dbtests/framework.o dbtests/perf/perftest.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongotestfiles -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o rsExample -fPIC -pthread -rdynamic client/examples/rs.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o secondExample -fPIC -pthread -rdynamic client/examples/second.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o test -fPIC -pthread -rdynamic dbtests/background_job_test.o dbtests/balancer_policy_tests.o dbtests/basictests.o dbtests/btreetests.o dbtests/clienttests.o dbtests/commandtests.o dbtests/cursortests.o dbtests/d_chunk_manager_tests.o dbtests/dbtests.o dbtests/directclienttests.o dbtests/framework.o dbtests/histogram_test.o dbtests/jsobjtests.o dbtests/jsontests.o dbtests/jstests.o dbtests/macrotests.o dbtests/matchertests.o dbtests/mmaptests.o dbtests/namespacetests.o dbtests/pdfiletests.o dbtests/perftests.o dbtests/queryoptimizertests.o dbtests/querytests.o dbtests/queryutiltests.o dbtests/repltests.o dbtests/sharding.o dbtests/socktests.o dbtests/spin_lock_test.o dbtests/threadedtests.o dbtests/updatetests.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongotestfiles -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
-g++ -o whereExample -fPIC -pthread -rdynamic client/examples/whereExample.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o rsExample -fPIC -pthread -rdynamic client/examples/rs.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 snip...
+g++ -o secondExample -fPIC -pthread -rdynamic client/examples/second.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 snip...
+g++ -o test -fPIC -pthread -rdynamic dbtests/background_job_test.o dbtests/balancer_policy_tests.o snip...
+g++ -o whereExample -fPIC -pthread -rdynamic client/examples/whereExample.o -L. -L/dan/mongo/lib snip...
 scons: done building targets.
 Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
 Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
@@ -1255,11 +1247,13 @@ Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$
 <br />
 <br />
 
-
 Next, I looked at this URL:
 <br />
 
+<a href='http://www.mongodb.org/display/DOCS/Tutorial' target='x'>
 http://www.mongodb.org/display/DOCS/Tutorial
+</a>
+
 <br />
 
 It described an executable file named "mongo" under a bin directory.
@@ -1293,12 +1287,14 @@ Thu Apr 26 21:34 /dan/mongo bikle611$ ll bin/mongo
 -rwxr-xr-x  1 bikle611  admin  3363632 Apr 26 18:39 bin/mongo*
 Thu Apr 26 21:34 /dan/mongo bikle611$ 
 Thu Apr 26 21:34 /dan/mongo bikle611$ 
-Thu Apr 26 21:34 /dan/mongo bikle611$ 
-
+Thu Apr 26 21:34 /dan/mongo bikle611$  
+</pre>
+<br />
+<br />
 
 I tried running it:
 
-
+<pre>
 Thu Apr 26 21:34 /dan/mongo bikle611$ 
 Thu Apr 26 21:34 /dan/mongo bikle611$ 
 Thu Apr 26 21:34 /dan/mongo bikle611$ bin/mongo
@@ -1320,10 +1316,14 @@ Thu Apr 26 21:39 /dan/mongo bikle611$ find . -type f -print | grep libboost_syst
 Thu Apr 26 21:39 /dan/mongo bikle611$ 
 Thu Apr 26 21:40 /dan/mongo bikle611$ 
 Thu Apr 26 21:40 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
 
-I tried using LD_LIBRARY_PATH:
+Darn.  bin/mongo cannot find a dynamic/shared library.
+I tried using LD_LIBRARY_PATH which I've used in the past to signal to the OS that it can find shared libraries in directories I specify:
 
-
+<pre>
 Thu Apr 26 21:40 /dan/mongo bikle611$ 
 Thu Apr 26 21:40 /dan/mongo bikle611$ export LD_LIBRARY_PATH=/dan/mongo/lib
 Thu Apr 26 21:41 /dan/mongo bikle611$ 
@@ -1335,26 +1335,40 @@ Trace/BPT trap
 Thu Apr 26 21:41 /dan/mongo bikle611$ 
 Thu Apr 26 21:41 /dan/mongo bikle611$ 
 Thu Apr 26 21:41 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
 
 I looked at the dylib files which the find-command had found:
 
-
+<pre>
 Thu Apr 26 21:41 /dan/mongo bikle611$ 
 Thu Apr 26 21:41 /dan/mongo bikle611$ find . -type f -name libboost_system.dylib |xargs ls -la
 -rwxr-xr-x  1 bikle611  admin  29884 Apr 26 17:11 ./boost_1_49_0/bin.v2/libs/system/build/darwin-4.0.1/release/threading-multi/libboost_system.dylib
 -rwxr-xr-x  1 bikle611  admin  29884 Apr 26 17:11 ./lib/libboost_system.dylib
 Thu Apr 26 21:44 /dan/mongo bikle611$ 
 Thu Apr 26 21:44 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
 
 Okay so I see that they are in my filesystem and they don't look very strange.
+<br />
 
 I did some google searches and found an interesting document:
+<br />
 
+<a href='http://qin.laya.com/tech_coding_help/dylib_linking.html' target='x'>
 http://qin.laya.com/tech_coding_help/dylib_linking.html
+</a>
+
+
+<br />
 
 I tried "otool":
+<br />
 
-
+<pre>
 Thu Apr 26 21:46 /dan/mongo bikle611$ 
 Thu Apr 26 21:46 /dan/mongo bikle611$ 
 Thu Apr 26 21:46 /dan/mongo bikle611$ otool -L bin/mongo
@@ -1370,12 +1384,19 @@ Thu Apr 26 21:59 /dan/mongo bikle611$
 Thu Apr 26 21:59 /dan/mongo bikle611$ 
 Thu Apr 26 21:59 /dan/mongo bikle611$ 
 Thu Apr 26 21:59 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
 
-According to the above document, and the above otool output, it seems plausible that bin/mongo is looking for the libboost_*.dylib files in the bin/ directory.
+One worrisome aspect of the above output is that the libboost-lines display version strings which contain only zeros.
+<p>
+Anyway,
+according to the above document, and the above otool output, it seems plausible that bin/mongo is looking for the libboost_*.dylib files in the bin/ directory.
+</p>
 
 So, as an experiment, I copied the libboost_*.dylib files into the bin/ directory:
 
-
+<pre>
 Thu Apr 26 21:59 /dan/mongo bikle611$ 
 Thu Apr 26 21:59 /dan/mongo bikle611$ ls -la lib/libboost_*dylib
 -rwxr-xr-x  1 bikle611  admin   92692 Apr 26 17:11 lib/libboost_date_time.dylib*
@@ -1389,11 +1410,14 @@ Thu Apr 26 22:06 /dan/mongo bikle611$ cp -p lib/libboost_*dylib  bin/
 Thu Apr 26 22:07 /dan/mongo bikle611$ 
 Thu Apr 26 22:07 /dan/mongo bikle611$ 
 Thu Apr 26 22:07 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
 
 
 Then, I tried bin/mongo again:
 
-
+<pre>
 Thu Apr 26 22:07 /dan/mongo bikle611$ 
 Thu Apr 26 22:07 /dan/mongo bikle611$ 
 Thu Apr 26 22:07 /dan/mongo bikle611$ bin/mongo
@@ -1404,10 +1428,12 @@ Trace/BPT trap
 Thu Apr 26 22:09 /dan/mongo bikle611$ 
 Thu Apr 26 22:09 /dan/mongo bikle611$ 
 Thu Apr 26 22:09 /dan/mongo bikle611$ 
-
-At this point I felt that installing MongoDB from source on my Mac was too much effort.
-
-I was ready to knuckle under and use Homebrew.
-
-
 </pre>
+
+<p>
+At this point I felt that installing MongoDB from source on my Mac was too much effort.
+I was ready to knuckle under and use Homebrew.
+</p>
+
+
+
