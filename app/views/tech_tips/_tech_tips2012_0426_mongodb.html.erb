@@ -1,0 +1,1350 @@
+<h3 id='h3_2012_0426'>2012-04-26 Install MongoDB From Source on Mac OS/X</h3>
+
+I started my installation efforts by creating a directory and downloading a tar-ball:
+
+<pre>
+Tue Apr 24 14:11 ~/pt/mongo4 bikle611$ 
+Tue Apr 24 14:11 ~/pt/mongo4 bikle611$ 
+Tue Apr 24 14:11 ~/pt/mongo4 bikle611$ mkdir /dan/mongo
+Tue Apr 24 14:12 ~/pt/mongo4 bikle611$ 
+Tue Apr 24 14:12 ~/pt/mongo4 bikle611$ 
+Tue Apr 24 14:12 ~/pt/mongo4 bikle611$ cd /dan/mongo
+Tue Apr 24 14:12 /dan/mongo bikle611$ 
+Tue Apr 24 14:12 /dan/mongo bikle611$ 
+Tue Apr 24 14:12 /dan/mongo bikle611$ wget http://downloads.mongodb.org/src/mongodb-src-r2.0.4.tar.gz
+--2012-04-24 14:12:52--  http://downloads.mongodb.org/src/mongodb-src-r2.0.4.tar.gz
+Resolving downloads.mongodb.org... 207.171.187.118
+Connecting to downloads.mongodb.org|207.171.187.118|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2966431 (2.8M) [application/x-tar]
+Saving to: `mongodb-src-r2.0.4.tar.gz'
+
+100%[======================================>] 2,966,431    125K/s   in 21s     
+
+2012-04-24 14:13:13 (141 KB/s) - `mongodb-src-r2.0.4.tar.gz' saved [2966431/2966431]
+
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+</pre>
+
+I unpacked the tar-ball and looked for installation instructions:
+
+<pre>
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ 
+Tue Apr 24 14:13 /dan/mongo bikle611$ tar zxf mongodb-src-r2.0.4.tar.gz 
+Tue Apr 24 14:17 /dan/mongo bikle611$ 
+Tue Apr 24 14:17 /dan/mongo bikle611$ 
+Tue Apr 24 14:17 /dan/mongo bikle611$ ll
+total 5800
+drwxr-xr-x   4 bikle611  admin      136 Apr 24 14:17 ./
+drwxr-xr-x   4 bikle611  admin      136 Apr 24 14:12 ../
+drwxr-xr-x  34 bikle611  admin     1156 Mar 19 09:10 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin  2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Tue Apr 24 14:17 /dan/mongo bikle611$ 
+Tue Apr 24 14:17 /dan/mongo bikle611$ 
+Tue Apr 24 14:17 /dan/mongo bikle611$ cd mongodb-src-r2.0.4
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ ll
+total 328
+drwxr-xr-x   34 bikle611  admin   1156 Mar 19 09:10 ./
+drwxr-xr-x    4 bikle611  admin    136 Apr 24 14:17 ../
+-rw-r--r--    1 bikle611  admin     58 Mar 19 09:10 .gitattributes
+-rw-r--r--    1 bikle611  admin   1255 Mar 19 09:10 .gitignore
+-rw-r--r--    1 bikle611  admin  11358 Mar 19 09:10 APACHE-2.0.txt
+-rw-r--r--    1 bikle611  admin  34520 Mar 19 09:10 GNU-AGPL-3.0.txt
+-rwxr-xr-x    1 bikle611  admin   1774 Mar 19 09:10 README*
+-rw-r--r--    1 bikle611  admin  56215 Mar 19 09:10 SConstruct
+drwxr-xr-x   19 bikle611  admin    646 Mar 19 09:10 bson/
+drwxr-xr-x   23 bikle611  admin    782 Mar 19 09:10 buildscripts/
+drwxr-xr-x   29 bikle611  admin    986 Mar 19 09:10 client/
+drwxr-xr-x  140 bikle611  admin   4760 Mar 19 09:10 db/
+drwxr-xr-x   39 bikle611  admin   1326 Mar 19 09:10 dbtests/
+drwxr-xr-x   29 bikle611  admin    986 Mar 19 09:10 debian/
+drwxr-xr-x    6 bikle611  admin    204 Mar 19 09:10 distsrc/
+drwxr-xr-x    7 bikle611  admin    238 Mar 19 09:10 docs/
+-rw-r--r--    1 bikle611  admin  10758 Mar 19 09:10 doxygenConfig
+-rw-r--r--    1 bikle611  admin   3606 Mar 19 09:10 gch.py
+drwxr-xr-x  517 bikle611  admin  17578 Mar 19 09:10 jstests/
+drwxr-xr-x    3 bikle611  admin    102 Mar 19 09:10 lib/
+-rw-r--r--    1 bikle611  admin    191 Mar 19 09:10 mongo_astyle
+-rw-r--r--    1 bikle611  admin   1061 Mar 19 09:10 pch.cpp
+-rw-r--r--    1 bikle611  admin   5094 Mar 19 09:10 pch.h
+drwxr-xr-x    7 bikle611  admin    238 Mar 19 09:10 rpm/
+drwxr-xr-x   54 bikle611  admin   1836 Mar 19 09:10 s/
+drwxr-xr-x   20 bikle611  admin    680 Mar 19 09:10 scripting/
+-rw-r--r--    1 bikle611  admin    633 Mar 19 09:10 server.h
+drwxr-xr-x   15 bikle611  admin    510 Mar 19 09:10 shell/
+-rwxr-xr-x    1 bikle611  admin    243 Mar 19 09:10 speed.js*
+-rw-r--r--    1 bikle611  admin    888 Mar 19 09:10 targetver.h
+drwxr-xr-x   10 bikle611  admin    340 Mar 19 09:10 third_party/
+drwxr-xr-x   14 bikle611  admin    476 Mar 19 09:10 tools/
+drwxr-xr-x   77 bikle611  admin   2618 Mar 19 09:10 util/
+-rw-r--r--    1 bikle611  admin     86 Mar 19 09:10 valgrind.suppressions
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+
+
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:17 /dan/mongo/mongodb-src-r2.0.4 bikle611$ cat README 
+MongoDB README
+
+Welcome to MongoDB!
+
+COMPONENTS
+
+  mongod - The database process.
+  mongos - Sharding controller.
+  mongo  - The database shell (uses interactive javascript).
+
+UTILITIES
+
+  mongodump         - MongoDB dump tool - for backups, snapshots, etc..
+  mongorestore      - MongoDB restore a dump
+  mongoexport       - Export a single collection to test (JSON, CSV)
+  mongoimport       - Import from JSON or CSV
+  mongofiles        - Utility for putting and getting files from MongoDB GridFS
+  mongostat         - Show performance statistics
+
+BUILDING
+      
+  See docs/building.md, also www.mongodb.org search for "Building".
+
+RUNNING
+
+  For command line options invoke:
+
+    $ ./mongod --help
+
+  To run a single server database:
+
+    $ mkdir /data/db
+    $ ./mongod
+    $
+    $ # The mongo javascript shell connects to localhost and test database by default:
+    $ ./mongo 
+    > help
+
+DRIVERS
+
+  Client drivers for most programming languages are available at mongodb.org.  Use the 
+  shell ("mongo") for administrative tasks.
+
+DOCUMENTATION
+
+  http://www.mongodb.org/
+
+MAIL LISTS AND IRC
+
+  http://www.mongodb.org/display/DOCS/Community
+
+32 BIT BUILD NOTES
+
+  MongoDB uses memory mapped files.  If built as a 32 bit executable, you will
+  not be able to work with large (multi-gigabyte) databases.  However, 32 bit
+  builds work fine with small development databases.
+
+LICENSE
+
+  Most MongoDB source files are made available under the terms of the
+  GNU Affero General Public License (AGPL).  See individual files for
+  details.
+
+  As an exception, the files in the client/, debian/, rpm/,
+  utils/mongoutils, and all subdirectories thereof are made available under
+  the terms of the Apache License, version 2.0.
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:18 /dan/mongo/mongodb-src-r2.0.4 bikle611$ head -13  docs/building.md 
+
+Building MongoDB
+================
+
+SCONS
+---------------
+        
+For detail information about building, please see [the wiki](http://www.mongodb.org/display/DOCS/Building).
+
+If you want to build everything (mongod, mongo, tools, etc):
+
+    $ scons .
+
+Tue Apr 24 14:22 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+
+I went on a quest for "scons".
+
+<pre>
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:23 /dan/mongo/mongodb-src-r2.0.4 bikle611$ which scons
+/pt/p/bin/scons
+Tue Apr 24 14:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+
+Tue Apr 24 14:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:25 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons --help
+scons: Reading SConscript files ...
+scons version: 1.2.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+error: no result
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+Tue Apr 24 14:25 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:25 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:25 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:25 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+<br />
+<br />
+
+That did not look good.
+<br />
+When did I install scons?
+<br />
+
+<pre>
+Tue Apr 24 14:32 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:32 /dan/mongo/mongodb-src-r2.0.4 bikle611$ ll /pt/p/bin/scons
+-rwxr-xr-x  1 maco  staff  5889 Dec 20  2008 /pt/p/bin/scons*
+Tue Apr 24 14:33 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:33 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+<br />
+<br />
+
+It's more than 3 years old now.
+<br />
+
+That's old but,
+I decided to see how far I could get using this old version of scons.
+
+<pre>
+Tue Apr 24 14:34 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:34 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons .
+scons: Reading SConscript files ...
+scons version: 1.2.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+error: no result
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+Tue Apr 24 14:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+
+<br />
+<br />
+That is not good.
+<br />
+
+I'll see if I can install a newer version of scons.
+<br />
+
+I found scons via google and did this:
+<br />
+
+
+<pre>
+Tue Apr 24 14:41 /dan/scons bikle611$ ll ~/Downloads/scons-2.1.0.tar.gz 
+-rw-r--r--@ 1 bikle611  staff  574666 Apr 24 14:42 /Users/bikle611/Downloads/scons-2.1.0.tar.gz
+Tue Apr 24 14:43 /dan/scons bikle611$ 
+Tue Apr 24 14:43 /dan/scons bikle611$ 
+Tue Apr 24 14:43 /dan/scons bikle611$ mv ~/Downloads/scons-2.1.0.tar.gz .
+Tue Apr 24 14:43 /dan/scons bikle611$ 
+Tue Apr 24 14:43 /dan/scons bikle611$ 
+Tue Apr 24 14:43 /dan/scons bikle611$ tar zxf scons-2.1.0.tar.gz 
+Tue Apr 24 14:43 /dan/scons bikle611$ 
+Tue Apr 24 14:43 /dan/scons bikle611$ ll
+total 1128
+drwxr-xr-x   4 bikle611  admin     136 Apr 24 14:43 ./
+drwxr-xr-x   5 bikle611  admin     170 Apr 24 14:40 ../
+drwxr-xr-x@ 16 bikle611  admin     544 Sep  9  2011 scons-2.1.0/
+-rw-r--r--@  1 bikle611  staff  574666 Apr 24 14:42 scons-2.1.0.tar.gz
+Tue Apr 24 14:44 /dan/scons bikle611$ 
+Tue Apr 24 14:44 /dan/scons bikle611$ cd scons-2.1.0
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ ll
+total 1328
+drwxr-xr-x@ 16 bikle611  admin     544 Sep  9  2011 ./
+drwxr-xr-x   4 bikle611  admin     136 Apr 24 14:43 ../
+-rw-r--r--@  1 bikle611  admin  188146 Sep  9  2011 CHANGES.txt
+-rw-r--r--@  1 bikle611  admin    1124 Sep  9  2011 LICENSE.txt
+-rw-r--r--@  1 bikle611  admin    5568 Sep  9  2011 MANIFEST
+-rw-r--r--@  1 bikle611  admin     442 Sep  9  2011 PKG-INFO
+-rw-r--r--@  1 bikle611  admin    8156 Sep  9  2011 README.txt
+-rw-r--r--@  1 bikle611  admin    3640 Sep  9  2011 RELEASE.txt
+drwxr-xr-x@  3 bikle611  admin     102 Sep  9  2011 engine/
+-rw-r--r--@  1 bikle611  admin    2445 Sep  9  2011 os_spawnv_fix.diff
+-rw-r--r--@  1 bikle611  admin   24781 Sep  9  2011 scons-time.1
+-rw-r--r--@  1 bikle611  admin  399963 Sep  9  2011 scons.1
+-rw-r--r--@  1 bikle611  admin    4724 Sep  9  2011 sconsign.1
+drwxr-xr-x@  6 bikle611  admin     204 Sep  9  2011 script/
+-rw-r--r--@  1 bikle611  admin     100 Sep  9  2011 setup.cfg
+-rw-r--r--@  1 bikle611  admin   15758 Sep  9  2011 setup.py
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+
+
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:44 /dan/scons/scons-2.1.0 bikle611$ python setup.py install --prefix=/dan/scons
+running install
+running build
+running build_py
+creating build
+creating build/lib
+creating build/lib/SCons
+copying engine/SCons/__init__.py -> build/lib/SCons
+
+snip ...
+
+byte-compiling /dan/scons/lib/scons-2.1.0/SCons/Warnings.py to Warnings.pyc
+running install_scripts
+creating /dan/scons/bin
+copying script/scons -> /dan/scons/bin/scons-2.1.0
+copying script/scons -> /dan/scons/bin
+copying script/sconsign -> /dan/scons/bin/sconsign-2.1.0
+copying script/sconsign -> /dan/scons/bin
+copying script/scons-time -> /dan/scons/bin/scons-time-2.1.0
+copying script/scons-time -> /dan/scons/bin
+running install_data
+creating /dan/scons/man
+creating /dan/scons/man/man1
+copying scons.1 -> /dan/scons/man/man1
+copying sconsign.1 -> /dan/scons/man/man1
+copying scons-time.1 -> /dan/scons/man/man1
+running install_egg_info
+Writing /dan/scons/lib/scons-2.1.0/scons-2.1.0-py2.6.egg-info
+Installed SCons library modules into /dan/scons/lib/scons-2.1.0
+Installed SCons scripts into /dan/scons/bin
+Installed SCons man pages into /dan/scons/man/man1
+Tue Apr 24 14:48 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:48 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:48 /dan/scons/scons-2.1.0 bikle611$ 
+</pre>
+<br />
+<br />
+
+I removed old copies of scons related scripts:
+
+<pre>
+
+Tue Apr 24 14:48 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:48 /dan/scons/scons-2.1.0 bikle611$ ll /pt/p/bin/scons*
+-rwxr-xr-x  1 maco  staff   5889 Dec 20  2008 /pt/p/bin/scons*
+-rwxr-xr-x  1 maco  staff   5889 Dec 20  2008 /pt/p/bin/scons-1.2.0*
+-rwxr-xr-x  1 maco  staff  48685 Dec 20  2008 /pt/p/bin/scons-time*
+-rwxr-xr-x  1 maco  staff  48685 Dec 20  2008 /pt/p/bin/scons-time-1.2.0*
+-rwxr-xr-x  1 maco  staff  16572 Dec 20  2008 /pt/p/bin/sconsign*
+-rwxr-xr-x  1 maco  staff  16572 Dec 20  2008 /pt/p/bin/sconsign-1.2.0*
+Tue Apr 24 14:51 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:51 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:51 /dan/scons/scons-2.1.0 bikle611$ rm -f /pt/p/bin/scons*
+rm: /pt/p/bin/scons: Permission denied
+rm: /pt/p/bin/scons-1.2.0: Permission denied
+rm: /pt/p/bin/scons-time: Permission denied
+rm: /pt/p/bin/scons-time-1.2.0: Permission denied
+rm: /pt/p/bin/sconsign: Permission denied
+rm: /pt/p/bin/sconsign-1.2.0: Permission denied
+Tue Apr 24 14:51 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ sudo rm -f /pt/p/bin/scons*
+Password:
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ 
+</pre>
+<br />
+<br />
+
+I added the new scons to my PATH:
+
+<pre>
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:52 /dan/scons/scons-2.1.0 bikle611$ export PATH=/dan/scons/bin:${PATH}
+Tue Apr 24 14:54 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:54 /dan/scons/scons-2.1.0 bikle611$ which scons
+/dan/scons/bin/scons
+Tue Apr 24 14:55 /dan/scons/scons-2.1.0 bikle611$ 
+Tue Apr 24 14:55 /dan/scons/scons-2.1.0 bikle611$ 
+</pre>
+<br />
+<br />
+
+I tried scons again to install MongoDB:
+
+<pre>
+Tue Apr 24 14:56 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:56 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+Tue Apr 24 14:57 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 14:57 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+</pre>
+<br />
+<br />
+
+Darn!
+<br />
+Okay, I looked for boost via google.
+<br />
+Google sent me to this site:
+<br />
+<a href='http://boost.org' target='b'>
+http://boost.org
+</a>
+<br />
+I downloaded it:
+
+<pre>
+Tue Apr 24 15:13 /dan/mongo bikle611$ wget http://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.gz/download
+--2012-04-24 15:13:51--  http://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.gz/download
+Resolving sourceforge.net... 216.34.181.60
+Connecting to sourceforge.net|216.34.181.60|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://downloads.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.gz?r=&ts=1335305628&use_mirror=softlayer [following]
+--2012-04-24 15:13:52--  http://downloads.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.gz?r=&ts=1335305628&use_mirror=softlayer
+Resolving downloads.sourceforge.net... 216.34.181.59
+Connecting to downloads.sourceforge.net|216.34.181.59|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://softlayer.dl.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.gz [following]
+--2012-04-24 15:13:54--  http://softlayer.dl.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.gz
+Resolving softlayer.dl.sourceforge.net... 74.86.229.28
+Connecting to softlayer.dl.sourceforge.net|74.86.229.28|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 59136116 (56M) [application/x-gzip]
+Saving to: `boost_1_49_0.tar.gz'
+
+100%[======================================>] 59,136,116   163K/s   in 9m 58s  
+
+2012-04-24 15:23:53 (96.6 KB/s) - `boost_1_49_0.tar.gz' saved [59136116/59136116]
+
+Tue Apr 24 15:23 /dan/mongo bikle611$ 
+Tue Apr 24 15:25 /dan/mongo bikle611$ 
+Tue Apr 24 15:25 /dan/mongo bikle611$ 
+Tue Apr 24 15:25 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
+
+That was a 59M download, kind of large for uncompiled software.
+<br />
+
+I looked at it:
+
+<pre>
+Tue Apr 24 15:30 /dan/mongo bikle611$ 
+Tue Apr 24 15:30 /dan/mongo bikle611$ 
+Tue Apr 24 15:30 /dan/mongo bikle611$ tar zxf boost_1_49_0.tar.gz 
+Tue Apr 24 15:31 /dan/mongo bikle611$ ll
+total 121304
+drwxr-xr-x   6 bikle611  admin       204 Apr 24 15:31 ./
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+drwxr-xr-x  20 bikle611  admin       680 Feb 22 15:06 boost_1_49_0/
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+drwxr-xr-x  39 bikle611  admin      1326 Apr 24 14:25 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Tue Apr 24 15:32 /dan/mongo bikle611$ 
+Tue Apr 24 15:32 /dan/mongo bikle611$ cd boost_1_49_0
+Tue Apr 24 15:32 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:32 /dan/mongo/boost_1_49_0 bikle611$ ll
+total 176
+drwxr-xr-x   20 bikle611  admin    680 Feb 22 15:06 ./
+drwxr-xr-x    6 bikle611  admin    204 Apr 24 15:31 ../
+-rw-r--r--    1 bikle611  admin    291 Jan 30 18:30 INSTALL
+-rw-r--r--    1 bikle611  admin  10160 Jan 29 13:58 Jamroot
+-rw-r--r--    1 bikle611  admin   1338 Jan 30 18:30 LICENSE_1_0.txt
+drwxr-xr-x  208 bikle611  admin   7072 Feb 22 15:07 boost/
+-rw-r--r--    1 bikle611  admin    849 Jan 30 18:30 boost-build.jam
+-rw-r--r--    1 bikle611  admin    989 Jan 30 18:30 boost.css
+-rw-r--r--    1 bikle611  admin   6308 Jan 30 18:30 boost.png
+-rw-r--r--    1 bikle611  admin  18031 Jan 30 18:30 boostcpp.jam
+-rw-r--r--    1 bikle611  admin   2545 Jan 30 18:30 bootstrap.bat
+-rwxr-xr-x    1 bikle611  admin  10324 Jan 30 18:30 bootstrap.sh*
+drwxr-xr-x    8 bikle611  admin    272 Feb 22 15:05 doc/
+-rw-r--r--    1 bikle611  admin    769 Jan 30 18:30 index.htm
+-rw-r--r--    1 bikle611  admin   5437 Jan 29 13:58 index.html
+drwxr-xr-x  101 bikle611  admin   3434 Feb 22 15:06 libs/
+drwxr-xr-x    8 bikle611  admin    272 Feb 22 15:10 more/
+-rw-r--r--    1 bikle611  admin   2608 Jan 30 18:30 rst.css
+drwxr-xr-x    6 bikle611  admin    204 Feb 22 15:06 status/
+drwxr-xr-x   15 bikle611  admin    510 Feb 22 15:10 tools/
+Tue Apr 24 15:32 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:32 /dan/mongo/boost_1_49_0 bikle611$ 
+</pre>
+<br />
+<br />
+
+
+I added BOOST_ROOT to my environment:
+<br />
+
+export BOOST_ROOT=/dan/mongo/boost_1_49_0
+<br />
+
+Next, I looked for the file which Mongo wanted:
+<pre>
+Tue Apr 24 15:41 /dan/mongo bikle611$ 
+Tue Apr 24 15:41 /dan/mongo bikle611$ find . -name operations.hpp -print
+./boost_1_49_0/boost/filesystem/operations.hpp
+./boost_1_49_0/boost/filesystem/v2/operations.hpp
+./boost_1_49_0/boost/filesystem/v3/operations.hpp
+./boost_1_49_0/boost/iostreams/operations.hpp
+./boost_1_49_0/boost/mpi/operations.hpp
+./boost_1_49_0/boost/numeric/ublas/operations.hpp
+Tue Apr 24 15:42 /dan/mongo bikle611$ 
+Tue Apr 24 15:42 /dan/mongo bikle611$ 
+Tue Apr 24 15:42 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
+
+Then, the boost documentation suggested that I write and then compile a simple C++ file:
+
+<pre>
+Tue Apr 24 15:46 /dan/mongo bikle611$ 
+Tue Apr 24 15:46 /dan/mongo bikle611$ cat example.cpp 
+#include &lt;boost/lambda/lambda.hpp>
+#include &lt;iostream>
+#include &lt;iterator>
+#include &lt;algorithm>
+
+int main()
+{
+    using namespace boost::lambda;
+    typedef std::istream_iterator&lt;int> in;
+
+    std::for_each(
+        in(std::cin), in(), std::cout &lt;&lt; (_1 * 3) &lt;&lt; " " );
+}
+Tue Apr 24 15:47 /dan/mongo bikle611$ 
+Tue Apr 24 15:47 /dan/mongo bikle611$ 
+Tue Apr 24 15:47 /dan/mongo bikle611$ 
+
+
+Tue Apr 24 15:47 /dan/mongo bikle611$ 
+Tue Apr 24 15:47 /dan/mongo bikle611$ which c++
+/Developer/usr/bin/c++
+Tue Apr 24 15:48 /dan/mongo bikle611$ 
+Tue Apr 24 15:48 /dan/mongo bikle611$ 
+Tue Apr 24 15:49 /dan/mongo bikle611$ c++ -I /dan/mongo/boost_1_49_0 example.cpp -o example
+Tue Apr 24 15:49 /dan/mongo bikle611$ 
+Tue Apr 24 15:49 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
+
+Then, I ran it:
+
+<pre>
+Tue Apr 24 15:49 /dan/mongo bikle611$ 
+Tue Apr 24 15:50 /dan/mongo bikle611$ 
+Tue Apr 24 15:50 /dan/mongo bikle611$ echo 1 2 3 | ./example
+3 6 9 Tue Apr 24 15:50 /dan/mongo bikle611$ 
+Tue Apr 24 15:50 /dan/mongo bikle611$ 
+Tue Apr 24 15:50 /dan/mongo bikle611$ 
+</pre>
+<br />
+<br />
+
+Then I followed more instructions from the documentation:
+
+<pre>
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --help
+`./bootstrap.sh' prepares Boost for building on a few kinds of systems.
+
+Usage: ./bootstrap.sh [OPTION]... 
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help                display this help and exit
+  --with-bjam=BJAM          use existing Boost.Jam executable (bjam)
+                            [automatically built]
+  --with-toolset=TOOLSET    use specific Boost.Build toolset
+                            [automatically detected]
+  --show-libraries          show the set of libraries that require build
+                            and installation steps (i.e., those libraries
+                            that can be used with --with-libraries or
+                            --without-libraries), then exit
+  --with-libraries=list     build only a particular set of libraries,
+                            describing using either a comma-separated list of
+                            library names or "all"
+                            [all]
+  --without-libraries=list  build all libraries except the ones listed []
+  --with-icu                enable Unicode/ICU support in Regex 
+                            [automatically detected]
+  --without-icu             disable Unicode/ICU support in Regex
+  --with-icu=DIR            specify the root of the ICU library installation
+                            and enable Unicode/ICU support in Regex
+                            [automatically detected]
+  --with-python=PYTHON      specify the Python executable [python]
+  --with-python-root=DIR    specify the root of the Python installation
+                            [automatically detected]
+  --with-python-version=X.Y specify the Python version as X.Y
+                            [automatically detected]
+
+Installation directories:
+  --prefix=PREFIX           install Boost into the given PREFIX
+                            [/usr/local]
+  --exec-prefix=EPREFIX     install Boost binaries into the given EPREFIX
+                            [PREFIX]
+
+More precise control over installation directories:
+  --libdir=DIR              install libraries here [EPREFIX/lib]
+  --includedir=DIR          install headers here [PREFIX/include]
+
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ 
+</pre>
+<br />
+<br />
+
+The option '--with-libraries=list' interested me.
+<br />
+
+I asked bootstrap.sh for a list of libraries:
+
+<pre>
+Tue Apr 24 15:53 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:55 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --show-libraries
+-n Building Boost.Build engine with toolset darwin... 
+tools/build/v2/engine/bin.macosxx86/b2
+
+The following Boost libraries have portions that require a separate build
+and installation step. Any library not listed here can be used by including
+the headers only.
+
+The Boost libraries requiring separate building and installation are:
+    - chrono
+    - date_time
+    - exception
+    - filesystem
+    - graph
+    - graph_parallel
+    - iostreams
+    - locale
+    - math
+    - mpi
+    - program_options
+    - python
+    - random
+    - regex
+    - serialization
+    - signals
+    - system
+    - test
+    - thread
+    - timer
+    - wave
+Tue Apr 24 15:56 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:56 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 15:56 /dan/mongo/boost_1_49_0 bikle611$  
+</pre>
+<br />
+<br />
+
+MongoDB wants the filesystem library so I fed 'filesystem' to bootstrap.sh:
+
+<pre>
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --with-libraries=filesystem --prefix=/dan/mongo
+-n Building Boost.Build engine with toolset darwin... 
+tools/build/v2/engine/bin.macosxx86/b2
+-n Unicode/ICU support for Boost.Regex?... 
+not found.
+Generating Boost.Build configuration in project-config.jam...
+
+Bootstrapping is done. To build, run:
+
+    ./b2
+    
+To adjust configuration, edit 'project-config.jam'.
+Further information:
+
+   - Command line help:
+     ./b2 --help
+     
+   - Getting started guide: 
+     http://www.boost.org/more/getting_started/unix-variants.html
+     
+   - Boost.Build documentation:
+     http://www.boost.org/boost-build2/doc/html/index.html
+
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:04 /dan/mongo/boost_1_49_0 bikle611$ 
+
+
+
+Tue Apr 24 16:07 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:07 /dan/mongo/boost_1_49_0 bikle611$ ll b2*
+-rwxr-xr-x  1 bikle611  admin  173148 Apr 24 16:04 b2*
+Tue Apr 24 16:07 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:07 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:07 /dan/mongo/boost_1_49_0 bikle611$ ./b2 install
+
+Component configuration:
+
+    - chrono                   : not building
+    - date_time                : not building
+    - exception                : not building
+    - filesystem               : building
+    - graph                    : not building
+    - graph_parallel           : not building
+    - iostreams                : not building
+    - locale                   : not building
+    - math                     : not building
+    - mpi                      : not building
+    - program_options          : not building
+    - python                   : not building
+    - random                   : not building
+
+snip ...
+
+
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/operations.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/path.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/portability.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/windows_file_codecvt.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/codecvt_error_category.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/path_traits.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/unique_path.o
+darwin.compile.c++ bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/v3/src/utf8_codecvt_facet.o
+darwin.link.dll bin.v2/libs/filesystem/build/darwin-4.0.1/release/threading-multi/libboost_filesystem.dylib
+common.copy /dan/mongo/lib/libboost_filesystem.dylib
+...updated 9814 targets...
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
+
+
+
+I looked for any new directories in /dan/mongo/
+
+
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Tue Apr 24 16:16 /dan/mongo/boost_1_49_0 bikle611$ cd /dan/mongo/
+Tue Apr 24 16:16 /dan/mongo bikle611$ 
+Tue Apr 24 16:16 /dan/mongo bikle611$ ls -latr
+total 121384
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+drwxr-xr-x  39 bikle611  admin      1326 Apr 24 14:25 mongodb-src-r2.0.4/
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+-rw-r--r--   1 bikle611  admin       270 Apr 24 15:46 example.cpp
+-rwxr-xr-x   1 bikle611  admin     34364 Apr 24 15:49 example*
+drwxr-xr-x  25 bikle611  admin       850 Apr 24 16:07 boost_1_49_0/
+drwxr-xr-x   3 bikle611  admin       102 Apr 24 16:10 include/
+drwxr-xr-x  10 bikle611  admin       340 Apr 24 16:13 ./
+drwxr-xr-x   6 bikle611  admin       204 Apr 24 16:13 lib/
+Tue Apr 24 16:16 /dan/mongo bikle611$ 
+Tue Apr 24 16:16 /dan/mongo bikle611$ 
+Tue Apr 24 16:16 /dan/mongo bikle611$ 
+
+
+Tue Apr 24 16:16 /dan/mongo bikle611$ 
+Tue Apr 24 16:16 /dan/mongo bikle611$ ll include lib
+include:
+total 0
+drwxr-xr-x    3 bikle611  admin   102 Apr 24 16:10 ./
+drwxr-xr-x   10 bikle611  admin   340 Apr 24 16:13 ../
+drwxr-xr-x  208 bikle611  admin  7072 Apr 24 16:13 boost/
+
+lib:
+total 3368
+drwxr-xr-x   6 bikle611  admin      204 Apr 24 16:13 ./
+drwxr-xr-x  10 bikle611  admin      340 Apr 24 16:13 ../
+-rw-r--r--   1 bikle611  admin  1413292 Apr 24 16:13 libboost_filesystem.a
+-rwxr-xr-x   1 bikle611  admin   193704 Apr 24 16:13 libboost_filesystem.dylib*
+-rw-r--r--   1 bikle611  admin    74304 Apr 24 16:13 libboost_system.a
+-rwxr-xr-x   1 bikle611  admin    29884 Apr 24 16:13 libboost_system.dylib*
+Tue Apr 24 16:17 /dan/mongo bikle611$ 
+Tue Apr 24 16:17 /dan/mongo bikle611$ 
+
+
+
+Next, I tried scons again to install MongoDB.
+
+
+Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+Tue Apr 24 16:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Tue Apr 24 16:20 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+Darn, scons does not see my new install of boost libraries.
+
+How do I tell scons that my boost libraries are here:
+
+/dan/mongo/boost_1_49_0/
+
+??
+
+I asked Google.
+
+Google sent me here:
+
+http://forums.wesnoth.org/viewtopic.php?f=5&t=24343
+
+I tried this:
+
+
+Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 15:48 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons boostdir=/dan/mongo/include boostlibdir=/dan/mongo/lib .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 15:51 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+
+I searched more of the web and learned that scons is partially controlled by a file named: SConstruct
+
+I looked at it and found it somewhat readable; it appears to be written in Python.
+
+This is sweet; I prefer that Domain Specific Languages be based on an interpreted language like Python, Ruby, or Perl.
+
+I dislike technologies which rely on configuation files written in a syntax which is used rarely.
+
+Examples of these technologies are Apache, Squid, Sendmail, and Make.
+
+Anyway I looked at this file:
+
+/dan/mongo/mongodb-src-r2.0.4/SConstruct
+
+I found this syntax on line 151:
+
+add_option( "extrapathdyn", "comma separated list of add'l paths  (--extrapath /opt/foo/,/foo) dynamic linking" , 1 , True )
+
+So, I tried this:
+
+
+Thu Apr 26 16:24 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons --prefix=/dan/mongo --extrapathdyn /dan/mongo .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... yes
+Checking for C library boost_system-mt... no
+Checking for C library boost_system... yes
+Checking for C library boost_thread-mt... no
+Checking for C library boost_thread... no
+can't find or link against library ['boost_thread-mt', 'boost_thread'] in ['/dan/mongo/lib', '/dan/mongo/lib64', '/opt/local/lib']
+see config.log for more information
+Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 16:35 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+I appear to be making progress!
+
+I returned my attention on my install of boost.
+I asked it if it had any libraries which look like ['boost_thread-mt', 'boost_thread'].
+
+
+Thu Apr 26 16:39 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:39 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --show-libraries
+-n Building Boost.Build engine with toolset darwin... 
+tools/build/v2/engine/bin.macosxx86/b2
+
+The following Boost libraries have portions that require a separate build
+and installation step. Any library not listed here can be used by including
+the headers only.
+
+The Boost libraries requiring separate building and installation are:
+    - filesystem
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
+
+
+This made me unhappy. 
+I already have the 'filesystem' library.
+
+I tossed my installation of boost in the trash and started the installation again:
+
+
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:40 /dan/mongo/boost_1_49_0 bikle611$ cd /dan/mongo
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ ls -la
+total 121384
+drwxr-xr-x  10 bikle611  admin       340 Apr 24 16:13 ./
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+drwxr-xr-x  25 bikle611  admin       850 Apr 24 16:07 boost_1_49_0/
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+-rwxr-xr-x   1 bikle611  admin     34364 Apr 24 15:49 example*
+-rw-r--r--   1 bikle611  admin       270 Apr 24 15:46 example.cpp
+drwxr-xr-x   3 bikle611  admin       102 Apr 24 16:10 include/
+drwxr-xr-x   6 bikle611  admin       204 Apr 24 16:13 lib/
+drwxr-xr-x  39 bikle611  admin      1326 Apr 26 16:34 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ mkdir junk
+Thu Apr 26 16:43 /dan/mongo bikle611$ 
+Thu Apr 26 16:43 /dan/mongo bikle611$ mv boost_1_49_0/ include/ lib/ junk/
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ tar zxf boost_1_49_0.tar.gz 
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ ls -la
+total 121384
+drwxr-xr-x   9 bikle611  admin       306 Apr 26 16:44 ./
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+drwxr-xr-x  20 bikle611  admin       680 Feb 22 15:06 boost_1_49_0/
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+-rwxr-xr-x   1 bikle611  admin     34364 Apr 24 15:49 example*
+-rw-r--r--   1 bikle611  admin       270 Apr 24 15:46 example.cpp
+drwxr-xr-x   5 bikle611  admin       170 Apr 26 16:44 junk/
+drwxr-xr-x  39 bikle611  admin      1326 Apr 26 16:34 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+
+
+
+
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ 
+Thu Apr 26 16:44 /dan/mongo bikle611$ cd boost_1_49_0
+Thu Apr 26 16:46 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:48 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:48 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --show-libraries
+-n Building Boost.Build engine with toolset darwin... 
+tools/build/v2/engine/bin.macosxx86/b2
+
+The following Boost libraries have portions that require a separate build
+and installation step. Any library not listed here can be used by including
+the headers only.
+
+The Boost libraries requiring separate building and installation are:
+    - chrono
+    - date_time
+    - exception
+    - filesystem
+    - graph
+    - graph_parallel
+    - iostreams
+    - locale
+    - math
+    - mpi
+    - program_options
+    - python
+    - random
+    - regex
+    - serialization
+    - signals
+    - system
+    - test
+    - thread
+    - timer
+    - wave
+Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
+
+
+I googled: "mongodb boost bootstrap.sh filesystem thread"
+
+One interesting hit:
+http://www.mongodb.org/display/DOCS/Building+Boost
+
+Also I searched for "filesystem" and "thread" in /dan/mongo/mongodb-src-r2.0.4/SConstruct
+
+On line 214 I found this syntax:
+
+boostLibs = [ "thread" , "filesystem" , "program_options" ]
+
+I did this:
+
+
+
+Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 16:49 /dan/mongo/boost_1_49_0 bikle611$ ./bootstrap.sh --with-libraries=date_time,filesystem,program_options,thread --prefix=/dan/mongo
+-n Building Boost.Build engine with toolset darwin... 
+tools/build/v2/engine/bin.macosxx86/b2
+-n Unicode/ICU support for Boost.Regex?... 
+not found.
+Generating Boost.Build configuration in project-config.jam...
+
+Bootstrapping is done. To build, run:
+
+    ./b2
+    
+To adjust configuration, edit 'project-config.jam'.
+Further information:
+
+   - Command line help:
+     ./b2 --help
+     
+   - Getting started guide: 
+     http://www.boost.org/more/getting_started/unix-variants.html
+     
+   - Boost.Build documentation:
+     http://www.boost.org/boost-build2/doc/html/index.html
+
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+
+The above output told me the next step was to run this shell command:
+
+./b2
+
+But the boost documentation told me to run this shell command:
+
+./b2 install
+
+So, I did this:
+
+
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 17:03 /dan/mongo/boost_1_49_0 bikle611$ ./b2 install
+
+Component configuration:
+
+    - chrono                   : not building
+    - date_time                : building
+    - exception                : not building
+    - filesystem               : building
+    - graph                    : not building
+    - graph_parallel           : not building
+    - iostreams                : not building
+    - locale                   : not building
+    - math                     : not building
+    - mpi                      : not building
+    - program_options          : building
+    - python                   : not building
+    - random                   : not building
+    - regex                    : not building
+    - serialization            : not building
+    - signals                  : not building
+    - system                   : not building
+    - test                     : not building
+    - thread                   : building
+    - timer                    : not building
+    - wave                     : not building
+
+...patience...
+...found 19840 targets...
+...updating 9886 targets...
+common.mkdir /dan/mongo/lib
+common.mkdir bin.v2
+common.mkdir bin.v2/libs
+common.mkdir bin.v2/libs/program_options
+common.mkdir bin.v2/libs/program_options/build
+common.mkdir bin.v2/libs/program_options/build/darwin-4.0.1
+common.mkdir bin.v2/libs/program_options/build/darwin-4.0.1/release
+common.mkdir bin.v2/libs/program_options/build/darwin-4.0.1/release/threading-multi
+darwin.compile.c++ bin.v2/libs/program_options/build/darwin-4.0.1/release/threading-multi/cmdline.o
+darwin.compile.c++ bin.v2/libs/program_options/build/darwin-4.0.1/release/threading-multi/config_file.o
+darwin.compile.c++ bin.v2/libs/program_options/build/darwin-4.0.1/release/threading-multi/options_description.o
+darwin.compile.c++ bin.v2/libs/program_options/build/darwin-4.0.1/release/threading-multi/parsers.o
+
+snip about 10,000 lines ...
+
+common.mkdir bin.v2/libs/thread/build/darwin-4.0.1/release/link-static
+common.mkdir bin.v2/libs/thread/build/darwin-4.0.1/release/link-static/threading-multi
+common.mkdir bin.v2/libs/thread/build/darwin-4.0.1/release/link-static/threading-multi/pthread
+darwin.compile.c++ bin.v2/libs/thread/build/darwin-4.0.1/release/link-static/threading-multi/pthread/thread.o
+./boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
+darwin.compile.c++ bin.v2/libs/thread/build/darwin-4.0.1/release/link-static/threading-multi/pthread/once.o
+darwin.archive bin.v2/libs/thread/build/darwin-4.0.1/release/link-static/threading-multi/libboost_thread.a
+common.copy /dan/mongo/lib/libboost_thread.a
+...updated 9886 targets...
+Thu Apr 26 17:15 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
+
+
+Next, I did this:
+
+
+Thu Apr 26 17:15 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 18:13 /dan/mongo/boost_1_49_0 bikle611$ 
+Thu Apr 26 18:18 /dan/mongo/boost_1_49_0 bikle611$ cd ..
+Thu Apr 26 18:18 /dan/mongo bikle611$ 
+Thu Apr 26 18:18 /dan/mongo bikle611$ ll
+total 121384
+drwxr-xr-x  11 bikle611  admin       374 Apr 26 17:11 ./
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+drwxr-xr-x  25 bikle611  admin       850 Apr 26 17:07 boost_1_49_0/
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+-rwxr-xr-x   1 bikle611  admin     34364 Apr 24 15:49 example*
+-rw-r--r--   1 bikle611  admin       270 Apr 24 15:46 example.cpp
+drwxr-xr-x   3 bikle611  admin       102 Apr 26 17:11 include/
+drwxr-xr-x   5 bikle611  admin       170 Apr 26 16:44 junk/
+drwxr-xr-x  12 bikle611  admin       408 Apr 26 17:15 lib/
+drwxr-xr-x  39 bikle611  admin      1326 Apr 26 16:57 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Thu Apr 26 18:18 /dan/mongo bikle611$ 
+Thu Apr 26 18:19 /dan/mongo bikle611$ 
+Thu Apr 26 18:19 /dan/mongo bikle611$ 
+Thu Apr 26 18:19 /dan/mongo bikle611$ cd mongodb-src-r2.0.4
+Thu Apr 26 18:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:19 /dan/mongo/mongodb-src-r2.0.4 bikle611$ scons --prefix=/dan/mongo --extrapathdyn /dan/mongo .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 2 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... yes
+Checking for C library boost_system-mt... no
+Checking for C library boost_system... yes
+Checking for C library boost_thread-mt... no
+Checking for C library boost_thread... yes
+Checking for C library boost_filesystem-mt... no
+Checking for C library boost_filesystem... yes
+Checking for C library boost_program_options-mt... no
+Checking for C library boost_program_options... yes
+Checking for C++ header file execinfo.h... yes
+Checking for C library pcap... yes
+Checking whether the C++ compiler worksyes
+Checking for C++ header file boost/filesystem/operations.hpp... yes
+Checking for C library boost_system-mt... no
+Checking for C library boost_system... yes
+Checking for C library boost_thread-mt... no
+Checking for C library boost_thread... yes
+Checking for C library boost_filesystem-mt... no
+Checking for C library boost_filesystem... yes
+Checking for C library boost_program_options-mt... no
+Checking for C library boost_program_options... yes
+Checking for C++ header file execinfo.h... yes
+Checking for C library pcap... yes
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o pch.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include pch.cpp
+/dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
+
+
+snip ...
+
+g++ -o dbtests/updatetests.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include -I/dan/mongo dbtests/updatetests.cpp
+/dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
+g++ -o firstExample -fPIC -pthread -rdynamic client/examples/first.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o httpClientTest -fPIC -pthread -rdynamic client/examples/httpClientTest.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o tools/bridge.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare -Wno-unknown-pragmas -Winvalid-pch -O3 -D_SCONS -DMONGO_EXPOSE_MACROS -D_FILE_OFFSET_BITS=64 -DXP_UNIX -Ithird_party/js-1.7 -Ithird_party/pcre-7.4 -I. -I/dan/mongo/include -I/opt/local/include tools/bridge.cpp
+/dan/mongo/include/boost/thread/detail/thread.hpp:316: warning: type attributes are honored only at type definition
+g++ -o mongobridge -fPIC -pthread -rdynamic pch.o buildinfo.o db/indexkey.o db/jsobj.o bson/oid.o db/json.o db/lasterror.o db/nonce.o db/queryutil.o db/querypattern.o db/projection.o shell/mongo.o util/background.o util/util.o util/file_allocator.o util/assert_util.o util/log.o util/ramlog.o util/md5main.o util/base64.o util/concurrency/vars.o util/concurrency/task.o util/debug_util.o util/concurrency/thread_pool.o util/password.o util/version.o util/signal_handlers.o util/histogram.o util/concurrency/spin_lock.o util/text.o util/stringutils.o util/concurrency/synchronization.o util/net/sock.o util/net/httpclient.o util/net/message.o util/net/message_port.o util/net/listen.o util/md5.o client/connpool.o client/dbclient.o client/dbclient_rs.o client/dbclientcursor.o client/model.o client/syncclusterconnection.o client/distlock.o s/shardconnection.o third_party/pcre-7.4/pcre_chartables.o third_party/pcre-7.4/pcre_compile.o third_party/pcre-7.4/pcre_config.o third_party/pcre-7.4/pcre_dfa_exec.o third_party/pcre-7.4/pcre_exec.o third_party/pcre-7.4/pcre_fullinfo.o third_party/pcre-7.4/pcre_get.o third_party/pcre-7.4/pcre_globals.o third_party/pcre-7.4/pcre_info.o third_party/pcre-7.4/pcre_maketables.o third_party/pcre-7.4/pcre_newline.o third_party/pcre-7.4/pcre_ord2utf8.o third_party/pcre-7.4/pcre_refcount.o third_party/pcre-7.4/pcre_scanner.o third_party/pcre-7.4/pcre_stringpiece.o third_party/pcre-7.4/pcre_study.o third_party/pcre-7.4/pcre_tables.o third_party/pcre-7.4/pcre_try_flipped.o third_party/pcre-7.4/pcre_ucp_searchfuncs.o third_party/pcre-7.4/pcre_valid_utf8.o third_party/pcre-7.4/pcre_version.o third_party/pcre-7.4/pcre_xclass.o third_party/pcre-7.4/pcrecpp.o third_party/pcre-7.4/pcreposix.o db/commands.o util/net/message_server_port.o client/parallel.o db/common.o util/net/miniwebserver.o db/dbwebserver.o db/matcher.o db/dbcommands_generic.o db/dbmessage.o db/security_common.o db/security_commands.o util/mmap.o util/mmap_posix.o util/processinfo.o util/processinfo_darwin.o db/stats/counters.o db/stats/service_stats.o db/stats/snapshots.o db/stats/top.o scripting/engine.o scripting/utils.o scripting/bench.o scripting/engine_spidermonkey.o third_party/js-1.7/jsapi.o third_party/js-1.7/jsarena.o third_party/js-1.7/jsarray.o third_party/js-1.7/jsatom.o third_party/js-1.7/jsbool.o third_party/js-1.7/jscntxt.o third_party/js-1.7/jsdate.o third_party/js-1.7/jsdbgapi.o third_party/js-1.7/jsdhash.o third_party/js-1.7/jsdtoa.o third_party/js-1.7/jsemit.o third_party/js-1.7/jsexn.o third_party/js-1.7/jsfun.o third_party/js-1.7/jsgc.o third_party/js-1.7/jshash.o third_party/js-1.7/jsiter.o third_party/js-1.7/jsinterp.o third_party/js-1.7/jslock.o third_party/js-1.7/jslog2.o third_party/js-1.7/jslong.o third_party/js-1.7/jsmath.o third_party/js-1.7/jsnum.o third_party/js-1.7/jsobj.o third_party/js-1.7/jsopcode.o third_party/js-1.7/jsparse.o third_party/js-1.7/jsprf.o third_party/js-1.7/jsregexp.o third_party/js-1.7/jsscan.o third_party/js-1.7/jsscope.o third_party/js-1.7/jsscript.o third_party/js-1.7/jsstr.o third_party/js-1.7/jsutil.o third_party/js-1.7/jsxdrapi.o third_party/js-1.7/jsxml.o third_party/js-1.7/prmjtime.o util/compress.o db/key.o db/btreebuilder.o util/logfile.o util/alignedbuilder.o db/mongommf.o db/dur.o db/durop.o db/dur_writetodatafiles.o db/dur_preplogbuffer.o db/dur_commitjob.o db/dur_recover.o db/dur_journal.o db/introspect.o db/btree.o db/clientcursor.o db/tests.o db/repl.o db/repl/rs.o db/repl/consensus.o db/repl/rs_initiate.o db/repl/replset_commands.o db/repl/manager.o db/repl/health.o db/repl/heartbeat.o db/repl/rs_config.o db/repl/rs_rollback.o db/repl/rs_sync.o db/repl/rs_initialsync.o db/oplog.o db/repl_block.o db/btreecursor.o db/cloner.o db/namespace.o db/cap.o db/matcher_covered.o db/dbeval.o db/restapi.o db/dbhelpers.o db/instance.o db/client.o db/database.o db/pdfile.o db/record.o db/cursor.o db/security.o db/queryoptimizer.o db/queryoptimizercursor.o db/extsort.o db/cmdline.o db/index.o db/scanandorder.o db/geo/2d.o db/geo/haystack.o db/ops/delete.o db/ops/query.o db/ops/update.o db/dbcommands.o db/dbcommands_admin.o db/commands/distinct.o db/commands/find_and_modify.o db/commands/group.o db/commands/isself.o db/commands/mr.o db/driverHelpers.o s/config.o s/grid.o s/chunk.o s/shard.o s/shardkey.o s/d_logic.o s/d_writeback.o s/d_migrate.o s/d_state.o s/d_split.o client/distlock_test.o s/d_chunk_manager.o db/module.o db/modules/mms.o third_party/snappy/snappy.o third_party/snappy/snappy-sinksource.o client/gridfs.o tools/tool.o tools/bridge.o -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o perftest -fPIC -pthread -rdynamic dbtests/framework.o dbtests/perf/perftest.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongotestfiles -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o rsExample -fPIC -pthread -rdynamic client/examples/rs.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o secondExample -fPIC -pthread -rdynamic client/examples/second.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o test -fPIC -pthread -rdynamic dbtests/background_job_test.o dbtests/balancer_policy_tests.o dbtests/basictests.o dbtests/btreetests.o dbtests/clienttests.o dbtests/commandtests.o dbtests/cursortests.o dbtests/d_chunk_manager_tests.o dbtests/dbtests.o dbtests/directclienttests.o dbtests/framework.o dbtests/histogram_test.o dbtests/jsobjtests.o dbtests/jsontests.o dbtests/jstests.o dbtests/macrotests.o dbtests/matchertests.o dbtests/mmaptests.o dbtests/namespacetests.o dbtests/pdfiletests.o dbtests/perftests.o dbtests/queryoptimizertests.o dbtests/querytests.o dbtests/queryutiltests.o dbtests/repltests.o dbtests/sharding.o dbtests/socktests.o dbtests/spin_lock_test.o dbtests/threadedtests.o dbtests/updatetests.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongotestfiles -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+g++ -o whereExample -fPIC -pthread -rdynamic client/examples/whereExample.o -L. -L/dan/mongo/lib -L/dan/mongo/lib64 -L/opt/local/lib -lmongoclient -lstdc++ -lboost_system -lboost_thread -lboost_filesystem -lboost_program_options
+scons: done building targets.
+Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 18:53 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+
+
+Next, I looked at this URL:
+
+http://www.mongodb.org/display/DOCS/Tutorial
+
+It described an executable file named "mongo" under a bin directory.
+
+I looked for it and found it where I expected it to be relative to /dan/mongo/ which was the prefix directory I specified when I built MongoDB:
+
+
+Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ 
+Thu Apr 26 21:26 /dan/mongo/mongodb-src-r2.0.4 bikle611$ cd /dan/mongo/
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ ll
+total 121384
+drwxr-xr-x  12 bikle611  admin       408 Apr 26 18:38 ./
+drwxr-xr-x   5 bikle611  admin       170 Apr 24 14:40 ../
+drwxr-xr-x  14 bikle611  admin       476 Apr 26 18:44 bin/
+drwxr-xr-x  25 bikle611  admin       850 Apr 26 17:07 boost_1_49_0/
+-rw-r--r--   1 bikle611  admin  59136116 Feb 24 03:57 boost_1_49_0.tar.gz
+-rwxr-xr-x   1 bikle611  admin     34364 Apr 24 15:49 example*
+-rw-r--r--   1 bikle611  admin       270 Apr 24 15:46 example.cpp
+drwxr-xr-x   3 bikle611  admin       102 Apr 26 17:11 include/
+drwxr-xr-x   5 bikle611  admin       170 Apr 26 16:44 junk/
+drwxr-xr-x  12 bikle611  admin       408 Apr 26 17:15 lib/
+drwxr-xr-x  67 bikle611  admin      2278 Apr 26 18:53 mongodb-src-r2.0.4/
+-rw-r--r--   1 bikle611  admin   2966431 Mar 19 20:44 mongodb-src-r2.0.4.tar.gz
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ ll bin/mongo
+-rwxr-xr-x  1 bikle611  admin  3363632 Apr 26 18:39 bin/mongo*
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+
+
+I tried running it:
+
+
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ 
+Thu Apr 26 21:34 /dan/mongo bikle611$ bin/mongo
+dyld: Library not loaded: libboost_system.dylib
+  Referenced from: /dan/mongo/bin/mongo
+  Reason: image not found
+Trace/BPT trap
+Thu Apr 26 21:37 /dan/mongo bikle611$ 
+Thu Apr 26 21:37 /dan/mongo bikle611$ 
+Thu Apr 26 21:37 /dan/mongo bikle611$ 
+
+
+Thu Apr 26 21:39 /dan/mongo bikle611$ 
+Thu Apr 26 21:39 /dan/mongo bikle611$ find . -type f -print | grep libboost_system
+./boost_1_49_0/bin.v2/libs/system/build/darwin-4.0.1/release/link-static/threading-multi/libboost_system.a
+./boost_1_49_0/bin.v2/libs/system/build/darwin-4.0.1/release/threading-multi/libboost_system.dylib
+./lib/libboost_system.a
+./lib/libboost_system.dylib
+Thu Apr 26 21:39 /dan/mongo bikle611$ 
+Thu Apr 26 21:40 /dan/mongo bikle611$ 
+Thu Apr 26 21:40 /dan/mongo bikle611$ 
+
+I tried using LD_LIBRARY_PATH:
+
+
+Thu Apr 26 21:40 /dan/mongo bikle611$ 
+Thu Apr 26 21:40 /dan/mongo bikle611$ export LD_LIBRARY_PATH=/dan/mongo/lib
+Thu Apr 26 21:41 /dan/mongo bikle611$ 
+Thu Apr 26 21:41 /dan/mongo bikle611$ bin/mongo
+dyld: Library not loaded: libboost_system.dylib
+  Referenced from: /dan/mongo/bin/mongo
+  Reason: image not found
+Trace/BPT trap
+Thu Apr 26 21:41 /dan/mongo bikle611$ 
+Thu Apr 26 21:41 /dan/mongo bikle611$ 
+Thu Apr 26 21:41 /dan/mongo bikle611$ 
+
+I looked at the dylib files which the find-command had found:
+
+
+Thu Apr 26 21:41 /dan/mongo bikle611$ 
+Thu Apr 26 21:41 /dan/mongo bikle611$ find . -type f -name libboost_system.dylib |xargs ls -la
+-rwxr-xr-x  1 bikle611  admin  29884 Apr 26 17:11 ./boost_1_49_0/bin.v2/libs/system/build/darwin-4.0.1/release/threading-multi/libboost_system.dylib
+-rwxr-xr-x  1 bikle611  admin  29884 Apr 26 17:11 ./lib/libboost_system.dylib
+Thu Apr 26 21:44 /dan/mongo bikle611$ 
+Thu Apr 26 21:44 /dan/mongo bikle611$ 
+
+Okay so I see that they are in my filesystem and they don't look very strange.
+
+I did some google searches and found an interesting document:
+
+http://qin.laya.com/tech_coding_help/dylib_linking.html
+
+I tried "otool":
+
+
+Thu Apr 26 21:46 /dan/mongo bikle611$ 
+Thu Apr 26 21:46 /dan/mongo bikle611$ 
+Thu Apr 26 21:46 /dan/mongo bikle611$ otool -L bin/mongo
+bin/mongo:
+	/usr/lib/libstdc++.6.dylib (compatibility version 7.0.0, current version 7.4.0)
+	libboost_system.dylib (compatibility version 0.0.0, current version 0.0.0)
+	libboost_thread.dylib (compatibility version 0.0.0, current version 0.0.0)
+	libboost_filesystem.dylib (compatibility version 0.0.0, current version 0.0.0)
+	libboost_program_options.dylib (compatibility version 0.0.0, current version 0.0.0)
+	/usr/lib/libgcc_s.1.dylib (compatibility version 1.0.0, current version 1.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 111.1.7)
+Thu Apr 26 21:59 /dan/mongo bikle611$ 
+Thu Apr 26 21:59 /dan/mongo bikle611$ 
+Thu Apr 26 21:59 /dan/mongo bikle611$ 
+Thu Apr 26 21:59 /dan/mongo bikle611$ 
+
+According to the above document, and the above otool output, it seems plausible that bin/mongo is looking for the libboost_*.dylib files in the bin/ directory.
+
+So, as an experiment, I copied the libboost_*.dylib files into the bin/ directory:
+
+
+Thu Apr 26 21:59 /dan/mongo bikle611$ 
+Thu Apr 26 21:59 /dan/mongo bikle611$ ls -la lib/libboost_*dylib
+-rwxr-xr-x  1 bikle611  admin   92692 Apr 26 17:11 lib/libboost_date_time.dylib*
+-rwxr-xr-x  1 bikle611  admin  193704 Apr 26 17:11 lib/libboost_filesystem.dylib*
+-rwxr-xr-x  1 bikle611  admin  462868 Apr 26 17:11 lib/libboost_program_options.dylib*
+-rwxr-xr-x  1 bikle611  admin   29884 Apr 26 17:11 lib/libboost_system.dylib*
+-rwxr-xr-x  1 bikle611  admin  150908 Apr 26 17:11 lib/libboost_thread.dylib*
+Thu Apr 26 22:06 /dan/mongo bikle611$ 
+Thu Apr 26 22:06 /dan/mongo bikle611$ 
+Thu Apr 26 22:06 /dan/mongo bikle611$ cp -p lib/libboost_*dylib  bin/
+Thu Apr 26 22:07 /dan/mongo bikle611$ 
+Thu Apr 26 22:07 /dan/mongo bikle611$ 
+Thu Apr 26 22:07 /dan/mongo bikle611$ 
+
+
+Then, I tried bin/mongo again:
+
+
+Thu Apr 26 22:07 /dan/mongo bikle611$ 
+Thu Apr 26 22:07 /dan/mongo bikle611$ 
+Thu Apr 26 22:07 /dan/mongo bikle611$ bin/mongo
+dyld: Library not loaded: libboost_system.dylib
+  Referenced from: /dan/mongo/bin/mongo
+  Reason: image not found
+Trace/BPT trap
+Thu Apr 26 22:09 /dan/mongo bikle611$ 
+Thu Apr 26 22:09 /dan/mongo bikle611$ 
+Thu Apr 26 22:09 /dan/mongo bikle611$ 
+
+At this point I felt that installing MongoDB from source on my Mac was too much effort.
+
+I was ready to knuckle under and use Homebrew.
+
+
+</pre>
