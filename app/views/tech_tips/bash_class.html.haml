@@ -1,0 +1,263 @@
+%h3#h3_2012_0427 2012-04-27 Bash Class
+
+%p
+I've taught Rails to a wide variety of people since 2006.
+Obviously teaching Rails allows me to gain a deeper understanding of it.
+Also I have bumped into people and situations where teaching Rails seems "smooth".
+
+%p
+Other times though, teaching Rails is a cumbersome chore.
+Teaching Rails is usually difficult if the student lacks knowledge and ability related these two topics:
+%ul
+  %li The UNIX Shell
+  %li An effective editor
+
+%p
+Another issue which often comes up is the user wants to learn Rails on a windows laptop.
+For that situation, I claim lack of experience with windows and I tell the user to look for tutorials on the web.
+It is possible, however, to use a windows laptop to learn what I call "Rails Prerequesites".
+
+
+%p
+So, I am now focused on the task of building course content for two classes:
+
+%ul
+  %li Rails Prerequesite: UNIX Shell (Bash Class)
+  %li Rails Prerequesite: Effective Editors (Vim, Sed, and Emacs)
+
+%p
+One assumption I have about the Effective Editors class is that if I can teach users how to write code with Vim and Emacs,
+they should be able to teach themselves TextMate and Sublime Text 2.
+
+%p
+I'm not sure the same can be said for an IDE like RubyMine.
+I've not worked with RubyMine but I've seen a new student struggle with it.
+My impression is that it acts well as an editor but it confused us when we tried to use it for running shell commands.
+Also we tried using it to step through code with the built-in debugger.
+That did not work at all; inside of RubyMine the debugger was full of bugs.
+Outside of RubyMine in a normal shell, the debugger worked fine.
+Eventually we gave up and used RubyMine only as an editor.
+Enough about RubyMine.
+
+%p
+This blog post is about:
+
+%p
+Rails Prerequesite: UNIX Shell (Bash Class)
+
+%p
+I list below a general outline of Bash Class:
+
+%p
+Bash Class is about dealing with the Bash shell prompt.
+The class is not about writing Bash shell scripts.  
+To do that I assume you need a class on Effective Editors and that class comes after this class.
+
+%h4 Topic: Finding a Bash shell prompt.
+
+Duration: It depends on laptop type.
+
+%p
+On Mac just start the terminal app.
+Estimated Duration: 1 Minute.
+
+%p
+On Windows it is a chore.
+
+%pre
+  Option 1 (best option)
+  Google: How do I install Cygwin?
+  Estimated Duration: 40 Minutes.
+
+  Option 2 (time consuming)
+  Google: How do I install VMware Player on Windows to Run Ubuntu?
+  Estimated Duration: 180 Minutes.
+
+  Option 3 (Requires Credit Card. Costs $0.02 / hour)
+  Google: How do I install Ubuntu on Rackspace Cloud?
+  Estimated Duration: 60 Minutes.
+
+  Option 4 (Similar but more difficult than Rackspace)
+  Google: How do I install Ubuntu on Amazon EC2?
+  Estimated Duration: 90 Minutes.
+
+%h4 Topic: Bash shell prompt found, Now learn shell commands related to "Directories".
+
+Estimated Duration: 15 min
+
+%p
+Jargon tip: Directory is the UNIX word for Folder; it contains files and other directories.
+
+%pre
+  ls
+  ls -l
+  ls -la
+  ls -lat
+  ls -latr
+  
+  cd
+  dc
+  dc is quicksand
+  you get out of dc by typing "q"
+  
+  cd /usr/lib
+  cd .
+  cd ..
+  cd ../..
+  
+  pwd
+  
+  mkdir
+  mkdir -p
+  rmdir
+  rm
+  rm -f
+  rm -rf
+  
+  
+  single-quote
+  single-quote is quicksand
+  you get out by typing another single-quote
+  
+  quiz:
+  
+  q: How is behavior ls -lat different that ls -latr ?
+  q: When or why would I want to run ls -latr ?
+  q: When or why would I want to run just "cd" ?
+  q: What does "cd ." do?
+  q: Is dc useful?
+  q: What is a file system?
+  q: What are some important directories and what purpose do they serve?
+
+
+
+%h4 Topic: I now know commands to manipulate directories. I learn next, the command line
+
+Estimated Duration: 15 min
+
+%pre
+  No lecture, just a quiz!
+  
+  q: What is a command line?
+  q: On a command line, why is the tab-key useful?
+  q: On a command line, How do I go backwards exactly 2 words?
+  q: On a command line, How do I go forward exactly 1 word?
+  q: On a command line, How do I erase 1 word in front of me?
+  q: On a command line, How do I erase all words in front of me?
+  q: On a command line, How do I load the last command I ran?
+  q: Command line "stuck", what can I do?
+
+
+%h4 Topic: More shell commands, these related to files and sometimes directories:
+
+Estimated Duration: 15 min
+
+%pre
+  cp
+  cp -p
+  mv
+  touch
+  
+  quiz:
+  
+  q: How is cp -p different than cp?
+  q: Why is mv called "mv"?
+  q: Does cp work on a directory?
+  q: In some situations, mv could have another name. What's that name?
+  q: In some situations, mv has the perfect name. What are those situations?
+  q: Is touch useful?
+
+%h4 Topic: More shell commands, these related to files:
+
+Estimated Duration: 30 min
+
+%pre
+  pg
+  more
+  cat
+  grep
+  head
+  tail
+  sort
+  chmod
+  file
+  strings
+  wc
+  du
+  df
+  find
+  which
+  >
+  |
+  
+  
+  quiz:
+  
+  q: Why use pg instead of more?
+  q: Why use pg instead of cat?
+  q: Why use more instead of pg?
+  q: How can cat simulate cp?
+  q: What is a better name for grep?
+  q: What are the dangers of cat?
+  q: What are the dangers of chmod?
+  q: How can | hang my terminal?
+  q: What is stdout?
+  q: What is stderr?
+  q: How much disk-space you have now?
+  q: How much disk-space are you using?
+  q: How big is the largest file you can find?
+  q: What is the most common option for wc?
+
+
+%h4 Topic: More shell commands, these related to the computer:
+
+Estimated Duration: 15 min
+
+%pre
+  w
+  who
+  ps
+  date
+  uptime
+  top
+  
+  quiz:
+  
+  q: How long has your computer been "up"?
+  q: What time does your computer think it is right now?
+  q: How many processes are running on your computer right now?
+
+%h4 Topic: Environment variables:
+
+Estimated Duration: 15 min
+
+%pre
+  files: .bashrc, .bash_profile, .profile
+  
+  commands: 
+  
+  echo
+  env
+  export
+  unset
+  
+  Environment variables:
+  
+  HOME
+  PATH
+  PS1
+  DISPLAY
+  RAILS_ENV
+  
+  quiz:
+  
+  q: How do I see my environment variables in sorted order?
+  q: Why is changing PATH dangerous?
+  q: How do I protect myself from PATH mistakes?
+  q: How do I add "/tmp/bin" to end of my PATH?
+  q: How do I add "/tmp/bin" to beginning of my PATH?
+  q: How do I remove "/tmp/bin" from my PATH?
+  q: How do I make my shell prompt display the current time?
+  q: What are 3 typical values for RAILS_ENV?
+  q: What type of software depends on DISPLAY?
+
