@@ -85,3 +85,12 @@ div#div4_rhs table #th_upd {min-width:150px;}
   & ul {list-style-type: disc;}
 }
 
+.bold {font-weight:bold; }
+
+.bashcmd {
+  font-weight: 800;
+  font-family: monospace,"Courier New",Terminal;
+  font-size: 18px;
+  background-color: white;
+  color: #004400;
+}
