@@ -6,81 +6,105 @@
 
 %p
   When I teach Rails I prefer to explore the list of topics below:
-
-%ul
-  %li Windows is bad; Mac is pretty good but Ubuntu Linux is excellent
-  %li Installation of Ruby
-  %li You don't need to use RVM but you should know how to use it
-  %li RVM alternatives
-  %li Optional: Installation of JRuby
-  %li Installation of RubyGems
-  %li Interacting with "System Gems"
-  %li Install Bundler
-  %li Interact with Bundler
-  %li Git: You don't need to use Git but it is useful
-  %li Use RubyGems to install Rails
-  %li Database choices: SQLite best for learning else MySQL or Postgres
-  %li Use Rails to create a new application
-  %li Shell commands related to Rails:
-    %ul
-      %li rails
-      %li rake
-      %li gem
-      %li bundle
-  %li Opinion: Use "Inside/Out" thinking to learn Rails
-  %li Opinion: Use "Outside/In" thinking to practice Rails
-  %li bin/rake db:create, creates a "database"
-  %li bin/rails generate migration, create a database table script
-  %li bin/rake: db:migrate, creates a database table, users, from the script
-  %li bin/rails generate model, create software to talk with database
-  %li bin/rails console, use this to learn Active Record API:
-    %ul
-      %li AR-class-methods interact with DB
-      %li Ex: @user = User.find_by_name 'dan@hackternoon.com'
-      %li AR-object getters/setters match table columns
-      %li Ex: @user.email
-      %li Use attr_accessible to create whitelist of attributes
-      %li Validations: Prevent bad data
-      %li Callbacks: before_create, after_create, before_save, after_save
-      %li Associations: CREATE TABLE projects(name,..., user_id) 
-      %li belongs_to association, project belongs_to :user
-      %li Ex: @project.user.email
-      %li has_many association, user has_many :projects
-      %li Ex: @user.projects.first.description
-  %li bin/rails generate controller users index
-    %ul
-      %li bin/rake routes
-      %li bin/rails server
-      %li Use ruby_debug19 to see interesting objects in the controller:
-        %ul
-          %li request
-          %li params
-          %li session
-          %li @user AR-object
-      %li render
-      %li redirect_to
-      %li double render exception
-  %li app/views
-    %ul
-      %li HAML is useful for learning about app/views
-      %li controller instance variables are available
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
+.bash_class
+  %ul
+    %li Windows is bad; Mac is pretty good but Ubuntu Linux is excellent
+    %li Installation of Ruby
+    %li You don't need to use RVM but you should know how to use it
+    %li RVM alternatives
+    %li Optional: Installation of JRuby
+    %li Installation of RubyGems
+    %li Interacting with "System Gems"
+    %li Install Bundler
+    %li Interact with Bundler
+    %li Git: You don't need to use Git but it is useful
+    %li Use RubyGems to install Rails
+    %li Database choices: SQLite best for learning else MySQL or Postgres
+    %li Use Rails to create a new application
+    %li
+      Shell commands related to Rails:
+      %ul
+        %li rails
+        %li rake
+        %li gem
+        %li bundle
+    %li Opinion: Use "Inside/Out" thinking to learn Rails
+    %li Opinion: Use "Outside/In" thinking to practice Rails
+    %li bin/rake db:create, creates a "database"
+    %li bin/rails generate migration, create a database table script
+    %li bin/rake: db:migrate, creates a database table, users, from the script
+    %li bin/rails generate model, create software to talk with database
+    %li
+      bin/rails console, use this to learn Active Record API:
+      %ul
+        %li AR-class-methods interact with DB
+        %li Ex: @user = User.find_by_name 'dan@hackternoon.com'
+        %li AR-object getters/setters match table columns
+        %li Ex: @user.email
+        %li Use attr_accessible to create whitelist of attributes
+        %li Validations: Prevent bad data
+        %li Callbacks: before_create, after_create, before_save, after_save
+        %li Associations: CREATE TABLE projects(name,..., user_id) 
+        %li belongs_to association, project belongs_to :user
+        %li Ex: @project.user.email
+        %li has_many association, user has_many :projects
+        %li Ex: @user.projects.first.description
+    %li
+      bin/rails generate controller users index
+      %ul
+        %li bin/rake routes
+        %li bin/rails server
+        %li
+          Use ruby_debug19 to see interesting objects in the controller:
+          %ul
+            %li request
+            %li params
+            %li session
+            %li @user AR-object
+        %li render
+        %li redirect_to
+        %li double render exception
+    %li 
+      app/views
+      %ul
+        %li Views are usually written in ERB (similar to PHP)
+        %li Other languages besides ERB: HAML and Slim
+        %li HAML is better than ERB for learning about app/views
+        %li Slim claims to be more performant
+        %li Controller instance variables are available in views
+        %li View hierarchy: Layout - Template - Partial - Partial - Partial,...
+        %li Naming convention: Layout named after controller
+        %li Naming convention: Template named after method in controller
+        %li
+          Tag Helpers (many of them!):
+          %ul
+            %li link_to
+            %li image_tag
+            %li form_tag
+        %li
+          Techniques for sharing code between views:
+          %ul
+            %li Use application wide layout when possible
+            %li In controller, instead of default render, specify render
+            %li Use a "shared" directory to hold some partials 
+            %li app/helpers holds logic/syntax which can be shared
+        %li
+          Use ruby_debug19 to see interesting objects in the view:
+          %ul
+            %li params
+            %li notice
+            %li alert
+            %li controller instance variables
+        %li
+          Assets:
+          %ul
+            %li Images
+            %li CSS
+            %li JavaScript
+            %li Easy way: put assets under public/
+            %li
+              Performant way: put assets under app/assets:
+              %ul
+                %li bin/rake assets:clean:all 
+                %li bin/rake assets:precompile:all 
 

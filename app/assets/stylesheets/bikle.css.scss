@@ -83,6 +83,7 @@ div#div4_rhs table #th_upd {min-width:150px;}
 
 .bash_class {
   & ul {list-style-type: disc;}
+  & ul>li>ul {list-style-type: circle;}
 }
 
 .bold {font-weight:bold; }
