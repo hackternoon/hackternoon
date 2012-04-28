@@ -31,9 +31,36 @@
   %li Opinion: Use "Outside/In" thinking to practice Rails
   %li bin/rake db:create, creates a "database"
   %li bin/rails generate migration, create a database table script
-  %li bin/rake: db:migrate, creates a database table from the script
+  %li bin/rake: db:migrate, creates a database table, users, from the script
   %li bin/rails generate model, create software to talk with database
-  %li bin/rails console, use this to learn Active Record API
+  %li bin/rails console, use this to learn Active Record API:
+    %ul
+      %li AR-class-methods interact with DB
+      %li Ex: @user = User.find_by_name 'dan@hackternoon.com'
+      %li AR-object getters/setters match table columns
+      %li Ex: @user.email
+      %li Use attr_accessible to create whitelist of attributes
+      %li Validations: Prevent bad data
+      %li Callbacks: before_create, after_create, before_save, after_save
+      %li Associations: CREATE TABLE projects(name,..., user_id) 
+      %li belongs_to association, project belongs_to :user
+      %li Ex: @project.user.email
+      %li has_many association, user has_many :projects
+      %li Ex: @user.projects.first.description
+  %li bin/rails generate controller users index
+    %ul
+      %li bin/rails server
+      %li Use ruby_debug19 to see interesting objects in the controller:
+        %ul
+          %li request
+          %li params
+          %li session
+
+
+
+    
+
+
 
 
 
