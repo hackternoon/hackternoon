@@ -49,12 +49,24 @@
       %li Ex: @user.projects.first.description
   %li bin/rails generate controller users index
     %ul
+      %li bin/rake routes
       %li bin/rails server
       %li Use ruby_debug19 to see interesting objects in the controller:
         %ul
           %li request
           %li params
           %li session
+          %li @user AR-object
+      %li render
+      %li redirect_to
+      %li double render exception
+  %li app/views
+    %ul
+      %li HAML is useful for learning about app/views
+      %li controller instance variables are available
+
+
+
 
 
 
