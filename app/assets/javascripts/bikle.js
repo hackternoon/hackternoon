@@ -19,9 +19,22 @@ $(document).ready(function() {
     $("div#div4row2").removeClass("margin_left0px");
   });    
 
-  // I use the code below to implement an accordion in tech_tips
-  $(function() {
-    $( "#accordion_tt" ).accordion();
+  $("a#show_ul_10").show("slow");
+  $("a#hide_ul_10").hide("slow");
+  $("ul#ul_10").hide("slow");
+
+  $("a#hide_ul_10").click(function (event) {
+    event.preventDefault();
+    $("a#hide_ul_10").hide("slow");
+    $("ul#ul_10").hide("slow");
+    $("a#show_ul_10").show("slow");
+  });
+
+  $("a#show_ul_10").click(function (event) {
+    event.preventDefault();
+    $("a#show_ul_10").hide("slow");
+    $("a#hide_ul_10").show("slow");
+    $("ul#ul_10").show("slow");
   });
 
 });
