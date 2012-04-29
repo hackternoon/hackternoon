@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 # $(document).ready ->
+# 
 #   $("ul#ul_10").hide("slow")
 #   $("a#hide_ul_10").hide("slow")
 #   $("a#show_ul_10").show("slow")

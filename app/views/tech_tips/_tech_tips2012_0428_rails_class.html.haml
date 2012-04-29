@@ -1,17 +1,17 @@
-- @ulns = [10,11,12,13,14,15]
-- @ulns.each do |uln|
+- ulns = [10,11,12,13,14,15]
+- ulns.each do |uln|
   :javascript
     $(document).ready(function() {
       $("ul#ul_#{uln}").hide("slow");
       $("a#hide_ul_#{uln}").hide("slow");
       $("a#show_ul_#{uln}").show("slow");
-      $("a#show_ul_#{uln}").click (function () {
+      $("a#show_ul_#{uln}").click(function(event) {
         event.preventDefault();
         $("a#show_ul_#{uln}").hide("slow");
         $("a#hide_ul_#{uln}").show("slow");
         $("ul#ul_#{uln}").show("slow");
       });
-      $("a#hide_ul_#{uln}").click (function () {
+      $("a#hide_ul_#{uln}").click(function(event) {
         event.preventDefault();
         $("a#hide_ul_#{uln}").hide("slow");
         $("ul#ul_#{uln}").hide("slow");

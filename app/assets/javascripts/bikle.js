@@ -17,6 +17,6 @@ $(document).ready(function() {
     $("a#show_div4_lhs").hide("slow");
     $("a#hide_div4_lhs").show("slow");
     $("div#div4row2").removeClass("margin_left0px");
-  });    
+  });
 
 });
