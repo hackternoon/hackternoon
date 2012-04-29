@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: hn27d
   pool: 5
-  username: bikle611
-  password: bikle611
+  username: oracle
+  password: oracle
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,15 +43,15 @@ test: &test
   encoding: unicode
   database: hn27t
   pool: 5
-  username: bikle611
-  password: bikle611
+  username: oracle
+  password: oracle
 
 production:
   adapter: postgresql
   encoding: unicode
   database: hn27p
   pool: 5
-  username: bikle611
+  username: oracle
   password:
 
 cucumber:

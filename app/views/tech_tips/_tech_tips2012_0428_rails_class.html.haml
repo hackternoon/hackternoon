@@ -1,3 +1,24 @@
+- @ulns = [10,11,12,13,14,15]
+- @ulns.each do |uln|
+  :javascript
+    $(document).ready(function() {
+      $("ul#ul_#{uln}").hide("slow");
+      $("a#hide_ul_#{uln}").hide("slow");
+      $("a#show_ul_#{uln}").show("slow");
+      $("a#show_ul_#{uln}").click (function () {
+        event.preventDefault();
+        $("a#show_ul_#{uln}").hide("slow");
+        $("a#hide_ul_#{uln}").show("slow");
+        $("ul#ul_#{uln}").show("slow");
+      });
+      $("a#hide_ul_#{uln}").click (function () {
+        event.preventDefault();
+        $("a#hide_ul_#{uln}").hide("slow");
+        $("ul#ul_#{uln}").hide("slow");
+        $("a#show_ul_#{uln}").show("slow");
+      });
+    });
+
 %h3#h3_2012_0428 2012-04-28 Rails Class Topics
 %p
   I've taught Rails to a wide variety of people since 2006.
@@ -8,24 +29,27 @@
   When I teach Rails I prefer to explore the list of topics below:
 .bash_class
   %ul
-    %li Windows is bad; Mac is pretty good but Ubuntu Linux is excellent
-    %li Installation of Ruby
-    %li You don't need to use RVM but you should know how to use it
-    %li RVM alternatives
-    %li Optional: Installation of JRuby
-    %li Installation of RubyGems
-    %li Interacting with "System Gems"
-    %li Install Bundler
-    %li Interact with Bundler
-    %li Git: You don't need to use Git but it is useful
-    %li Use RubyGems to install Rails
-    %li Database choices: SQLite best for learning else MySQL or Postgres
-    %li Use Rails to create a new application
-    %li Shell commands related to Rails:
-    %li
-      %a#hide_ul_10(href="#") Shell commands related to Rails:
-      %a#show_ul_10(href="#") Shell commands related to Rails:
+    %li 
+      %a#show_ul_10.hidden(href="#") Opinionated Initial Topics
+      %a#hide_ul_10(href="#") Opinionated Initial Topics:
       %ul#ul_10
+        %li Windows is bad; Mac is pretty good but Ubuntu Linux is excellent
+        %li Installation of Ruby
+        %li You don't need to use RVM but you should know how to use it
+        %li RVM alternatives
+        %li Optional: Installation of JRuby
+        %li Installation of RubyGems
+        %li Interacting with "System Gems"
+        %li Install Bundler
+        %li Interact with Bundler
+        %li Git: You don't need to use Git but it is useful
+        %li Use RubyGems to install Rails
+        %li Database choices: SQLite best for learning else MySQL or Postgres
+        %li Use Rails to create a new application
+    %li
+      %a#show_ul_11.hidden(href="#") Shell commands related to Rails
+      %a#hide_ul_11(href="#") Shell commands related to Rails:
+      %ul#ul_11
         %li rails
         %li rake
         %li gem
@@ -34,11 +58,14 @@
     %li Opinion: Use "Outside/In" thinking to practice Rails
     %li bin/rake db:create, creates a "database"
     %li bin/rails generate migration, create a database table script
-    %li bin/rake: db:migrate, creates a database table, users, from the script
-    %li bin/rails generate model, create software to talk with database
+    %li bin/rake: db:migrate, creates a database table, users for example, from the script
+    %li bin/rails generate model, creates software to talk with database
     %li
-      bin/rails console, use this to learn Active Record API:
-      %ul
+      %a#show_ul_12.hidden(href="#")
+        bin/rails console, use this to learn Active Record API
+      %a#hide_ul_12(href="#")
+        bin/rails console, use this to learn Active Record API:
+      %ul#ul_12
         %li AR-class-methods interact with DB
         %li Ex: @user = User.find_by_name 'dan@hackternoon.com'
         %li Google: Rails Active Record Arel
@@ -54,8 +81,11 @@
         %li has_many association, user has_many :projects
         %li Ex: @user.projects.first.description
     %li
-      bin/rails generate controller users index
-      %ul
+      %a#show_ul_13.hidden(href="#")
+        bin/rails generate controller users index
+      %a#hide_ul_13(href="#")
+        bin/rails generate controller users index:
+      %ul#ul_13
         %li bin/rake routes
         %li bin/rails server
         %li
@@ -69,8 +99,11 @@
         %li redirect_to
         %li double render exception
     %li 
-      app/views
-      %ul
+      %a#show_ul_14.hidden(href="#")
+        app/views
+      %a#hide_ul_14(href="#")
+        app/views:
+      %ul#ul_14
         %li Views are usually written in ERB (similar to PHP)
         %li Other languages besides ERB: HAML and Slim
         %li HAML is better than ERB for learning about app/views
@@ -121,5 +154,16 @@
                 %li bin/rake assets:precompile:all 
                 %li Coffee-Script now easy to use in Rails
                 %li Sass now easy to use in Rails
+    %li 
+      %a#show_ul_15.hidden(href="#")
+        Configuration Files
+      %a#hide_ul_15(href="#")
+        Configuration Files:
+      %ul#ul_15
+        %li config/database.yml
+        %li config/routes.rb
+        %li config/environments/development.rb
+        %li config/environments/test.rb
+        %li config/environments/production.rb
 
 
