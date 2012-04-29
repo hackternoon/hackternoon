@@ -77,19 +77,24 @@
         %li View hierarchy: Layout - Template - Partial - Partial - Partial,...
         %li Naming convention: Layout named after controller
         %li Naming convention: Template named after method in controller
+        %li Example File System Naming convention: app/views/layouts/
+        %li Example File System Naming convention: app/views/users/
+        %li Example File System Naming convention: app/views/projects/
+        %li My File System Naming convention for shared partials: app/views/shared/
         %li
-          Tag Helpers (many of them!):
+          Tag Helpers (many of them!) my top 4:
           %ul
             %li link_to
             %li image_tag
+            %li form_for
             %li form_tag
         %li
           Techniques for sharing code between views:
           %ul
-            %li Use application wide layout when possible
+            %li Use application-wide layout when possible: app/views/layouts/application.html.haml
             %li In controller, instead of default render, specify render
-            %li Use a "shared" directory to hold some partials 
-            %li app/helpers holds logic/syntax which can be shared
+            %li Use a "shared" directory to hold some partials: app/views/shared/
+            %li app/helpers/application_helper.rb holds logic/syntax which can be shared
         %li
           Use ruby_debug19 to see interesting objects in the view:
           %ul
@@ -108,6 +113,8 @@
               Performant way: put assets under app/assets:
               %ul
                 %li Google: Rails Asset Pipeline
+                %li Production needs assets precompiled
+                %li Development does not
                 %li bin/rake assets:clean:all 
                 %li bin/rake assets:precompile:all 
                 %li Coffee-Script now easy to use in Rails
