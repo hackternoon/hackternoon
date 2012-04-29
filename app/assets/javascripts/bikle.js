@@ -18,4 +18,12 @@ $(document).ready(function() {
     $("a#hide_div4_lhs").show("slow");
     $("div#div4row2").removeClass("margin_left0px");
   });    
+
+  // I use the code below to implement an accordion in tech_tips
+  $(function() {
+    $( "#accordion_tt" ).accordion();
+  });
+
 });
+
+

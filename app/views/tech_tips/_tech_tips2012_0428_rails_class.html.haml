@@ -6,7 +6,7 @@
 
 %p
   When I teach Rails I prefer to explore the list of topics below:
-.bash_class
+#accordion_tt.bash_class
   %ul
     %li Windows is bad; Mac is pretty good but Ubuntu Linux is excellent
     %li Installation of Ruby
@@ -22,12 +22,14 @@
     %li Database choices: SQLite best for learning else MySQL or Postgres
     %li Use Rails to create a new application
     %li
-      Shell commands related to Rails:
-      %ul
-        %li rails
-        %li rake
-        %li gem
-        %li bundle
+      %h3 
+        %a(href="#") Shell commands related to Rails:
+        %div
+        %ul
+          %li rails
+          %li rake
+          %li gem
+          %li bundle
     %li Opinion: Use "Inside/Out" thinking to learn Rails
     %li Opinion: Use "Outside/In" thinking to practice Rails
     %li bin/rake db:create, creates a "database"
