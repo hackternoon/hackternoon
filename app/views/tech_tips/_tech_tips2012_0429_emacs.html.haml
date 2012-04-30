@@ -1,15 +1,121 @@
 %h3#h3_2012_0429 2012-04-29 Rails Prerequesite: Effective Editor (Emacs)
 
-%p
-  I teach an Emacs class.  This post is a list of topics I cover in my Emacs class.
-
-%h3 Emacs Topics Class
+%h3 Topics covered in my Emacs Class
 .bash_class
   %ul
-    %li Introduction: When I write Ruby scripts or build Rails applications, I use an editor named Emacs.
-    %li Why Emacs?
+    %li Introduction: I use Emacs to build Rails applications.
+    %li
+      Why do I like Emacs?
       %ul
         %li Emacs is free; some editors are not.  For example, TextMate is not free.
         %li Emacs runs on Linux, Mac, Windows; TextMate, for example, runs on Mac only.
         %li Emacs allows faster "Mental Context Switching" than other editors, in my opinion.
         %li Emacs has an excellent "built-in" tutorial.
+        %li Simple macros are easy to build and save.
+        %li I can "label" and run Shells in Emacs.
+        %li Emacs has a "Buffer List" which helps my mind to switch between related files and related shells.
+        %li It has a modular nature; it does not feel monolithic and brittle.
+    %li
+      Why do I not like Emacs?
+      %ul
+        %li Fresh install has poor support for code-completion
+        %li Emacs is not part of fresh OS installs, so I need to install it
+        %li Some types of customization are difficult (unless you know Lisp)
+        %li Customizations from developers are often difficult to understand
+    %li
+      Notes about keyboard keys:
+      %ul
+        %li Ctrl, When you press this, do hold it down.
+        %li Esc, When you press this, do it for an instant. Do not hold it down.
+        %li Mac has "Meta key" near the space bar. This does the same as Esc.  This is convenient because the Esc-key on Mac is tiny and easy to miss when you type fast.  The Mac Meta key is bigger and easier to reach.
+
+    %li
+      My most frequent keyboard command actions in emacs:
+      %ul
+        %li
+          Ctrl-g, keyboard-quit.
+          This allows me to "quit" any command I am currently typing in.
+          If you frequently change your mind, this will become your favorite command.
+        %li 
+          Esc-x buffer-menu, I do this so much, I tie it to Esc-m.  It lists all files and shells I have open.
+          If I ever get "lost" in Emacs, I run this command. It floats me up 100 feet and shows me the landscape.
+        %li Esc-x find-file, this is tied to Ctrl-f. It opens a file, existing or not.
+        %li Esc-x find-file, this is also tied to Ctrl-f. It can open a directory instead of a file.
+        %li Esc-x save-buffer, write recent changes to disk. Default is Ctrl-x,s I tie it to Esc-p which is quicker.
+        %li Esc-x shell, opens a new shell, inside an Emacs-buffer.  I tie this to Ctrl-x,s.
+        %li Esc-x search-backward, this is tied to Ctrl-r. I use it in buffer-menu, files, directories and shells.
+        %li Esc-x split-window-horizontally, this is tied to Ctrl-x,2. I have many use cases for this feature.
+        %li Esc-x other-window, this is tied to Ctrl-x,0. Jump to other-window and make it the only window.
+        %li Esc-x kill-buffer, this is tied to Ctrl-x,k. Removes current buffer from Emacs and buffer-menu.
+
+    %li
+      My most frequent keyboard edit actions in emacs:
+      %ul
+        %li Esc-x next-line, this is tied to Ctrl-n.
+        %li Esc-x previous-line, this is tied to Ctrl-p.
+        %li Esc-x end-of-line, this is tied to Ctrl-e.
+        %li Esc-x beginning-of-line, this is tied to Ctrl-a.
+        %li Esc-x beginning-of-buffer, this is tied to Esc-<.
+        %li Esc-x beginning-of-buffer, this is tied to Esc->.
+        %li Esc-x save-buffer, write recent changes to disk. Default is Ctrl-x,s I tie it to Esc-p which is quicker.
+        %li Esc-x kill-line, kill (delete) all text on this line to the right, this is tied to Ctrl-k.
+        %li Esc-x yank, un-kill (or yank-back) text I deleted; useful for moving text from point-a to point-b. Ctrl-y
+        %li Esc-x recenter, scroll the buffer so the cursor is in the middle of the screen.
+        %li Esc-x other-window, this is tied to Ctrl-x,0. Jump to other-window and make it the only window.
+        %li Esc-x kill-buffer, this is tied to Ctrl-x,k. Removes current buffer from Emacs and buffer-menu.
+        %li Esc-x undo, this is tied to simultaneous Ctrl-shift-minus.
+        %li Esc-x kill-region, Ctrl-w, This deletes a "region" (usually several lines) of text.
+        %li Esc-x ispell-word, spell check a word.  Tied to Esc-$.
+
+    %li
+      My most frequent mouse actions in Emacs:
+      %ul
+        %li Copy
+        %li Paste
+        %li Save
+        %li Search
+        %li Open File
+        %li Undo
+        %li List Buffers
+        %li Help
+
+    %li
+      Simple use case: Edit abc.html in /tmp/
+      %ul
+        %li Start Emacs
+        %li Ctrl-x,Ctrl-f /tmp/abc.html
+        %li Start typing
+        %li Mouse in a giant gob of HTML from a web-page-view-source.
+        %li Ctrl-a sends me to beginning of line
+        %li Ctrl-k kills all text to the right
+        %li Ctrl-p sends me to previous line
+        %li Ctrl-y yanks (un-kills) killed text
+        %li Ctrl-n sends me to next line
+        %li Ctrl-e sends me to end of line
+        %li Esc-x save-buffer (or mouse-save) writes abc.html to /tmp/
+        %li Esc-x buffer-menu (or mouse-buffer) shows abc.html in buffer-list
+        %li Ctrl-r abc searches for abc in buffer-list
+        %li Ctrl-x,Ctrl-f /tmp/ shows list of files in /tmp/
+        %li If a file (or directory) in /tmp/ looks interesting, click on it to open it
+
+    %li
+      More?
+      %ul
+        %li Start Emacs
+        %li Click on Help
+        %li Click on Tutorial, it is excellent
+        %li If you get lost, click on Buffers or type in Esc-x buffer-menu
+        %li
+          Tip: Never close Emacs, just let the buffer-menu get gigantic.
+          Emacs sorts buffers in there by age; newer buffers near the top where they are more noticeable.
+          If you want to find a file you were working on 2 weeks ago or a shell you were in last week,
+          just search for it in the buffer menu with mouse-search or Ctrl-r.
+          %br/
+          %br/
+          If you resist the urge to close Emacs,
+          you will find it very useful for re-connecting your mind to work which got interrupted
+          by events like phone calls or an entire weekend away from the keyboard.
+          I run an Emacs instance on my laptop for a month or more.
+          At the end of that month I might have 20 or 30 shells in there and several hundred files opened.
+          Sometimes it is interesting (or necessary) to see what I was working on three weeks ago.
+
