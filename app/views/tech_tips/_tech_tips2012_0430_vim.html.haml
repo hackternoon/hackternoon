@@ -8,20 +8,32 @@
       Why do I like Vim?
       %ul
         %li Vim is free; some editors are not.  For example, TextMate is not free.
-        %li Vim runs on Linux, Mac, and Windows.
+        %li Vim is perhaps the most ubiquitous editor, it runs on Linux, Mac, and Windows.
         %li On Linux and Mac, Vim is bundled with the OS; I don't need to install it.
         %li Vim has an excellent "built-in" tutorial.
+        %li Vim is extensible, perhaps easily so.
+        %li 
+          Vim has many common commands which are only one or two characters.
+          Once you memorize the characters for the commands, you have the ability to edit code and documents very quickly.
     %li
       Why do I not like Vim?
       %ul
-        %li Vim has a "command" mode which entices me to think it is in "insert" mode
+        %li Vim has a "command" mode which entices me to think it is in "insert" mode.
         %li
-          I think of Vim as running inside the shell which interests me.
+          If I am in "command" mode and I think I am in "insert" mode,
+          I could type in text (and thus commands) which will change content I don't want to change.
+        %li
+          Typically Vim is running inside the shell.  I'm either in Vim, or I'm in the shell.
           I prefer my editor to contain the shell which interests me.
           Since Vim runs inside the shell I use one set of commands for Vim and another set for the shell.
+          %br/
+          %br/
           On the other hand if I run the shell inside the editor (Emacs offers this feature),
-          many of the commands (search for example) which work in the editor will work in the shell.
+          many of the commands (search, copy, paste, for example) which work in the editor will work in the shell.
+          I am then free to perceive the shell as two things: 
+          a command line interface, or a document full of text which might be useful in another document (or shell).
           This reduces "Mental Context Switching" which allows my mind to code faster.
+          This is the main reason I don't like Vim.  Other than that it is an excellent editor.
     %li
       Notes about keyboard keys:
       %ul
@@ -33,15 +45,15 @@
       %ul
         %li I enter command mode by pressing Esc.
         %li
-          If I'm already in command mode but I'm not sure that I am, I ensure I'm in command mode by pressing Esc.
+          If I'm already in command mode but I'm not sure that I am,
+          I ensure I'm in command mode by pressing Esc.
           I encounter no harm if I press Esc 5 times in a row.
         %li
           I refer to this command mode as "command mode 1".
           I can go to another command mode "command mode 2", by pressing the colon key.
 
-
     %li
-      Vim command mode 1
+      Vim command-mode-1
       %ul
         %li I enter command mode 1 by pressing Esc
         %li Most commands are only 1 character which helps you code faster
@@ -53,21 +65,37 @@
         %li Move right 1 word: w
         %li Move left 1 word: b
         %li Erase a character: x
-        %li Erase a word: dw
-        %li Erase a line: dd
         %li Repeat my last command: . (You might not see it. It is just a period.)
         %li Undo my last command: u
-        %li Move to top of document: [[
-        %li Move to bottom of document: ]]
         %li Leave command mode 1, go to insert mode: i (This "inserts" text before the cursor)
         %li Leave command mode 1, go to insert mode: a (This "appends" text after the cursor)
         %li Leave command mode 1, go to insert mode: o (This "appends" text after the current line)
+        %li Some two character commands:
+        %li Erase a word: dw
+        %li Erase a line: dd
+        %li Move to top of document: [[
+        %li Move to bottom of document: ]]
+        %li Write changes to disk, exit vim: ZZ
+    %li
+      Vim command-mode-1 commands which require I press enter after the command:
+      %ul
+        %li Search: /search-string-here (To repeat last search: n)
+        %li Erase 4 lines: d4
 
     %li
-      Vim command mode 1 commands which require I press enter after the command:
+      Vim command-mode-2
       %ul
-        %li Search: /something (To repeat last search: n)
-        %li Erase 4 lines: d4
+        %li I enter command mode 2 by pressing Esc and then : (colon)
+        %li :h sends me to online help (which is excellent)
+        %li :w writes changes to disk
+        %li :q quits Vim and sends me back to the shell (if I changed nothing)
+        %li :q! discards changes and quits Vim
+        %li :33 sends me to line 33
+        %li :r /tmp/abc.html reads the file into my current Vim file (but does not write it to disk yet)
+
+ 
+
+
 
 
 
