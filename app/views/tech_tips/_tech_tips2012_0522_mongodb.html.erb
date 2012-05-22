@@ -1,0 +1,1079 @@
+<h3 id='h3_2012_0522'>2012-05-22 Install MongoDB From Source on Ubuntu 10.04</h3>
+
+I started my installation efforts by creating a directory and downloading a tar-ball:
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ wget http://downloads.mongodb.org/src/mongodb-src-r2.0.5.tar.gz
+--2012-05-22 03:28:25--  http://downloads.mongodb.org/src/mongodb-src-r2.0.5.tar.gz
+Resolving downloads.mongodb.org... 207.171.189.81
+Connecting to downloads.mongodb.org|207.171.189.81|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2971476 (2.8M) [application/x-tar]
+Saving to: `mongodb-src-r2.0.5.tar.gz'
+
+100%[======================================>] 2,971,476    307K/s   in 9.5s    
+
+2012-05-22 03:28:36 (307 KB/s) - `mongodb-src-r2.0.5.tar.gz' saved [2971476/2971476]
+
+oracle@z3:/dan/mdb$ ll
+total 2912
+drwxr-xr-x 2 oracle oracle    4096 2012-05-22 03:28 ./
+drwxrwxrwt 4 root   root      4096 2012-05-22 03:22 ../
+-rw-r--r-- 1 oracle oracle 2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+lrwxrwxrwx 1 oracle oracle      29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+</pre>
+<br />
+<br />
+I unpacked it and looked at it:
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ tar zxf mongodb-src-r2.0.5.tar.gz 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ll
+total 2916
+drwxr-xr-x  3 oracle oracle    4096 2012-05-22 03:29 ./
+drwxrwxrwt  4 root   root      4096 2012-05-22 03:22 ../
+drwxr-xr-x 19 oracle oracle    4096 2012-05-08 15:51 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle 2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+lrwxrwxrwx  1 oracle oracle      29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cd mongodb-src-r2.0.5
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ ll
+total 256
+drwxr-xr-x 19 oracle oracle  4096 2012-05-08 15:51 ./
+drwxr-xr-x  3 oracle oracle  4096 2012-05-22 03:29 ../
+-rw-r--r--  1 oracle oracle 11358 2012-05-08 15:51 APACHE-2.0.txt
+drwxr-xr-x  4 oracle oracle  4096 2012-05-08 15:51 bson/
+drwxr-xr-x  3 oracle oracle  4096 2012-05-08 15:51 buildscripts/
+drwxr-xr-x  3 oracle oracle  4096 2012-05-08 15:51 client/
+drwxr-xr-x  9 oracle oracle  4096 2012-05-08 15:51 db/
+drwxr-xr-x  3 oracle oracle  4096 2012-05-08 15:51 dbtests/
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 debian/
+drwxr-xr-x  3 oracle oracle  4096 2012-05-08 15:51 distsrc/
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 docs/
+-rw-r--r--  1 oracle oracle 10758 2012-05-08 15:51 doxygenConfig
+-rw-r--r--  1 oracle oracle  3606 2012-05-08 15:51 gch.py
+-rw-r--r--  1 oracle oracle    58 2012-05-08 15:51 .gitattributes
+-rw-r--r--  1 oracle oracle  1255 2012-05-08 15:51 .gitignore
+-rw-r--r--  1 oracle oracle 34520 2012-05-08 15:51 GNU-AGPL-3.0.txt
+drwxr-xr-x 19 oracle oracle 20480 2012-05-08 15:51 jstests/
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 lib/
+-rw-r--r--  1 oracle oracle   191 2012-05-08 15:51 mongo_astyle
+-rw-r--r--  1 oracle oracle  1061 2012-05-08 15:51 pch.cpp
+-rw-r--r--  1 oracle oracle  5086 2012-05-08 15:51 pch.h
+-rwxr-xr-x  1 oracle oracle  1774 2012-05-08 15:51 README*
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 rpm/
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 s/
+-rw-r--r--  1 oracle oracle 56262 2012-05-08 15:51 SConstruct
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 scripting/
+-rw-r--r--  1 oracle oracle   633 2012-05-08 15:51 server.h
+drwxr-xr-x  3 oracle oracle  4096 2012-05-08 15:51 shell/
+-rwxr-xr-x  1 oracle oracle   243 2012-05-08 15:51 speed.js*
+-rw-r--r--  1 oracle oracle   888 2012-05-08 15:51 targetver.h
+drwxr-xr-x  6 oracle oracle  4096 2012-05-08 15:51 third_party/
+drwxr-xr-x  2 oracle oracle  4096 2012-05-08 15:51 tools/
+drwxr-xr-x  5 oracle oracle  4096 2012-05-08 15:51 util/
+-rw-r--r--  1 oracle oracle    86 2012-05-08 15:51 valgrind.suppressions
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ cat README 
+MongoDB README
+
+Welcome to MongoDB!
+
+COMPONENTS
+
+  mongod - The database process.
+  mongos - Sharding controller.
+  mongo  - The database shell (uses interactive javascript).
+
+UTILITIES
+
+  mongodump         - MongoDB dump tool - for backups, snapshots, etc..
+  mongorestore      - MongoDB restore a dump
+  mongoexport       - Export a single collection to test (JSON, CSV)
+  mongoimport       - Import from JSON or CSV
+  mongofiles        - Utility for putting and getting files from MongoDB GridFS
+  mongostat         - Show performance statistics
+
+BUILDING
+      
+  See docs/building.md, also www.mongodb.org search for "Building".
+
+RUNNING
+
+  For command line options invoke:
+
+    $ ./mongod --help
+
+  To run a single server database:
+
+    $ mkdir /data/db
+    $ ./mongod
+    $
+    $ # The mongo javascript shell connects to localhost and test database by default:
+    $ ./mongo 
+    > help
+
+DRIVERS
+
+  Client drivers for most programming languages are available at mongodb.org.  Use the 
+  shell ("mongo") for administrative tasks.
+
+DOCUMENTATION
+
+  http://www.mongodb.org/
+
+MAIL LISTS AND IRC
+
+  http://www.mongodb.org/display/DOCS/Community
+
+32 BIT BUILD NOTES
+
+  MongoDB uses memory mapped files.  If built as a 32 bit executable, you will
+  not be able to work with large (multi-gigabyte) databases.  However, 32 bit
+  builds work fine with small development databases.
+
+LICENSE
+
+  Most MongoDB source files are made available under the terms of the
+  GNU Affero General Public License (AGPL).  See individual files for
+  details.
+
+  As an exception, the files in the client/, debian/, rpm/,
+  utils/mongoutils, and all subdirectories thereof are made available under
+  the terms of the Apache License, version 2.0.
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ head -13  docs/building.md
+
+Building MongoDB
+================
+
+SCONS
+---------------
+        
+For detail information about building, please see [the wiki](http://www.mongodb.org/display/DOCS/Building).
+
+If you want to build everything (mongod, mongo, tools, etc):
+
+    $ scons .
+
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+</pre>
+<br />
+<br />
+
+Installing MongoDB from source depends on SCons so I installed SCons:
+<pre>
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ which scons
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ which python
+/usr/bin/python
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ python --help
+usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options and arguments (and corresponding environment variables):
+-B     : don't write .py[co] files on import; also PYTHONDONTWRITEBYTECODE=x
+-c cmd : program passed in as string (terminates option list)
+-d     : debug output from parser; also PYTHONDEBUG=x
+-E     : ignore PYTHON* environment variables (such as PYTHONPATH)
+-h     : print this help message and exit (also --help)
+-i     : inspect interactively after running script; forces a prompt even
+         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
+-m mod : run library module as a script (terminates option list)
+-O     : optimize generated bytecode slightly; also PYTHONOPTIMIZE=x
+-OO    : remove doc-strings in addition to the -O optimizations
+-Q arg : division options: -Qold (default), -Qwarn, -Qwarnall, -Qnew
+-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE
+-S     : don't imply 'import site' on initialization
+-t     : issue warnings about inconsistent tab usage (-tt: issue errors)
+-u     : unbuffered binary stdout and stderr; also PYTHONUNBUFFERED=x
+         see man page for details on internal buffering relating to '-u'
+-v     : verbose (trace import statements); also PYTHONVERBOSE=x
+         can be supplied multiple times to increase verbosity
+-V     : print the Python version number and exit (also --version)
+-W arg : warning control; arg is action:message:category:module:lineno
+-x     : skip first line of source, allowing use of non-Unix forms of #!cmd
+-3     : warn about Python 3.x incompatibilities that 2to3 cannot trivially fix
+file   : program read from script file
+-      : program read from stdin (default; interactive mode if a tty)
+arg ...: arguments passed to program in sys.argv[1:]
+
+Other environment variables:
+PYTHONSTARTUP: file executed on interactive startup (no default)
+PYTHONPATH   : ':'-separated list of directories prefixed to the
+               default module search path.  The result is sys.path.
+PYTHONHOME   : alternate <prefix> directory (or <prefix>:<exec_prefix>).
+               The default module search path uses <prefix>/pythonX.X.
+PYTHONCASEOK : ignore case in 'import' statements (Windows).
+PYTHONIOENCODING: Encoding[:errors] used for stdin/stdout/stderr.
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ python -V
+Python 2.6.5
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+</pre>
+<br />
+<br />
+
+I got scons "tarball" from this link:
+<br />
+<br />
+<a href='http://prdownloads.sourceforge.net/scons/scons-2.1.0.tar.gz' target='x'>
+http://prdownloads.sourceforge.net/scons/scons-2.1.0.tar.gz
+</a>
+
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ltr
+total 3480
+drwxr-xr-x 19 oracle oracle    4096 2012-05-08 15:51 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle 2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+drwxrwxrwt  4 root   root      4096 2012-05-22 03:22 ../
+lrwxrwxrwx  1 oracle oracle      29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+-rw-r--r--  1 oracle oracle  574666 2012-05-22 03:39 scons-2.1.0.tar.gz
+drwxr-xr-x  3 oracle oracle    4096 2012-05-22 03:41 ./
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ tar zxf scons-2.1.0.tar.gz 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ltr
+total 3484
+drwxr-xr-x  4 oracle oracle    4096 2011-09-10 05:31 scons-2.1.0/
+drwxr-xr-x 19 oracle oracle    4096 2012-05-08 15:51 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle 2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+drwxrwxrwt  4 root   root      4096 2012-05-22 03:22 ../
+lrwxrwxrwx  1 oracle oracle      29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+-rw-r--r--  1 oracle oracle  574666 2012-05-22 03:39 scons-2.1.0.tar.gz
+drwxr-xr-x  4 oracle oracle    4096 2012-05-22 03:41 ./
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ mv scons-2.1.0* /dan/scons/
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cd /dan/scons/
+oracle@z3:/dan/scons$ 
+oracle@z3:/dan/scons$ ll
+total 576
+drwxr-xr-x 3 oracle oracle   4096 2012-05-22 03:43 ./
+drwxrwxrwt 5 root   root     4096 2012-05-22 03:43 ../
+drwxr-xr-x 4 oracle oracle   4096 2011-09-10 05:31 scons-2.1.0/
+-rw-r--r-- 1 oracle oracle 574666 2012-05-22 03:39 scons-2.1.0.tar.gz
+oracle@z3:/dan/scons$ 
+oracle@z3:/dan/scons$ 
+oracle@z3:/dan/scons$ 
+
+
+
+oracle@z3:/dan/scons$ 
+oracle@z3:/dan/scons$ cd scons-2.1.0
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ ll
+total 680
+drwxr-xr-x 4 oracle oracle   4096 2011-09-10 05:31 ./
+drwxr-xr-x 3 oracle oracle   4096 2012-05-22 03:43 ../
+-rw-r--r-- 1 oracle oracle 188146 2011-09-10 05:31 CHANGES.txt
+drwxr-xr-x 3 oracle oracle   4096 2011-09-10 05:31 engine/
+-rw-r--r-- 1 oracle oracle   1124 2011-09-10 05:31 LICENSE.txt
+-rw-r--r-- 1 oracle oracle   5568 2011-09-10 05:31 MANIFEST
+-rw-r--r-- 1 oracle oracle   2445 2011-09-10 05:31 os_spawnv_fix.diff
+-rw-r--r-- 1 oracle oracle    442 2011-09-10 05:31 PKG-INFO
+-rw-r--r-- 1 oracle oracle   8156 2011-09-10 05:31 README.txt
+-rw-r--r-- 1 oracle oracle   3640 2011-09-10 05:31 RELEASE.txt
+-rw-r--r-- 1 oracle oracle 399963 2011-09-10 05:31 scons.1
+-rw-r--r-- 1 oracle oracle   4724 2011-09-10 05:31 sconsign.1
+-rw-r--r-- 1 oracle oracle  24781 2011-09-10 05:31 scons-time.1
+drwxr-xr-x 2 oracle oracle   4096 2011-09-10 05:31 script/
+-rw-r--r-- 1 oracle oracle    100 2011-09-10 05:31 setup.cfg
+-rw-r--r-- 1 oracle oracle  15758 2011-09-10 05:31 setup.py
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+
+
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ python setup.py install --prefix=/dan/scons
+running install
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.6
+creating build/lib.linux-x86_64-2.6/SCons
+copying engine/SCons/Warnings.py -> build/lib.linux-x86_64-2.6/SCons
+copying engine/SCons/Subst.py -> build/lib.linux-x86_64-2.6/SCons
+copying engine/SCons/Environment.py -> build/lib.linux-x86_64-2.6/SCons
+copying engine/SCons/SConsign.py -> build/lib.linux-x86_64-2.6/SCons
+
+snip......
+
+byte-compiling /dan/scons/lib/scons-2.1.0/SCons/Debug.py to Debug.pyc
+running install_scripts
+creating /dan/scons/bin
+copying script/scons -> /dan/scons/bin/scons-2.1.0
+copying script/scons -> /dan/scons/bin
+copying script/sconsign -> /dan/scons/bin/sconsign-2.1.0
+copying script/sconsign -> /dan/scons/bin
+copying script/scons-time -> /dan/scons/bin/scons-time-2.1.0
+copying script/scons-time -> /dan/scons/bin
+running install_data
+creating /dan/scons/man
+creating /dan/scons/man/man1
+copying scons.1 -> /dan/scons/man/man1
+copying sconsign.1 -> /dan/scons/man/man1
+copying scons-time.1 -> /dan/scons/man/man1
+running install_egg_info
+Writing /dan/scons/lib/scons-2.1.0/scons-2.1.0-py2.6.egg-info
+Installed SCons library modules into /dan/scons/lib/scons-2.1.0
+Installed SCons scripts into /dan/scons/bin
+Installed SCons man pages into /dan/scons/man/man1
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+
+
+
+
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ ll /dan/scons/
+total 588
+drwxr-xr-x 6 oracle oracle   4096 2012-05-22 03:45 ./
+drwxrwxrwt 5 root   root     4096 2012-05-22 03:43 ../
+drwxr-xr-x 2 oracle oracle   4096 2012-05-22 03:45 bin/
+drwxr-xr-x 3 oracle oracle   4096 2012-05-22 03:45 lib/
+drwxr-xr-x 3 oracle oracle   4096 2012-05-22 03:45 man/
+drwxr-xr-x 5 oracle oracle   4096 2012-05-22 03:45 scons-2.1.0/
+-rw-r--r-- 1 oracle oracle 574666 2012-05-22 03:39 scons-2.1.0.tar.gz
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+</pre>
+<br />
+<br />
+
+So far so good.
+Next, I added scons to my PATH.
+<br />
+<br />
+
+I did this: vi ~/.bashrc
+<br />
+<br />
+I added /dan/scons/bin to PATH
+<br />
+<br />
+Then I did this:
+<br />
+<br />
+
+<pre>
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ bash
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ which scons
+/dan/scons/bin/scons
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+
+
+
+
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ scons --help
+usage: scons [OPTION] [TARGET] ...
+
+SCons Options:
+  -b, -d, -e, -m, -S, -t, -w, --environment-overrides, --no-keep-going, --no-print-directory, --print-directory, --stop,
+  --touch
+                              Ignored for compatibility.
+  -c, --clean, --remove       Remove specified targets and dependencies.
+  -C DIR, --directory=DIR     Change to DIR before doing anything.
+  --cache-debug=FILE          Print CacheDir debug info to FILE.
+  --cache-disable, --no-cache
+                              Do not retrieve built targets from CacheDir.
+  --cache-force, --cache-populate
+                              Copy already-built targets into the CacheDir.
+  --cache-show                Print build actions for files from CacheDir.
+  --config=MODE               Controls Configure subsystem: auto, force, cache.
+  -D                          Search up directory tree for SConstruct,       build all Default() targets.
+  --debug=TYPE                Print various types of debugging information: count, duplicate, explain, findlibs, includes,
+                                memoizer, memory, objects, pdb, prepare, presub, stacktrace, time, dtree, tree, stree,
+                                nomemoizer.
+  --diskcheck=TYPE            Enable specific on-disk checks.
+  --duplicate=DUPLICATE       Set the preferred duplication methods. Must be one of hard-soft-copy, soft-hard-copy,
+                                hard-copy, soft-copy, copy
+  -f FILE, --file=FILE, --makefile=FILE, --sconstruct=FILE
+                              Read FILE as the top-level SConstruct file.
+  -h, --help                  Print defined help message, or this one.
+  -H, --help-options          Print this message and exit.
+  -i, --ignore-errors         Ignore errors from build actions.
+  -I DIR, --include-dir=DIR   Search DIR for imported Python modules.
+  --implicit-cache            Cache implicit dependencies
+  --implicit-deps-changed     Ignore cached implicit dependencies.
+  --implicit-deps-unchanged   Ignore changes in implicit dependencies.
+  --interact, --interactive   Run in interactive mode.
+  -j N, --jobs=N              Allow N jobs at once.
+  -k, --keep-going            Keep going when a target can't be made.
+  --max-drift=N               Set maximum system clock drift to N seconds.
+  --md5-chunksize=N           Set chunk-size for MD5 signature computation to N kilobytes.
+  -n, --no-exec, --just-print, --dry-run, --recon
+                              Don't build; just print commands.
+  --no-site-dir               Don't search or use the usual site_scons dir.
+  --profile=FILE              Profile SCons and put results in FILE.
+  -q, --question              Don't build; exit status says if up to date.
+  -Q                          Suppress "Reading/Building" progress messages.
+  --random                    Build dependencies in random order.
+  -s, --silent, --quiet       Don't print commands.
+  --site-dir=DIR              Use DIR instead of the usual site_scons dir.
+  --stack-size=N              Set the stack size of the threads used to run jobs to N kilobytes.
+  --taskmastertrace=FILE      Trace Node evaluation to FILE.
+  --tree=OPTIONS              Print a dependency tree in various formats: all, derived, prune, status.
+  -u, --up, --search-up       Search up directory tree for SConstruct,       build targets at or below current directory.
+  -U                          Search up directory tree for SConstruct,       build Default() targets from local
+                                SConscript.
+  -v, --version               Print the SCons version number and exit.
+  --warn=WARNING-SPEC, --warning=WARNING-SPEC
+                              Enable or disable warnings.
+  -Y REPOSITORY, --repository=REPOSITORY, --srcdir=REPOSITORY
+                              Search REPOSITORY for source and target files.
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+oracle@z3:/dan/scons/scons-2.1.0$ 
+</pre>
+<br />
+<br />
+
+
+I tried using SCons to construct MongoDB software:
+
+<pre>
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ scons .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 5 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... no
+can't find boost headers
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+</pre>
+<br />
+<br />
+
+I had seen this same issue on my Mac.  I needed the C++ boost libraries.
+I downloaded the libraries from this URL:
+<br />
+<br />
+<a href='http://www.boost.org/users/download/' target='x'>
+http://www.boost.org/users/download/
+</a>
+
+<br />
+<br />
+I unpacked the boost libraries:
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ tar zxf boost_1_49_0.tar.gz 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ll
+total 60676
+drwxr-xr-x  4 oracle oracle     4096 2012-05-22 04:02 ./
+drwxrwxrwt  5 root   root       4096 2012-05-22 03:43 ../
+drwxr-xr-x  8 oracle oracle     4096 2012-02-22 23:06 boost_1_49_0/
+-rw-r--r--  1 oracle oracle 59136116 2012-05-22 04:00 boost_1_49_0.tar.gz
+-rw-r--r--  1 oracle oracle      270 2012-05-22 04:01 example.cpp
+drwxr-xr-x 20 oracle oracle     4096 2012-05-22 03:53 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle  2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+lrwxrwxrwx  1 oracle oracle       29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+</pre>
+<br />
+<br />
+
+I tested my installation of the boost libraries using a simple C++ file I found in the instructions:
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cat example.cpp 
+#include &lt;boost/lambda/lambda.hpp>
+#include &lt;iostream>
+#include &lt;iterator>
+#include &lt;algorithm>
+
+int main()
+{
+    using namespace boost::lambda;
+    typedef std::istream_iterator&lt;int> in;
+
+    std::for_each(
+        in(std::cin), in(), std::cout &lt;&lt; (_1 * 3) &lt;&lt; " " );
+}
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ c++ -I /dan/mdb/boost_1_49_0 example.cpp -o example
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ echo 1 2 3 | ./example
+3 6 9 oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+</pre>
+<br />
+<br />
+
+
+Also I needed to run a shell script to complete the installation of the Boost libraries:
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cd boost_1_49_0
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ ll
+total 128
+drwxr-xr-x  8 oracle oracle  4096 2012-02-22 23:06 ./
+drwxr-xr-x  4 oracle oracle  4096 2012-05-22 04:04 ../
+drwxr-xr-x 87 oracle oracle 12288 2012-02-22 23:07 boost/
+-rw-r--r--  1 oracle oracle   849 2012-01-31 02:30 boost-build.jam
+-rw-r--r--  1 oracle oracle 18031 2012-01-31 02:30 boostcpp.jam
+-rw-r--r--  1 oracle oracle   989 2012-01-31 02:30 boost.css
+-rw-r--r--  1 oracle oracle  6308 2012-01-31 02:30 boost.png
+-rw-r--r--  1 oracle oracle  2545 2012-01-31 02:30 bootstrap.bat
+-rwxr-xr-x  1 oracle oracle 10324 2012-01-31 02:30 bootstrap.sh*
+drwxr-xr-x  7 oracle oracle  4096 2012-02-22 23:05 doc/
+-rw-r--r--  1 oracle oracle   769 2012-01-31 02:30 index.htm
+-rw-r--r--  1 oracle oracle  5437 2012-01-29 21:58 index.html
+-rw-r--r--  1 oracle oracle   291 2012-01-31 02:30 INSTALL
+-rw-r--r--  1 oracle oracle 10160 2012-01-29 21:58 Jamroot
+drwxr-xr-x 97 oracle oracle  4096 2012-02-22 23:06 libs/
+-rw-r--r--  1 oracle oracle  1338 2012-01-31 02:30 LICENSE_1_0.txt
+drwxr-xr-x  4 oracle oracle  4096 2012-02-22 23:10 more/
+-rw-r--r--  1 oracle oracle  2608 2012-01-31 02:30 rst.css
+drwxr-xr-x  2 oracle oracle  4096 2012-02-22 23:06 status/
+drwxr-xr-x 12 oracle oracle  4096 2012-02-22 23:10 tools/
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+
+
+
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ ./bootstrap.sh --with-libraries=date_time,filesystem,program_options,thread --prefix=/dan/mdb
+Building Boost.Build engine with toolset gcc... tools/build/v2/engine/bin.linuxx86_64/b2
+Unicode/ICU support for Boost.Regex?... not found.
+Generating Boost.Build configuration in project-config.jam...
+
+Bootstrapping is done. To build, run:
+
+    ./b2
+    
+To adjust configuration, edit 'project-config.jam'.
+Further information:
+
+   - Command line help:
+     ./b2 --help
+     
+   - Getting started guide: 
+     http://www.boost.org/more/getting_started/unix-variants.html
+     
+   - Boost.Build documentation:
+     http://www.boost.org/boost-build2/doc/html/index.html
+
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+</pre>
+<br />
+<br />
+
+Then I ran another shell command which took awhile:
+
+<pre>
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ ./b2 install
+
+Component configuration:
+
+    - chrono                   : not building
+    - date_time                : building
+    - exception                : not building
+    - filesystem               : building
+    - graph                    : not building
+    - graph_parallel           : not building
+    - iostreams                : not building
+    - locale                   : not building
+    - math                     : not building
+    - mpi                      : not building
+    - program_options          : building
+    - python                   : not building
+    - random                   : not building
+    - regex                    : not building
+    - serialization            : not building
+    - signals                  : not building
+    - system                   : not building
+    - test                     : not building
+    - thread                   : building
+    - timer                    : not building
+    - wave                     : not building
+
+...patience...
+...found 19845 targets...
+...updating 9891 targets...
+common.mkdir /dan/mdb/lib
+common.mkdir bin.v2
+common.mkdir bin.v2/libs
+common.mkdir bin.v2/libs/program_options
+common.mkdir bin.v2/libs/program_options/build
+common.mkdir bin.v2/libs/program_options/build/gcc-4.4.3
+common.mkdir bin.v2/libs/program_options/build/gcc-4.4.3/release
+common.mkdir bin.v2/libs/program_options/build/gcc-4.4.3/release/threading-multi
+gcc.compile.c++ bin.v2/libs/program_options/build/gcc-4.4.3/release/threading-multi/cmdline.o
+gcc.compile.c++ bin.v2/libs/program_options/build/gcc-4.4.3/release/threading-multi/config_file.o
+
+snip....
+
+
+common.mkdir bin.v2/libs/thread/build/gcc-4.4.3/release/link-static
+common.mkdir bin.v2/libs/thread/build/gcc-4.4.3/release/link-static/threading-multi
+common.mkdir bin.v2/libs/thread/build/gcc-4.4.3/release/link-static/threading-multi/pthread
+gcc.compile.c++ bin.v2/libs/thread/build/gcc-4.4.3/release/link-static/threading-multi/pthread/thread.o
+gcc.compile.c++ bin.v2/libs/thread/build/gcc-4.4.3/release/link-static/threading-multi/pthread/once.o
+gcc.archive bin.v2/libs/thread/build/gcc-4.4.3/release/link-static/threading-multi/libboost_thread.a
+common.copy /dan/mdb/lib/libboost_thread.a
+...updated 9891 targets...
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+oracle@z3:/dan/mdb/boost_1_49_0$ 
+</pre>
+<br />
+<br />
+
+At this point I had both SCons and Boost installed.  I refocused my attention on MongoDB installation:
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cd mongodb-src-r2.0.5
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ scons --prefix=/dan/mdb --extrapathdyn /dan/mdb .
+scons: Reading SConscript files ...
+scons version: 2.1.0
+python version: 2 6 5 'final' 0
+Checking whether the C++ compiler worksyes
+Checking for C library stdc++... yes
+Checking for C++ header file boost/filesystem/operations.hpp... yes
+Checking for C library boost_system-mt... no
+Checking for C library boost_system... yes
+Checking for C library boost_thread-mt... no
+Checking for C library boost_thread... yes
+Checking for C library boost_filesystem-mt... no
+Checking for C library boost_filesystem... yes
+Checking for C library boost_program_options-mt... no
+Checking for C library boost_program_options... yes
+Checking for C++ header file execinfo.h... yes
+Checking for C library pcap... no
+Checking for C library wpcap... no
+Checking whether the C++ compiler worksyes
+Checking for C++ header file boost/filesystem/operations.hpp... yes
+Checking for C library boost_system-mt... no
+Checking for C library boost_system... yes
+Checking for C library boost_thread-mt... no
+Checking for C library boost_thread... yes
+Checking for C library boost_filesystem-mt... no
+Checking for C library boost_filesystem... yes
+Checking for C library boost_program_options-mt... no
+Checking for C library boost_program_options... yes
+Checking for C++ header file execinfo.h... yes
+Checking for C library pcap... no
+Checking for C library wpcap... no
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o pch.o -c -Wnon-virtual-dtor -fPIC -fno-strict-aliasing -ggdb -pthread -Wall -Wsign-compare snip...
+
+snip...
+
+g++ -o whereExample -fPIC -pthread -rdynamic client/examples/whereExample.o -L. -L/dan/mdb/lib snip ...
+scons: done building targets.
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+</pre>
+<br />
+<br />
+
+I studied the files which SCons had just installed:
+
+<pre>
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ 
+oracle@z3:/dan/mdb/mongodb-src-r2.0.5$ cd /dan/mdb/
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ll
+total 60724
+drwxr-xr-x  7 oracle oracle     4096 2012-05-22 04:41 ./
+drwxrwxrwt  5 root   root       4096 2012-05-22 03:43 ../
+drwxr-xr-x  2 oracle oracle     4096 2012-05-22 04:48 bin/
+drwxr-xr-x  9 oracle oracle     4096 2012-05-22 04:11 boost_1_49_0/
+-rw-r--r--  1 oracle oracle 59136116 2012-05-22 04:00 boost_1_49_0.tar.gz
+-rwxr-xr-x  1 oracle oracle    35021 2012-05-22 04:04 example*
+-rw-r--r--  1 oracle oracle      270 2012-05-22 04:01 example.cpp
+drwxr-xr-x  3 oracle oracle     4096 2012-05-22 04:15 include/
+drwxr-xr-x  2 oracle oracle     4096 2012-05-22 04:18 lib/
+drwxr-xr-x 20 oracle oracle     4096 2012-05-22 04:55 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle  2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+lrwxrwxrwx  1 oracle oracle       29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ cd bin
+oracle@z3:/dan/mdb/bin$ 
+oracle@z3:/dan/mdb/bin$ 
+oracle@z3:/dan/mdb/bin$ ll
+total 69884
+drwxr-xr-x 2 oracle oracle    4096 2012-05-22 04:48 ./
+drwxr-xr-x 7 oracle oracle    4096 2012-05-22 04:41 ../
+-rwxr-xr-x 1 oracle oracle 7159680 2012-05-22 04:41 bsondump*
+-rwxr-xr-x 1 oracle oracle 2435832 2012-05-22 04:42 mongo*
+-rwxr-xr-x 1 oracle oracle 7204816 2012-05-22 04:43 mongod*
+-rwxr-xr-x 1 oracle oracle 7188352 2012-05-22 04:43 mongodump*
+-rwxr-xr-x 1 oracle oracle 7171968 2012-05-22 04:44 mongoexport*
+-rwxr-xr-x 1 oracle oracle 7167872 2012-05-22 04:44 mongofiles*
+-rwxr-xr-x 1 oracle oracle 7184256 2012-05-22 04:45 mongoimport*
+-rwxr-xr-x 1 oracle oracle 7180160 2012-05-22 04:45 mongorestore*
+-rwxr-xr-x 1 oracle oracle 4459784 2012-05-22 04:47 mongos*
+-rwxr-xr-x 1 oracle oracle 7225216 2012-05-22 04:48 mongostat*
+-rwxr-xr-x 1 oracle oracle 7171968 2012-05-22 04:48 mongotop*
+oracle@z3:/dan/mdb/bin$ 
+oracle@z3:/dan/mdb/bin$ 
+
+
+oracle@z3:/dan/mdb/bin$ 
+oracle@z3:/dan/mdb/bin$ cd ..
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongo
+bin/mongo: error while loading shared libraries: libboost_system.so.1.49.0: cannot open shared object file: No such file or directory
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+oracle@z3:/dan/mdb/bin$ 
+oracle@z3:/dan/mdb/bin$ cd ..
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongo
+bin/mongo: error while loading shared libraries: libboost_system.so.1.49.0: cannot open shared object file: No such file or directory
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ll lib/libboost_system.*
+-rw-r--r-- 1 oracle oracle 21574 2012-05-22 04:18 lib/libboost_system.a
+lrwxrwxrwx 1 oracle oracle    25 2012-05-22 04:15 lib/libboost_system.so -> libboost_system.so.1.49.0*
+-rwxr-xr-x 1 oracle oracle 20053 2012-05-22 04:15 lib/libboost_system.so.1.49.0*
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+</pre>
+<br />
+<br />
+
+I enhanced an environment variable value to help MongoDB find shared libraries it needed:
+
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ envg ld
+LD_LIBRARY_PATH=/oracle/app/oracle/product/11.2.0/dbhome_1/lib
+OLDPWD=/dan/mdb/bin
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ export LD_LIBRARY_PATH=/oracle/app/oracle/product/11.2.0/dbhome_1/lib:/dan/mdb/lib
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongo
+MongoDB shell version: 2.0.5
+connecting to: test
+Tue May 22 05:37:51 Error: couldn't connect to server 127.0.0.1 shell/mongo.js:84
+exception: connect failed
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+</pre>
+<br />
+<br />
+The above output convinced me that I had installed the MongoDB software correctly.
+I then started the MongoDB server, mongod, using some clues I found in this file: 
+<br />
+<br />
+mongodb-src-r2.0.5/README
+<br />
+<br />
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ mkdir -p data/db
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ ll
+total 60728
+drwxr-xr-x  8 oracle oracle     4096 2012-05-22 05:43 ./
+drwxrwxrwt  5 root   root       4096 2012-05-22 03:43 ../
+drwxr-xr-x  2 oracle oracle     4096 2012-05-22 04:48 bin/
+drwxr-xr-x  9 oracle oracle     4096 2012-05-22 04:11 boost_1_49_0/
+-rw-r--r--  1 oracle oracle 59136116 2012-05-22 04:00 boost_1_49_0.tar.gz
+drwxr-xr-x  3 oracle oracle     4096 2012-05-22 05:43 data/
+-rwxr-xr-x  1 oracle oracle    35021 2012-05-22 04:04 example*
+-rw-r--r--  1 oracle oracle      270 2012-05-22 04:01 example.cpp
+drwxr-xr-x  3 oracle oracle     4096 2012-05-22 04:15 include/
+drwxr-xr-x  2 oracle oracle     4096 2012-05-22 04:18 lib/
+drwxr-xr-x 20 oracle oracle     4096 2012-05-22 04:55 mongodb-src-r2.0.5/
+-rw-r--r--  1 oracle oracle  2971476 2012-05-09 18:27 mongodb-src-r2.0.5.tar.gz
+lrwxrwxrwx  1 oracle oracle       29 2012-05-22 03:24 notes2012_0522.txt -> /pt/w/mong/notes2012_0522.txt
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongod
+bin/mongod --help for help and startup options
+Tue May 22 05:43:54 [initandlisten] MongoDB starting : pid=7392 port=27017 dbpath=/data/db/ 64-bit host=z3
+Tue May 22 05:43:54 [initandlisten] db version v2.0.5, pdfile version 4.5
+Tue May 22 05:43:54 [initandlisten] git version: nogitversion
+Tue May 22 05:43:54 [initandlisten] build info: Linux z3 2.6.32-27-generic #49-Ubuntu SMP Thu Dec 2 00:51:09 UTC 2010 x86_64 BOOST_LIB_VERSION=1_49
+Tue May 22 05:43:54 [initandlisten] options: {}
+Tue May 22 05:43:54 [initandlisten] exception in initAndListen: 10296 dbpath (/data/db/) does not exist, terminating
+Tue May 22 05:43:54 dbexit: 
+Tue May 22 05:43:54 [initandlisten] shutdown: going to close listening sockets...
+Tue May 22 05:43:54 [initandlisten] shutdown: going to flush diaglog...
+Tue May 22 05:43:54 [initandlisten] shutdown: going to close sockets...
+Tue May 22 05:43:54 [initandlisten] shutdown: waiting for fs preallocator...
+Tue May 22 05:43:54 [initandlisten] shutdown: lock for final commit...
+Tue May 22 05:43:54 [initandlisten] shutdown: final commit...
+Tue May 22 05:43:54 [initandlisten] shutdown: closing all files...
+Tue May 22 05:43:54 [initandlisten] closeAllFiles() finished
+Tue May 22 05:43:54 dbexit: really exiting now
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongod --help
+Allowed options:
+
+General options:
+  -h [ --help ]               show this usage information
+  --version                   show version information
+  -f [ --config ] arg         configuration file specifying additional options
+  -v [ --verbose ]            be more verbose (include multiple times for more 
+                              verbosity e.g. -vvvvv)
+  --quiet                     quieter output
+  --port arg                  specify port number
+  --bind_ip arg               comma separated list of ip addresses to listen on
+                              - all local ips by default
+  --maxConns arg              max number of simultaneous connections
+  --objcheck                  inspect client data for validity on receipt
+  --logpath arg               log file to send write to instead of stdout - has
+                              to be a file, not directory
+  --logappend                 append to logpath instead of over-writing
+  --pidfilepath arg           full path to pidfile (if not set, no pidfile is 
+                              created)
+  --keyFile arg               private key for cluster authentication (only for 
+                              replica sets)
+  --nounixsocket              disable listening on unix sockets
+  --unixSocketPrefix arg      alternative directory for UNIX domain sockets 
+                              (defaults to /tmp)
+  --fork                      fork server process
+  --auth                      run with security
+  --cpu                       periodically show cpu and iowait utilization
+  --dbpath arg                directory for datafiles
+  --diaglog arg               0=off 1=W 2=R 3=both 7=W+some reads
+  --directoryperdb            each database will be stored in a separate 
+                              directory
+  --journal                   enable journaling
+  --journalOptions arg        journal diagnostic options
+  --journalCommitInterval arg how often to group/batch commit (ms)
+  --ipv6                      enable IPv6 support (disabled by default)
+  --jsonp                     allow JSONP access via http (has security 
+                              implications)
+  --noauth                    run without security
+  --nohttpinterface           disable http interface
+  --nojournal                 disable journaling (journaling is on by default 
+                              for 64 bit)
+  --noprealloc                disable data file preallocation - will often hurt
+                              performance
+  --noscripting               disable scripting engine
+  --notablescan               do not allow table scans
+  --nssize arg (=16)          .ns file size (in MB) for new databases
+  --profile arg               0=off 1=slow, 2=all
+  --quota                     limits each database to a certain number of files
+                              (8 default)
+  --quotaFiles arg            number of files allower per db, requires --quota
+  --rest                      turn on simple rest api
+  --repair                    run repair on all dbs
+  --repairpath arg            root directory for repair files - defaults to 
+                              dbpath
+  --slowms arg (=100)         value of slow for profile and console log
+  --smallfiles                use a smaller default file size
+  --shutdown                  kill a running server (for init scripts)
+  --syncdelay arg (=60)       seconds between disk syncs (0=never, but not 
+                              recommended)
+  --sysinfo                   print some diagnostic system information
+  --upgrade                   upgrade db if needed
+
+Replication options:
+  --fastsync            indicate that this instance is starting from a dbpath 
+                        snapshot of the repl peer
+  --oplogSize arg       size limit (in MB) for op log
+
+Master/slave options:
+  --master              master mode
+  --slave               slave mode
+  --source arg          when slave: specify master as <server:port>
+  --only arg            when slave: specify a single database to replicate
+  --slavedelay arg      specify delay (in seconds) to be used when applying 
+                        master ops to slave
+  --autoresync          automatically resync if slave data is stale
+
+Replica set options:
+  --replSet arg         arg is <setname>[/<optionalseedhostlist>]
+
+Sharding options:
+  --configsvr           declare this is a config db of a cluster; default port 
+                        27019; default dir /data/configdb
+  --shardsvr            declare this is a shard db of a cluster; default port 
+                        27018
+  --noMoveParanoia      turn off paranoid saving of data for moveChunk.  this 
+                        is on by default for now, but default will switch
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+
+
+
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongod --dbpath /dan/mdb/data/db
+Tue May 22 05:46:19 [initandlisten] MongoDB starting : pid=7412 port=27017 dbpath=/dan/mdb/data/db 64-bit host=z3
+Tue May 22 05:46:19 [initandlisten] db version v2.0.5, pdfile version 4.5
+Tue May 22 05:46:19 [initandlisten] git version: nogitversion
+Tue May 22 05:46:19 [initandlisten] build info: Linux z3 2.6.32-27-generic #49-Ubuntu SMP Thu Dec 2 00:51:09 UTC 2010 x86_64 BOOST_LIB_VERSION=1_49
+Tue May 22 05:46:19 [initandlisten] options: { dbpath: "/dan/mdb/data/db" }
+Tue May 22 05:46:19 [initandlisten] journal dir=/dan/mdb/data/db/journal
+Tue May 22 05:46:19 [initandlisten] recover : no journal files present, no recovery needed
+Tue May 22 05:46:24 [initandlisten] preallocateIsFaster=true 35.98
+Tue May 22 05:46:32 [initandlisten] preallocateIsFaster=true 33.2
+Tue May 22 05:46:46 [initandlisten] preallocateIsFaster=true 14.94
+Tue May 22 05:46:46 [initandlisten] preallocateIsFaster check took 26.333 secs
+Tue May 22 05:46:46 [initandlisten] preallocating a journal file /dan/mdb/data/db/journal/prealloc.0
+		639631360/1073741824	59%
+		734003200/1073741824	68%
+		880803840/1073741824	82%
+oracle@z3:/dan/mdb$ 
+Tue May 22 05:47:09 [initandlisten] preallocating a journal file /dan/mdb/data/db/journal/prealloc.1
+		775946240/1073741824	72%
+		922746880/1073741824	85%
+		1069547520/1073741824	99%
+Tue May 22 05:47:28 [initandlisten] preallocating a journal file /dan/mdb/data/db/journal/prealloc.2
+		786432000/1073741824	73%
+		996147200/1073741824	92%
+Tue May 22 05:47:47 [websvr] admin web console waiting for connections on port 28017
+Tue May 22 05:47:47 [initandlisten] waiting for connections on port 27017
+Tue May 22 05:48:21 [initandlisten] connection accepted from 127.0.0.1:51024 #1
+Tue May 22 05:48:47 [clientcursormon] mem (MB) res:15 virt:177 mapped:0
+</pre>
+<br />
+<br />
+
+Next, I connected the mongo CLI to the MongoDB server, mongod:
+
+<pre>
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ 
+oracle@z3:/dan/mdb$ bin/mongo
+MongoDB shell version: 2.0.5
+connecting to: test
+> help
+	db.help()                    help on db methods
+	db.mycoll.help()             help on collection methods
+	rs.help()                    help on replica set methods
+	help admin                   administrative help
+	help connect                 connecting to a db help
+	help keys                    key shortcuts
+	help misc                    misc things to know
+	help mr                      mapreduce
+
+	show dbs                     show database names
+	show collections             show collections in current database
+	show users                   show users in current database
+	show profile                 show most recent system.profile entries with time >= 1ms
+	show logs                    show the accessible logger names
+	show log [name]              prints out the last segment of log in memory, 'global' is default
+	use <db_name>                set current database
+	db.foo.find()                list objects in collection foo
+	db.foo.find( { a : 1 } )     list objects in foo where a == 1
+	it                           result of the last line evaluated; use to further iterate
+	DBQuery.shellBatchSize = x   set default number of items to display on shell
+	exit                         quit the mongo shell
+> 
+> 
+</pre>
+<br />
+<br />
+
+The above output convinced me that my attempt to install MongoDB from source-code on my Ubuntu 10.04 system was a success.
