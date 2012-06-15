@@ -7,8 +7,8 @@ class Invitation < ActiveRecord::Base
   end
 
   attr_accessor :rcvr_email
-  belongs_to :project
-  belongs_to :user
+  belongs_to :project # sender owns the project
+  belongs_to :user # rcvr owns the invitation
 
   attr_accessible :project_id
 

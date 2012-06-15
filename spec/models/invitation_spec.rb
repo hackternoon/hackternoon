@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Invitation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is sent to rcvr by project owner"
 end
